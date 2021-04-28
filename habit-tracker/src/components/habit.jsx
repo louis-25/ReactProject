@@ -15,13 +15,14 @@ class Habit extends Component {
         //count가 0보다 작으면 0으로세팅 아니면 -1
         this.setState({count:count < 0 ? 0 : count})
     }
-    
+
     render() {
+        const {name, count} = this.props.habit;
         return (
         <>        
         <li className="habit">
-            <span className="habit-name">Reading</span>
-            <span className="habit-count">{this.state.count}</span>
+            <span className="habit-name">{name}</span>
+            <span className="habit-count">{count}</span>
             <button className="habit-button habit-increase" onClick={this.handleIncrement}>
                 <i className="fas fa-plus-square"></i>
             </button>
