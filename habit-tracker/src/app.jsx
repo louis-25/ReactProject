@@ -35,6 +35,21 @@ class App extends Component {
         const habits = this.state.habits.filter(item => item.id !== habit.id)
         this.setState({ habits: habits }) //그냥 habits만 써줘도 같은동작
     }
+    handleAdd = name => {
+        const habits = [
+            ...this.state.habits,
+            { id: Date.now(), name, count: 0 },
+        ]
+        this.setState({ habits })
+    }
+
+    handleReset = () => {
+        const habits = this.state.habits.map(habit => {
+            habit.count = 0
+            return habit
+        })
+        this.setState({ habits })
+    }
     render() {
         return (
             <>
@@ -49,6 +64,8 @@ class App extends Component {
                     onIncrement={this.handleIncrement}
                     onDecrement={this.handleDecrement}
                     onDelete={this.handleDelete}
+                    onAdd={this.handleAdd}
+                    onReset={this.handleReset}
                 ></Habits>
                 ;
             </>
