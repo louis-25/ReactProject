@@ -15,3 +15,8 @@ code {
 * {
     box-sizing: border-box; /*부모 컨테이너를 넘어가지 않는다*/
 }
+
+#root {
+    display: flex;
+    justify-content: center;
+}
