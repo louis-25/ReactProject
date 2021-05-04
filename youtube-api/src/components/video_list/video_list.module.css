@@ -1,0 +1,7 @@
+.videos {
+    display: flex;
+    flex-wrap: wrap;
+    /*여백 제거*/
+    list-style: none;
+    padding-left: 0;
+}
