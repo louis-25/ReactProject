@@ -4,7 +4,7 @@ import './index.css'
 import App from './app.jsx'
 import Youtube from './components/service/youtube'
 
-/*Dependency Injection*/
+// key
 const youtube = new Youtube(process.env.REACT_APP_YOUTUBE_API_KEY)
 
 ReactDOM.render(

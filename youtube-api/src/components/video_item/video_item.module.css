@@ -1,6 +1,13 @@
-.container {
-    width: 50%;
+.container {    
     padding: 0.2em;
+}
+
+.container.grid {
+    width: 50%;
+}
+
+.container.list {
+    width: 100%;
 }
 
 .video {
@@ -9,7 +16,7 @@
     border: 1px solid lightgray;
     box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53);
     cursor: pointer; /*마우스커서 올리면 바뀜*/
-    transition: transform 220ms ease-in;
+    transition: transform 220ms ease-in;    
 }
 
 .video:hover {
