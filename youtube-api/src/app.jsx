@@ -7,8 +7,7 @@ import VideoList from './components/video_list/video_list'
 function App({ youtube }) {
     /*Dependency Injection*/
     const [videos, setVideos] = useState([])
-    const [selectedVideo, setSelectedVideo] = useState(null)
-    const [display, setDisplay] = useState(null)
+    const [selectedVideo, setSelectedVideo] = useState(null)    
 
     const selectVideo = video => {
         setSelectedVideo(video)

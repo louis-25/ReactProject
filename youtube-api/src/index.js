@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './app.jsx'
-import Youtube from './components/service/youtube'
+import Youtube from './components/service/youtube.js'
 
 // key
 const youtube = new Youtube(process.env.REACT_APP_YOUTUBE_API_KEY)
