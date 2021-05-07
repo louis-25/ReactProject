@@ -10,6 +10,13 @@
     display: flex;
     align-items: center;
     margin-right: 0.5em;
+    transition: ease-in 0.1s;    
+}
+
+.logo:hover {
+    
+    transform: scale(1.04);
+    cursor: pointer;
 }
 
 .title {

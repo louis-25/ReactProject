@@ -8,13 +8,23 @@ function App({ youtube }) {
     /*Dependency Injection*/
     const [videos, setVideos] = useState([])
     const [selectedVideo, setSelectedVideo] = useState(null)
+    const [display, setDisplay] = useState(null)
 
     const selectVideo = video => {
         setSelectedVideo(video)
     }
 
     const search = query => {
-        youtube.search(query).then(videos => setVideos(videos))
+        setSelectedVideo(null)
+        youtube.search(query).then(videos => {
+            setVideos(videos)
+            setSelectedVideo(null)
+        })
+    }
+
+    const home = () => {
+        setSelectedVideo(null)
+        youtube.mostPopular().then(videos => setVideos(videos))
     }
 
     useEffect(() => {
@@ -26,14 +36,16 @@ function App({ youtube }) {
 
     return (
         <div className={styles.app}>
-            <Search_Header onSearch={search} />
-            <section className={styles.content}>
-                <div className={styles.detail}>
+            <Search_Header onSearch={search} Main={home}/>
+            <section className={styles.content}>                
                     {
                         /*selectedVideo가 있다면 VideoDetail컴포넌트 실행*/
-                        selectedVideo && <VideoDetail video={selectedVideo} />
-                    }
-                </div>
+                        selectedVideo && (
+                            <div className={styles.detail}>
+                                <VideoDetail video={selectedVideo} />
+                            </div>
+                        )
+                    }                
                 <div className={styles.list}>
                     <VideoList
                         videos={videos}
