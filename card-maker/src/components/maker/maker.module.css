@@ -1,19 +1,21 @@
 @value mediaQuery from '../../common/size.css';
+@value makeWhite from '../../common/colors.css';
 
 .maker {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: makeWhite;
 }
 
 .container {
-  display: flex;    
-  flex: 1;
+    display: flex;
+    flex: 1;
 }
 
 @media screen and (max-width: mediaQuery) {
-  .container {
-    flex-direction: column;
-  }
+    .container {
+        flex-direction: column;
+    }
 }
