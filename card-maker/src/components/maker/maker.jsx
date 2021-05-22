@@ -1,78 +1,93 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
-import Editor from '../editor/editor';
-import Footer from '../footer/footer';
-import Header from '../header/header';
-import Preview from '../preview/preview';
+import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
+import Editor from '../editor/editor'
+import Footer from '../footer/footer'
+import Header from '../header/header'
+import Preview from '../preview/preview'
 import styles from './maker.module.css'
 
-
-const Maker = ({authService}) => {
-    const [cards, setCards] = useState([
-        {
+const Maker = ({ authService }) => {
+    const [cards, setCards] = useState({
+        1: {
             id: '1',
-            name: 'Louis',
-            company: 'Kakao',
+            name: 'Ellie',
+            company: 'Samsung',
             theme: 'dark',
             title: 'Software Engineer',
-            email: '20151577@vision.hoseo.edu',
+            email: 'ellie@gmail.com',
             message: 'go for it',
-            fileName: 'Louis',
-            fileUrl: null
+            fileName: 'ellie',
+            fileURL: null,
         },
-        {
+        2: {
             id: '2',
-            name: 'Louis',
-            company: 'Kakao',
+            name: 'Ellie2',
+            company: 'Samsung',
             theme: 'light',
             title: 'Software Engineer',
-            email: '20151577@vision.hoseo.edu',
+            email: 'ellie@gmail.com',
             message: 'go for it',
-            fileName: 'Louis',
-            fileUrl: null
+            fileName: 'ellie',
+            fileURL: null,
         },
-        {
+        3: {
             id: '3',
-            name: 'Louis',
-            company: 'Kakao',
+            name: 'Ellie3',
+            company: 'Samsung',
             theme: 'colorful',
             title: 'Software Engineer',
-            email: '20151577@vision.hoseo.edu',
+            email: 'ellie@gmail.com',
             message: 'go for it',
-            fileName: 'Louis',
-            fileUrl: 'www.naver.com'
-        }
-    ]);
+            fileName: 'ellie',
+            fileURL: null,
+        },
+    })
 
-    const history = useHistory();
+    const history = useHistory()
     const onLogout = () => {
-        authService.logout();
+        authService.logout()
     }
 
     useEffect(() => {
         //파이어베이스의 인증정보가 변경될때마다 실행
         authService.onAuthChange(user => {
-            if(!user) {
-                history.push('/');
+            if (!user) {
+                history.push('/')
             }
-        });
+        })
     })
 
-    const addCard = card => {
-        const updated = [...cards, card];
-        setCards(updated);
+    const createOrUpdateCard = card => {
+        setCards(cards => {
+            const updated = { ...cards }
+            updated[card.id] = card
+            return updated
+        })
+    }
+
+    const deleteCard = card => {
+        setCards(cards => {
+            const updated = { ...cards }
+            delete updated[card.id]
+            return updated
+        })
     }
 
     return (
         <section className={styles.maker}>
-            <Header onLogout={onLogout}/>
+            <Header onLogout={onLogout} />
             <div className={styles.container}>
-                <Editor cards={cards} addCard={addCard}/>
-                <Preview cards={cards}/>
+                <Editor
+                    cards={cards}
+                    addCard={createOrUpdateCard}
+                    updateCard={createOrUpdateCard}
+                    deleteCard={deleteCard}
+                />
+                <Preview cards={cards} />
             </div>
-            <Footer/>
+            <Footer />
         </section>
     )
 }
 
-export default Maker;
+export default Maker
