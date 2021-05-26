@@ -1,9 +1,8 @@
 import React, { useRef } from 'react'
 import styles from './card_edit_form.module.css'
 import Button from '../button/button'
-import ImageFileInput from '../image_file_input/image_file_input'
 
-const CardEditForm = ({ card, updateCard, deleteCard }) => {
+const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
     const nameRef = useRef()
     const companyRef = useRef()
     const themeRef = useRef()
@@ -11,17 +10,24 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
     const emailRef = useRef()
     const messageRef = useRef()
 
-    const { name, company, title, email, message, theme, fileName, fileURL } =
-        card
+    const { name, company, title, email, message, theme, fileName, fileURL } = card;
 
+    const onFileChange = file => {
+        updateCard({
+            ...card,
+            fileName: file.name,
+            fileURL: file.url,
+        })
+    }
+    //이벤트가 발생하면 함수호출
     const onChange = event => {
         if (event.currentTarget == null) {
             return
         }
-        event.preventDefault()
+        event.preventDefault() //브라우저에서 기본적인 이벤트처리 못하게함
         updateCard({
-            ...card,
-            [event.currentTarget.name]: event.currentTarget.value,
+            ...card, //기존의 내용을 가져와서
+            [event.currentTarget.name]: event.currentTarget.value, //name이 key value가 value
         })
     }
 
@@ -82,7 +88,7 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
                 onChange={onChange}
             />
             <div className={styles.fileInput}>
-                <ImageFileInput />
+                <FileInput fileName={name} onFileChange={onFileChange} />
             </div>
             <Button name="Delete" onClick={onSubmit} />
         </form>
