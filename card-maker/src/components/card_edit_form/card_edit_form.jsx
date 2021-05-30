@@ -10,7 +10,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
     const emailRef = useRef()
     const messageRef = useRef()
 
-    const { name, company, title, email, message, theme, fileName, fileURL } = card;
+    const { name, company, title, email, message, theme, fileName } = card
 
     const onFileChange = file => {
         updateCard({
@@ -19,15 +19,15 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
             fileURL: file.url,
         })
     }
-    //이벤트가 발생하면 함수호출
+
     const onChange = event => {
         if (event.currentTarget == null) {
             return
         }
-        event.preventDefault() //브라우저에서 기본적인 이벤트처리 못하게함
+        event.preventDefault()
         updateCard({
-            ...card, //기존의 내용을 가져와서
-            [event.currentTarget.name]: event.currentTarget.value, //name이 key value가 value
+            ...card,
+            [event.currentTarget.name]: event.currentTarget.value,
         })
     }
 
@@ -88,7 +88,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
                 onChange={onChange}
             />
             <div className={styles.fileInput}>
-                <FileInput fileName={name} onFileChange={onFileChange} />
+                <FileInput name={fileName} onFileChange={onFileChange} />
             </div>
             <Button name="Delete" onClick={onSubmit} />
         </form>

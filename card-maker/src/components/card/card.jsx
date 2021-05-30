@@ -1,10 +1,12 @@
-import React from 'react';
+import React from 'react'
 import styles from './card.module.css'
 
-const DEFAULT_IMAGE = '/images/default_logo.png';
+const DEFAULT_IMAGE = '/images/default_logo.png'
+
 const Card = ({ card }) => {
-    const {name, company, title, email, message, theme, fileName, fileURL} = card;
-    const url = fileURL || DEFAULT_IMAGE;
+    const { name, company, title, email, message, theme, fileName, fileURL } =
+        card
+    const url = fileURL || DEFAULT_IMAGE
     return (
         <li className={`${styles.card} ${getStyles(theme)}`}>
             <img className={styles.avatar} src={url} alt="profile photo" />
@@ -16,21 +18,20 @@ const Card = ({ card }) => {
                 <p className={styles.message}>{message}</p>
             </div>
         </li>
-    );
-};
+    )
+}
 
-//그때그때 원하는 색으로 변경가능
 function getStyles(theme) {
-    switch(theme) {
+    switch (theme) {
         case 'dark':
-            return styles.dark;
+            return styles.dark
         case 'light':
-            return styles.light;
-        case 'colorful' :
-            return styles.colorful;
+            return styles.light
+        case 'colorful':
+            return styles.colorful
         default:
-            throw new Error(`unknown theme: ${theme}`);
+            throw new Error(`unknown theme: ${theme}`)
     }
 }
 
-export default Card;
+export default Card
