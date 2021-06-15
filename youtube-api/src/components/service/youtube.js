@@ -29,6 +29,7 @@ class Youtube {/*Dependency Injection*/
                 q: query,
             },
         });
+        //api 결과 반환할때 id값을 추가하여 반환
         return response.data.items.map(item => ({...item, id: item.id.videoId}));
     }
 }

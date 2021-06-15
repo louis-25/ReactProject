@@ -24,7 +24,7 @@ const Search_Header = ({onSearch, Main}) => { /*onSearch는 app에서 보낸 pro
         <header className={styles.header}>
             <div className={styles.logo} onClick={home}>
                 <img className={styles.img} src="/images/logo.png" alt="logo" />
-                <h1 className={styles.title}>Youtube</h1>
+                <h1 className={styles.title}>DHtube</h1>
             </div>
             <input
                 ref={inputRef}
