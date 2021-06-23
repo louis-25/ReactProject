@@ -11,3 +11,4 @@ state는<br>
 2. useState()를 이용해 만들어야함<br>
 <br>
 state에 저장해놓는 이유 : 웹이 App처럼 동작하게 만들고 싶어서<br>
+useState 배열값을 변경하고 싶을때 : state의 복사본을 만들어서 수정한다(spread operator를 사용할것!)<br>
