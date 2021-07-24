@@ -1,25 +1,25 @@
 import React from 'react';
-import styles from './navbar.module.css'
+import style from './navbar.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Navbar() {
     return (
         <>
-    <nav className={`${styles.navbar}`}>
-        <div className={`${styles.logo}`}>
+    <nav className={style.navbar}>
+        <div className={style.logo}>
             {/* <i className="fas fa-at"></i> */}
             <Icon></Icon>
             <a href="/">Louis</a>
         </div>
-        <div className={`${styles.menu}`}>
-            <ul className={`${styles.menu}`}>
+        <div className={style.menu}>
+            <ul className={style.menu}>
                 {/* data-link는 section id를 불러온다 */}
-                <li className={`${styles.item}`} >Home</li>
-                <li className={`${styles.item}`}>About</li>
-                <li className={`${styles.item}`}>Skills</li>
-                <li className={`${styles.item}`}>My work</li>
+                <li className={style.item}>Home</li>
+                <li className={style.item}>About</li>
+                <li className={style.item}>Skills</li>
+                <li className={style.item}>My work</li>
                 {/* <li class="navbar__menu__item" data-link='#testimonials'>Testimonial</li> */}
-                <li className={`${styles.item}`}>Contact</li>
+                <li className={style.item}>Contact</li>
             </ul>
         </div>
         {/* Toggle button - 햄버거 */}
