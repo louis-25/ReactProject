@@ -1,44 +1,38 @@
-import React from 'react';
-import { Navbar, Button, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import React, {useState} from 'react';
+import Bnavbar from './components/Bnavbar'
+import Jumbo from './components/Jumbo'
 import './App.css';
+import data from './data.js';
 
 function App() {
+
+  let [shoes, setShoes] = useState(data);
+
   return (
     <div>
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="mr-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
-          </Nav>
-          <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="mr-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Navbar>
+      <Bnavbar/>
+      <Jumbo/>
+      <div className="container">
+        <div className="row">
+          {shoes.map((shoe, i)=>{
+            return(              
+              <Card shoe={shoe} i={i+1} key={i}/>              
+            )
+          })
+          }
+        </div>
+      </div>                  
     </div>
   );
 }
 
+function Card({shoe, i}){
+  return (
+    <div className="col-md-4">
+      <img src={`https://codingapple1.github.io/shop/shoes${i}.jpg`} alt={`shoes${i}`} width="100%" />
+      <h4>{shoe.title}</h4>
+      <p>{shoe.content}</p>
+    </div>
+  )
+}
 export default App;
