@@ -1,38 +1,36 @@
 import React, {useState} from 'react';
-import Bnavbar from './components/Bnavbar'
+import Bnavbar from './components/Header'
 import Jumbo from './components/Jumbo'
+import Detail from './components/Detail'
+import Main from './components/Main'
+import Header from './components/Header'
 import './App.css';
-import data from './data.js';
+
+
+import { Link, Route, Switch } from 'react-router-dom';
 
 function App() {
 
-  let [shoes, setShoes] = useState(data);
+  
 
   return (
     <div>
-      <Bnavbar/>
-      <Jumbo/>
-      <div className="container">
-        <div className="row">
-          {shoes.map((shoe, i)=>{
-            return(              
-              <Card shoe={shoe} i={i+1} key={i}/>              
-            )
-          })
-          }
-        </div>
-      </div>                  
+      <Header></Header>
+      <Switch>
+        <Route exact path="/">
+          <Main></Main>        
+        </Route>
+        <Route path="/detail">
+          <Detail/>
+        </Route>
+
+        <Route path="/:id">
+          <div>아무거나 적었을때</div>
+        </Route>
+      </Switch>
     </div>
   );
 }
 
-function Card({shoe, i}){
-  return (
-    <div className="col-md-4">
-      <img src={`https://codingapple1.github.io/shop/shoes${i}.jpg`} alt={`shoes${i}`} width="100%" />
-      <h4>{shoe.title}</h4>
-      <p>{shoe.content}</p>
-    </div>
-  )
-}
+
 export default App;

@@ -1,6 +1,7 @@
 /* eslint-disable-next-line */
 
 import React from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 import { Navbar, Button,Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 
 function Bnavbar(props) {
@@ -15,8 +16,8 @@ function Bnavbar(props) {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
+            <Nav.Link> <Link to="/">Home</Link> </Nav.Link>
+            <Nav.Link><Link to="/detail">Detail</Link></Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
