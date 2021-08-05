@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Visual from './Visual'
 
-import Jumbotron from './Jumbo'
-import data from '../data.js';
 
-function Main(props) {
-  let [shoes, setShoes] = useState(data);
+function Main({shoes}) {
+  
   return (
     <div>
       
-      <Jumbotron></Jumbotron>
+      <Visual></Visual>
       <div className="container">
         <div className="row">
           {shoes.map((shoe, i)=>{

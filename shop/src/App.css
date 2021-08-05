@@ -4,3 +4,12 @@
   background-position : center;
   color: white
 }
+
+.my-alert2 {
+  text-align: center;  
+  width: fit-content;
+  border-radius: 10px;
+  margin: auto;
+  padding: 10px;
+  background-color: moccasin;
+}

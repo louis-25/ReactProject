@@ -1,7 +1,7 @@
 /* eslint-disable-next-line */
 
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Navbar, Button,Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 
 function Bnavbar(props) {
