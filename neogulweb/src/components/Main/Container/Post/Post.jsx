@@ -6,13 +6,14 @@ function Post({post}) {
   return (
     <div className={style.post}>
       <div className={style.header}>
-        <div className={style.profile}></div>
+        <div className={style.profile} style={{backgroundImage:`url(${post.userImage})`}}></div>
         <span className={style.name}>{post.name}</span>
       </div>
       <div className={style.body}>
         <div className={style.content}>
-          <p>{post.likes} Likes</p>
-          <p><strong>{post.name}</strong> {post.content}</p>
+          {/* <p>{post.likes} Likes</p> */}
+          {/* <strong>{post.name}</strong>  */}
+          <p>{post.content}</p>
           <p className={style.date}>{post.date}</p>
         </div>
       </div>

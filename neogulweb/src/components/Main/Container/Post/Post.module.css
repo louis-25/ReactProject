@@ -25,7 +25,8 @@
 }
 
 .body {
-  height: 450px;
+  /* height: 100px; */
+  padding-bottom: 5px;
   background-position: center;
   background-size: cover;
 }
