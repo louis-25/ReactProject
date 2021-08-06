@@ -7,30 +7,33 @@ import { BrowserRouter } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {combineReducers, createStore} from 'redux';
 
-let state초기값 = [{id : 0, name : '멋진신발', quan : 2}];
+let state초기값 = [
+  {id : 0, name : '멋진신발', quan : 2},
+  {id : 1, name : '멋진신발', quan : 5}
+];
 
 //reducer는 state를 변경할때 사용한다
-function reducer(state = state초기값, 액션){
-  if (액션.type === '수량증가') {
-    let copy = [...state];
-    copy[0].quan++;
-    return copy
-  }else if (액션.type === '수량감소'){
-
-    let copy = [...state];
-    copy[0].quan--;
-    return copy
-
-  }else {
-    return state
+function reducer(state = state초기값, action){
+  let copy = [...state];
+  switch(action.type) {
+    case '항목추가':      
+      copy.push(action.payload)
+      return copy      
+    case '수량증가':
+      copy[action.payload.i].quan++;      
+      return copy
+    case '수량감소':
+      copy[action.payload.i].quan--;
+      return copy
+    default:
+      return state
   }
 }
 
 let alert초기값 = true;
 
 function reducer2(state = alert초기값, 액션){
-  if (액션.type === '닫기') {    
-
+  if (액션.type === '닫기') {
     return false
   }
   return state
