@@ -1,0 +1,44 @@
+.post {
+  width: 100%;
+}
+
+.header {
+  height: 30px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.profile {
+  width: 30px;
+  height: 30px;
+  background-size: 100%;
+  border-radius: 50%;
+  float: left;  
+}
+
+.name {
+  display: block;
+  float: left;
+  padding-left: 10px;
+  padding-top: 7px;
+  font-size: 14px;
+}
+
+.body {
+  height: 450px;
+  background-position: center;
+  background-size: cover;
+}
+
+.content {
+  padding-left: 5px;
+  padding-right: 15px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.date {
+  font-size: 11px;
+  color: grey;
+  margin-top: -8px;
+}

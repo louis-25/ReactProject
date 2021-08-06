@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import style from './Main.module.css'
+import Header from './Header/Header'
+import Container from './Container/Container'
 
 function Main({authService}) {
-  const history = useHistory();  
-
-  const onLogout = () =>{
-    authService.logout()    
-    history.push('/')
-  }
+  const history = useHistory();    
 
   useEffect(()=> {
     //파이어베이스의 인증정보가 변경되면 실행
@@ -20,9 +18,12 @@ function Main({authService}) {
 
   return (
     <div>
-      <button onClick={onLogout}>
-        Logout
-      </button>
+      <div className={style.main}>
+        <Header authService={authService}></Header>
+        <Container></Container>
+      </div>
+
+      
     </div>
   );
 }
