@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
@@ -20,6 +20,16 @@ function Login({authService}) {
         .login(event.currentTarget.textContent)
         .then(data => goToMain(data.user.uid));
   }
+
+  useEffect(()=> {
+    //파이어베이스의 인증정보가 변경되면 실행
+    authService
+    .onAuthChange(user => {
+        //로그인한 사용자정보가 있다면
+        user && goToMain(user.id);
+    });
+  });
+
   return (
     <section className={styles.login}>
       <Header />
