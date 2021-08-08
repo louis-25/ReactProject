@@ -1,16 +1,18 @@
 import React from 'react';
 import Post from './Post/Post'
-import postData from './Post/data.js'
+import Input from './Input/Input'
 import style from './Container.module.css'
 
-function Container(props) {
+function Container({posts, createOrUpdateCard, deletePost}) {
+  console.log('posts ',posts)
   return (
-    <div className={style.container}>      
+    <div className={style.container}>
+      <Input></Input>
       {
-        postData.map((post, i)=>{
+        posts && posts.map((post, i)=>{
           console.log(`${i}번째 post `,post);
           return(
-          <Post post={post}></Post>
+            <Post post={post}></Post>
           )
         })
       }

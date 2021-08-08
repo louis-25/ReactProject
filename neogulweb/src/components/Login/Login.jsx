@@ -7,10 +7,10 @@ import styles from './Login.module.css'
 function Login({authService}) {
   const history = useHistory();
 
-  const goToMain = (userId) => {
+  const goToMain = (userId) => {    
     history.push({
       pathname: '/main',
-      state: {id: userId},
+      state: {id: userId}, //로그인하면서 상태정보도 저장
     })
   }
 

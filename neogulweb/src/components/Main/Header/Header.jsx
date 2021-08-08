@@ -2,15 +2,8 @@ import React from 'react';
 import style from './Header.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt, faCampground } from "@fortawesome/free-solid-svg-icons";
-import { useHistory } from 'react-router-dom';
 
-function Header({authService}) {
-  const history = useHistory();  
-
-  const onLogout = () =>{
-    authService.logout()
-    history.push('/')
-  }
+function Header({onLogout}) {  
 
   return (
     <div className={style.main}>              
