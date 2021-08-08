@@ -7,7 +7,7 @@ function Container({posts, createOrUpdateCard, deletePost}) {
   console.log('posts ',posts)
   return (
     <div className={style.container}>
-      <Input></Input>
+      <Input createOrUpdateCard={createOrUpdateCard}></Input>
       {
         posts && posts.map((post, i)=>{
           console.log(`${i}번째 post `,post);
