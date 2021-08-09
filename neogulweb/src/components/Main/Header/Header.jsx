@@ -8,7 +8,7 @@ function Header({onLogout}) {
   return (
     <div className={style.main}>              
       <ul className={style.leftBtn}>
-          <li onClick={onLogout}><FontAwesomeIcon icon={faSignOutAlt}/></li>
+          <li onClick={onLogout} title="Logout"><FontAwesomeIcon icon={faSignOutAlt}/></li>
       </ul>
       <ul className={style.rightBtn}>
         <FontAwesomeIcon icon={faCampground}/>

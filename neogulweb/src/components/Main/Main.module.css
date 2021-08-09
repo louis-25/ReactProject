@@ -1,4 +1,9 @@
 .main {
-  border: 3px solid #039be5;
+  /* border: 3px solid #ffeb33;  
+  background-color: #ffeb33; */
+  width: 375px;  
+  height: 720px;
   border-radius: 10px;
+  box-sizing: border-box;
+  overflow: hidden;  
 }

@@ -1,17 +1,37 @@
 .container {
-  background-color: #8298bd;
-  width: 320px;
+  background-color: #b2c7d9;  
+  width: 100%;
+  height: 100%;  
 }
 
 .inputBox {
   display: flex;
-  justify-content: center;    
+  justify-content: center;
 }
 
 .inputText {
-  margin:5px 0;  
+  margin:5px 0px;
+  width: 100%;
+}
+
+.postList {
+  width: 100%;
+  height: 87%;
+  overflow-y: scroll;  
 }
 
 .postBox {
-  margin: 0px 5px;
+  margin: 5px;  
+}
+
+
+
+.postList::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+}
+
+.postBox:last-child{
+  margin-bottom: 0;
+  /* padding-bottom: 5px; */
 }

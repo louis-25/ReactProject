@@ -13,7 +13,7 @@ function Post({post}) {
         <div className={style.content}>
           {/* <p>{post.likes} Likes</p> */}
           {/* <strong>{post.name}</strong>  */}
-          <p>{post.content}</p>
+          <strong><p className={style.contentText}>{post.content}</p></strong>
           <p className={style.date}>{post.date}</p>
         </div>
       </div>

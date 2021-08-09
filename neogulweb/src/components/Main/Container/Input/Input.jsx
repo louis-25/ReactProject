@@ -32,7 +32,7 @@ function Input({createOrUpdateCard, user, posts}) {
 
   return (
     <div className={style.inputBox}>
-      <input className="form-control" type="text" onChange={handleChange}/>
+      <span className={style.formInput}><input className="form-control" type="text" onChange={handleChange}/></span>
       <button onClick={send} className="btn btn-primary" post={post}>전송</button>
     </div>
   );

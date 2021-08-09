@@ -1,5 +1,11 @@
 .inputBox {
   display: flex;
   justify-content: center;
-  text-align: center;
+  text-align: center;  
+  margin: 0 5px
+}
+
+.formInput {
+  width: 77%;
+  margin-right: 10px;
 }

@@ -3,15 +3,21 @@
 }
 
 .post {
-  width: 100%;
+  width: 98%;
   border: 2px solid black;
   border-radius: 5px;
   box-sizing: border-box;
-  margin-bottom: 5px;
+  background-color: #05C072;  
+  margin: auto;
+  /* margin-bottom: 5px; */
 }
 
+/* .post:last-child{
+  margin-bottom: 0;
+} */
+
 .header {
-  height: 30px;  
+  height: 30px;
   margin-bottom: 20px;
   padding: var(--padding-size);
 }
@@ -34,8 +40,6 @@
 }
 
 .body {
-  /* height: 100px; */
-  padding-bottom: 5px;
   background-position: center;
   background-size: cover;
   padding: 0px var(--padding-size);;
@@ -43,23 +47,19 @@
 
 .content {
   padding-left: 5px;
-  padding-right: 15px;
+  /* padding-right: 15px; */  
   font-size: 14px;
   text-align: left;
+}
+
+.contentText {
+  /* color: white;   */
 }
 
 .date {
   font-size: 11px;
   /* color: grey; */
   margin-top: -8px;
-}
-
-.btn {
-  height: 10px;  
-}
-
-.form-control {
-  width: 70%;
 }
 
 .inputBox {
