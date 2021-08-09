@@ -1,17 +1,19 @@
 import firebaseApp from './firebase'
 
-class CardRepository {
-    syncPosts(userId, onUpdate) {
-        const ref = firebaseApp.database().ref(`${userId}/posts`)
+class CardRepository {    
+    syncPosts(onUpdate) {
+        const ref = firebaseApp.database().ref('posts')
         ref.on('value', snapshot => {
             const value = snapshot.val()
-            value && onUpdate(value)
+            console.log('value ', value)
+            value && onUpdate(value)            
         })
         return () => ref.off()
     }
 
-    savePost(userId, post) {
-        firebaseApp.database().ref(`${userId}/posts/${post.id}`).set(post)
+    savePost(post) {        
+        firebaseApp.database().ref(`posts/${post.no}`).set(post)
+        firebaseApp.database().ref(`user/${post.name}`).set(post)
     }
 
     removePost(userId, post) {
