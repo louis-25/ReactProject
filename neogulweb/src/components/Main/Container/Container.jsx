@@ -11,15 +11,19 @@ function Container({posts, user, createOrUpdateCard, deletePost}) {
   
   return (
     <div className={style.container}>
-      <Input createOrUpdateCard={createOrUpdateCard} user={user} posts={posts}></Input>
+      <div className={style.inputBox}>        
+        <div className={style.inputText}><Input createOrUpdateCard={createOrUpdateCard} user={user} posts={posts}></Input></div>
+      </div>      
       {
-        posts && posts.reverse().map((post, i)=>{
+        posts && (posts.reverse().map((post, i)=>{
           console.log(`${i}번째 post `,post);
           return(
-            <Post post={post} key={i}></Post>
+            <div className={style.postBox}>
+              <Post post={post} key={i}></Post>
+            </div>
           )
-        })
-      }
+        }))
+      }      
     </div>
   );
 }

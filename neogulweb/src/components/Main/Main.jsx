@@ -17,13 +17,13 @@ function Main({ authService, postRepository }) {
     //파이어베이스의 인증정보가 변경되면 실행
     authService.onAuthChange(user => {
         if (user) {
-          setUser(user)          
+          setUser(user)
           console.log('user ',user)          
         } else {
           //로그인한 사용자정보가 없다면
           history.push('/')
         }
-    })     
+    })
   },[user])
 
   useEffect(async()=>{    
@@ -61,7 +61,7 @@ function Main({ authService, postRepository }) {
 
   return (
     <div>
-      {Object.keys(posts).length != 0 ? (
+      {Object.keys(posts).length !== 0 ? (
         <div className={style.main}>
             <Header onLogout={onLogout}></Header>
             <Container

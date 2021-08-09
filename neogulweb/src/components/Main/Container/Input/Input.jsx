@@ -22,7 +22,7 @@ function Input({createOrUpdateCard, user, posts}) {
   }
 
   const send = () => {
-    if(post.content == ''){
+    if(post.content === ''){
       alert('값을 입력해주세요')
     }else{
       console.log('click post ',post)
@@ -31,9 +31,9 @@ function Input({createOrUpdateCard, user, posts}) {
   }
 
   return (
-    <div>
-      <input type="text" onChange={handleChange}/>
-      <button onClick={send} post={post}>전송</button>
+    <div className={style.inputBox}>
+      <input className="form-control" type="text" onChange={handleChange}/>
+      <button onClick={send} className="btn btn-primary" post={post}>전송</button>
     </div>
   );
 }

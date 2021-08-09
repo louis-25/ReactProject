@@ -1,4 +1,17 @@
 .container {
-  background-color: chartreuse;
-  width: 300px;
+  background-color: #8298bd;
+  width: 320px;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: center;    
+}
+
+.inputText {
+  margin:5px 0;  
+}
+
+.postBox {
+  margin: 0px 5px;
 }

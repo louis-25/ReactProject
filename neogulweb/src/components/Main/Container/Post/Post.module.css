@@ -1,11 +1,19 @@
+:root{
+  --padding-size:10px;
+}
+
 .post {
   width: 100%;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
 }
 
 .header {
-  height: 30px;
-  padding: 10px;
+  height: 30px;  
   margin-bottom: 20px;
+  padding: var(--padding-size);
 }
 
 .profile {
@@ -20,8 +28,9 @@
   display: block;
   float: left;
   padding-left: 10px;
-  padding-top: 7px;
+  padding-top: 3px;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .body {
@@ -29,6 +38,7 @@
   padding-bottom: 5px;
   background-position: center;
   background-size: cover;
+  padding: 0px var(--padding-size);;
 }
 
 .content {
@@ -40,6 +50,19 @@
 
 .date {
   font-size: 11px;
-  color: grey;
+  /* color: grey; */
   margin-top: -8px;
+}
+
+.btn {
+  height: 10px;  
+}
+
+.form-control {
+  width: 70%;
+}
+
+.inputBox {
+  display: flex;
+
 }
