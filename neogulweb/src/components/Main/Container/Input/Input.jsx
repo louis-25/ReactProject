@@ -9,7 +9,7 @@ function Input({createOrUpdateCard, user, posts}) {
     name: user.displayName,
     userImage: user.photoURL,
     content: '',
-    date: (today.toLocaleDateString()).slice(0, -1),
+    date: (today.toLocaleDateString()).slice(0, -1) +" / "+ today.getHours() +":"+today.getMinutes(),
     // likes: 43,
     // liked: false,
     // postImage: 'https://placeimg.com/640/480/arch',
@@ -26,13 +26,13 @@ function Input({createOrUpdateCard, user, posts}) {
       alert('값을 입력해주세요')
     }else{
       console.log('click post ',post)
-      createOrUpdateCard(post)
+      createOrUpdateCard(post)      
     }
   }
 
   return (
     <div className={style.inputBox}>
-      <span className={style.formInput}><input className="form-control" type="text" onChange={handleChange}/></span>
+      <span className={style.formInput}><input onKeyPress={(e)=>{if(e.key === 'Enter'){send(); e.target.value=""}}} className="form-control" type="text" onChange={handleChange}/></span>
       <button onClick={send} className="btn btn-primary" post={post}>전송</button>
     </div>
   );

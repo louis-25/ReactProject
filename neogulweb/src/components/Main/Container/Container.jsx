@@ -13,7 +13,7 @@ function Container({posts, user, createOrUpdateCard, deletePost}) {
     <div className={style.container}>
       <div className={style.inputBox}>        
         <div className={style.inputText}><Input createOrUpdateCard={createOrUpdateCard} user={user} posts={posts}></Input></div>
-      </div>      
+      </div>
       <div className={style.postList}>
       {
         posts && [...posts].reverse().map((post, i)=>{
