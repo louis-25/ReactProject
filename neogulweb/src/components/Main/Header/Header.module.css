@@ -33,3 +33,13 @@ li {
   padding-left: 1em;
   margin-top: 10px;
 }
+
+.userImage {
+  width: 2em;
+  height: 2em;
+  margin: auto;
+  background-size: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 3;
+}

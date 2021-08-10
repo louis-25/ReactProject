@@ -62,7 +62,7 @@ function Main({ authService, postRepository }) {
     <div>
       {((Object.keys(posts).length !== 0) && user) ? (
         <div className={style.main}>
-            <Header onLogout={onLogout}></Header>
+            <Header onLogout={onLogout} user={user}></Header>
             <Container
                 posts={posts}
                 user={user}
