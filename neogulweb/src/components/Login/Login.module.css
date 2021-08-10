@@ -2,6 +2,7 @@
 
 .login {
     width: 20em;
+    height: 15em;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -9,7 +10,8 @@
     background-color: makerWhite;    
     border: 0.2rem solid Green;
     border-radius: 7px;
-    padding: 7px;
+    margin: 7px;
+    /* padding: 7px; */
 }
 
 .list {

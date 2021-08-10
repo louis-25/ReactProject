@@ -7,16 +7,18 @@ function Post({post}) {
     <div className={style.post}>
       <div className={style.header}>
         <div className={style.profile} style={{backgroundImage:`url(${post.userImage})`}}></div>
-        <span className={style.name}>{post.name}</span>
+        <div className={style.textBox}>
+          <span className={style.name}>{post.name}</span>          
+          <strong><p className={style.contentText}>{post.content}</p></strong>
+          <p className={style.date}>{post.date}</p>          
+        </div>        
       </div>
-      <div className={style.body}>
-        <div className={style.content}>
-          {/* <p>{post.likes} Likes</p> */}
-          {/* <strong>{post.name}</strong>  */}
+      {/* <div className={style.body}>
+        <div className={style.content}>          
           <strong><p className={style.contentText}>{post.content}</p></strong>
           <p className={style.date}>{post.date}</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

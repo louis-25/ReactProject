@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom'
 import style from './Main.module.css'
 import Header from './Header/Header'
 import Container from './Container/Container'
-import postData from './data.js'
 
 function Main({ authService, postRepository }) {
   const historyState = useHistory().state // 로그인 시 저장한 상태정보
@@ -13,9 +12,9 @@ function Main({ authService, postRepository }) {
   
   const history = useHistory()
 
-  useEffect(() => {
+  useEffect(async() => {
     //파이어베이스의 인증정보가 변경되면 실행
-    authService.onAuthChange(user => {
+    await authService.onAuthChange(user => {
         if (user) {
           setUser(user)
           console.log('user ',user)          
@@ -61,7 +60,7 @@ function Main({ authService, postRepository }) {
 
   return (
     <div>
-      {Object.keys(posts).length !== 0 ? (
+      {((Object.keys(posts).length !== 0) && user) ? (
         <div className={style.main}>
             <Header onLogout={onLogout}></Header>
             <Container

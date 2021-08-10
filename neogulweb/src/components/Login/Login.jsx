@@ -32,7 +32,7 @@ function Login({authService}) {
 
   return (
     <section className={styles.login}>
-      <Header />
+      {/* <Header /> */}
       <section>
         <h1>Login</h1>
         <ul className={styles.list}>
@@ -48,7 +48,7 @@ function Login({authService}) {
           </li>
         </ul>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 }

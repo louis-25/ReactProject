@@ -11,8 +11,10 @@ function Container({posts, user, createOrUpdateCard, deletePost}) {
   
   return (
     <div className={style.container}>
-      <div className={style.inputBox}>        
-        <div className={style.inputText}><Input createOrUpdateCard={createOrUpdateCard} user={user} posts={posts}></Input></div>
+      <div className={style.inputBox}>
+        <div className={style.inputText}>
+          <Input createOrUpdateCard={createOrUpdateCard} user={user} posts={posts}/>
+        </div>
       </div>
       <div className={style.postList}>
       {
