@@ -18,16 +18,15 @@ function Input({createOrUpdateCard, user, posts}) {
 
   const handleChange = (e) =>{
     post.content = e.target.value
-    console.log(post.content)
+    // console.log(post.content)
   }
 
   const send = () => {
     if(post.content === ''){
       alert('값을 입력해주세요')
     }else{
-      console.log('click post ',post)
-      let no = Object.keys(posts).length
-      createOrUpdateCard(post, no)
+      console.log('click post ',post)      
+      createOrUpdateCard(post)
     }
   }
 
