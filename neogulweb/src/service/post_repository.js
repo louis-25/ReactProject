@@ -16,8 +16,8 @@ class CardRepository {
         firebaseApp.database().ref(`user/${post.name}`).set(post)
     }
 
-    removePost(userId, post) {
-        firebaseApp.database().ref(`${userId}/posts/${post.id}`).remove()
+    removePost(post) {
+        firebaseApp.database().ref(`posts/${post.no}`).remove()
     }
 }
 

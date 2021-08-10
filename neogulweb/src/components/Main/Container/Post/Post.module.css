@@ -18,7 +18,7 @@
 } */
 
 .header {
-  height: 4.5em;
+  /* height: 4.5em; */
   /* margin-bottom: 20px; */
   /* padding: var(--padding-size);   */
 }
@@ -30,31 +30,45 @@
   margin-left: 0.6em;
   background-size: 100%;
   border-radius: 50%;
-  float: left;    
+  float: left;
 }
 
 .textBox {
   display: flex;
   flex-direction: column;
-  padding-left: 10px;  
+  padding: 0 10px;
+  /* transition: 1s ease-in; */
 }
 
 .name {  
   padding: 0.2em 0;
   font-size: 14px;
   font-weight: 600;
+  display: flex;
+  justify-content: space-between;
 }
 
-.contentText {  
-  display: inline;
+.trash {
+  color: #EF5350;
+  cursor: pointer;
+}
+
+.trash:hover {
+  transform: scale(1.1);  
+}
+
+.contentText {
+  display: inline-block;
   border-radius: 4px 10px 10px 15px;    
-  padding: 0.1em 0.7em;
+  padding: 0 0.7em;
   background-color: white;
+  margin-bottom: 0.2em;
 }
 
 .date {
   font-size: 11px;
-  margin-top: 0.2em;
+  /* margin-top: 0.2em; */
+  margin-bottom: 0.2em;
   margin-left: 0.3em;
   /* color: grey; */
   /* margin-top: 8px; */
