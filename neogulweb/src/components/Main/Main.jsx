@@ -52,11 +52,8 @@ function Main({ authService, postRepository }) {
   const deletePost = post => {
     setPosts(posts => {
         const updated = { ...posts }
-<<<<<<< HEAD
-        delete updated[post]
-=======
+
         delete updated[post.id]
->>>>>>> 004851a77f1c8e53c6d3bc1a4206d40edb6287e0
         return updated
     })
     postRepository.removePost(post)
