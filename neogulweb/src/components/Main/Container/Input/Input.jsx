@@ -26,7 +26,8 @@ function Input({createOrUpdateCard, user, posts}) {
       alert('값을 입력해주세요')
     }else{
       console.log('click post ',post)
-      createOrUpdateCard(post)      
+      let no = Object.keys(posts).length
+      createOrUpdateCard(post, no)
     }
   }
 

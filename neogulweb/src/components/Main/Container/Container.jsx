@@ -26,8 +26,8 @@ function Container({posts, user, createOrUpdateCard, deletePost}) {
             </div>
           )          
         })
-      }    
-      </div>  
+      }
+      </div>
     </div>
   );
 }
