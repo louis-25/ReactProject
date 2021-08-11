@@ -11,7 +11,7 @@ class CardRepository {
         return () => ref.off()
     }
 
-    savePost(post) {        
+    savePost(post) {
         firebaseApp.database().ref(`posts/${post.no}`).set(post)
         firebaseApp.database().ref(`user/${post.name}`).set(post)
     }

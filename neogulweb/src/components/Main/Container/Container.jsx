@@ -19,12 +19,12 @@ function Container({posts, user, createOrUpdateCard, deletePost}) {
       <div className={style.postList}>
       {
         posts && [...posts].reverse().map((post, i)=>{
-          // console.log(`${i}번째 post `,post);
-          return(
+          // console.log(`${i}번째 post `,post);          
+          return(            
             <div className={style.postBox}>
-              <Post post={post} deletePost={deletePost} key={i}></Post>
+              <Post post={post} user={user} deletePost={deletePost} key={i}></Post>
             </div>
-          )
+          )          
         })
       }    
       </div>  

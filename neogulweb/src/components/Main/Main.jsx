@@ -43,18 +43,18 @@ function Main({ authService, postRepository }) {
   const createOrUpdateCard = post => {
     setPosts(posts => {
         const updated = { ...posts }
-        updated[post.id] = post
+        updated[post.no] = post
         return updated
     })
     postRepository.savePost(post)
   }
 
   const deletePost = post => {
-    // setPosts(posts => {
-    //     const updated = { ...posts }
-    //     delete updated[post.id]
-    //     return updated
-    // })
+    setPosts(posts => {
+        const updated = { ...posts }
+        delete updated[post]
+        return updated
+    })
     postRepository.removePost(post)
   }
 
@@ -62,7 +62,7 @@ function Main({ authService, postRepository }) {
     <div>
       {((Object.keys(posts).length !== 0) && user) ? (
         <div className={style.main}>
-            <Header onLogout={onLogout}></Header>
+            <Header onLogout={onLogout} user={user}></Header>
             <Container
                 posts={posts}
                 user={user}
