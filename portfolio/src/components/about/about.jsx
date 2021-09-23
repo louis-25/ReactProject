@@ -4,7 +4,6 @@ import mediconex from '../../imgs/jobs/mediconex.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faServer, faMobile } from "@fortawesome/free-solid-svg-icons";
 import { faHtml5 } from '@fortawesome/free-brands-svg-icons';
-import html5 from '../../imgs/html5.svg'
 
 const About = (props) => {
     return (
