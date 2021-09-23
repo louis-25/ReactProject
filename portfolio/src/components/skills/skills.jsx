@@ -3,8 +3,8 @@ import style from './skills.module.css'
 import 정보처리기사 from '../../imgs/jobs/정보처리기사.jpg'
 
 const Skills = (props) => {
-  return (
-    <section className={`${style.skill__main} ${style.section}`}>
+    return (
+        <section className={`${style.skill__main} ${style.section}`}>
             <div className={style.section__container}>
                 <h1>Skills</h1>
                 <h2>Skills {"&"} Attributes</h2>
@@ -29,7 +29,7 @@ const Skills = (props) => {
                                 <div className={style.skill__bar}>
                                     <div
                                         className={style.skill__value}
-                                        style={{width : "80%"}}
+                                        style={{ width: "80%" }}
                                     ></div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ const Skills = (props) => {
                                 <div className={style.skill__bar}>
                                     <div
                                         className={style.skill__value}
-                                        style={{width: "60%"}}
+                                        style={{ width: "60%" }}
                                     ></div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ const Skills = (props) => {
                                 <div className={style.skill__bar}>
                                     <div
                                         className={style.skill__value}
-                                        style={{width: "60%"}}
+                                        style={{ width: "60%" }}
                                     ></div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@ const Skills = (props) => {
                                 <div className={style.skill__bar}>
                                     <div
                                         className={style.skill__value}
-                                        style={{width: "80%"}}
+                                        style={{ width: "80%" }}
                                     ></div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@ const Skills = (props) => {
                                 <div className={style.skill__bar}>
                                     <div
                                         className={style.skill__value}
-                                        style={{width: "80%"}}
+                                        style={{ width: "80%" }}
                                     ></div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@ const Skills = (props) => {
                                 <div className={style.skill__bar}>
                                     <div
                                         className={style.skill__value}
-                                        style={{width: "60%"}}
+                                        style={{ width: "60%" }}
                                     ></div>
                                 </div>
                             </div>
@@ -121,8 +121,8 @@ const Skills = (props) => {
                 </div>
             </div>
         </section>
-  )
+    )
 }
-      
+
 
 export default Skills;
