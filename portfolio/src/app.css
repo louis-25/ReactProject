@@ -1,3 +1,7 @@
+* {
+  text-align: center;
+}
+
 :root {
   /* Color */
   --color-white: #ffffff;

@@ -13,6 +13,7 @@ const Skills = (props) => {
                     새로운 기술을 배우는걸 좋아합니다<br />
                 </p>
                 <div className={style.certificate}>
+                    <div className={style.certificate__container}>
                     <img
                         src={정보처리기사}
                         alt="정보처리기사"
@@ -117,6 +118,7 @@ const Skills = (props) => {
                                 </ul>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
