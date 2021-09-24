@@ -4,29 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleAlt, faBars } from "@fortawesome/free-solid-svg-icons";
 import classNames from 'classnames';
 
-function Navbar({setScrollY}) {       
+function Navbar({scrollY, setScrollY}) {       
 
     const [toggle, setToggle] = useState(false)
 
-    const goHome = () => {
-        // console.log(window.pageYOffset)
-        setScrollY(0)
-    }
-
-    const goAbout = () => {
-        setScrollY(567)
-    }
-
-    const goSkills = () => {
-        setScrollY(1200)
-    }
-
-    const goWork = () => {
-        setScrollY(2866)
-    }
-
-    const goContact = () => {
-        setScrollY(3658)
+    function goScroll(top) {
+        window.scrollTo({
+            top: top,
+            behavior: "smooth"
+        })             
     }    
 
     const onToggle = () => {
@@ -36,7 +22,7 @@ function Navbar({setScrollY}) {
 
     return (
         <>
-    <nav className={classNames(style.navbar)}>
+    <nav className={classNames(style.navbar, scrollY > 0 ? style.navbarDark : null)}>
         <div className={style.logo}>            
             <Icon className={style.icon}></Icon>
             <a href="/">Louis</a>
@@ -44,11 +30,11 @@ function Navbar({setScrollY}) {
         <div className={style.menu}>            
             <ul className={classNames(style.menu, toggle ? style.open : style.close)}>
                 {/* data-link는 section id를 불러온다 */}                
-                <li className={style.item} onClick={goHome}>Home</li>
-                <li className={style.item} onClick={goAbout}>About</li>
-                <li className={style.item} onClick={goSkills}>Skills</li>
-                <li className={style.item} onClick={goWork}>My work</li>                
-                <li className={style.item} onClick={goContact}>Contact</li>                
+                <li className={style.item} onClick={()=>goScroll(0)}>Home</li>
+                <li className={style.item} onClick={()=>goScroll(570)}>About</li>
+                <li className={style.item} onClick={()=>goScroll(1200)}>Skills</li>
+                <li className={style.item} onClick={()=>goScroll(2866)}>My work</li>                
+                <li className={style.item} onClick={()=>goScroll(100000)}>Contact</li>                
             </ul>            
         </div>
         {/* Toggle button - 햄버거 */}        

@@ -3,17 +3,18 @@
   position: fixed;
   display: flex;
   width: 100%;
+  top: 0;
   justify-content: space-between;    
   align-items: center;
   color: var(--color-white);
   padding: 8px 0;    
   /* background-color: transparent; */
-  background-color: var(--color-blue);    
+  background-color: transparent;    
   transition: all var(--animation-duration) ease-in-out;
   z-index: 2;
 }
 
-.navbar.navbar--dark{
+.navbar.navbarDark{
   background-color: var(--color-blue);    
   padding: 2px;
   opacity: 0.95;

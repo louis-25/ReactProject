@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import style from './home.module.css'
 import profile from '../../imgs/profile.jpg'
 
-const Home = ({setScrollY}) => {  
+const Home = () => {  
 
   const Contact = () => {
     // console.log(window.pageYOffset)
-    setScrollY(3658)
+    window.scrollTo({
+      top: 10000,
+      behavior: "smooth"
+  })   
   }  
 
   return (

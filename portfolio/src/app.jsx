@@ -5,22 +5,29 @@ import About from './components/about/about'
 import Skills from './components/skills/skills'
 import Work from './components/work/work';
 import Contact from './components/contact/contact'
-import { useEffect, useState } from 'react';
+import { throttle } from 'lodash';
+import { useEffect, useMemo, useState } from 'react';
 
-function App() {
+function App() {    
   const [scrollY, setScrollY] = useState() //스크롤 변수
+  const throttledScroll = useMemo(() =>
+      throttle(() => {
+        console.log('스크롤 이벤트');      
+        console.log('y ',window.scrollY);
+        setScrollY(window.scrollY)    
+      }, 300),    
+  );
 
   useEffect(() => {
-    window.scrollTo({
-      top: scrollY,
-      behavior: "smooth"
-    })
-    console.log('y ', window.pageYOffset)
-  }, [scrollY])
+    window.addEventListener('scroll', throttledScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);      
+    };
+  }, [throttledScroll]);      
 
   return (
     <>
-      <Navbar setScrollY={setScrollY}/>
+      <Navbar scrollY={scrollY} setScrollY={setScrollY}/>
       <Home setScrollY={setScrollY}/>
       <About/>
       <Skills/>

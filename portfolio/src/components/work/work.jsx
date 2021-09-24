@@ -94,9 +94,9 @@ function Work(props) {
       </div>
 
       <div className={style.work__projects}>
-        { works.map((work)=>{            
+        { works.map((work)=>{
             if(selectBtn == work.datatype || selectBtn == 'all') {
-              return(              
+              return(
                 <WorkList work={work}></WorkList>
               )
             }
