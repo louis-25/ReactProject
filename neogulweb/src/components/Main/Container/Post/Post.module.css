@@ -36,8 +36,7 @@
 .textBox {
   display: flex;
   flex-direction: column;
-  padding: 0 10px;
-  /* transition: 1s ease-in; */
+  padding: 0 10px;  
 }
 
 .name {  

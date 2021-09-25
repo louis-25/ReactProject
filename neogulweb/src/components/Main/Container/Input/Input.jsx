@@ -1,8 +1,10 @@
 import React from 'react';
+import { useRef } from 'react';
 import style from './Input.module.css'
 
 function Input({createOrUpdateCard, user, posts}) {
   let today = new Date();
+  const inputText = useRef();
   let post = {
     no: Object.keys(posts).length, //게시물 길이
     id: user.uid,
@@ -25,14 +27,22 @@ function Input({createOrUpdateCard, user, posts}) {
     if(post.content === ''){
       alert('값을 입력해주세요')
     }else{
+<<<<<<< HEAD
       console.log('click post ',post)      
       createOrUpdateCard(post)
+=======
+      console.log('click post ',post)
+      // let no = Object.keys(posts).length
+      createOrUpdateCard(post)
+      inputText.current.value=""
+      inputText.current.focus()
+>>>>>>> 0a8ac3f62ddca4b13ab66186579116175d3ec836
     }
   }
 
   return (
     <div className={style.inputBox}>
-      <span className={style.formInput}><input onKeyPress={(e)=>{if(e.key === 'Enter'){send(); e.target.value=""}}} className="form-control" type="text" onChange={handleChange}/></span>
+      <span className={style.formInput}><input ref={inputText} onKeyPress={(e)=>{if(e.key === 'Enter'){send(); e.target.value=""}}} className="form-control" type="text" onChange={handleChange}/></span>
       <button onClick={send} className="btn btn-primary" post={post}>전송</button>
     </div>
   );

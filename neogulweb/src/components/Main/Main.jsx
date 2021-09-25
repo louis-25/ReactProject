@@ -43,7 +43,7 @@ function Main({ authService, postRepository }) {
   const createOrUpdateCard = post => {
     setPosts(posts => {
         const updated = { ...posts }
-        updated[post.id] = post
+        updated[post.no] = post
         return updated
     })
     postRepository.savePost(post)
@@ -52,6 +52,7 @@ function Main({ authService, postRepository }) {
   const deletePost = post => {
     setPosts(posts => {
         const updated = { ...posts }
+
         delete updated[post.id]
         return updated
     })

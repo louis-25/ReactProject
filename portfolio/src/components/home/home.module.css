@@ -1,43 +1,16 @@
-:root {
-  /* Color */
-  --color-white: #ffffff;
-  --color-light-white: #eeeeee;
-  --color-dark-white: #bdbdbd;
-  --color-pink: #fe918d;
-  --color-dark-pink: #ff6863;
-  --color-dark-grey: #4d4d4d;
-  --color-grey: #616161;
-  --color-light-grey: #7c7979;
-  --color-blue: #1c7ed6;
-  --color-blue-light: #89D4FC;
-  --color-yellow: #fff7d1;
-  --color-orange: #feb546;
-  --color-black: #000000;
-
-  /* Font size */
-  --font-large: 48px;
-  --font-medium: 28px;
-  --font-regular: 18px;
-  --font-small: 16px;
-  --font-micro: 14px;
-
-  /* Font weight */
-  --weight-bold: 700;
-  --weight-semi-bold: 600;
-  --weight-regular: 400;
-
-  /* Size */
-  --size-border-radius: 4px;
-
-  /* Animation */
-  --animation-duration: 300ms;
+.home {
+  background: url('/src/imgs/background2.jpg') center/cover no-repeat;
+  padding: 40px;  
+  padding-top: 120px;
+  text-align: center;    
+  height: 500px;
 }
 
-.home {
-  background: url('/src/imgs/background.jpg') center/cover no-repeat;
-  padding: 40px;
-  padding-top: 120px;
-  text-align: center;
+.particles {
+  position: absolute;
+  z-index: 3;
+  height:"100vh";
+  width:"100vw";
 }
 
 .avatar {
@@ -52,6 +25,10 @@
   color: var(--color-white)
 }
 
+.container {
+  position: relative;  
+}
+
 .contact {
   font-size: var(--font-regular);
   font-weight: var(--weight-bold);
@@ -60,11 +37,11 @@
   border: 2px solid var(--color-white);
   border-radius: var(--size-border-radius);
   color: var(--color-white);
-  transition: all var(--animation-duration) ease-in;
+  transition: all var(--animation-duration) ease-in;  
 }
 
 .contact:hover {
-  background-color: var(--color-blue);
+  background-color: var(--color-green);
   color: var(--color-black);
-  border: 2px solid var(--color-blue);
+  border: 2px solid var(--color-green);  
 }

@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+/* 공통부분 */
+
+* {
+  text-align: center;  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.background {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-pink: #fe918d;
+  --color-dark-pink: #ff6863;
+  --color-dark-grey: #2d2d2d;
+  --color-grey: #616161;
+  --color-light-grey: #7c7979;
+  --color-blue: #1c7ed6;
+  --color-blue-light: #89D4FC;
+  --color-green: #37b24d;
+  --color-teal2: #96f2d7;
+  --color-yellow: #fff7d1;
+  --color-orange: #feb546;
+  --color-black: #000000;    
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 28px;
+  --font-regular: 18px;
+  --font-small: 16px;
+  --font-micro: 14px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Size */
+  --size-border-radius: 4px;
+
+  /* Animation */
+  --animation-duration: 300ms;
 }
 
-.App-link {
-  color: #61dafb;
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;    
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  text-decoration: none; /*밑줄 제거*/
+  color: var(--color-white);
+}
+
+ul {    
+  padding-left: 0;
+}
+
+li {
+  list-style: none; /*땡땡이 없애기*/
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }

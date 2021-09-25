@@ -1,31 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './navbar.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAppleAlt, faBars } from "@fortawesome/free-solid-svg-icons";
+import classNames from 'classnames';
 
-function Navbar() {
+function Navbar({scrollY, setScrollY}) {       
+
+    const [toggle, setToggle] = useState(false)
+
+    function goScroll(top) {
+        window.scrollTo({
+            top: top,
+            behavior: "smooth"
+        })             
+    }    
+
+    const onToggle = () => {
+        setToggle(!toggle)
+        console.log(toggle)
+    }
+
     return (
         <>
-    <nav className={style.navbar}>
-        <div className={style.logo}>
-            {/* <i className="fas fa-at"></i> */}
-            <Icon></Icon>
+    <nav className={classNames(style.navbar, scrollY > 0 ? style.navbarDark : null)}>
+        <div className={style.logo}>            
+            <Icon className={style.icon}></Icon>
             <a href="/">Louis</a>
         </div>
-        <div className={style.menu}>
-            <ul className={style.menu}>
-                {/* data-link는 section id를 불러온다 */}
-                <li className={style.item}>Home</li>
-                <li className={style.item}>About</li>
-                <li className={style.item}>Skills</li>
-                <li className={style.item}>My work</li>
-                {/* <li class="navbar__menu__item" data-link='#testimonials'>Testimonial</li> */}
-                <li className={style.item}>Contact</li>
-            </ul>
+        <div className={style.menu}>            
+            <ul className={classNames(style.menu, toggle ? style.open : style.close)}>
+                {/* data-link는 section id를 불러온다 */}                
+                <li className={style.item} onClick={()=>goScroll(0)}>Home</li>
+                <li className={style.item} onClick={()=>goScroll(570)}>About</li>
+                <li className={style.item} onClick={()=>goScroll(1200)}>Skills</li>
+                <li className={style.item} onClick={()=>goScroll(2866)}>My work</li>                
+                <li className={style.item} onClick={()=>goScroll(100000)}>Contact</li>                
+            </ul>            
         </div>
-        {/* Toggle button - 햄버거 */}
-        {/* <button className={`${styles.navbar__toggle_btn}`}>
-            <i className="fas fa-bars"></i>
-        </button> */}
+        {/* Toggle button - 햄버거 */}        
+        <button className={`${style.toggle_btn}`} onClick={onToggle}>
+            <FontAwesomeIcon icon={faBars} />
+        </button>
     </nav>
     </>
 )
@@ -34,10 +49,9 @@ function Navbar() {
 function Icon() {
     return(
         <div>
-            <FontAwesomeIcon icon={["fab", "apple"]} />
+            <FontAwesomeIcon icon={faAppleAlt} />
         </div>
     )
-
 }
 
 export default Navbar;

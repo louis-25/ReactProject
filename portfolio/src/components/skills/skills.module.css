@@ -1,0 +1,108 @@
+.skill__main {
+  background-color: var(--color-dark-grey);
+  font-size: var(--font-regular);  
+  color: var(--color-light-white);
+}
+
+.section__container {
+  padding: 3em 0;  
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.skillset {
+  display: flex;
+  flex-direction: column;  
+  width: 500px;
+  background-color: var(--color-light-grey);  
+}
+
+.certificate {
+  padding-top: 30px;
+  display: flex;    
+  justify-content: center;  
+}
+
+.certificate__container {
+  margin: auto;
+  display: flex;    
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skillset__left {
+  /* flex-basis: 60%; */
+  background-color: var(--color-light-white);  
+  color: var(--color-dark-grey);  
+  padding: 20px 40px;
+  height: 60%;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.skillset__right {
+  /* flex-basis: 40%; */  
+  height: 40%;  
+  border-left: 2px solid black;
+}
+
+.skill {
+  margin-bottom: 32px;
+}
+
+.skill__value {    
+  height: 8px;
+  background-color: var(--color-green);
+}
+
+.skill__description {
+  display: flex;
+  justify-content: space-between;  
+}
+
+.skill__bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-grey);
+}
+
+.tools {
+  float:left;
+  width:49%;
+  height:100%;
+  border-right: 2px solid var(--color-dark-grey);
+}
+
+.platform {
+  float: right;
+  width: 49%;
+  height: 100%;
+}
+
+@media screen and (max-width:768px) { 
+  .certificate {    
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }  
+}
+
+@media screen and (max-width:1030px) { 
+  .certificate__container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .skillset__left {
+    border-top: 2px solid black;
+    border-left: 0;
+  }
+
+  .skillset__right {
+    border-left: 0;
+  }
+}

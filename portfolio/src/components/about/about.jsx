@@ -1,9 +1,14 @@
 import React from 'react';
 import style from './about.module.css'
 import mediconex from '../../imgs/jobs/mediconex.png'
+import fasoo from '../../imgs/jobs/fasoo.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faServer, faMobile } from "@fortawesome/free-solid-svg-icons";
+import { faHtml5 } from '@fortawesome/free-brands-svg-icons';
+
 const About = (props) => {
     return (
-      <section id="about" className={`${style.section} ${style.container}`}>
+        <section className={`${style.section} ${style.container} ${style.about}`}>
             <h1>About me</h1>
             <p>
                 안녕하세요~! 즐겁게 일하고싶은 개발자 정동현입니다.<br />
@@ -13,21 +18,21 @@ const About = (props) => {
             <div className={style.majors}>
                 <div className={style.major}>
                     <div className={style.major__icon}>
-                        <i class="fab fa-html5"></i>
+                        <div className={style.icon}><FontAwesomeIcon icon={faHtml5}/></div>
                     </div>
                     <h2 className={style.major__title}>Front-end</h2>
                     <div className={style.major__description}>React, Vue, TypeScript</div>
                 </div>
                 <div className={style.major}>
                     <div className={style.major__icon}>
-                        <i class="fas fa-server"></i>
+                        <div className={style.icon}><FontAwesomeIcon icon={faServer}/></div>
                     </div>
                     <h2 className={style.major__title}>back-end</h2>
                     <div className={style.major__description}>Django, Spring Boot</div>
                 </div>
                 <div className={style.major}>
                     <div className={style.major__icon}>
-                        <i class="fas fa-mobile"></i>
+                        <div className={style.icon}><FontAwesomeIcon icon={faMobile}/></div>
                     </div>
                     <h2 className={style.major__title}>Mobile</h2>
                     <div className={style.major__description}>Android</div>
@@ -51,9 +56,26 @@ const About = (props) => {
                         <p className={style.job__period}>2019/12 ~ 2020/02</p>
                     </div>
                 </a>
+                <a
+                    href="https://www.fasoo.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={style.job}
+                >
+                    <img
+                        src={fasoo}
+                        alt="mediconex"
+                        className="job__logo"
+                        width="130px"                        
+                    />
+                    <div className={style.job__description}>
+                        <p className={style.job__name}>Fasoo 랩소디개발팀</p>
+                        <p className={style.job__period}>2021/07 ~ 재직중</p>
+                    </div>
+                </a>
             </div>
         </section>
     )
-  }
+}
 
 export default About;
