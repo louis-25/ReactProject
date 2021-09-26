@@ -28,3 +28,14 @@
   transform: scale(1.1);
   color: var(--color-green);    
 }
+
+@media screen and (max-width:768px) { 
+  .contact__title{
+    font-size: var(--font-medium);    
+  }
+
+  .contact__email,
+  .contact__rights {
+    font-size: var(--font-regular);    
+  }
+}

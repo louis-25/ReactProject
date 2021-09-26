@@ -22,7 +22,7 @@ function Navbar({scrollY, setScrollY}) {
 
     return (
         <>
-    <nav className={classNames(style.navbar, scrollY > 0 ? style.navbarDark : null)}>
+    <nav className={classNames(style.navbar, scrollY > 0 ? style.navbarDark : toggle ? style.navbarDark : null)}>
         <div className={style.logo}>            
             <Icon className={style.icon}></Icon>
             <a href="/">Louis</a>

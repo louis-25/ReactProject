@@ -112,14 +112,19 @@
   .menu .open{
     display: flex;
     flex-direction: column;
-    margin: 20px auto 0;
+    margin: 20px auto 0;    
+  }
+    
+  .open .navbar{
+    background-color: var(--color-dark-grey);
   }
   
   .navbar .close {
-    height: 0px;
+    height: 0px;    
   }
       
   .navbar .open {
-    height: 220px;
+    height: 220px;    
   }
+    
 }

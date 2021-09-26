@@ -87,7 +87,12 @@ h1 {
     display: flex;
     flex-direction: column;
     margin: auto;
-  }  
+  }    
+
+  .certificate__container img,
+  .skillset {
+    width: 300px;
+  }
 }
 
 @media screen and (max-width:1030px) { 
@@ -105,4 +110,9 @@ h1 {
   .skillset__right {
     border-left: 0;
   }
+
+  /* .certificate__container img,
+  .skillset {
+    width: 400px;
+  }   */
 }

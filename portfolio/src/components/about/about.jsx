@@ -48,7 +48,7 @@ const About = (props) => {
                     <img
                         src={mediconex}
                         alt="mediconex"
-                        className="job__logo"
+                        className={style.job__logo}
                         width="150px"
                     />
                     <div className={style.job__description}>
@@ -65,7 +65,7 @@ const About = (props) => {
                     <img
                         src={fasoo}
                         alt="mediconex"
-                        className="job__logo"
+                        className={style.job__logo}
                         width="130px"                        
                     />
                     <div className={style.job__description}>

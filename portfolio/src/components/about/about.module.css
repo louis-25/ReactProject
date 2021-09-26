@@ -13,8 +13,8 @@
 
 .majors {
   display: flex;
-  justify-content: space-between;
-  margin: 4em 10em;  
+  justify-content: space-around;
+  margin: 4em auto;  
 }
 
 .major__icon {
@@ -101,8 +101,13 @@
   .major {
     margin: 2em 0
   }
-}
 
-@media screen and (max-width:1030px) { 
+  .job {
+    display: flex;
+    flex-direction: column;
+  }
 
+  .job__logo {
+    margin-bottom: 8px;
+  }
 }
