@@ -4,7 +4,7 @@ import 정보처리기사 from '../../imgs/jobs/정보처리기사.jpg'
 
 const Skills = (props) => {
     return (
-        <section className={`${style.skill__main} ${style.section}`}>
+        <section className={style.skill__main}>
             <div className={style.section__container}>
                 <h1>Skills</h1>
                 <h2>Skills {"&"} Attributes</h2>

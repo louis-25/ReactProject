@@ -8,10 +8,12 @@ import Contact from './components/contact/contact'
 import { throttle } from 'lodash';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-
 function App() {
   const [scrollY, setScrollY] = useState() //스크롤 변수
   const home = useRef();
+  const about = useRef();
+  const skill = useRef();
+  const work = useRef();  
 
   const throttledScroll = useMemo(() =>
       throttle(() => {
@@ -29,14 +31,37 @@ function App() {
     };
   }, []);
 
+  const scrollToAbout = () => {
+    goScroll(about.current.offsetTop);
+  }
+
+  const scrollToSkills = () => {
+    goScroll(skill.current.offsetTop);
+  }
+
+  const scrollToWork = () => {
+    goScroll(work.current.offsetTop);
+  }
+  
+  function goScroll(top) {
+    window.scrollTo({
+        top: top-70,
+        behavior: "smooth"
+    })             
+}    
+
   return (
     <>
-      <Navbar scrollY={scrollY} setScrollY={setScrollY}/>
-      <Home setScrollY={setScrollY} ref={home}/>
-      <About/>
-      <Skills/>
-      <Work/>
-      <Contact/>
+      <Navbar
+        about={scrollToAbout}
+        skill={scrollToSkills}
+        work={scrollToWork}
+        scrollY={scrollY} setScrollY={setScrollY}/>
+      <div><Home setScrollY={setScrollY} ref={home}/></div>
+      <div ref={about}><About/></div>
+      <div ref={skill}><Skills/></div>
+      <div ref={work}><Work/></div>
+      <div><Contact/></div>
     </>
   );
 }

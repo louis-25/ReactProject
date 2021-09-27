@@ -2,7 +2,7 @@
 .section {
   text-align: center;
   font-size: var(--font-regular);
-  margin: 2em;
+  padding: 2em;
 }
 
 .about__majors {

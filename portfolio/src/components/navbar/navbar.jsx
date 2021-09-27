@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleAlt, faBars } from "@fortawesome/free-solid-svg-icons";
 import classNames from 'classnames';
 
-function Navbar({scrollY, setScrollY}) {       
+function Navbar({about, skill, work, scrollY, setScrollY}) {       
 
     const [toggle, setToggle] = useState(false)
 
@@ -31,9 +31,9 @@ function Navbar({scrollY, setScrollY}) {
             <ul className={classNames(style.menu, toggle ? style.open : style.close)}>
                 {/* data-link는 section id를 불러온다 */}                
                 <li className={style.item} onClick={()=>goScroll(0)}>Home</li>
-                <li className={style.item} onClick={()=>goScroll(570)}>About</li>
-                <li className={style.item} onClick={()=>goScroll(1200)}>Skills</li>
-                <li className={style.item} onClick={()=>goScroll(2866)}>My work</li>                
+                <li className={style.item} onClick={about}>About</li>
+                <li className={style.item} onClick={skill}>Skills</li>
+                <li className={style.item} onClick={work}>My work</li>                
                 <li className={style.item} onClick={()=>goScroll(100000)}>Contact</li>                
             </ul>            
         </div>
