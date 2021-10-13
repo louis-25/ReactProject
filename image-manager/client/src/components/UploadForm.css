@@ -28,3 +28,18 @@
   width: 100%;
   padding: 10px;
 }
+
+.image-preview {
+  width: 0%;
+  opacity: 0;
+  display: block;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+  border: 7px solid grey;
+}
+
+.image-preview-show {
+  width: 75%;
+  opacity: 1;
+  transition: 0.3s;
+}
