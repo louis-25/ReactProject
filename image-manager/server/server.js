@@ -1,7 +1,11 @@
-const express =require('express');
+const express = require('express');
 const multer = require('multer');
 const { v4: uuid } = require('uuid');
 const mime = require('mime-types'); //확장자명 붙이는 용도 ~.jpeg
+const cors = require("cors");
+const mongoose = require("mongoose");
+require("dotenv").config();
+
 console.log('uuid: ', uuid());
 
 const storage = multer.diskStorage({
@@ -12,11 +16,12 @@ const storage = multer.diskStorage({
 let imageType = ["image/png", "image/jpeg"]
 const upload = multer({
   storage,
-  fileFilter: (req, file, cb)=>{
-    if(imageType.includes(file.mimetype)) cb(null,true)
+  fileFilter: (req, file, cb) => {
+    console.log('file ', file)
+    if (imageType.includes(file.mimetype)) cb(null, true)
     else cb(new Error('파일 타입이 맞지않습니다'), false)
   },
-  limits:{
+  limits: {
     fileSize: 1024 * 1024 * 5 // 최대 파일크기 5MB
   }
 })
@@ -24,11 +29,23 @@ const upload = multer({
 const app = express();
 const PORT = 5000;
 
-app.use("/uploads", express.static("uploads")) // 외부에서 uploads폴더에 접근가능
+mongoose
+  .connect(process.env.MONGO_URI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+  .then(() => {
+    console.log("MongoDB Connected.")
+    app.use(cors())
+    app.use("/uploads", express.static("uploads")) // 외부에서 uploads폴더에 접근가능
 
-app.post('/upload', upload.single("imageTest"), (req, res) => {
-  console.log(req.file)
-  res.json(req.file)
-})
+    app.post('/upload', upload.single("image"), (req, res) => {
+      console.log(req.file)
+      res.json(req.file)
+    })
 
-app.listen(PORT, () => console.log(PORT+"번 포트 listen 중~"))
+    app.listen(PORT, () => console.log(PORT + "번 포트 listen 중~"))
+  })
+  .catch((e) => { console.log(e) })
+
