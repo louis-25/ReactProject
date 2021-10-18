@@ -32,7 +32,7 @@ function UploadForm(props) {
         }
       })
       toast.success("success!!");
-      setTimeout(()=>{ // 3초 후 초기화 
+      setTimeout(()=>{ // 3초 후 초기화
         setPercent(0);
         setFileName(defaultFileName)
       }, 3000)      
