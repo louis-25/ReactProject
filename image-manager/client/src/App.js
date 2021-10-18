@@ -6,11 +6,11 @@ import ImageList from './components/ImageList';
 
 function App(props) {
   return (
-    <div style={{maxWidth: 600, margin:"auto"}}>
-      <ToastContainer/>
-        <h2>사진첩</h2>
-        <UploadForm />    
-        <ImageList/>
+    <div style={{ maxWidth: 600, margin: "auto" }}>
+      <ToastContainer />
+      <h2>사진첩</h2>
+      <UploadForm />
+      <ImageList />
     </div>
   );
 }

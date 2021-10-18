@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import "./UploadForm.css"
 import { toast } from "react-toastify"
 import ProgressBar from './ProgressBar';
+import {ImageContext} from "../context/ImageContext"
 
 function UploadForm(props) {
+  const [images, setImages] = useContext(ImageContext)
   const defaultFileName = '이미지 파일을 업로드 해주세요.'
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState(defaultFileName);
@@ -24,13 +26,14 @@ function UploadForm(props) {
     e.preventDefault(); // 새로고침 방지
     const formData = new FormData() // key-value
     formData.append("image", file)
-    try {      
+    try {
       const res = await axios.post("http://localhost:5000/upload", formData, {
         headers: {"Content-Type":"multipart/form-data"},
         onUploadProgress: (e) => {
           setPercent(Math.round((100 * e.loaded) / e.total));
         }
       })
+      setImages([...images, res.data]) // 이미지 바로 보이게하기
       toast.success("success!!");
       setTimeout(()=>{ // 3초 후 초기화
         setPercent(0);

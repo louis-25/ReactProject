@@ -42,12 +42,14 @@ mongoose
     app.use("/uploads", express.static("uploads")) // 외부에서 uploads폴더에 접근가능
 
     app.post('/upload', upload.single("image"), async (req, res) => {
-      await new Image({ key: req.file.filename, originalFileName: req.file.originalname}).save()
-      console.log(req.file)
-      res.json(req.file)
+      const image = await new Image({
+        key: req.file.filename,
+        originalFileName: req.file.originalname
+      }).save()      
+      res.json(image)
     })
 
-    app.get("/images", async(req, res) => {
+    app.get("/images", async (req, res) => {
       const images = await Image.find();
       res.json(images);
     });
@@ -55,4 +57,3 @@ mongoose
     app.listen(PORT, () => console.log(PORT + "번 포트 listen 중~"))
   })
   .catch((e) => { console.log(e) })
-
