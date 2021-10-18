@@ -3,7 +3,7 @@ const imageRouter = Router()
 const Image = require("../models/image");
 const { upload } = require("../middleware/imageUpload")
 
-imageRouter.post('/upload', upload.single("image"), async (req, res) => {
+imageRouter.post('/', upload.single("image"), async (req, res) => {
   const image = await new Image({
     key: req.file.filename,
     originalFileName: req.file.originalname
@@ -11,7 +11,7 @@ imageRouter.post('/upload', upload.single("image"), async (req, res) => {
   res.json(image)
 })
 
-imageRouter.get("/images", async (req, res) => {
+imageRouter.get("/", async (req, res) => {
   const images = await Image.find();
   res.json(images);
 });
