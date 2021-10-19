@@ -2,6 +2,7 @@ const { Router } = require("express")
 const userRouter = Router()
 const User = require("../models/User")
 const { hash, compare } = require("bcryptjs")
+const mongoose = require("mongoose")
 
 userRouter.post("/register", async (req, res) => {
   // console.log(req.body)
@@ -28,12 +29,13 @@ userRouter.post("/register", async (req, res) => {
   }
 })
 
-userRouter.post("/login", async (req, res) => {
+userRouter.patch("/login", async (req, res) => { //post로 요청해도 문제없지만 생성하는게 아니기때문에 patch가 더 올바른표현
   try {
     const user = await User.findOne({ username: req.body.username }) // username과 일치하는 정보 DB에서 찾아오기
     console.log("user ", user)
     const isValid = await compare(req.body.password, user.hashedPassword) // 사용자가 입력한 정보와 DB값이 일치하는지 비교
     if (!isValid) throw new Error("입력하신 정보가 올바르지 않습니다")
+    
     user.sessions.push({ createdAt: new Date() })
     const session = user.sessions[user.sessions.length - 1]
     await user.save(); // 로그인 시 세션저장
@@ -44,6 +46,32 @@ userRouter.post("/login", async (req, res) => {
     })
   } catch (e) {
     res.status(400).json({ message: e.message })
+  }
+})
+
+userRouter.patch("/logout", async(req, res)=>{
+  try{
+    console.log('req ',req.headers)
+    if (!req.user) throw new Error("invalid sessionid")    
+
+    await User.updateOne(
+      { _id: user.id }, // 유저를 찾는다
+      { $pull: { sessions: { _id: req.headers.sessionid } } } //$pull : 조건에 맞는 객체를 제거시켜준다
+    );
+
+    // for (let i in user.sessions) {
+    //   // console.log('session ', )
+    //   if (user.sessions[i]._id == sessionid) {
+    //     delete user.sessions[i]
+    //   }
+    // }
+    // console.log('delete ',user)
+    // await user.save();
+    
+    res.json({ message: "user is logged out." })    
+    // console.log(req.headers)    
+  }catch(e){
+    res.status(400).json({message:e.message})
   }
 })
 

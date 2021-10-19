@@ -7,6 +7,7 @@ const { userRouter } = require("./routes/userRouter")
 
 const app = express();
 const { MONGO_URI, PORT } = process.env
+const {authenticate} = require("./middleware/authentication")
 
 mongoose
   .connect(MONGO_URI,
@@ -19,6 +20,7 @@ mongoose
     app.use(cors())
     app.use(express.json()) // json데이터 받을 수 있음
     app.use("/uploads", express.static("uploads")) // 외부에서 uploads폴더에 접근가능
+    app.use(authenticate)
     app.use("/images", imageRouter) // imageRouter 연결
     app.use("/users", userRouter)
     app.listen(PORT, () => console.log(PORT + "번 포트 listen 중~"))
