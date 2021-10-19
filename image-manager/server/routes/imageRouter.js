@@ -7,7 +7,7 @@ imageRouter.post('/', upload.single("image"), async (req, res) => {
   const image = await new Image({
     key: req.file.filename,
     originalFileName: req.file.originalname
-  }).save()      
+  }).save()
   res.json(image)
 })
 
