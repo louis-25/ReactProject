@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;  
+  padding: 0 50px;
+  max-width: 1200px;
+  height: 80px;
+  box-sizing: border-box;    
+  margin: auto;
+  z-index: 9999;  
+  font-size: 16px;    
+  position: sticky;  
+  top: 0;
+  background-color: transparent;
+}
+
+.logo {
+  align-items: center;
+}
+.logo img {
+  margin-top: 10px;
+}
+.header nav {
+  width: 830px;
+  text-align: right;  
+}
+.nav-menu {
+  list-style: none;
+  display: flex;  
+  justify-content: end;
+  
+}
+.nav-menu li {
+  margin-right: 40px;  
+  
+}
+.nav-menu li a {
+  color: #252D38;  
+}
+
+.loginBtn {
+  color: #3182F6;  
+  word-break: nowrap;    
+}
