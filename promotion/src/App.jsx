@@ -1,9 +1,9 @@
 import './App.css';
-import Header from './components/Header/Header'
-import Visual from './components/Visual/Visual'
-import Feature from './components/Feature/Feature';
-import About from './components/About/About';
-import Footer from './components/Footer/Footer';
+import Header from './components/Header'
+import Visual from './components/Visual'
+import Feature from './components/Feature';
+import About from './components/About';
+import Footer from './components/Footer';
 
 function App() {
   return (
