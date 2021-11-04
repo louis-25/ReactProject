@@ -4,7 +4,8 @@ import Contents from '../images/contents.png'
 function Visual(props) {
   return (
     <section className="visual">
-      <div className="visual-contents-box">
+      <div className="inner">
+        <div className="visual-contents-box">
         <div className="visual-contents-left">
           <h1 className="visual-main-title">안전한 콘텐츠 공유<br/>업무 메신저</h1>
           <p className="visual-text-contents">
@@ -18,6 +19,7 @@ function Visual(props) {
           <div className="img-box">
             <img src={Contents}/>          
           </div>
+        </div>
         </div>
       </div>
     </section>

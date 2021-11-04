@@ -5,6 +5,7 @@ import Balloon from '../images/textballoon.png'
 
 function Feature(props) {
   return (
+    <div className="inner">
     <div className="feature">      
       <div className="feature-title-box">
         <div className="feature-sub-title">주요기능</div>
@@ -42,6 +43,7 @@ function Feature(props) {
         </div>
       </div>
       
+    </div>
     </div>
   );
 }
