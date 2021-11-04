@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Contents from '../images/contents.png'
+import {ScrollContext} from '../context/ScrollContext'
 
-function Visual(props) {
+function Visual({promotionRef}) {
+  const [scroll, setScroll] = useContext(ScrollContext)
+
+  const goToPromotion = (e) => {    
+    e.preventDefault()
+    promotionRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest'
+    })    
+  }
   return (
     <section className="visual">
       <div className="inner">
@@ -13,7 +24,7 @@ function Visual(props) {
             하면서 효율적인 협업 환경을 만들 수 있는 사내 메신저<br/>
             가 반드시 필요합니다
           </p>
-          <input className="visual-submitBtn" type="button" value="체험 신청"></input>
+          <input className="visual-btn" onClick={goToPromotion} type="button" value="체험 신청"></input>
         </div>
         <div className="visual-contents-right">
           <div className="img-box">
