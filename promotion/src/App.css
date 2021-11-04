@@ -1,6 +1,7 @@
 .App {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   width: 100vw;
   height: 100vh;  
 }
@@ -9,7 +10,7 @@
 .inner {
   margin: 0 auto;
   padding: 0 50px;
-  width: 1200px;  
+  max-width: 1200px;  
   box-sizing: border-box
 }
 input::placeholder{
@@ -19,7 +20,7 @@ input::placeholder{
 
 /* Header */
 .header {
-  display: flex;
+  display: flex;  
   width: 1200px;
   justify-content: space-between;
   align-items: center;  
@@ -60,6 +61,7 @@ input::placeholder{
 .visual {
   width: 100%;
   height: 800px;
+  margin: auto;
   background-color: #E8F3FF;
   position: relative;  
   top: 0;
@@ -165,7 +167,8 @@ input::placeholder{
 /* Promotion */
 .promotion {
   width: 100%;
-  height: 1150px;
+  height: 1250px;
+  margin: auto;
   text-align: center;
   background-color: #FAFBFE;
 }
@@ -213,7 +216,7 @@ input::placeholder{
 .promotion-form {
   margin: auto;
   width: 840px;
-  height: 746px;
+  height: 840px;
   padding: 60px 50px 60px 50px;
   background-color: #fff;
   border-radius: 15px;
@@ -240,6 +243,9 @@ input::placeholder{
   margin-bottom: 8px;
   font-size: 14px;
   color: #717985;
+}
+.pf-label span {
+  color: #3182F6;
 }
 .pf-input-middle {
   width: 355px;
@@ -268,7 +274,7 @@ input::placeholder{
   margin-right:8px;
 }
 .pf-submit {
-  margin-top: 76px;
+  margin-top: 59px;
   width: 283px;
   height: 52px;
   color: #fff;
@@ -279,5 +285,88 @@ input::placeholder{
   border-radius: 10px;
 }
 /* About */
+.about {
+  margin: auto;
+  margin-top: 60px;
+  width: 100%;
+  height: 508px;
+  background-image: url('./images/bg_beans.png');
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+}
+.about-title {
+  font-size: 34px;
+  font-weight: bold;
+  line-height: 160%;
+  color: #262C3C;  
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+.about-text {
+  font-size: 18px;
+  color: #5A5C61;  
+  line-height: 160%;
+  margin-bottom: 32px;
+}
+.about-btn {  
+  width: 140px;
+  height: 52px;
+  font-weight: 400;
+  background-color: #fff;
+  color: #3182F6;
+  border: 1px solid #3182F6;
+  font-size: 18px;
+  line-height: 100%;
+  border-radius: 8px;  
+  cursor: pointer;
+  transition: all .2s ease-in;
+  margin-bottom: 72px;
+}
+.about-btn:hover {  
+  color: #fff;
+  background-color: #3182F6;
+}
 
 /* Footer */
+.footer {
+  width: 100%;
+  height: 248px;
+  background-color: #fff;
+  font-size: 14px;
+}
+.footer-menu {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 70px;
+  margin-bottom: 48px;
+}
+.footer-menu-left {
+
+}
+.footer-menu-left ul li{
+  display: inline-block;
+  margin-right: 30px;  
+}
+.footer-menu-left ul li:nth-child(1){
+  color: #797B82;
+}
+.footer-menu-left ul li:nth-child(2) a{
+  color: #5A5C61;
+}
+.footer-menu-left ul li:nth-child(3) a{
+  color: #5A5C61;
+}
+.footer-menu-right {
+
+}
+.footer-menu-right ul li {
+  display: inline-block;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.footer-text {  
+  color: #797B82;
+  line-height: 175%;
+}
