@@ -13,15 +13,8 @@
   max-width: 1200px;  
   box-sizing: border-box
 }
-input {
-  text-indent: 12px;
-}
 select {
   text-indent: 8px;  
-}
-input::placeholder{
-  color: #717985;
-  text-indent: 12px;
 }
 
 /* Header */
@@ -252,6 +245,9 @@ input::placeholder{
   border: 1px solid black;
   box-sizing: border-box;
 }
+.promotion-form input {
+  text-indent: 12px;
+}
 .pf-row {
   display: flex;  
   justify-content: space-between;
@@ -314,6 +310,10 @@ select .pf-input-box {
 .pf-check input {
   margin-top: 5px;
   margin-right:8px;
+}
+.pf-check input::placeholder{
+  color: #717985;
+  text-indent: 12px;
 }
 .pf-submit {
   margin-top: 59px;
