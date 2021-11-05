@@ -13,6 +13,12 @@
   max-width: 1200px;  
   box-sizing: border-box
 }
+input {
+  text-indent: 12px;
+}
+select {
+  text-indent: 8px;  
+}
 input::placeholder{
   color: #717985;
   text-indent: 12px;
@@ -20,22 +26,30 @@ input::placeholder{
 
 /* Header */
 .header {
-  display: flex;  
+  display: flex;
   width: 1200px;
-  justify-content: space-between;  
-  align-items: center;  
+  justify-content: space-between;
+  align-items: center;
   height: 80px;
-  box-sizing: border-box;  
-  z-index: 9999;    
-  font-size: 16px;    
-  position: fixed;  
+  box-sizing: border-box;
+  z-index: 9999;
+  font-size: 16px;
+  position: fixed;
   top: 0;
-  background-color: transparent; 
-  transition: all ease-in .2s; 
+  background-color: transparent;
+  transition: all ease-in .2s;
   box-sizing: border-box;
 }
-.header-active {  
-  /* background-color: #fff;   */
+.header-cover {
+  position: fixed;
+  width: 100vw;
+  height: 80px;
+  z-index: 9998;
+  top: 0;
+  transition: all ease-in .2s;
+}
+.header-active {
+  background-color: #fff;
 }
 .logo img {
   margin-top: 10px;
@@ -230,7 +244,7 @@ input::placeholder{
 .promotion-form {
   margin: auto;
   width: 840px;
-  height: 840px;
+  /* height: 840px; */
   padding: 60px 50px 60px 50px;
   background-color: #fff;
   border-radius: 15px;
@@ -261,6 +275,9 @@ input::placeholder{
 .pf-label span {
   color: #3182F6;
 }
+select .pf-input-box {
+  border-radius: 10px;
+}
 .pf-input-middle {
   width: 355px;
   height: 40px;
@@ -277,11 +294,21 @@ input::placeholder{
 }
 .pf-valid {
   margin-top: 8px;
-  visibility: hidden;
+  visibility: hidden;  
 }
-.pf-check {
+.pf-error-input {
+  border: 1px solid #EF5350;
+}
+.pf-error {
+  margin-top: 8px;
+  color: #EF5350;
+  visibility: visible;
+}
+.pf-check{
+  text-align: left;
+}
+.pf-check-line {
   display: flex;
-  
 }
 .pf-check input {
   margin-top: 5px;

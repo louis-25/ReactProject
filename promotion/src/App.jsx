@@ -14,22 +14,22 @@ function App() {
   const featureRef = useRef()
   const promotionRef = useRef()
   const aboutRef = useRef()
+  
+  // const throttledScroll = useMemo(() =>
+  //     throttle(async() => {
+  //       console.log('스크롤 이벤트');
+  //       console.log('y ',window.scrollY);
+  //       await setScroll(window.scrollY)
+  //     },300),
+  // );
 
-  const throttledScroll = useMemo(() =>
-      throttle(() => {
-        console.log('스크롤 이벤트');
-        console.log('y ',window.scrollY);
-        setScroll(window.scrollY)
-      }, 300),
-  );
-
-  useEffect(() => { //스크롤 이벤트 발생
-    window.addEventListener('scroll', throttledScroll);
-    console.log('scroll ',scroll)
-    return () => {
-      window.removeEventListener('scroll', throttledScroll);
-    };
-  }, []);
+  // useEffect(() => { //스크롤 이벤트 발생
+  //   window.addEventListener('scroll', throttledScroll);
+  //   console.log('scroll ',scroll)
+  //   return () => {
+  //     window.removeEventListener('scroll', throttledScroll);
+  //   };
+  // }, []);
 
   return (
     <div className="App">

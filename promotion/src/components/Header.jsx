@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useMemo, useRef } from 'react';
 import Logo from '../images/logo.png'
 import {ScrollContext} from '../context/ScrollContext'
 import classNames from 'classnames'
@@ -6,31 +6,40 @@ import classNames from 'classnames'
 function Header({featureRef, promotionRef, aboutRef}) {
   const [scroll, setScroll] = useContext(ScrollContext)
   const topRef = useRef()
-  const goToFeature = (e) => {    
+  const goToFeature = (e) => {            
     e.preventDefault()
+    // window.scrollTo({
+    //   top: featureRef.current.getBoundingClientRect().y + window.pageYOffset,      
+    //   behavior: "smooth"
+    // })   
     featureRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
       inline: 'nearest'
-    })    
+    })
   }
-  const goToPromotion = (e) => {    
+  const goToPromotion = (e) => {
     e.preventDefault()
+    // console.log(promotionRef.current.getBoundingClientRect())
+    // window.scrollTo({
+    //   top: promotionRef.current.getBoundingClientRect().y + window.pageYOffset,      
+    //   behavior: "smooth"
+    // })   
     promotionRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
       inline: 'nearest'
-    })    
+    })
   }
-  const goToTop = (e) => {    
-    e.preventDefault()
+  const goToTop = async(e) => {        
     window.scrollTo({
       top: 0,      
       behavior: "smooth"
-    })   
-  }
+    })    
+  }  
 
   return (        
+    <>
     <div className="inner">
       <header ref={topRef} className='header'>
         <div ><a className="logo"><img src={Logo} onClick={goToTop}/></a></div>
@@ -54,8 +63,10 @@ function Header({featureRef, promotionRef, aboutRef}) {
             </li>
           </ul>
         </div>
-      </header>
-    </div>    
+      </header>      
+    </div>
+    <div className={classNames('header-cover',  scroll>0 && 'header-active')}></div>
+    </>
   );
 }
 
