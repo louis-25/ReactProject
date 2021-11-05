@@ -1,6 +1,6 @@
 import React, { useContext, useMemo, useRef } from 'react';
 import Logo from '../images/logo.png'
-import {ScrollContext} from '../context/ScrollContext'
+import { ScrollContext } from '../context/ScrollContext'
 import classNames from 'classnames'
 
 function Header({featureRef, promotionRef, aboutRef}) {
@@ -65,7 +65,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
         </div>
       </header>      
     </div>
-    <div className={classNames('header-cover',  scroll>0 && 'header-active')}></div>
+    <div className={classNames('header-cover',  scroll>0 && 'header-active')}></div>    
     </>
   );
 }

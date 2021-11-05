@@ -27,7 +27,7 @@ input::placeholder{
 /* Header */
 .header {
   display: flex;
-  width: 1200px;
+  width: 1100px;
   justify-content: space-between;
   align-items: center;
   height: 80px;
@@ -50,6 +50,7 @@ input::placeholder{
 }
 .header-active {
   background-color: #fff;
+  border-bottom: 1px solid #252D38;
 }
 .logo img {
   margin-top: 10px;
@@ -111,7 +112,7 @@ input::placeholder{
 }
 .visual-btn {
   width: 140px;
-  height: 52px;
+  height: 52px;  
   background-color: #3182F6;
   border: 0;    
   border-radius: 10px;
