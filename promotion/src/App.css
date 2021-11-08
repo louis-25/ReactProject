@@ -18,9 +18,14 @@ select {
 }
 
 /* Header */
+.header-box {  
+  display: flex;
+  justify-content: center;
+}
 .header {
   display: flex;
-  width: 1100px;
+  width: 100%;
+  /* width: 1100px; */
   justify-content: space-between;
   align-items: center;
   height: 80px;
@@ -65,6 +70,9 @@ select {
 }
 .nav-menu li a {
   color: #252D38;    
+}
+.berger {
+  display: none;
 }
 
 .loginBtn {
@@ -411,4 +419,13 @@ select .pf-input-box {
 .footer-text {  
   color: #797B82;
   line-height: 175%;
+}
+
+@media screen and (max-width:768px) {  
+  .nav-menu {
+    display: none;
+  }
+  .berger {
+    display: block;
+  }
 }

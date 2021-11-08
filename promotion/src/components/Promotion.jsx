@@ -6,23 +6,15 @@ function Promotion(props) {
 
   const {register, handleSubmit, formState: { errors }} = useForm();  
   const [error, setError] = useState(true)
-  // const onSubmit = (e) => {
-  //   console.log(
-  //     "userName: ",userName.current.value,
-  //     "phoneNumber: ",phoneNumber.current.value,
-  //     "companyScale: ",companyScale.current.value,
-  //     "check: ",check.current.value
-  //   )
-  //   if(userName.current.value.length < 3) {
-  //     alert('이름은 3자 이상!')
-  //     setError(true)      
-  //   }
-    
-  // };
+  
   const onSubmit = (data, e) => {
     console.log(data)
     e.target.reset(); // reset after form submit
   };
+
+  const handleChange = (data, e) => {
+    console.log(data)
+  }
 
   // console.log(errors);
   const userName = useRef()
@@ -107,14 +99,11 @@ function Promotion(props) {
           </div>
           <div className="pf-check">
             <div className="pf-check-line">
-              <input {...register("check", { required: true })} type="checkbox" ></input>
+              <input onChange={handleChange} {...register("check", { required: true , pattern: /[A-Za-z]{3}/})} type="checkbox" ></input>
               <p><b>이용 약관</b> 및 <b>개인정보처리방침</b>에 동의합니다.</p><br/>
             </div>
             <p className={classNames(errors.check ? "pf-error" : "pf-valid")}>체크박스를 선택해주세요.</p>
           </div>
-          
-          
-          
 
           <input className="pf-submit" type="submit" value="메일로 프로모션 코드 받기"/>
         </form>

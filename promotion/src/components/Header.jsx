@@ -1,5 +1,6 @@
 import React, { useContext, useMemo, useRef } from 'react';
 import Logo from '../images/logo.png'
+import Berger from '../images/berger.png'
 import { ScrollContext } from '../context/ScrollContext'
 import classNames from 'classnames'
 
@@ -40,8 +41,8 @@ function Header({featureRef, promotionRef, aboutRef}) {
 
   return (        
     <>
-    <div className="inner">
-      <header ref={topRef} className='header'>
+    <div className="header-box">
+      <header ref={topRef} className={`header inner`}>
         <div ><a className="logo"><img src={Logo} onClick={goToTop}/></a></div>
         <nav>
           <ul className="nav-menu">
@@ -53,18 +54,17 @@ function Header({featureRef, promotionRef, aboutRef}) {
             </li>
             <li>
               <a href="https://www.fasoo.com/about-us" target="_blank">회사소개</a>
-            </li>
+            </li>           
+            <div>          
+          <a className="loginBtn" href="https://portal.wrapsody.com/login" target="_blank">로그인</a>
+        </div> 
           </ul>
+          <div className="berger">
+            <img src={Berger}/>
+          </div>
         </nav>
-        <div>
-          <ul>
-            <li>
-              <a className="loginBtn" href="https://portal.wrapsody.com/login" target="_blank">로그인</a>
-            </li>
-          </ul>
-        </div>
       </header>      
-    </div>
+      </div>
     <div className={classNames('header-cover',  scroll>0 && 'header-active')}></div>    
     </>
   );
