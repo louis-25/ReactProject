@@ -5,27 +5,35 @@ import classNames from 'classnames';
 function Promotion(props) {
 
   const {register, handleSubmit, formState: { errors }} = useForm();  
-  const [error, setError] = useState(true)
-  
+  const [error, setError] = useState(true)  
+  const [check, setCheck] = useState()
+  const checkRef = useRef()
+  const pfSubmit = useRef()
   const onSubmit = (data, e) => {
-    console.log(data)
+    console.log('data ',data)
     e.target.reset(); // reset after form submit
   };
 
   const handleChange = (data, e) => {
-    console.log(data)
+    console.log(data)    
   }
 
+  // const check = register('check', {required: true})
+  const isCheck = () => {
+    console.log('checked ',checkRef.current.checked)    
+    setCheck(checkRef.current.checked)
+    pfSubmit.current.disabled=check
+  }
   // console.log(errors);
-  const userName = useRef()
-  const phoneNumber = useRef()
-  const companyName = useRef()
-  const companyScale = useRef()
-  const reason = useRef()
-  const email = useRef()
-  const password = useRef()
-  const password2 = useRef()
-  const check = useRef()
+  // const userName = useRef()
+  // const phoneNumber = useRef()
+  // const companyName = useRef()
+  // const companyScale = useRef()
+  // const reason = useRef()
+  // const email = useRef()
+  // const password = useRef()
+  // const password2 = useRef()
+  
 
   return (  
     <section className="promotion">
@@ -98,14 +106,14 @@ function Promotion(props) {
             </div>
           </div>
           <div className="pf-check">
-            <div className="pf-check-line">
-              <input onChange={handleChange} {...register("check", { required: true , pattern: /[A-Za-z]{3}/})} type="checkbox" ></input>
+            <div className="pf-check-line">              
+              <input ref={checkRef} onClick={isCheck} type="checkbox" ></input>              
               <p><b>이용 약관</b> 및 <b>개인정보처리방침</b>에 동의합니다.</p><br/>
             </div>
             <p className={classNames(errors.check ? "pf-error" : "pf-valid")}>체크박스를 선택해주세요.</p>
           </div>
-
-          <input className="pf-submit" type="submit" value="메일로 프로모션 코드 받기"/>
+          
+          <input ref={pfSubmit} className="pf-submit" type="submit" disabled value="메일로 프로모션 코드 받기"/>
         </form>
       </div>
       </div>
