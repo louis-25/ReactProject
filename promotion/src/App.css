@@ -139,7 +139,7 @@ select {
 /* Feature */
 .feature {  
   width: 100%;
-  height: 738px;  
+  /* height: 738px;   */
 }
 .feature-title-box {
   display: flex;  
@@ -157,15 +157,15 @@ select {
   margin-bottom: 80px;
 }
 .feature-contents-box {
-  width: 1200px;  
+  max-width: 1200px;  
   display: flex;
   justify-content: space-between;    
 }
 .feature-content {
-  width: 320px;
+  /* width: 320px; */
   height: 360px;
   border-radius: 14px;
-  /* margin-right: 70px; */
+  margin-right: 70px;
   color: #fff;
   padding: 30px;
   overflow: hidden;
@@ -455,5 +455,27 @@ select .pf-input-box {
   }
   .visual-contents-box {
     flex-direction: column;
+  }
+
+  /* Feature */
+  .feature-title-box {
+    text-align: center;
+  }
+  .feature-contents-box {
+    flex-direction: column;
+  }
+  .feature-content {
+    margin-bottom: 32px;
+    width: 320px;
+    margin: auto;
+  }
+  .feature-content:nth-child(1) {
+    margin-bottom: 34px;
+  }
+  .feature-content:nth-child(2) {
+    margin-bottom: 34px;
+  }
+  .feature-content:nth-child(3) {
+    margin-bottom: 80px;
   }
 }
