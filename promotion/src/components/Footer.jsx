@@ -4,10 +4,14 @@ import Blog from '../images/blog.png'
 import Youtube from '../images/youtube.png'
 import Facebook from '../images/facebook.png'
 import Insta from '../images/insta.png'
+import { useMediaQuery } from 'react-responsive'
 
 function Footer(props) {
-  return (
+  const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+  return (    
     <footer className="footer">
+      {isDesktop &&
       <div className="inner">
       <div className="footer-menu">
         <div className="footer-menu-left">
@@ -36,6 +40,28 @@ function Footer(props) {
         </p>
       </div>
       </div>
+      }
+      {isMobile && 
+      <div className="mFooter">
+        <div className="mFooter-menu">
+          <ul>            
+            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="#">이용약관</a></li>            
+            <li><a href="#">유료 이용약관</a></li>
+          </ul>
+        </div>
+        <div className="mFooter-icon">
+          <ul>
+            <li><img src={Internet}/></li>
+            <li><img src={Blog}/></li>
+            <li><img src={Youtube}/></li>
+            <li><img src={Facebook}/></li>
+            <li><img src={Insta}/></li>
+          </ul>
+        </div>        
+        <li className="mFooter-copyright">© 2021 Fasoo</li>
+      </div>
+      }
     </footer>
   );
 }

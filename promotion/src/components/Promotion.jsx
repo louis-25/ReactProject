@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import classNames from 'classnames';
 import Service from '../service/promotion.js'
+import { useMediaQuery } from 'react-responsive'
 
 function Promotion(props) {
   const {register, handleSubmit, formState: { errors }} = useForm();  
@@ -12,6 +13,9 @@ function Promotion(props) {
 
   const service = new Service()
 
+  const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+
   const onSubmit = async (data, e) => {
     console.log('data ',data)
     await service.submit('test').then((res)=>{
@@ -20,34 +24,29 @@ function Promotion(props) {
     e.target.reset(); // reset after form submit
   };
 
-  const handleChange = (data, e) => {
-    console.log(data)    
-  }
-
-  // const check = register('check', {required: true})
   const isCheck = () => {
     console.log('checked ',checkRef.current.checked)    
     setCheck(checkRef.current.checked)
     pfSubmit.current.disabled=check
   }
-  // console.log(errors);
-  // const userName = useRef()
-  // const phoneNumber = useRef()
-  // const companyName = useRef()
-  // const companyScale = useRef()
-  // const reason = useRef()
-  // const email = useRef()
-  // const password = useRef()
-  // const password2 = useRef()
-  
 
   return (  
     <section className="promotion">
       <div className="inner">
       <div className="promotion-title-box">
         <div className="promotion-title">체험 신청</div>
-        <div className="promotion-main-title">Fireside를 무료로 이용하세요</div>
-        <div className="promotion-sub-title">아래 정보를 입력하고 Fireside를 바로 체험해보세요.</div>
+        {isDesktop && 
+        <>
+          <div className="promotion-main-title">Fireside를 무료로 이용하세요</div>
+          <div className="promotion-sub-title">아래 정보를 입력하고 Fireside를 바로 체험해보세요.</div>
+        </>
+        }
+        {isMobile && 
+        <>
+          <div className="promotion-main-title">Fireside를<br/> 무료로 이용하세요</div>
+          <div className="promotion-sub-title">아래 정보를 입력하고 Fireside를<br/> 바로 체험해보세요.</div>
+        </>
+        }
       </div>
       <div className="promotion-contents-box">
         <form onSubmit={handleSubmit(onSubmit)} className="promotion-form">

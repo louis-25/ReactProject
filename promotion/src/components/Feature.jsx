@@ -2,8 +2,12 @@ import React from 'react';
 import Folder from '../images/folder.png'
 import Group from '../images/group.png'
 import Balloon from '../images/textballoon.png'
+import { useMediaQuery } from 'react-responsive'
 
 function Feature(props) {
+  const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+
   return (
     // <div className="inner">
     <div className={`feature inner`}>      

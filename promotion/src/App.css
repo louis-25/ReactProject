@@ -50,8 +50,7 @@ select {
   background-color: #fff;
   border-bottom: 1px solid #252D38;
 }
-.logo img {
-  margin-top: 10px;
+.logo img {  
   cursor: pointer;
 }
 .header nav {
@@ -211,7 +210,7 @@ select {
   margin: auto;
   text-align: center;
   background-color: #FAFBFE;
-  margin-bottom: 60px;
+  padding-bottom: 60px;
 }
 .promotion-title-box {
   display: flex;
@@ -359,13 +358,13 @@ select .pf-input-box {
 .about {
   margin: auto;
   margin-top: 60px;
-  width: 100%;
-  height: 508px;
+  width: 100%;  
   background-image: url('./images/bg_beans.png');
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;  
+  margin-bottom: 50px;
 }
 .about-title {
   font-size: 34px;
@@ -443,6 +442,13 @@ select .pf-input-box {
 }
 
 @media screen and (max-width:768px) {  
+  /* Common */
+  .inner {
+    /* margin: 0 auto; */
+    padding: 0 19px;
+    /* max-width: 1200px;   */
+    box-sizing: border-box
+  }
   /* header */
   .nav-menu {
     display: none;
@@ -464,13 +470,13 @@ select .pf-input-box {
   }
   .visual-btn {
     margin-top: 5%;
-    width: 100%;
+    width: 320px;
   }
   .visual-contents-box {
     flex-direction: column;
   }
   .visual-contents-right div img {
-    width: 360px;
+    width: 284px;
   }
 
   /* Feature */
@@ -485,6 +491,10 @@ select .pf-input-box {
     max-width: 320px;
     margin: auto;
   }
+  .feature-content-text {
+    font-size: 16px;
+    line-height: 160%;
+  }
   .feature-content:nth-child(1) {
     margin-bottom: 34px;
   }
@@ -497,6 +507,17 @@ select .pf-input-box {
   }
 
   /* Promotion */
+  .promotion-form {
+    max-width: 424px;
+  }
+  .promotion-main-title {
+    font-size: 32px;
+    line-height: 47.6px;
+  }
+  .promotion-sub-title {
+    font-size: 20px;
+    line-height: 30px;
+  }
   .pf-row {
     flex-direction: column;
     margin-bottom: 0;
@@ -509,15 +530,47 @@ select .pf-input-box {
   }
   .pf-submit {
     width: 100%;
+    margin-top: 32px;
   }
 
   /* About */
   .about-btn {
     width: 320px;
   }
+  .about-title {
+    font-size: 34px;
+    line-height: 140%;
+  }
 
   /* Footer */  
-  
+  .mFooter {
+    margin-left: 28px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .mFooter-menu a{
+    color: #2E2E2E;
+  }
+  .mFooter-menu li{
+    margin-bottom: 50px;
+  }
+  .mFooter-icon {
+    margin-bottom: 50px;
+  }
+  .mFooter-icon ul{
+    display: flex;
+  }
+  .mFooter-icon ul li {
+    margin-right: 20px;
+  }
+  .mFooter-copyright {
+    color: #949494;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+    padding-bottom: 60px;
+  }
 }
 
 @media screen and (max-width:480px) { 
