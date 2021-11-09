@@ -1,16 +1,22 @@
 import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import classNames from 'classnames';
+import Service from '../service/promotion.js'
 
 function Promotion(props) {
-
   const {register, handleSubmit, formState: { errors }} = useForm();  
   const [error, setError] = useState(true)  
   const [check, setCheck] = useState()
   const checkRef = useRef()
   const pfSubmit = useRef()
-  const onSubmit = (data, e) => {
+
+  const service = new Service()
+
+  const onSubmit = async (data, e) => {
     console.log('data ',data)
+    await service.submit('test').then((res)=>{
+      console.log('res ',res)
+    })
     e.target.reset(); // reset after form submit
   };
 
@@ -71,11 +77,11 @@ function Promotion(props) {
               <label className="pf-label">회사 규모<span> *</span></label>
               <select {...register("companyScale", { required: true })} className={classNames("pf-input-middle", errors.companyScale ? "pf-error-input" : null)} placeholder="선택">
                 <option value="">선택</option>
-                <option value="30인 이하">30인 이하</option>
-                <option value="50인 이하">50인 이하</option>
-                <option value="100인 이하">100인 이하</option>
-                <option value="300인 이하">300인 이하</option>
-                <option value="300인 +">300인 +</option>
+                <option value="0">30인 이하</option>
+                <option value="1">50인 이하</option>
+                <option value="2">100인 이하</option>
+                <option value="3">300인 이하</option>
+                <option value="4">300인 +</option>
               </select>
               <p className={classNames(errors.companyScale ? "pf-error" : "pf-valid")}>회사 규모를 선택해주세요.</p>
             </div>

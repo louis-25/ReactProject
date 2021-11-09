@@ -355,9 +355,6 @@ select .pf-input-box {
 .pf-submit:disabled {
   background-color: #ADCDFB;
 }
-.submit-disabled {  
-  background-color: #ADCDFB;
-}
 /* About */
 .about {
   margin: auto;
@@ -472,6 +469,9 @@ select .pf-input-box {
   .visual-contents-box {
     flex-direction: column;
   }
+  .visual-contents-right div img {
+    width: 360px;
+  }
 
   /* Feature */
   .feature-title-box {
@@ -482,7 +482,7 @@ select .pf-input-box {
   }
   .feature-content {
     margin-bottom: 32px;
-    width: 320px;
+    max-width: 320px;
     margin: auto;
   }
   .feature-content:nth-child(1) {
@@ -510,4 +510,24 @@ select .pf-input-box {
   .pf-submit {
     width: 100%;
   }
+
+  /* About */
+  .about-btn {
+    width: 320px;
+  }
+
+  /* Footer */  
+  
+}
+
+@media screen and (max-width:480px) { 
+  /* Promotion */
+  .promotion-form {
+    padding: 30px 25px 30px 25px;
+  }
+  .pf-submit {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
 }

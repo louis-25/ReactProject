@@ -43,8 +43,7 @@ function Feature(props) {
         </div>
       </div>
       
-    </div>
-    // </div>
+    </div>    
   );
 }
 
