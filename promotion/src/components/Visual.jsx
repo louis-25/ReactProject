@@ -28,7 +28,7 @@ function Visual({promotionRef}) {
               우리는 이제 협업 과정에서 중요 자료를 안전하게 보호<br/>
               하면서 효율적인 협업 환경을 만들 수 있는 사내 메신저<br/>
               가 반드시 필요합니다
-            </p>         
+            </p>
           } 
           {isMobile &&
             <p className="visual-text-contents">

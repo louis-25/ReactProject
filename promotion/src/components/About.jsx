@@ -5,6 +5,9 @@ function About(props) {
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
+  const goToCompany = () => {
+    window.open("https://www.fasoo.com/about-us")
+  }
   return (
     <>
       { isDesktop &&
@@ -18,7 +21,7 @@ function About(props) {
           Scelerisque diam, facilisi elementum purus tellus. Donec eu<br/>
           pretium euismod quisque sit ridiculus quis.
         </p>      
-        <input className="about-btn" type="button" href="https://www.fasoo.com/about-us" value="회사 소개"/>
+        <input className="about-btn" type="button" onClick={goToCompany} value="회사 소개"/>
       </div>    
       }
       { isMobile &&
@@ -31,8 +34,8 @@ function About(props) {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>
           Scelerisque diam, facilisi elementum purus tellus. Donec eu<br/>
           pretium euismod quisque sit ridiculus quis.
-        </p>      
-        <input className="about-btn" type="button" href="https://www.fasoo.com/about-us" value="회사 소개"/>
+        </p>        
+        <input className="about-btn" type="button" onClick={goToCompany} value="회사 소개"/>
         </div>
       }
     </>

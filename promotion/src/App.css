@@ -20,7 +20,7 @@ select {
 /* Header */
 .header-box {  
   display: flex;
-  justify-content: center;
+  justify-content: center;  
 }
 .header {
   display: flex;
@@ -50,7 +50,7 @@ select {
   background-color: #fff;
   border-bottom: 1px solid #252D38;
 }
-.logo img {  
+.logo img {    
   cursor: pointer;
 }
 .header nav {
@@ -77,6 +77,57 @@ select {
 .loginBtn {
   color: #3182F6;  
   word-break: nowrap;    
+}
+/* sidebar */
+.sidebar {
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  z-index: 10000;
+  transition: all ease-in .2s;
+  left: 1px;
+}
+.sidebar-on {
+  margin-left: 0%;
+  /* display: block; */
+}
+.sidebar-off {
+  margin-left: 100%;
+  /* display: none; */
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 26px 20px 20px 20px;
+}
+.sidebar-menu {
+  padding: 26px 20px 20px 20px;
+  /* margin-top: 10px; */
+}
+.sidebar-menu li {
+  margin-bottom: 60px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.sidebar-login-box {  
+  display: flex;
+  justify-content: center;
+}
+.sidebar-login-btn {
+  position: absolute;
+  width: 320px;
+  height: 64px;
+  margin: auto;
+  border: 0;
+  font-size: 20px;
+  color: #fff;  
+  bottom: 55px;
+  background: #3182F6;
+  border-radius: 10px;
+  z-index: 10001;
 }
 
 /* Visual */
@@ -443,18 +494,18 @@ select .pf-input-box {
 
 @media screen and (max-width:768px) {  
   /* Common */
-  .inner {
-    /* margin: 0 auto; */
-    padding: 0 19px;
-    /* max-width: 1200px;   */
+  .inner {    
+    padding: 0 19px;    
     box-sizing: border-box
   }
+
   /* header */
   .nav-menu {
     display: none;
   }
   .berger {
     display: block;
+    cursor: pointer;
   }
 
   /* visual */
@@ -474,6 +525,17 @@ select .pf-input-box {
   }
   .visual-contents-box {
     flex-direction: column;
+  }
+  .visual-main-title {
+    font-size: 32px;
+    line-height: 140%;
+  }
+  .visual-text-contents {
+    font-size: 16px;
+    line-height: 160%;
+  }
+  .visual-contents-box {
+    margin-top: 100px;
   }
   .visual-contents-right div img {
     width: 284px;
