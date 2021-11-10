@@ -1,12 +1,12 @@
-import React, { useRef, useState } from 'react';
-import { useForm } from "react-hook-form";
+import React, { useEffect, useRef, useState } from 'react';
+import { useForm, useWatch } from "react-hook-form";
 import classNames from 'classnames';
 import Service from '../service/promotion.js'
 import { useMediaQuery } from 'react-responsive'
 
 function Promotion(props) {
-  const {register, handleSubmit, formState: { errors }} = useForm();  
-  const [error, setError] = useState(true)  
+  const {register, handleSubmit, getValues, setError, clearErrors, formState: { errors }} = useForm();  
+  // const [error, setError] = useState(true)  
   const [check, setCheck] = useState()
   const checkRef = useRef()
   const pfSubmit = useRef()
@@ -17,13 +17,26 @@ function Promotion(props) {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
   const onSubmit = async (data, e) => {
-    console.log('data ',data)
-    await service.submit('test').then((res)=>{
-      console.log('res ',res)
-    })
-    e.target.reset(); // reset after form submit
-  };
-
+    console.log('data ',data)    
+    if(getValues("password") !== getValues("password2")){
+      alert('비밀번호가 다릅니다')
+      setError('password')
+      setError('password2', { type: "focus" }, { shouldFocus: true })
+    }
+    else {
+      await service.submit(data).then((res)=>{
+        console.log('res ',res)
+        if(res.status == 200){
+          alert('성공적으로 등록되었습니다~!!')
+        }      
+      }).catch((e)=>{
+        console.log('e ',e)
+      })
+      e.target.reset() // reset after form submit
+      setCheck(false)
+      pfSubmit.current.disabled=check
+    }
+  }
   const isCheck = () => {
     console.log('checked ',checkRef.current.checked)    
     setCheck(checkRef.current.checked)
@@ -89,7 +102,7 @@ function Promotion(props) {
           <div className="pf-input-box-long">
             <label className="pf-label">신청 사유<span> *</span></label>
             <input {...register("reason", { required: true })} type="text" className={classNames("pf-input-long", errors.reason ? "pf-error-input" : null)} placeholder="신청 사유"/>
-            <p className={classNames(errors.reason ? "pf-error" : "pf-valid")}>회사 규모를 선택해주세요.</p>
+            <p className={classNames(errors.reason ? "pf-error" : "pf-valid")}>신청 사유를 입력해주세요.</p>
           </div>
           
           <div className="pf-input-box-long">
@@ -106,7 +119,7 @@ function Promotion(props) {
             </div>
             <div className="pf-input-box">
               <label className="pf-label">비밀 번호 확인<span> *</span></label>
-              <input {...register("password2", { required: true })} type="text" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder="비밀 번호 확인"/>
+              <input {...register("password2", { required: true })} type="password" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder="비밀 번호 확인"/>
               <p className={classNames(errors.password2 ? "pf-error" : "pf-valid")}>비밀 번호가 일치하지 않습니다</p>
             </div>
           </div>
@@ -118,7 +131,7 @@ function Promotion(props) {
             <p className={classNames(errors.check ? "pf-error" : "pf-valid")}>체크박스를 선택해주세요.</p>
           </div>
           
-          <input ref={pfSubmit} className="pf-submit" type="submit" disabled value="메일로 프로모션 코드 받기"/>
+          <input ref={pfSubmit} className="pf-submit" type="submit" disabled value="메일로 프로모션 코드 받기"/>          
         </form>
       </div>
       </div>

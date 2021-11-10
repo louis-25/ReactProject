@@ -3,6 +3,6 @@ dotenv.config();
 
 export const config = {
   promotion: {
-    submitAddr: process.env.PROMOTION_SUBMIT_ADDRESS,
+    submitAddr: process.env.REACT_APP_PROMOTION_SUBMIT_ADDR,
   }
 }

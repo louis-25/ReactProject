@@ -401,9 +401,11 @@ select .pf-input-box {
   border: 0;
   border-radius: 10px;
   text-indent: 0 !important;
+  cursor: pointer;
 }
 .pf-submit:disabled {
   background-color: #ADCDFB;
+  cursor: default;
 }
 /* About */
 .about {

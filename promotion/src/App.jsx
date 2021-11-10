@@ -5,34 +5,19 @@ import Feature from './components/Feature'
 import Promotion from './components/Promotion'
 import About from './components/About'
 import Footer from './components/Footer'
-import { throttle, debounce } from 'lodash';
-import { useContext, useEffect, useMemo, useRef } from 'react'
+import Terms from './components/Terms/Terms';
+import { useRef } from 'react'
 import {ScrollContext} from './context/ScrollContext'
+import { Route, Switch } from 'react-router-dom'
 
-function App() {  
-  const [scroll, setScroll] = useContext(ScrollContext)
+function App() {
   const featureRef = useRef()
   const promotionRef = useRef()
   const aboutRef = useRef()
   
-  // const throttledScroll = useMemo(() =>
-  //     debounce(() => {
-  //       console.log('스크롤 이벤트');
-  //       console.log('y ',window.scrollY);
-  //       setScroll(window.scrollY)
-  //     },150),
-  // );
-
-  // useEffect(() => { //스크롤 이벤트 발생
-  //   window.addEventListener('scroll', throttledScroll);
-  //   console.log('scroll ',scroll)
-  //   return () => {
-  //     window.removeEventListener('scroll', throttledScroll);
-  //   };
-  // },[scroll]);
-
   return (
-    <div className="App">
+    <div className="App">      
+      <Route exact path="/">
       <Header 
         featureRef={featureRef}
         promotionRef={promotionRef}
@@ -43,6 +28,10 @@ function App() {
       <div ref={promotionRef}><Promotion></Promotion></div>
       <div ref={aboutRef}><About></About></div>
       <Footer></Footer>
+      </Route>
+      <Route exact path="/terms">
+        <Terms></Terms>
+      </Route>      
     </div>
   );
 }

@@ -11,9 +11,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
   const topRef = useRef()    
 
   const throttledScroll = useMemo(() =>
-  throttle(() => {
-        console.log('스크롤 이벤트');
-        console.log('y ',window.scrollY);
+  throttle(() => {    
         setScroll(window.scrollY)
       },300),
   );
@@ -27,7 +25,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
   },[]);
   const goToFeature = (e) => {            
     e.preventDefault()
-    setSidebar(!sidebar)
+    if(sidebar) setSidebar(false)
     featureRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
@@ -36,7 +34,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
   }
   const goToPromotion = (e) => {
     e.preventDefault()
-    setSidebar(!sidebar)
+    if(sidebar) setSidebar(false)
     promotionRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
@@ -45,12 +43,12 @@ function Header({featureRef, promotionRef, aboutRef}) {
   }
 
   const goToCompany = () => {
-    sidebarToggle()
+    if(sidebar) setSidebar(false)
     window.open("https://www.fasoo.com/about-us")
   }
 
   const goToLogin = () => {
-    sidebarToggle()
+    if(sidebar) setSidebar(false)
     window.open("https://portal.wrapsody.com/login")
   }
 

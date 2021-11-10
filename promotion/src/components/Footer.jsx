@@ -5,10 +5,28 @@ import Youtube from '../images/youtube.png'
 import Facebook from '../images/facebook.png'
 import Insta from '../images/insta.png'
 import { useMediaQuery } from 'react-responsive'
+import { useHistory } from 'react-router';
 
 function Footer(props) {
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+  const history = useHistory()
+
+  const goToEnglish = () => {    
+  }
+  const goToBlog = () => {
+    window.open("https://blog.naver.com/fs0608")
+  }
+  const goToFacebook = () => {
+    window.open("https://ko-kr.facebook.com/fasoo.korea/")
+  }
+  const goToYoutube = () => {
+    window.open("https://www.youtube.com/user/FasooMarcom")
+  }
+  const goToInsta = () => {
+    window.open("https://www.instagram.com/fasoo_official/")
+  }
+  
   return (    
     <footer className="footer">
       {isDesktop &&
@@ -17,17 +35,17 @@ function Footer(props) {
         <div className="footer-menu-left">
           <ul>
             <li>© 2021 Fasoo</li>
-            <li><a href="">이용약관</a></li>
+            <li><a href="/terms">이용약관</a></li>
             <li><a href="">개인정보처리방침</a></li>
           </ul>
         </div>
         <div className="footer-menu-right">
           <ul>
-            <li><img src={Internet}/></li>
-            <li><img src={Blog}/></li>
-            <li><img src={Youtube}/></li>
-            <li><img src={Facebook}/></li>
-            <li><img src={Insta}/></li>
+            <li><img src={Internet} onClick={goToEnglish}/></li>
+            <li><img src={Blog} onClick={goToBlog}/></li>
+            <li><img src={Youtube} onClick={goToYoutube}/></li>
+            <li><img src={Facebook} onClick={goToFacebook}/></li>
+            <li><img src={Insta} onClick={goToInsta}/></li>
           </ul>
         </div>
       </div>
@@ -46,17 +64,17 @@ function Footer(props) {
         <div className="mFooter-menu">
           <ul>            
             <li><a href="#">개인정보처리방침</a></li>
-            <li><a href="#">이용약관</a></li>            
+            <li><a href="/terms">이용약관</a></li>            
             <li><a href="#">유료 이용약관</a></li>
           </ul>
         </div>
         <div className="mFooter-icon">
           <ul>
-            <li><img src={Internet}/></li>
-            <li><img src={Blog}/></li>
-            <li><img src={Youtube}/></li>
-            <li><img src={Facebook}/></li>
-            <li><img src={Insta}/></li>
+          <li><img src={Internet} onClick={goToEnglish}/></li>
+            <li><img src={Blog} onClick={goToBlog}/></li>
+            <li><img src={Youtube} onClick={goToYoutube}/></li>
+            <li><img src={Facebook} onClick={goToFacebook}/></li>
+            <li><img src={Insta} onClick={goToInsta}/></li>
           </ul>
         </div>        
         <li className="mFooter-copyright">© 2021 Fasoo</li>
