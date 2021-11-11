@@ -6,6 +6,7 @@ import Facebook from '../images/facebook.png'
 import Insta from '../images/insta.png'
 import { useMediaQuery } from 'react-responsive'
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 function Footer(props) {
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
@@ -36,6 +37,7 @@ function Footer(props) {
           <ul>
             <li>© 2021 Fasoo</li>
             <li><a href="/terms">이용약관</a></li>
+            {/* <li><Link to={{pathname:"/terms",state:{scroll:"top"}}}>이용약관</Link></li> */}
             <li><a href="">개인정보처리방침</a></li>
           </ul>
         </div>

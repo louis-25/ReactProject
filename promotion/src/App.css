@@ -101,6 +101,12 @@ select {
   justify-content: space-between;
   padding: 26px 20px 20px 20px;
 }
+.sidebar-header > div:nth-child(2) > img {
+  width: 20px;
+  cursor: pointer;
+  padding-right: 20px;
+}
+  
 .sidebar-menu {
   padding: 26px 20px 20px 20px;
   /* margin-top: 10px; */

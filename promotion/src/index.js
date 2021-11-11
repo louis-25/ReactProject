@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import { ScrollProvider } from './context/ScrollContext'
 import { BrowserRouter } from 'react-router-dom'
+import './translate.js'
 
 ReactDOM.render(
   <React.StrictMode>

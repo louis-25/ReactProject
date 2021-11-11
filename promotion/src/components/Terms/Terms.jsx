@@ -2,15 +2,20 @@ import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import style from './Terms.module.css'
+import { useTranslation } from 'react-i18next'
 
 function Terms(props) {
+  const { t, i18n } = useTranslation()
+  const changelanguageToKo = () => i18n.changeLanguage('ko')
+  const changelanguageToEn = () => i18n.changeLanguage('en')
+
   return (
     <>
     <Header></Header>
-    <div className={`${style.content} ${style.privacy}`}>
+    <div className={`${style.content} ${style.privacy} ${style.body}`}>
     <section>
       <div className={style.inner}>
-        <h2>이용약관</h2>
+        <h2>{t('terms')}</h2>
         <p>(Last updated on November 1, 2020)</p>
         <ul>
           <li>
