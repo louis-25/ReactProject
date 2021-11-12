@@ -2,11 +2,10 @@ import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import Logo from '../images/logo.png'
 import Berger from '../images/berger.png'
 import Exit from '../images/x.png'
-import { throttle, debounce, times } from 'lodash'
+import { throttle } from 'lodash'
 import classNames from 'classnames'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
-import Feature from './Feature'
 
 function Header({featureRef, promotionRef, aboutRef}) {  
   const [scroll, setScroll] = useState(0)
@@ -16,8 +15,9 @@ function Header({featureRef, promotionRef, aboutRef}) {
 
   const throttledScroll = useMemo(() =>
   throttle(() => {
-        setScroll(window.scrollY)
-      },300),
+      console.log('scroll ',window.scrollY)
+      setScroll(window.scrollY)
+    },300),
   );
 
   useEffect(() => { //스크롤 이벤트 발생
@@ -36,19 +36,23 @@ function Header({featureRef, promotionRef, aboutRef}) {
         switch(history.location.state.scroll){
           case 'top':
             window.scrollTo(0, 0)
+            history.replace("",null)
             break;
           case 'feature':
             featureRef.current.scrollIntoView({
               behavior: 'auto',
               block: 'start',
               inline: 'nearest'
-            })
+            })            
+            history.replace("",null)
+            break;
           case 'promotion':
             promotionRef.current.scrollIntoView({
               behavior: 'auto',
               block: 'start',
               inline: 'nearest'
             })
+            history.replace("",null)
             break;
         }
       }else {      
@@ -62,41 +66,35 @@ function Header({featureRef, promotionRef, aboutRef}) {
     e.preventDefault()
     if(sidebar) setSidebar(false)
     console.log('feature ',history.location.pathname)
-    if(history.location.pathname=='/terms'){
+    if(window.location.pathname == '/'){
+      featureRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      })            
+    }else{
       history.push({
         pathname:'/',
         state:{scroll: "feature"}
       })
-      featureRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      })
-    }
-    else if(history.location.pathname=='/'){
-      featureRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
-      })
-    }
+    }      
   }
   const goToPromotion = (e) => {
     e.preventDefault()
     if(sidebar) setSidebar(false)
-    if(history.location.pathname=='/terms'){
-      history.push({
-        pathname:'/',
-        state:{scroll: "promotion"}
-      })
-    }
-    else if(history.location.pathname=='/'){
+    console.log('feature ',history.location.pathname)
+    if(window.location.pathname == '/'){
       promotionRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
         inline: 'nearest'
+      })            
+    }else{
+      history.push({
+        pathname:'/',
+        state:{scroll: "promotion"}
       })
-    }
+    }     
   }
 
   const goToCompany = () => {
@@ -118,20 +116,19 @@ function Header({featureRef, promotionRef, aboutRef}) {
     <div className="header-box">
       <header ref={topRef} className={`header inner`}>
         <div>
-          { 
+          {/* { 
             history.location.pathname == "/terms" 
             ? <Link to={{pathname:"/",state:{scroll:"top"}}}><img src={Logo}/></Link>
             : <a href="/"><img src={Logo}/></a>
-          }
+          } */}
+          <a href="/"><img src={Logo}/></a>
         </div>
         <nav>
           <ul className="nav-menu">
-            <li>
-              {/* <Link to={{pathname:"/",state:{scroll:"feature"}}}>주요 기능</Link> */}
+            <li>              
               <a href="/index.html#feature" onClick={goToFeature}>주요 기능</a>
             </li>
-            <li>
-              {/* <Link to={{pathname:"/",state:{scroll:"promotion"}}}>체험 신청</Link> */}
+            <li>              
               <a href="/index.html#price" onClick={goToPromotion}>체험 신청</a>
             </li>
             <li>

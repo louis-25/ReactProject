@@ -13,7 +13,7 @@ function Footer(props) {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
   const history = useHistory()
 
-  const goToEnglish = () => {    
+  const goToEnglish = () => {
   }
   const goToBlog = () => {
     window.open("https://blog.naver.com/fs0608")
@@ -38,7 +38,7 @@ function Footer(props) {
             <li>© 2021 Fasoo</li>
             <li><a href="/terms">이용약관</a></li>
             {/* <li><Link to={{pathname:"/terms",state:{scroll:"top"}}}>이용약관</Link></li> */}
-            <li><a href="">개인정보처리방침</a></li>
+            <li><a href="/privacy">개인정보처리방침</a></li>
           </ul>
         </div>
         <div className="footer-menu-right">
@@ -65,7 +65,7 @@ function Footer(props) {
       <div className="mFooter">
         <div className="mFooter-menu">
           <ul>            
-            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="/privacy">개인정보처리방침</a></li>
             <li><a href="/terms">이용약관</a></li>            
             <li><a href="#">유료 이용약관</a></li>
           </ul>

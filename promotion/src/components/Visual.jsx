@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
 import Contents from '../images/contents.png'
-import {ScrollContext} from '../context/ScrollContext'
 import { useMediaQuery } from 'react-responsive'
 
-function Visual({promotionRef}) {
-  const [scroll, setScroll] = useContext(ScrollContext)
+function Visual({promotionRef}) {  
 
   const goToPromotion = (e) => {    
     e.preventDefault()

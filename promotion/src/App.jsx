@@ -5,7 +5,8 @@ import Feature from './components/Feature'
 import Promotion from './components/Promotion'
 import About from './components/About'
 import Footer from './components/Footer'
-import Terms from './components/Terms/Terms';
+import Terms from './components/Terms/Terms'
+import Privacy from './components/Privacy/Privacy'
 import { useRef } from 'react'
 import {ScrollContext} from './context/ScrollContext'
 import { Route, Switch } from 'react-router-dom'
@@ -31,6 +32,9 @@ function App() {
       </Route>
       <Route exact path="/terms">
         <Terms></Terms>
+      </Route>      
+      <Route exact path="/privacy">
+        <Privacy></Privacy>
       </Route>      
     </div>
   );

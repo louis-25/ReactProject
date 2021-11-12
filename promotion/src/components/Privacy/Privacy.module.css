@@ -1,0 +1,124 @@
+.body,
+a {
+  font-family: 'NotoSans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #797b82
+}
+
+@media (min-width: 320px) and (max-width: 757px) {
+
+  .body,
+  a {
+      font-size: 14px
+  }
+}
+
+h2 {
+  margin: 16px 0;
+  text-align: center;
+  line-height: 140%;
+  font-size: 34px;
+  font-weight: 700;
+  color: #28292b
+}
+
+@media (min-width: 320px) and (max-width: 757px) {
+  h2 {
+      margin: 10px 0;
+      font-size: 24px
+  }
+}
+
+h2+p {
+  margin-top: 10px;
+  text-align: center
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #28292b
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #28292b
+}
+
+strong {
+  font-weight: 700
+}
+
+.inner {
+  margin: 0 auto;
+  padding: 0 50px;
+  max-width: 1200px;
+  box-sizing: border-box
+}
+
+@media (min-width: 320px) and (max-width: 757px) {
+  header>.inner div ul li {
+      display: block;
+      margin: 0
+  }
+}
+
+@media (min-width: 320px) and (max-width: 757px) {
+  header>.inner div ul li a {
+      display: block;
+      margin: 0 auto;
+      padding: 0;
+      width: 300px;
+      height: 46px;
+      text-align: center;
+      line-height: 44px;
+      color: #fff !important;
+      background-color: #25c16f;
+      border-color: #25c16f;
+      border-radius: 5px
+  }
+}
+
+.content.privacy section {
+  padding: 160px 0 120px
+}
+
+.content.privacy section .inner>ul>li {
+  margin-top: 80px
+}
+
+.content.privacy section .inner>ul>li table {
+  margin-top: 16px
+}
+
+.content.privacy section .inner>ul>li table th,
+.content.privacy section .inner>ul>li table td {
+  padding: 5px 10px;
+  vertical-align: middle;
+  border: 1px solid #d7d8db
+}
+
+.content.privacy section .inner>ul>li table th {
+  text-align: center;
+  color: #28292b;
+  background-color: #eee
+}
+
+.content.privacy section .inner>ul>li p {
+  margin-top: 16px
+}
+
+.content.privacy section .inner>ul>li>ul>li {
+  margin-top: 30px
+}
+
+.content.privacy section .inner>ul>li>ul>li li:first-child {
+  margin-top: 16px
+}
+
+.content.privacy section .inner>ul>li>ul>li li p {
+  margin-top: 0
+}
