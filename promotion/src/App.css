@@ -495,6 +495,9 @@ select .pf-input-box {
   margin-left: 20px;
   cursor: pointer;
 }
+.footer-menu-right ul li img {
+  width: 28px;
+}
 .footer-text {  
   color: #797B82;
   line-height: 175%;
@@ -633,6 +636,9 @@ select .pf-input-box {
   }
   .mFooter-icon ul li {
     margin-right: 20px;
+  }
+  .mFooter-icon ul li img {
+    width: 28px;
   }
   .mFooter-copyright {
     color: #949494;

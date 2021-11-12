@@ -1,4 +1,5 @@
 import React from 'react';
+/* svg안먹음 */
 import Folder from '../images/folder.png'
 import Group from '../images/group.png'
 import Balloon from '../images/textballoon.png'

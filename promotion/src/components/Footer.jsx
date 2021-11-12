@@ -1,17 +1,26 @@
 import React from 'react';
-import Internet from '../images/internet.png'
-import Blog from '../images/blog.png'
-import Youtube from '../images/youtube.png'
-import Facebook from '../images/facebook.png'
-import Insta from '../images/insta.png'
+import Internet from '../images/internet.svg'
+import Blog from '../images/blog.svg'
+import Youtube from '../images/youtube.svg'
+import Facebook from '../images/facebook.svg'
+import Insta from '../images/insta.svg'
 import { useMediaQuery } from 'react-responsive'
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
 
 function Footer(props) {
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
   const history = useHistory()
+
+  const { t, i18n } = useTranslation()
+  const changelanguageToKo = () => i18n.changeLanguage('ko')
+  const changelanguageToEn = () => i18n.changeLanguage('en')  
+
+  const changeLanguage = () => {
+    console.log(i18n.language)
+  }
 
   const goToEnglish = () => {
   }
@@ -72,7 +81,7 @@ function Footer(props) {
         </div>
         <div className="mFooter-icon">
           <ul>
-          <li><img src={Internet} onClick={goToEnglish}/></li>
+            <li><img src={Internet} onClick={goToEnglish}/></li>
             <li><img src={Blog} onClick={goToBlog}/></li>
             <li><img src={Youtube} onClick={goToYoutube}/></li>
             <li><img src={Facebook} onClick={goToFacebook}/></li>

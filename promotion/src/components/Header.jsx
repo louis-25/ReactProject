@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
-import Logo from '../images/logo.png'
-import Berger from '../images/berger.png'
+import Logo from '../images/logo.svg'
+import Berger from '../images/berger.svg'
 import Exit from '../images/x.png'
 import { throttle } from 'lodash'
 import classNames from 'classnames'
@@ -43,7 +43,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
               behavior: 'auto',
               block: 'start',
               inline: 'nearest'
-            })            
+            })
             history.replace("",null)
             break;
           case 'promotion':
@@ -65,7 +65,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
   const goToFeature = (e) => {
     e.preventDefault()
     if(sidebar) setSidebar(false)
-    console.log('feature ',history.location.pathname)
+    console.log('goToFeature ',history.location.pathname)
     if(window.location.pathname == '/'){
       featureRef.current.scrollIntoView({
         behavior: 'smooth',
@@ -82,7 +82,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
   const goToPromotion = (e) => {
     e.preventDefault()
     if(sidebar) setSidebar(false)
-    console.log('feature ',history.location.pathname)
+    console.log('goToPromotion ',history.location.pathname)
     if(window.location.pathname == '/'){
       promotionRef.current.scrollIntoView({
         behavior: 'smooth',
@@ -104,7 +104,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
 
   const goToLogin = () => {
     if(sidebar) setSidebar(false)
-    window.open("https://portal.wrapsody.com/login")
+    window.open("https://firesidedemo.fasoo.com/wrapmsgr/admin")
   }    
 
   const sidebarToggle = () => {
@@ -135,7 +135,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
               <a href="https://www.fasoo.com/about-us" target="_blank">회사소개</a>
             </li>           
             <div>
-              <a className="loginBtn" href="https://portal.wrapsody.com/login" target="_blank">로그인</a>
+              <a className="loginBtn" href="https://firesidedemo.fasoo.com/wrapmsgr/admin" target="_blank">로그인</a>
             </div> 
           </ul>
           <div className="berger">
@@ -160,7 +160,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
         <div className="sidebar-login-box">
           <input className="sidebar-login-btn" onClick={goToLogin} type="submit" value="로그인"/>
         </div>
-      </div>   
+      </div>
     </div>
     <div className={classNames('header-cover',  scroll>0 && 'header-active')}></div>
     </>
