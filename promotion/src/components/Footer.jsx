@@ -20,9 +20,18 @@ function Footer(props) {
 
   const changeLanguage = () => {
     console.log(i18n.language)
+    if(i18n.language == 'ko') {
+      i18n.changeLanguage('en')
+      // changelanguageToEn()      
+    }
+    else {
+      i18n.changeLanguage('ko')
+      // changelanguageToKo()
+    }
   }
 
-  const goToEnglish = () => {
+  const languageChange = () => {
+    console.log(i18n.language)
   }
   const goToBlog = () => {
     window.open("https://blog.naver.com/fs0608")
@@ -52,7 +61,7 @@ function Footer(props) {
         </div>
         <div className="footer-menu-right">
           <ul>
-            <li><img src={Internet} onClick={goToEnglish}/></li>
+            <li><img src={Internet} onClick={changeLanguage}/></li>
             <li><img src={Blog} onClick={goToBlog}/></li>
             <li><img src={Youtube} onClick={goToYoutube}/></li>
             <li><img src={Facebook} onClick={goToFacebook}/></li>
@@ -81,7 +90,7 @@ function Footer(props) {
         </div>
         <div className="mFooter-icon">
           <ul>
-            <li><img src={Internet} onClick={goToEnglish}/></li>
+            <li><img src={Internet} onClick={changeLanguage}/></li>
             <li><img src={Blog} onClick={goToBlog}/></li>
             <li><img src={Youtube} onClick={goToYoutube}/></li>
             <li><img src={Facebook} onClick={goToFacebook}/></li>

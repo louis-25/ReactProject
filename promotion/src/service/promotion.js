@@ -11,7 +11,7 @@ export default class promotionService {
       body: JSON.stringify({
         "Company": {
           companyName : data.companyName,
-          companyAdminId : data.companyName+"Admin",
+          companyAdminId: data.email,
           companyPhone : data.phoneNumber,
           companySizeType : data.companyScale,
           reason : data.reason

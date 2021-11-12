@@ -15,7 +15,7 @@ function Terms(props) {
     <div className={`${style.content} ${style.privacy} ${style.body}`}>
     <section>
       <div className={style.inner}>
-        <h2>{t('terms')}</h2>
+        <h2>{t('terms_title')}</h2>
         <p>(Last updated on November 1, 2020)</p>
         <ul>
           <li>

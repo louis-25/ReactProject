@@ -17,9 +17,9 @@ function App() {
   const aboutRef = useRef()
   
   return (
-    <div className="App">      
+    <div className="App">
       <Route exact path="/">
-      <Header 
+      <Header
         featureRef={featureRef}
         promotionRef={promotionRef}
         aboutRef={aboutRef}
@@ -32,10 +32,10 @@ function App() {
       </Route>
       <Route exact path="/terms">
         <Terms></Terms>
-      </Route>      
+      </Route>
       <Route exact path="/privacy">
         <Privacy></Privacy>
-      </Route>      
+      </Route>
     </div>
   );
 }
