@@ -6,12 +6,16 @@ import { throttle } from 'lodash'
 import classNames from 'classnames'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
+import { useMediaQuery } from 'react-responsive'
 
 function Header({featureRef, promotionRef, aboutRef}) {  
   const [scroll, setScroll] = useState(0)
   const [sidebar, setSidebar] = useState(false)  
   const topRef = useRef()    
   const history = useHistory()
+
+  const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
   const throttledScroll = useMemo(() =>
   throttle(() => {
@@ -39,14 +43,21 @@ function Header({featureRef, promotionRef, aboutRef}) {
             history.replace("",null)
             break;
           case 'feature':
-            featureRef.current.scrollIntoView({
-              behavior: 'auto',
-              block: 'start',
-              inline: 'nearest'
-            })
+            if(isDesktop) {
+              console.log(featureRef.current.getBoundingClientRect().y)
+              window.scrollTo(0, featureRef.current.getBoundingClientRect().y)
+            }else {
+              window.scrollTo(0, featureRef.current.getBoundingClientRect().y + 1)
+            }
+            // featureRef.current.scrollIntoView({
+            //   behavior: 'auto',
+            //   block: 'start',
+            //   inline: 'nearest'
+            // })
             history.replace("",null)
             break;
           case 'promotion':
+            console.log(promotionRef.current.getBoundingClientRect().y)
             promotionRef.current.scrollIntoView({
               behavior: 'auto',
               block: 'start',
@@ -64,9 +75,9 @@ function Header({featureRef, promotionRef, aboutRef}) {
 
   const goToFeature = (e) => {
     e.preventDefault()
-    if(sidebar) setSidebar(false)
-    console.log('goToFeature ',history.location.pathname)
-    if(window.location.pathname == '/'){
+    if(sidebar) setSidebar(false)        
+    if(window.location.pathname == '/'){ 
+      console.log('goToFeature ',history.location.pathname, featureRef.current.getBoundingClientRect().y)
       featureRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -81,9 +92,9 @@ function Header({featureRef, promotionRef, aboutRef}) {
   }
   const goToPromotion = (e) => {
     e.preventDefault()
-    if(sidebar) setSidebar(false)
-    console.log('goToPromotion ',history.location.pathname)
+    if(sidebar) setSidebar(false)    
     if(window.location.pathname == '/'){
+      console.log('goToPromotion ',history.location.pathname,promotionRef.current.getBoundingClientRect().y )
       promotionRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -116,11 +127,6 @@ function Header({featureRef, promotionRef, aboutRef}) {
     <div className="header-box">
       <header ref={topRef} className={`header inner`}>
         <div>
-          {/* { 
-            history.location.pathname == "/terms" 
-            ? <Link to={{pathname:"/",state:{scroll:"top"}}}><img src={Logo}/></Link>
-            : <a href="/"><img src={Logo}/></a>
-          } */}
           <a href="/"><img src={Logo}/></a>
         </div>
         <nav>

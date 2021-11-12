@@ -196,7 +196,7 @@ select {
 .feature {  
   width: 100%;
   /* height: 738px;   */
-  margin-bottom: 130px;
+  /* margin-bottom: 130px; */
 }
 .feature-title-box {
   display: flex;  

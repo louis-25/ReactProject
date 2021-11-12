@@ -114,7 +114,7 @@ function Promotion(props) {
           <div className="pf-row">
             <div className="pf-input-box">
               <label className="pf-label">회원 가입 비밀 번호<span> *</span></label>
-              <input {...register("password", { required: true })} type="text" className={classNames("pf-input-middle", errors.password ? "pf-error-input" : null)} placeholder="비밀 번호"/>
+              <input {...register("password", { required: true })} type="password" className={classNames("pf-input-middle", errors.password ? "pf-error-input" : null)} placeholder="비밀 번호"/>
               <p className={classNames(errors.password ? "pf-error" : "pf-valid")}>6자~16자, 대소문자, 숫자, 특수문자를 포함해야 합니다.</p>
             </div>
             <div className="pf-input-box">
