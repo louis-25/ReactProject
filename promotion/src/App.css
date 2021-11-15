@@ -224,7 +224,7 @@ select {
   border-radius: 14px;
   margin-right: 40px;
   color: #fff;
-  padding: 30px;
+  padding: 25px;
   overflow: hidden;
 }
 .feature-content-title {
@@ -635,6 +635,7 @@ select .pf-input-box {
     display: flex;
   }
   .mFooter-icon ul li {
+    cursor: pointer;
     margin-right: 20px;
   }
   .mFooter-icon ul li img {

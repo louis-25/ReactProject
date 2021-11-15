@@ -26,7 +26,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
 
   useEffect(() => { //스크롤 이벤트 발생
     window.addEventListener('scroll', throttledScroll);
-    console.log('scroll ',scroll)
+    // console.log('scroll ',scroll)
     return () => {
       window.removeEventListener('scroll', throttledScroll);
     };
@@ -82,7 +82,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
         behavior: 'smooth',
         block: 'start',
         inline: 'nearest'
-      })            
+      })
     }else{
       history.push({
         pathname:'/',

@@ -20,19 +20,22 @@ function Visual({promotionRef}) {
     <section className="visual">      
       <div className={`visual-contents-box inner`}>
         <div className="visual-contents-left">
-          <h1 className="visual-main-title">안전한 콘텐츠 공유<br/>업무 메신저</h1>
+          <h1 className="visual-main-title">
+            {isDesktop && 
+              <p>중요 문서를 공유하는 메신저는<br/>보안도 달라야합니다.</p>
+            }
+            {isMobile &&
+              <p>중요 문서를 공유하는<br/>메신저는 보안도 달라야합니다.</p>
+            }
+          </h1>
           {isDesktop &&
             <p className="visual-text-contents">
-              우리는 이제 협업 과정에서 중요 자료를 안전하게 보호<br/>
-              하면서 효율적인 협업 환경을 만들 수 있는 사내 메신저<br/>
-              가 반드시 필요합니다
+              업무 효율을 높이기 위한 사내 메신저가 자칫 기업 기밀의<br/>유출 경로가 될 수 있습니다. Fireside를 통해 사내 중요<br/>정보를 안전하게 보호하고, 효율적으로 협업해 보세요.
             </p>
           } 
           {isMobile &&
             <p className="visual-text-contents">
-              우리는 이제 협업 과정에서 중요 자료를 안전하<br/>
-              게 보호 하면서 효율적인 협업 환경을 만들 수 있<br/>
-              는 사내 메신저가 반드시 필요합니다
+              업무 효율을 높이기 위한 사내 메신저가 자칫<br/>기업 기밀의 유출 경로가 될 수 있습니다.<br/>Fireside를 통해 사내 중요 정보를 안전하게 보<br/>호하고, 효율적으로 협업해 보세요.
             </p>         
           } 
           <div className="visual-btn-box">

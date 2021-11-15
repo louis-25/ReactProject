@@ -77,13 +77,14 @@ function Footer(props) {
       </div>
       </div>
       }
-      {isMobile && 
+      {isMobile &&
       <div className="mFooter">
         <div className="mFooter-menu">
-          <ul>            
-            <li><a href="/privacy">개인정보처리방침</a></li>
-            <li><a href="/terms">이용약관</a></li>            
-            <li><a href="#">유료 이용약관</a></li>
+          <ul>
+          <li>© 2021 Fasoo</li>
+            <li><Link to={{pathname:"/privacy"}}>개인정보처리방침</Link></li>
+            <li><Link to={{pathname:"/terms"}}>이용약관</Link></li>
+            <li><Link to={{pathname:"#"}}>유료 이용약관</Link></li>
           </ul>
         </div>
         <div className="mFooter-icon">
