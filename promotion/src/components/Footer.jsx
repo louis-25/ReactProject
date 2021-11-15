@@ -28,11 +28,9 @@ function Footer(props) {
       i18n.changeLanguage('ko')
       // changelanguageToKo()
     }
+    window.scrollTo(0,0)
   }
 
-  const languageChange = () => {
-    console.log(i18n.language)
-  }
   const goToBlog = () => {
     window.open("https://blog.naver.com/fs0608")
   }
