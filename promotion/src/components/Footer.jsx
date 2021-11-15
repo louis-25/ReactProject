@@ -52,9 +52,9 @@ function Footer(props) {
         <div className="footer-menu-left">
           <ul>
             <li>© 2021 Fasoo</li>
-            <li><a href="/terms">이용약관</a></li>
-            {/* <li><Link to={{pathname:"/terms",state:{scroll:"top"}}}>이용약관</Link></li> */}
-            <li><a href="/privacy">개인정보처리방침</a></li>
+            {/* <li><a href="/terms">이용약관</a></li> */}
+            <li><Link to={{pathname:"/terms"}}>이용약관</Link></li>
+            <li><Link to={{pathname:"/privacy"}}>개인정보처리방침</Link></li>
           </ul>
         </div>
         <div className="footer-menu-right">

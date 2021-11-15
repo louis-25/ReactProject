@@ -118,6 +118,10 @@ function Header({featureRef, promotionRef, aboutRef}) {
     window.open("https://firesidedemo.fasoo.com/wrapmsgr/admin")
   }    
 
+  const goToTop = () => {
+    window.scrollTo(0, 0)
+  }  
+
   const sidebarToggle = () => {
     setSidebar(!sidebar)
   }
@@ -127,7 +131,8 @@ function Header({featureRef, promotionRef, aboutRef}) {
     <div className="header-box">
       <header ref={topRef} className={`header inner`}>
         <div>
-          <a href="/"><img src={Logo}/></a>
+        <Link to={{pathname:"/"}}><img src={Logo} onClick={goToTop}/></Link>
+          {/* <a href="/"><img src={Logo}/></a> */}
         </div>
         <nav>
           <ul className="nav-menu">
