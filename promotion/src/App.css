@@ -48,7 +48,7 @@ select {
 }
 .header-active {
   background-color: #fff;
-  border-bottom: 1px solid #252D38;
+  /* border-bottom: 1px solid #252D38; */
 }
 .logo img {    
   cursor: pointer;
@@ -317,7 +317,7 @@ select {
   padding: 60px 50px 60px 50px;
   background-color: #fff;
   border-radius: 15px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   box-sizing: border-box;
 }
 .promotion-form input {

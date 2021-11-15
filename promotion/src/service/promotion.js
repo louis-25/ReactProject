@@ -3,7 +3,7 @@ export default class promotionService {
 
   async submit(data) {
     console.log('data ',data)
-    await fetch(config.promotion.submitAddr, {
+    return await fetch(config.promotion.submitAddr, {
       method: 'POST',
       headers: {
         "Content-type":"application/json"

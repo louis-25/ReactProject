@@ -5,12 +5,13 @@ import Service from '../service/promotion.js'
 import { useMediaQuery } from 'react-responsive'
 
 function Promotion(props) {
-  const {register, handleSubmit, getValues, setError, clearErrors, formState: { errors }} = useForm();  
+  const {register, handleSubmit, getValues, setError, clearErrors, watch, formState: { errors }} = useForm();  
   // const [error, setError] = useState(true)  
   const [check, setCheck] = useState()
   const checkRef = useRef()
   const pfSubmit = useRef()
-
+  const password = watch('password')
+  const password2 = watch('password2')
   const service = new Service()
 
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
@@ -28,6 +29,7 @@ function Promotion(props) {
         console.log('res ',res)
         if(res.status == 200){
           alert('성공적으로 등록되었습니다~!!')
+          window.scrollTo(0, 0)
         }      
       }).catch((e)=>{
         console.log('e ',e)
@@ -42,6 +44,14 @@ function Promotion(props) {
     setCheck(checkRef.current.checked)
     pfSubmit.current.disabled=check
   }
+
+  useEffect(()=>{
+    if(getValues('password') != getValues('password2')){
+      setError('password2')
+    }else {
+      clearErrors('password2')
+    }
+  },[password, password2])
 
   return (  
     <section className="promotion">
@@ -119,7 +129,7 @@ function Promotion(props) {
             </div>
             <div className="pf-input-box">
               <label className="pf-label">비밀 번호 확인<span> *</span></label>
-              <input {...register("password2", { required: true })} type="password" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder="비밀 번호 확인"/>
+              <input {...register("password2", { required: true })} type="password" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder="비밀 번호 확인"/>              
               <p className={classNames(errors.password2 ? "pf-error" : "pf-valid")}>비밀 번호가 일치하지 않습니다</p>
             </div>
           </div>

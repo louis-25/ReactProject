@@ -19,7 +19,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
 
   const throttledScroll = useMemo(() =>
   throttle(() => {
-      console.log('scroll ',window.scrollY)
+      // console.log('scroll ',window.scrollY)
       setScroll(window.scrollY)
     },300),
   );
