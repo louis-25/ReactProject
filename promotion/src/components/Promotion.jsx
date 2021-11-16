@@ -19,7 +19,7 @@ function Promotion(props) {
 
   const onSubmit = async (data, e) => {
     console.log('data ',data)    
-    if(getValues("password") !== getValues("password2")){
+    if(getValues("password") !== getValues("password2")){      
       alert('비밀번호가 다릅니다')
       setError('password')
       setError('password2', { type: "focus" }, { shouldFocus: true })
@@ -46,12 +46,30 @@ function Promotion(props) {
   }
 
   useEffect(()=>{
-    if(getValues('password') != getValues('password2')){
+    if(!checkSpecial(getValues('password')) && getValues('password').length > 0) {
+      setError('password')
+    }else {
+      clearErrors('password')
+    }
+
+    if(getValues('password') != getValues('password2') && getValues('password2').length > 0){
       setError('password2')
     }else {
       clearErrors('password2')
     }
   },[password, password2])
+
+  function checkSpecial(str) {     
+    // 대소문자 숫자 특수문자 1개이상 넣어야하고 
+    // 대소문자 숫자 특수문자로 이루어진 문자로 6~16자리로 구성됨
+    let check = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/;
+    if(check.test(str)) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 
   return (  
     <section className="promotion">
