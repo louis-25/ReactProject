@@ -387,9 +387,48 @@ select .pf-input-box {
 }
 .pf-check-line {
   display: flex;
+  align-items: center;
+}
+.pf-check-line label div {
+  width: 100%;
+  height: 100%;
+}
+/* .pf-check-line label div:hover {
+  background-color: tomato;
+} */
+/* .pf-check-box {
+  width: 16px;
+  height: 16px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-right: 8px;
+} */
+.pf-check-line input[type=checkbox] {
+  display: none;
+}
+.pf-check-line input[type=checkbox]+label {
+  width: 16px;
+  height: 16px;  
+  border-radius: 4.5px;
+  overflow: hidden;
+  margin-right: 8px;
+  background-image: url("/src/images/checkbox.svg");  
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+.pf-check-line input[type=checkbox]:checked+label {
+  background-image: url("/src/images/cheked.svg");
+}
+.pf-check-line input[type=checkbox]+label:hover {  
+  filter: brightness(90%);  
+  background-color: #949494;
+  /* overflow: hidden; */
+}
+.pf-check-line p b{
+  color: #252D38;
 }
 .pf-check input {
-  margin-top: 5px;
+  /* margin-top: 5px; */
   margin-right:8px;
 }
 .pf-check input::placeholder{

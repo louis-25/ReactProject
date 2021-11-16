@@ -3,6 +3,7 @@ import { useForm, useWatch } from "react-hook-form";
 import classNames from 'classnames';
 import Service from '../service/promotion.js'
 import { useMediaQuery } from 'react-responsive'
+import { Link } from 'react-router-dom';
 
 function Promotion(props) {
   const {register, handleSubmit, getValues, setError, clearErrors, watch, formState: { errors }} = useForm();  
@@ -155,9 +156,13 @@ function Promotion(props) {
             </div>
           </div>
           <div className="pf-check">
-            <div className="pf-check-line">              
-              <input ref={checkRef} onClick={isCheck} type="checkbox" ></input>              
-              <p><b>이용 약관</b> 및 <b>개인정보처리방침</b>에 동의합니다.</p><br/>
+            <div className="pf-check-line">                            
+              <input ref={checkRef} onClick={isCheck} type="checkbox" id="check"></input>              
+              <label htmlFor="check">
+                <div></div>
+              </label>              
+              <p><Link to="/terms"><b>이용 약관</b></Link> 및 <Link to="/privacy"><b>개인정보처리방침</b></Link>에 동의합니다.</p><br/>
+              {/* <p><b>이용 약관</b> 및 <b>개인정보처리방침</b>에 동의합니다.</p><br/> */}
             </div>
             <p className={classNames(errors.check ? "pf-error" : "pf-valid")}>체크박스를 선택해주세요.</p>
           </div>
