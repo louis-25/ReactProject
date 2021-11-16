@@ -16,7 +16,7 @@ function Terms(props) {
     <section>
       <div className={style.inner}>
         <h2>{t('terms_title')}</h2>
-        <p>(Last updated on November 1, 2020)</p>
+        <p>(Last updated on November 12, 2021)</p>
         <ul>
           <li>
             <h3>{t('terms_sub_title1')}</h3>

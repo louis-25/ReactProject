@@ -31,6 +31,9 @@ function Promotion(props) {
           alert('성공적으로 등록되었습니다~!!')
           window.scrollTo(0, 0)
         }      
+        if(res.status == 409){
+          alert('이미 존재하는 ID입니다',res.status)
+        }
       }).catch((e)=>{
         console.log('e ',e)
       })

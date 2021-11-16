@@ -22,10 +22,10 @@ export default class promotionService {
           userPwd: data.password
         }
       })
-    }).then(async (data)=>{
+    }).then((data)=>{
       console.log('res ',data)
       return data
-    }).catch(async (e)=>{
+    }).catch((e)=>{
       console.log('error ',e)
     })
     
