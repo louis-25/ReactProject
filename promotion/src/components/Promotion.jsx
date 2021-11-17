@@ -32,8 +32,14 @@ function Promotion(props) {
           alert('성공적으로 등록되었습니다~!!')
           window.scrollTo(0, 0)
         }      
+        if(res.status == 401) {
+          alert('401 error 인증되지 않은 클라이언트 입니다')
+        }
         if(res.status == 409){
           alert('이미 존재하는 ID입니다',res.status)
+        }
+        if(res.status == 500){
+          alert('500 error')
         }
       }).catch((e)=>{
         console.log('e ',e)
@@ -44,26 +50,49 @@ function Promotion(props) {
     }
   }
   const isCheck = () => {
-    console.log('checked ',checkRef.current.checked)    
+    console.log('checked ',checkRef.current.checked)
     setCheck(checkRef.current.checked)
     pfSubmit.current.disabled=check
   }
 
   useEffect(()=>{
-    if(!checkSpecial(getValues('password')) && getValues('password').length > 0) {
-      setError('password')
-    }else {
+    let password = getValues('password')
+    let password2 = getValues('password2')
+    
+    // 값이 입력된경우
+    if(password.length > 0 ) { 
+      // 입력시 조건충족 안된경우
+      if(!checkSpecial(password)) {
+        console.log('setError password')
+        setError('password')
+      }else { // 조건 충족
+        console.log('clearError password')
+        clearErrors('password')
+      }
+    } 
+    else if(password.length == 0) {
       clearErrors('password')
     }
 
-    if(getValues('password') != getValues('password2') && getValues('password2').length > 0){
-      setError('password2')
-    }else {
+    if(password2.length > 0 ) { 
+      // 비밀번호가 서로 다른경우      
+      if(password != password2) {
+        console.log('setError password2')
+        // if(!errors.password2) 
+        setError('password2')
+      }
+      else if(password == password2){ // 비밀번호가 서로 같을때
+        console.log('clearError password2')
+        clearErrors('password2')
+      }
+    }
+    else if(password2.length == 0) {
       clearErrors('password2')
     }
+    
   },[password, password2])
 
-  function checkSpecial(str) {     
+  function checkSpecial(str) {
     // 대소문자 숫자 특수문자 1개이상 넣어야하고 
     // 대소문자 숫자 특수문자로 이루어진 문자로 6~16자리로 구성됨
     let check = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/;
@@ -146,7 +175,7 @@ function Promotion(props) {
           <div className="pf-row">
             <div className="pf-input-box">
               <label className="pf-label">회원 가입 비밀 번호<span> *</span></label>
-              <input {...register("password", { required: true })} type="password" className={classNames("pf-input-middle", errors.password ? "pf-error-input" : null)} placeholder="비밀 번호"/>
+              <input {...register("password", { required: true , pattern:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/})} type="password" className={classNames("pf-input-middle", errors.password ? "pf-error-input" : null)} placeholder="비밀 번호"/>
               <p className={classNames(errors.password ? "pf-error" : "pf-valid")}>6자~16자, 대소문자, 숫자, 특수문자를 포함해야 합니다.</p>
             </div>
             <div className="pf-input-box">
