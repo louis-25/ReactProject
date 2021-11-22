@@ -53,8 +53,8 @@ function Footer(props) {
           <ul>
             <li>© 2021 Fasoo</li>
             {/* <li><a href="/terms">이용약관</a></li> */}
-            <li><Link to={{pathname:"/terms"}}>이용약관</Link></li>
-            <li><Link to={{pathname:"/privacy"}}>개인정보처리방침</Link></li>
+            <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
+            <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
           </ul>
         </div>
         <div className="footer-menu-right">
@@ -69,10 +69,10 @@ function Footer(props) {
       </div>
       <div className="footer-text">
         <p>
-          주식회사 파수 | 대표이사 조규곤 | 사업자등록번호 1208606582
+        {t("footer_content1")}
         </p>
         <p>
-          주소 : 서울특별시 마포구 월드컵북로 396 (상암동 1605, 누리꿈스퀘어 비스니스타워 17층) 03925 | 전화번호 : 02-300-9300 | 전자우편주소 : helpdesk@fasoo.com
+          {t("footer_content2")}
         </p>
       </div>
       </div>
@@ -82,9 +82,9 @@ function Footer(props) {
         <div className="mFooter-menu">
           <ul>
           <li>© 2021 Fasoo</li>
-            <li><Link to={{pathname:"/privacy"}}>개인정보처리방침</Link></li>
-            <li><Link to={{pathname:"/terms"}}>이용약관</Link></li>
-            <li><Link to={{pathname:"#"}}>유료 이용약관</Link></li>
+            <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
+            <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
+            <li><Link to={{pathname:"#"}}>{t("terms_paid")}</Link></li>
           </ul>
         </div>
         <div className="mFooter-icon">

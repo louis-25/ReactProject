@@ -4,201 +4,238 @@ import classNames from 'classnames';
 import Service from '../service/promotion.js'
 import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
 
 function Promotion(props) {
-  const {register, handleSubmit, getValues, setError, clearErrors, watch, formState: { errors }} = useForm();  
+  const { register, handleSubmit, getValues, setValue, setError, clearErrors, watch, formState: { errors } } = useForm();
   // const [error, setError] = useState(true)  
   const [check, setCheck] = useState()
+  const [name, setName] = useState()
+  const [email, setEmail] = useState('이메일을 입력해주세요')
   const checkRef = useRef()
   const pfSubmit = useRef()
+  const userName = watch('userName')
   const password = watch('password')
   const password2 = watch('password2')
   const service = new Service()
 
+  const { t, i18n } = useTranslation()
+  // setName(t("promotion_input1_e"))
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
   const onSubmit = async (data, e) => {
-    console.log('data ',data)    
-    if(getValues("password") !== getValues("password2")){      
+    console.log('data ', data)
+    if (getValues("password") !== getValues("password2")) {
       alert('비밀번호가 다릅니다')
       setError('password')
       setError('password2', { type: "focus" }, { shouldFocus: true })
     }
     else {
-      await service.submit(data).then((res)=>{
-        console.log('res ',res)
-        if(res.status == 200){
-          alert('성공적으로 등록되었습니다~!!')
+      await service.submit(data).then((res) => {
+        console.log('res ', res)
+        if (res.status == 200) {
+          alert('성공적으로 등록되었습니다~!!')          
+          pfSubmit.current.disabled = true          
           window.scrollTo(0, 0)
-        }      
-        if(res.status == 401) {
-          alert('401 error 인증되지 않은 클라이언트 입니다')
+          e.target.reset() // reset after form submit
         }
-        if(res.status == 409){
-          alert('이미 존재하는 ID입니다',res.status)
+        else if (res.status) {
+          if(res.status == 409) {
+            alert('이미 사용하고있는 이메일주소 입니다')
+            setError('email', { type: "focus" }, { shouldFocus: true })
+          }else if(res.status == 403) {
+            alert('403 Forbidden')
+          }else if(res.status == 404) {
+            alert('404 Not Found')
+          }else if(res.status == 500) {
+            alert('500 서버오류')
+          }
+          pfSubmit.current.disabled = false
         }
-        if(res.status == 500){
-          alert('500 error')
+        else {
+          alert('모르는예외')
         }
-      }).catch((e)=>{
-        console.log('e ',e)
+      }).catch((e) => {
+        console.log('e ', e)
       })
-      e.target.reset() // reset after form submit
-      setCheck(false)
-      pfSubmit.current.disabled=check
+      // e.target.reset() // reset after form submit
     }
   }
   const isCheck = () => {
-    console.log('checked ',checkRef.current.checked)
+    console.log('checked ', checkRef.current.checked)
     setCheck(checkRef.current.checked)
-    pfSubmit.current.disabled=check
+    pfSubmit.current.disabled = check
   }
 
   useEffect(()=>{
+    let userName = getValues('userName')
+    if(userName.length > 128) {
+      setName('이름이 너무 깁니다')
+      setError('userName')
+    }else {
+      setName(t('promotion_input1_e'))
+      clearErrors('userName')
+    }
+  },[userName])
+
+  
+  useEffect(() => {
     let password = getValues('password')
     let password2 = getValues('password2')
-    
+
     // 값이 입력된경우
-    if(password.length > 0 ) { 
+    if (password.length > 0) {
       // 입력시 조건충족 안된경우
-      if(!checkSpecial(password)) {
+      if (!checkSpecial(password)) {
         console.log('setError password')
         setError('password')
-      }else { // 조건 충족
+      } else { // 조건 충족
         console.log('clearError password')
         clearErrors('password')
       }
-    } 
-    else if(password.length == 0) {
+      if(password == password2) {
+        clearErrors('password2')
+      }
+      // else {
+      //   console.log('비번 다른경우',password, password2)
+      //   setError('password2')
+      // }
+    }
+    else if (password.length == 0) {
       clearErrors('password')
     }
+  },[password])
 
-    if(password2.length > 0 ) { 
+  useEffect(() => {
+    let password = getValues('password')
+    let password2 = getValues('password2')    
+
+    if (password2.length > 0) {
       // 비밀번호가 서로 다른경우      
-      if(password != password2) {
+      if (password != password2) {
         console.log('setError password2')
         // if(!errors.password2) 
         setError('password2')
       }
-      else if(password == password2){ // 비밀번호가 서로 같을때
+      else if (password == password2) { // 비밀번호가 서로 같을때
         console.log('clearError password2')
         clearErrors('password2')
       }
     }
-    else if(password2.length == 0) {
+    else if (password2.length == 0) {
       clearErrors('password2')
     }
-    
-  },[password, password2])
+
+  }, [password2])
 
   function checkSpecial(str) {
     // 대소문자 숫자 특수문자 1개이상 넣어야하고 
     // 대소문자 숫자 특수문자로 이루어진 문자로 6~16자리로 구성됨
     let check = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/;
-    if(check.test(str)) {
+    if (check.test(str)) {
       return true;
     }
-    else{
+    else {
       return false;
     }
   }
 
-  return (  
+  return (
     <section className="promotion">
       <div className="inner">
-      <div className="promotion-title-box">
-        <div className="promotion-title">체험 신청</div>
-        {isDesktop && 
-        <>
-          <div className="promotion-main-title">Fireside를 무료로 이용하세요</div>
-          <div className="promotion-sub-title">아래 정보를 입력하고 Fireside를 바로 체험해보세요.</div>
-        </>
-        }
-        {isMobile && 
-        <>
-          <div className="promotion-main-title">Fireside를<br/> 무료로 이용하세요</div>
-          <div className="promotion-sub-title">아래 정보를 입력하고 Fireside를<br/> 바로 체험해보세요.</div>
-        </>
-        }
-      </div>
-      <div className="promotion-contents-box">
-        <form onSubmit={handleSubmit(onSubmit)} className="promotion-form">
-          <div className="pf-row">
-            <div className="pf-input-box">
-              <label className="pf-label">이름<span> *</span></label>
-              <input {...register("userName", { required: true })} type="text" className={classNames("pf-input-middle", errors.userName ? "pf-error-input" : null)} placeholder="이름"/>
-              <p className={classNames(errors.userName ? "pf-error" : "pf-valid")}>이름을 입력하세요.</p>
-              {/* <p className={classNames("pf-valid",error ? "pf-error": null)}>이름을 입력하세요.</p> */}
+        <div className="promotion-title-box">
+          <div className="promotion-title">{t("promotion_title1-1")}</div>
+          {isDesktop &&
+            <>
+              <div className="promotion-main-title">{t("promotion_title1-2")}</div>
+              <div className="promotion-sub-title">{t("promotion_title1-3")}</div>
+            </>
+          }
+          {isMobile &&
+            <>
+              <div className="promotion-main-title">{t("Mpromotion_title1-2-1")}<br />{t("Mpromotion_title1-2-2")}</div>
+              <div className="promotion-sub-title">{t("Mpromotion_title1-3-1")}<br />{t("Mpromotion_title1-3-2")}</div>
+            </>
+          }
+        </div>
+        <div className="promotion-contents-box">
+          <form onSubmit={handleSubmit(onSubmit)} className="promotion-form">
+            <div className="pf-row">
+              <div className="pf-input-box">
+                <label className="pf-label">{t("promotion_input1")}<span> *</span></label>
+                <input {...register("userName", { required: true})} type="text" maxLength="128" className={classNames("pf-input-middle", errors.userName ? "pf-error-input" : null)} placeholder={t("promotion_input1")} />
+                <p className={classNames(errors.userName ? "pf-error" : "pf-valid")}>{t('promotion_input1_e')}</p>
+              </div>
+              <div className="pf-input-box">
+                <label className="pf-label">{t("promotion_input2")}<span> *</span></label>
+                <input {...register("phoneNumber", { required: true })} maxLength="32" type="tel" className={classNames("pf-input-middle", errors.phoneNumber ? "pf-error-input" : null)} placeholder={t("promotion_input2")} />
+                <p className={classNames(errors.phoneNumber ? "pf-error" : "pf-valid")}>{t('promotion_input2_e')}</p>
+              </div>
             </div>
-            <div className="pf-input-box">
-              <label className="pf-label">전화 번호<span> *</span></label>
-              <input {...register("phoneNumber", { required: true })} type="tel" className={classNames("pf-input-middle", errors.phoneNumber ? "pf-error-input" : null)} placeholder="전화번호"/>                
-              <p className={classNames(errors.phoneNumber ? "pf-error" : "pf-valid")}>전화 번호를 입력하세요.</p>
-              {/* <p className="pf-valid">전화 번호를 입력하세요.</p> */}
-            </div>
-          </div>
 
-          <div className="pf-row">
-            <div className="pf-input-box">
-              <label className="pf-label">회사 이름<span> *</span></label>
-              <input {...register("companyName", { required: true })} type="text" className={classNames("pf-input-middle", errors.companyName ? "pf-error-input" : null)} placeholder="회사 이름"/>
-              <p className={classNames(errors.companyName ? "pf-error" : "pf-valid")}>회사 이름을 입력하세요.</p>
-              {/* <p className="pf-valid">회사 이름을 입력하세요.</p> */}
+            <div className="pf-row">
+              <div className="pf-input-box">
+                <label className="pf-label">{t("promotion_input3")}<span> *</span></label>
+                <input {...register("companyName", { required: true })} maxLength="64" type="text" className={classNames("pf-input-middle", errors.companyName ? "pf-error-input" : null)} placeholder={t("promotion_input3")} />
+                <p className={classNames(errors.companyName ? "pf-error" : "pf-valid")}>{t('promotion_input3_e')}</p>
+              </div>
+              <div className="pf-input-box">
+                <label className="pf-label">{t("promotion_input4")}<span> *</span></label>
+                <select {...register("companyScale", { required: true })} className={classNames("pf-input-middle", errors.companyScale ? "pf-error-input" : null)} placeholder={t("promotion_input4")}>
+                  <option value="">{t("promotion_input4-default")}</option>
+                  <option value="0">{t("promotion_input4-0")}</option>
+                  <option value="1">{t("promotion_input4-1")}</option>
+                  <option value="2">{t("promotion_input4-2")}</option>
+                  <option value="3">{t("promotion_input4-3")}</option>
+                  <option value="4">{t("promotion_input4-4")}</option>
+                </select>
+                <p className={classNames(errors.companyScale ? "pf-error" : "pf-valid")}>{t('promotion_input4_e')}</p>
+              </div>
             </div>
-            <div className="pf-input-box">
-              <label className="pf-label">회사 규모<span> *</span></label>
-              <select {...register("companyScale", { required: true })} className={classNames("pf-input-middle", errors.companyScale ? "pf-error-input" : null)} placeholder="선택">
-                <option value="">선택</option>
-                <option value="0">30인 이하</option>
-                <option value="1">50인 이하</option>
-                <option value="2">100인 이하</option>
-                <option value="3">300인 이하</option>
-                <option value="4">300인 +</option>
-              </select>
-              <p className={classNames(errors.companyScale ? "pf-error" : "pf-valid")}>회사 규모를 선택해주세요.</p>
-            </div>
-          </div>
 
-          <div className="pf-input-box-long">
-            <label className="pf-label">신청 사유<span> *</span></label>
-            <input {...register("reason", { required: true })} type="text" className={classNames("pf-input-long", errors.reason ? "pf-error-input" : null)} placeholder="신청 사유"/>
-            <p className={classNames(errors.reason ? "pf-error" : "pf-valid")}>신청 사유를 입력해주세요.</p>
-          </div>
-          
-          <div className="pf-input-box-long">
-            <label className="pf-label">회원 가입 이메일 주소<span> *</span></label>
-            <input {...register("email", { required: true })} type="email" className={classNames("pf-input-long", errors.email ? "pf-error-input" : null)} placeholder="이메일 주소"/>
-            <p className={classNames(errors.email ? "pf-error" : "pf-valid")}>이메일을 입력해주세요.</p>
-          </div>
+            <div className="pf-input-box-long">
+              <label className="pf-label">{t("promotion_input5")}<span> *</span></label>
+              <input {...register("reason", { required: true })} maxLength="255" type="text" className={classNames("pf-input-long", errors.reason ? "pf-error-input" : null)} placeholder={t("promotion_input5")} />
+              <p className={classNames(errors.reason ? "pf-error" : "pf-valid")}>{t('promotion_input5_e')}</p>
+            </div>
 
-          <div className="pf-row">
-            <div className="pf-input-box">
-              <label className="pf-label">회원 가입 비밀 번호<span> *</span></label>
-              <input {...register("password", { required: true , pattern:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/})} type="password" className={classNames("pf-input-middle", errors.password ? "pf-error-input" : null)} placeholder="비밀 번호"/>
-              <p className={classNames(errors.password ? "pf-error" : "pf-valid")}>6자~16자, 대소문자, 숫자, 특수문자를 포함해야 합니다.</p>
+            <div className="pf-input-box-long">
+              <label className="pf-label">{t("promotion_input6")}<span> *</span></label>
+              <input {...register("email", { required: true })} maxLength="128" type="email" className={classNames("pf-input-long", errors.email ? "pf-error-input" : null)} placeholder={t("promotion_input6")} />
+              <p className={classNames(errors.email ? "pf-error" : "pf-valid")}>{t("promotion_input6")}</p>
             </div>
-            <div className="pf-input-box">
-              <label className="pf-label">비밀 번호 확인<span> *</span></label>
-              <input {...register("password2", { required: true })} type="password" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder="비밀 번호 확인"/>              
-              <p className={classNames(errors.password2 ? "pf-error" : "pf-valid")}>비밀 번호가 일치하지 않습니다</p>
+
+            <div className="pf-row">
+              <div className="pf-input-box">
+                <label className="pf-label">{t("promotion_input7-1")}<span> *</span></label>
+                <input {...register("password", { required: true ,pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/ })} maxLength="128" type="password" className={classNames("pf-input-middle", errors.password ? "pf-error-input" : null)} placeholder={t("promotion_input7-2")} />
+                <p className={classNames(errors.password ? "pf-error" : "pf-valid")}>{t("promotion_input7_e")}</p>
+              </div>
+              <div className="pf-input-box">
+                <label className="pf-label">{t("promotion_input8")}<span> *</span></label>
+                <input {...register("password2", { required: true, validate: value => value == getValues('password')})} maxLength="128" type="password" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder={t("promotion_input8")} />
+                <p className={classNames(errors.password2 ? "pf-error" : "pf-valid")}>{t("promotion_input8_e")}</p>
+              </div>
             </div>
-          </div>
-          <div className="pf-check">
-            <div className="pf-check-line">                            
-              <input ref={checkRef} onClick={isCheck} type="checkbox" id="check"></input>              
-              <label htmlFor="check">
-                <div></div>
-              </label>              
-              <p><Link to="/terms"><b>이용 약관</b></Link> 및 <Link to="/privacy"><b>개인정보처리방침</b></Link>에 동의합니다.</p><br/>
-              {/* <p><b>이용 약관</b> 및 <b>개인정보처리방침</b>에 동의합니다.</p><br/> */}
+            <div className="pf-check">
+              <div className="pf-check-line">
+                <input ref={checkRef} onClick={isCheck} type="checkbox" id="check"></input>
+                <label htmlFor="check">
+                  <div></div>
+                </label>
+                { 
+                i18n.language == "ko" ?
+                  <p><Link to="/terms" target="_blank"><b>{t("terms_title")}</b></Link> 및 <Link to="/privacy" target="_blank"><b>{t("privacy_title")}</b></Link>에 동의합니다.</p>
+                  : <p>I agree to the<Link to="/terms" target="_blank"><b>{t("terms_title")}</b></Link> and <Link to="/privacy" target="_blank"><b>{t("privacy_title")}</b></Link></p>
+                }
+              </div>
+              <p className={classNames(errors.check ? "pf-error" : "pf-valid")}>{t("promotion_check_e")}</p>
             </div>
-            <p className={classNames(errors.check ? "pf-error" : "pf-valid")}>체크박스를 선택해주세요.</p>
-          </div>
-          
-          <input ref={pfSubmit} className="pf-submit" type="submit" disabled value="메일로 프로모션 코드 받기"/>          
-        </form>
-      </div>
+
+            <input ref={pfSubmit} className="pf-submit" type="submit" disabled value={t("promotion_submit_btn")} />
+          </form>
+        </div>
       </div>
     </section>
   );

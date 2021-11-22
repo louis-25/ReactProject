@@ -7,12 +7,15 @@ import classNames from 'classnames'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
+import { useTranslation } from 'react-i18next'
 
 function Header({featureRef, promotionRef, aboutRef}) {  
   const [scroll, setScroll] = useState(0)
   const [sidebar, setSidebar] = useState(false)  
   const topRef = useRef()    
   const history = useHistory()
+
+  const { t, i18n } = useTranslation()
 
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
@@ -137,16 +140,16 @@ function Header({featureRef, promotionRef, aboutRef}) {
         <nav>
           <ul className="nav-menu">
             <li>              
-              <a href="/index.html#feature" onClick={goToFeature}>주요 기능</a>
+              <a href="/index.html#feature" onClick={goToFeature}>{t("header_menu1")}</a>
             </li>
             <li>              
-              <a href="/index.html#price" onClick={goToPromotion}>체험 신청</a>
+              <a href="/index.html#price" onClick={goToPromotion}>{t("header_menu2")}</a>
             </li>
             <li>
-              <a href="https://www.fasoo.com/about-us" target="_blank">회사소개</a>
+              <a href="https://www.fasoo.com/about-us" target="_blank">{t("header_menu3")}</a>
             </li>           
             <div>
-              <a className="loginBtn" href="https://firesidedemo.fasoo.com/wrapmsgr/admin" target="_blank">로그인</a>
+              <a className="loginBtn" href="https://firesidedemo.fasoo.com/wrapmsgr/admin" target="_blank">{t("header_menu4")}</a>
             </div> 
           </ul>
           <div className="berger">
@@ -164,12 +167,12 @@ function Header({featureRef, promotionRef, aboutRef}) {
           </div>
         </div>
         <ul className="sidebar-menu">
-          <li onClick={goToFeature}>주요 기능</li>
-          <li onClick={goToPromotion}>체험 신청</li>
-          <li onClick={goToCompany}>회사 소개</li>
+          <li onClick={goToFeature}>{t("header_menu1")}</li>
+          <li onClick={goToPromotion}>{t("header_menu2")}</li>
+          <li onClick={goToCompany}>{t("header_menu3")}</li>
         </ul>
         <div className="sidebar-login-box">
-          <input className="sidebar-login-btn" onClick={goToLogin} type="submit" value="로그인"/>
+          <input className="sidebar-login-btn" onClick={goToLogin} type="submit" value={t("header_menu4")}/>
         </div>
       </div>
     </div>
