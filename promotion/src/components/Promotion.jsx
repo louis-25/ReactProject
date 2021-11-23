@@ -225,9 +225,11 @@ function Promotion(props) {
                   <div></div>
                 </label>
                 { 
-                i18n.language == "ko" ?
+                i18n.language == "ko" ? isDesktop ?
                   <p><Link to="/terms" target="_blank"><b>{t("terms_title")}</b></Link> 및 <Link to="/privacy" target="_blank"><b>{t("privacy_title")}</b></Link>에 동의합니다.</p>
-                  : <p>I agree to the<Link to="/terms" target="_blank"><b>{t("terms_title")}</b></Link> and <Link to="/privacy" target="_blank"><b>{t("privacy_title")}</b></Link></p>
+                  : <p><Link to="/terms" target="_blank"><b>{t("terms_title")}</b></Link> 및 <Link to="/privacy" target="_blank"><b>{t("privacy_title")}</b></Link>에 <br/>동의합니다.</p>
+                  :  isDesktop ? <p>I agree to the<Link to="/terms" target="_blank"><b>{t("terms_title")}</b></Link> and <Link to="/privacy" target="_blank"><b>{t("privacy_title")}</b></Link></p>
+                  : <p>I agree to the <Link to="/terms" target="_blank"><b>{t("terms_title")}</b></Link><br/> and <Link to="/privacy" target="_blank"><b>{t("privacy_title")}</b></Link></p>
                 }
               </div>
               <p className={classNames(errors.check ? "pf-error" : "pf-valid")}>{t("promotion_check_e")}</p>

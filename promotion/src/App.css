@@ -428,14 +428,14 @@ select .pf-input-box {
   /* overflow: hidden; */
 }
 .pf-check-line label {
-  flex: 1;
+  /* flex: 1; */
 }
 .pf-check-line label div {
   width: 16px;
   border-radius: 4.5px;
 }
 .pf-check-line p {
-  flex: 9;
+  /* flex: 9; */
 }
 .pf-check-line p b{
   color: #252D38;
