@@ -37,8 +37,8 @@ function Header({featureRef, promotionRef, aboutRef}) {
 
   useEffect(()=>{
     console.log(history)
-    if(history.location.pathname='/'){      
-      if(history.location.state) {
+    if(history.location.pathname='/'){
+      if(history.location.state) { //state가 있는경우
         console.log('history ',history.location.state.scroll)
         switch(history.location.state.scroll){
           case 'top':
@@ -51,12 +51,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
               window.scrollTo(0, featureRef.current.getBoundingClientRect().y)
             }else {
               window.scrollTo(0, featureRef.current.getBoundingClientRect().y + 1)
-            }
-            // featureRef.current.scrollIntoView({
-            //   behavior: 'auto',
-            //   block: 'start',
-            //   inline: 'nearest'
-            // })
+            }            
             history.replace("",null)
             break;
           case 'promotion':
@@ -70,7 +65,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
             break;
         }
       }else {      
-        console.log('state가 없어 ',history.location.state)
+        // state가 undefined인 경우
         window.scrollTo(0, 0)
       }
     }

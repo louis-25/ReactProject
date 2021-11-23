@@ -419,14 +419,20 @@ select .pf-input-box {
 }
 .pf-check-line input[type=checkbox]:checked+label {
   background-image: url("/src/images/cheked.svg");
+  z-index: 10;
 }
-.pf-check-line input[type=checkbox]+label:hover {  
+.pf-check-line input[type=checkbox]+label:hover{
   filter: brightness(90%);  
   background-color: #949494;
+  z-index: 1;
   /* overflow: hidden; */
 }
 .pf-check-line label {
   flex: 1;
+}
+.pf-check-line label div {
+  width: 16px;
+  border-radius: 4.5px;
 }
 .pf-check-line p {
   flex: 9;
@@ -502,6 +508,53 @@ select .pf-input-box {
 .about-btn:hover {  
   color: #fff;
   background-color: #3182F6;
+}
+
+/* Brochure */
+.brochure {
+  height: 350px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.brochure-icon-box {  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;  
+}
+.brochure-icon:nth-child(1) {  
+  margin-right: 60px;
+}
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #EDEFF3;
+  border-radius: 20px;  
+  margin: auto;
+  margin-bottom: 25px;
+}
+.icon-circle img {
+  margin-top: 10px;
+  align-items: center;
+}
+.brochure-icon-title {
+  color: #28292B;
+  font-weight: 500;  
+  font-size: 18px;  
+  margin-bottom: 14px;
+}
+.brochure-icon-content {
+  font-size: 16px;
+  font-weight: 350;
+  color: #5A5C61;
+  margin-bottom: 20px;
+}
+.brochure-icon-download{  
+  font-weight: 500;
+  font-size: 16px;
+  color: #3182F6;  
 }
 
 /* Footer */
@@ -661,6 +714,18 @@ select .pf-input-box {
     line-height: 140%;
   }
 
+  /* Brochure */
+  .brochure {
+    height: auto;
+    margin-bottom: 124px;
+  }
+  .brochure-icon-box {
+    flex-direction: column;    
+  }
+  .brochure-icon:nth-child(1) {
+    margin-right: 0;
+    margin-bottom: 90px;
+  }  
   /* Footer */  
   .mFooter {
     margin-left: 28px;

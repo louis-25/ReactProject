@@ -4,6 +4,7 @@ import Visual from './components/Visual'
 import Feature from './components/Feature'
 import Promotion from './components/Promotion'
 import About from './components/About'
+import Brochure from './components/Brochure';
 import Footer from './components/Footer'
 import Terms from './components/Terms/Terms'
 import Privacy from './components/Privacy/Privacy'
@@ -28,6 +29,7 @@ function App() {
       <div ref={featureRef}><Feature></Feature></div>
       <div ref={promotionRef}><Promotion></Promotion></div>
       <div ref={aboutRef}><About></About></div>
+      <Brochure></Brochure>
       <Footer></Footer>
       </Route>
       <Route exact path="/terms">
