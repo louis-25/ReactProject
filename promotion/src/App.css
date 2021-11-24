@@ -336,6 +336,17 @@ select {
   text-align: left;  
   width: 100%;
 }
+.pf-input-box .password-preview{  
+  margin-top: -30px;  
+  margin-bottom: 15px;
+  margin-left: 93%;
+  color: #717985;
+  cursor: pointer;
+}
+.pf-input-box .password-preview:active{
+  color: black;
+}
+
 .pf-input-box:nth-child(1) {
   margin-right: 30px;
 }
@@ -699,6 +710,9 @@ select .pf-input-box {
   }
   .pf-input-box {
     margin-bottom: 16px;
+  }
+  .pf-input-box div .password-eye{
+    position: absolute;    
   }
   .pf-submit {
     width: 100%;

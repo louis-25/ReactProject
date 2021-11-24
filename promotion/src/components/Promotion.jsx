@@ -5,6 +5,8 @@ import Service from '../service/promotion.js'
 import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye } from '@fortawesome/free-solid-svg-icons'
 
 function Promotion(props) {
   const { register, handleSubmit, getValues, setValue, setError, clearErrors, watch, formState: { errors } } = useForm();
@@ -12,6 +14,8 @@ function Promotion(props) {
   const [check, setCheck] = useState()
   const [name, setName] = useState()
   const [email, setEmail] = useState('이메일을 입력해주세요')
+  const [passwordType, setPasswordType] = useState('password')
+  const preview = useRef()
   const checkRef = useRef()
   const pfSubmit = useRef()
   const userName = watch('userName')
@@ -68,6 +72,16 @@ function Promotion(props) {
     pfSubmit.current.disabled = check
   }
 
+  // const previewSwitch = () => {
+  //   setPreview(!previewSwitch)
+  // }
+
+  // useEffecte(()=>{
+
+  // },[previewSwitch])
+  // useEffect(()=>{
+  //   console.log(preview.current.type)
+  // },[preview])
   useEffect(()=>{
     let userName = getValues('userName')
     if(userName.length > 128) {
@@ -78,7 +92,6 @@ function Promotion(props) {
       clearErrors('userName')
     }
   },[userName])
-
   
   useEffect(() => {
     let password = getValues('password')
@@ -209,12 +222,13 @@ function Promotion(props) {
             <div className="pf-row">
               <div className="pf-input-box">
                 <label className="pf-label">{t("promotion_input7-1")}<span> *</span></label>
-                <input {...register("password", { required: true ,pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/ })} maxLength="128" type="password" className={classNames("pf-input-middle", errors.password ? "pf-error-input" : null)} placeholder={t("promotion_input7-2")} />
+                <input {...register("password", { required: true ,pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/ })} maxLength="50" type={passwordType} className={classNames("pf-input-middle",errors.password ? "pf-error-input" : null)} placeholder={t("promotion_input7-2")} ></input>
+                <FontAwesomeIcon onMouseDown={()=>setPasswordType('text')} onMouseUp={()=>setPasswordType('password')} icon={faEye} className="password-preview"/>
                 <p className={classNames(errors.password ? "pf-error" : "pf-valid")}>{t("promotion_input7_e")}</p>
               </div>
               <div className="pf-input-box">
                 <label className="pf-label">{t("promotion_input8")}<span> *</span></label>
-                <input {...register("password2", { required: true, validate: value => value == getValues('password')})} maxLength="128" type="password" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder={t("promotion_input8")} />
+                <input {...register("password2", { required: true, validate: value => value == getValues('password')})} maxLength="50" type="password" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder={t("promotion_input8")} />
                 <p className={classNames(errors.password2 ? "pf-error" : "pf-valid")}>{t("promotion_input8_e")}</p>
               </div>
             </div>
@@ -224,7 +238,7 @@ function Promotion(props) {
                 <label htmlFor="check">
                   <div></div>
                 </label>
-                { 
+                {
                 i18n.language == "ko" ? isDesktop ?
                   <p><Link to="/terms" target="_blank"><b>{t("terms_title")}</b></Link> 및 <Link to="/privacy" target="_blank"><b>{t("privacy_title")}</b></Link>에 동의합니다.</p>
                   : <p><Link to="/terms" target="_blank"><b>{t("terms_title")}</b></Link> 및 <Link to="/privacy" target="_blank"><b>{t("privacy_title")}</b></Link>에 <br/>동의합니다.</p>
