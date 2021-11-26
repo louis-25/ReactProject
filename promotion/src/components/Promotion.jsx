@@ -154,6 +154,19 @@ function Promotion(props) {
     }
   }
 
+  const phoneValidator = (e) => {
+    // e.preventDefault();
+    const value = e.target.value
+    const kor = /[a-z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g; //한글 검사 정규식
+    const special = /[`.()_=~!@#$%^&*|\\\'\";:\/?]/gi; //특수문자 검사 정규식
+
+    if(kor.test(value)) { // 한글인 경우
+      setValue('phoneNumber',value.slice(0,-1))
+    }else if(special.test(value)){ // 특수문자가 포함된 경우
+      setValue('phoneNumber',value.slice(0,-1))
+    }    
+  }  
+
   return (
     <section className="promotion">
       <div className="inner">
@@ -177,12 +190,12 @@ function Promotion(props) {
             <div className="pf-row">
               <div className="pf-input-box">
                 <label className="pf-label">{t("promotion_input1")}<span> *</span></label>
-                <input {...register("userName", { required: true})} type="text" maxLength="128" className={classNames("pf-input-middle", errors.userName ? "pf-error-input" : null)} placeholder={t("promotion_input1")} />
+                <input {...register("userName", { required: true})} type="text" maxLength="20" className={classNames("pf-input-middle", errors.userName ? "pf-error-input" : null)} placeholder={t("promotion_input1")} />
                 <p className={classNames(errors.userName ? "pf-error" : "pf-valid")}>{t('promotion_input1_e')}</p>
               </div>
               <div className="pf-input-box">
                 <label className="pf-label">{t("promotion_input2")}<span> *</span></label>
-                <input {...register("phoneNumber", { required: true })} maxLength="32" type="tel" className={classNames("pf-input-middle", errors.phoneNumber ? "pf-error-input" : null)} placeholder={t("promotion_input2")} />
+                <input {...register("phoneNumber", { required: true })} onChange={phoneValidator} maxLength="32" type="text" className={classNames("pf-input-middle", errors.phoneNumber ? "pf-error-input" : null)} placeholder={t("promotion_input2")} />
                 <p className={classNames(errors.phoneNumber ? "pf-error" : "pf-valid")}>{t('promotion_input2_e')}</p>
               </div>
             </div>

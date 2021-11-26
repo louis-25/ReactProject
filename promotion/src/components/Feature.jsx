@@ -32,20 +32,20 @@ function Feature(props) {
         <div className="feature-content">
           <div className="feature-content-title">{t("feature_sub_title2")}</div>
           <p className="feature-content-text">
-            {t("feature_sub_title1_content1")}<br/>
-            {t("feature_sub_title1_content2")}<br/>
-            {t("feature_sub_title1_content3")}<br/>
-            {t("feature_sub_title1_content4")}
+            {t("feature_sub_title2_content1")}<br/>
+            {t("feature_sub_title2_content2")}<br/>
+            {t("feature_sub_title2_content3")}<br/>
+            {t("feature_sub_title2_content4")}
           </p>
           <div className="feature-content-img"><img src={Group}/></div>
         </div>
         <div className="feature-content">
           <div className="feature-content-title">{t("feature_sub_title3")}</div>
           <p className="feature-content-text">
-            {t("feature_sub_title1_content1")}<br/>
-            {t("feature_sub_title1_content2")}<br/>
-            {t("feature_sub_title1_content3")}<br/>
-            {t("feature_sub_title1_content4")}
+            {t("feature_sub_title3_content1")}<br/>
+            {t("feature_sub_title3_content2")}<br/>
+            {t("feature_sub_title3_content3")}<br/>
+            {t("feature_sub_title3_content4")}
           </p>
           <div className="feature-content-img"><img src={Balloon}/></div>
         </div>

@@ -16,7 +16,8 @@ function Brochure(props) {
           </div>
           <div className="brochure-icon-title">{t("brochure_icon1_title")}</div>
           <div className="brochure-icon-content">{t("brochure_icon1_content")}</div>
-          <Link to="#" target="_blank" className="brochure-icon-download">{t("brochure_icon1_download")}</Link>
+          {/* <Link to="" target="_blank" className="brochure-icon-download">{t("brochure_icon1_download")}</Link> */}
+          <a href="Brochure_Fasoo Fireside.pdf" target="_blank" className="brochure-icon-download">{t("brochure_icon1_download")}</a>
         </div>
         <div className='brochure-icon'>
         <div className='icon-circle'><img src={down}/></div>
