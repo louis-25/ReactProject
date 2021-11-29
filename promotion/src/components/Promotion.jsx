@@ -30,6 +30,7 @@ function Promotion(props) {
 
   const onSubmit = async (data, e) => {
     console.log('data ', data)
+    pfSubmit.current.disabled = false
     if (getValues("password") !== getValues("password2")) {
       alert('비밀번호가 다릅니다')
       setError('password')
@@ -37,10 +38,16 @@ function Promotion(props) {
     }
     else {
       await service.submit(data).then((res) => {
-        console.log('res ', res)
+        console.log('res ', res)        
+        pfSubmit.current.disabled = false
         if (res.status == 200) {
-          alert('성공적으로 등록되었습니다~!!')          
-          pfSubmit.current.disabled = true          
+          pfSubmit.current.disabled = true
+          if(i18n.language=='ko') {
+            alert('무료 체험 신청이 접수되었습니다')
+          }
+          else if(i18n.language=='en'){
+            alert('Your request has been successfully submitted.')
+          }
           window.scrollTo(0, 0)
           e.target.reset() // reset after form submit
         }
@@ -145,25 +152,37 @@ function Promotion(props) {
   function checkSpecial(str) {
     // 대소문자 숫자 특수문자 1개이상 넣어야하고 
     // 대소문자 숫자 특수문자로 이루어진 문자로 6~16자리로 구성됨
-    let check = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/;
-    if (check.test(str)) {
-      return true;
+    let check = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!?@#$%^&*_:;()-+~`<>"'{}\|\\\[\]\,\.\/])[A-Za-z\d!?@#$%^&*_:;()-+~`<>"'{}\|\\\[\]\,\.\/]{6,16}$/g;
+    if (check.test(str)) {      
+        return true      
     }
     else {
       return false;
     }
   }
-
+  // const nameValidator = (e) => {
+  //   const value = e.target.value
+  //   const num = /[0-9]/g
+  //   const special = /[`.()=~!@#$%^&*|\\\'\";:\/?]/gi; //특수문자 검사 정규식
+  //   if(special.test(value)) {
+  //     setValue('userName', value.slice(0,-1))
+  //   }else if(num.test(value)) {
+  //     setValue('userName', value.slice(0,-1))
+  //   }
+  // }
   const phoneValidator = (e) => {
     // e.preventDefault();
     const value = e.target.value
     const kor = /[a-z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g; //한글 검사 정규식
-    const special = /[`.()_=~!@#$%^&*|\\\'\";:\/?]/gi; //특수문자 검사 정규식
+    const special = /[!?@#$%^&*_:;()-+~`<>"'{}\|\\\[\]\,\.\/]/gi; //특수문자 검사 정규식
 
     if(kor.test(value)) { // 한글인 경우
       setValue('phoneNumber',value.slice(0,-1))
     }else if(special.test(value)){ // 특수문자가 포함된 경우
       setValue('phoneNumber',value.slice(0,-1))
+    }
+    else {
+      clearErrors('phoneNumber')
     }    
   }  
 
@@ -190,7 +209,7 @@ function Promotion(props) {
             <div className="pf-row">
               <div className="pf-input-box">
                 <label className="pf-label">{t("promotion_input1")}<span> *</span></label>
-                <input {...register("userName", { required: true})} type="text" maxLength="20" className={classNames("pf-input-middle", errors.userName ? "pf-error-input" : null)} placeholder={t("promotion_input1")} />
+                <input {...register("userName", { required: true})} type="text" maxLength="128" className={classNames("pf-input-middle", errors.userName ? "pf-error-input" : null)} placeholder={t("promotion_input1")} />
                 <p className={classNames(errors.userName ? "pf-error" : "pf-valid")}>{t('promotion_input1_e')}</p>
               </div>
               <div className="pf-input-box">
@@ -235,13 +254,13 @@ function Promotion(props) {
             <div className="pf-row">
               <div className="pf-input-box">
                 <label className="pf-label">{t("promotion_input7-1")}<span> *</span></label>
-                <input {...register("password", { required: true ,pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,16}$/ })} maxLength="50" type={passwordType} className={classNames("pf-input-middle",errors.password ? "pf-error-input" : null)} placeholder={t("promotion_input7-2")} ></input>
+                <input {...register("password", { required: true ,pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!?@#$%^&*_:;()-+~`<>"'{}\|\\\[\]\,\.\/])[A-Za-z\d!?@#$%^&*_:;()-+~`<>"'{}\|\\\[\]\,\.\/]{6,16}$/g })} maxLength="128" type={passwordType} className={classNames("pf-input-middle",errors.password ? "pf-error-input" : null)} placeholder={t("promotion_input7-2")} ></input>
                 <FontAwesomeIcon onMouseDown={()=>setPasswordType('text')} onMouseUp={()=>setPasswordType('password')} icon={faEye} className="password-preview"/>
                 <p className={classNames(errors.password ? "pf-error" : "pf-valid")}>{t("promotion_input7_e")}</p>
               </div>
               <div className="pf-input-box">
                 <label className="pf-label">{t("promotion_input8")}<span> *</span></label>
-                <input {...register("password2", { required: true, validate: value => value == getValues('password')})} maxLength="50" type="password" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder={t("promotion_input8")} />
+                <input {...register("password2", { required: true, validate: value => value == getValues('password')})} maxLength="128" type="password" className={classNames("pf-input-middle", errors.password2 ? "pf-error-input" : null)} placeholder={t("promotion_input8")} />
                 <p className={classNames(errors.password2 ? "pf-error" : "pf-valid")}>{t("promotion_input8_e")}</p>
               </div>
             </div>
