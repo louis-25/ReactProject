@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import Contents from '../images/contents.png'
+// import Contents from '../images/contents.png'
+import Contents from '../images/man.svg'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
 
@@ -23,7 +24,7 @@ function Visual({promotionRef}) {
         <div className="visual-contents-left">
           <h1 className="visual-main-title">
             {isDesktop && 
-              <p>{t("visual_title1_content1")}<br/>{t("visual_title1_content2")}</p>
+              <p style={{width:"550px"}}>{t("visual_title1_content1")}<br/>{t("visual_title1_content2")}</p>
             }
             {isMobile &&
               <p>{t("Mvisual_title1_content1")}<br/>{t("Mvisual_title1_content2")}</p>

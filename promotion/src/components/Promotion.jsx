@@ -38,8 +38,7 @@ function Promotion(props) {
     }
     else {
       await service.submit(data).then((res) => {
-        console.log('res ', res)        
-        pfSubmit.current.disabled = false
+        console.log('res ', res)                
         if (res.status == 200) {
           pfSubmit.current.disabled = true
           if(i18n.language=='ko') {
@@ -52,6 +51,7 @@ function Promotion(props) {
           e.target.reset() // reset after form submit
         }
         else if (res.status) {
+          isCheck()
           if(res.status == 409) {
             alert('이미 사용하고있는 이메일주소 입니다')
             setError('email', { type: "focus" }, { shouldFocus: true })
@@ -61,6 +61,8 @@ function Promotion(props) {
             alert('404 Not Found')
           }else if(res.status == 500) {
             alert('500 서버오류')
+          }else {
+            alert(res.status+'error')
           }
           pfSubmit.current.disabled = false
         }
@@ -152,7 +154,7 @@ function Promotion(props) {
   function checkSpecial(str) {
     // 대소문자 숫자 특수문자 1개이상 넣어야하고 
     // 대소문자 숫자 특수문자로 이루어진 문자로 6~16자리로 구성됨
-    let check = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!?@#$%^&*_:;()-+~`<>"'{}\|\\\[\]\,\.\/])[A-Za-z\d!?@#$%^&*_:;()-+~`<>"'{}\|\\\[\]\,\.\/]{6,16}$/g;
+    let check = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!?@#$%^&*_:;()+~`<>"'{}=\|\\\[\]\,\.\/])[A-Za-z\d!?@#$%^&*_:;()+~`<>"'{}=\|\\\[\]\,\.\/]{6,16}$/g;
     if (check.test(str)) {      
         return true      
     }

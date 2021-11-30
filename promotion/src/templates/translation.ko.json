@@ -29,7 +29,7 @@
   "feature_sub_title2_content2": "시안, CAD 파일을 기준으로 채팅방이 자",
   "feature_sub_title2_content3": "동 성생되어 프로젝트구성원과 편리하",
   "feature_sub_title2_content4": "게 커뮤니케이션할 수 있습니다.",
-  "feature_sub_title3": "직관적인 채팅 환경",
+  "feature_sub_title3": "사용자 편의성 극대화",
   "feature_sub_title3_content1": "전체/문서/사용자 채팅으로 구분되어 채",
   "feature_sub_title3_content2": "팅 목록을 개별적으로 확인할 수 있으며,",
   "feature_sub_title3_content3": "직관적인 환경 구성으로 누구나 쉽게 사용",
@@ -80,6 +80,7 @@
   "Mabout_content2" : "문서 플랫폼, 빅데이터, 생산성 서비스 영역에서",
   "Mabout_content3" : "디지털 비즈니스를 위한 인텔리전스 전략을",
   "Mabout_content4" : "제공합니다.",
+  "about_btn" : "회사 소개",
 
   "brochure_icon1_title" : "브로슈어",
   "brochure_icon1_content" : "Wrapsody에 대해 자세히 알아보세요.",

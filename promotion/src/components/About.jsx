@@ -23,7 +23,7 @@ function About(props) {
           {t("about_content2")}<br/>
           {i18n.language=="ko" && <>{t("about_content3")}</>}
         </p>
-        <input className="about-btn" type="button" onClick={goToCompany} value={t("header_menu3")}/>
+        <input className="about-btn" type="button" onClick={goToCompany} value={t("about_btn")}/>
       </div>
       }
       { isMobile &&
@@ -38,7 +38,7 @@ function About(props) {
           {t("Mabout_content3")}<br/>
           {i18n.language=="ko" && <>{t("Mabout_content4")}</>}          
         </p>
-        <input className="about-btn" type="button" onClick={goToCompany} value={t("header_menu3")}/>
+        <input className="about-btn" type="button" onClick={goToCompany} value={t("about_btn")}/>
         </div>
       }
     </>

@@ -3,6 +3,9 @@ import React from 'react';
 import Folder from '../images/folder.png'
 import Group from '../images/group.png'
 import Balloon from '../images/textballoon.png'
+import Menu1 from '../images/menu1.svg' 
+import Menu2 from '../images/menu2.svg'
+import Menu3 from '../images/menu3.svg'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
 
@@ -19,38 +22,43 @@ function Feature(props) {
         <h1 className="feature-title">{t("feature_title1-2")}</h1>
       </div>
       <div className="feature-contents-box">
-        <div className="feature-content">
-          <div className="feature-content-title">{t("feature_sub_title1")}</div>          
-          <p className="feature-content-text">
-            {t("feature_sub_title1_content1")}<br/>
-            {t("feature_sub_title1_content2")}<br/>
-            {t("feature_sub_title1_content3")}<br/>
-            {t("feature_sub_title1_content4")}
-          </p>
-          <div className="feature-content-img"><img src={Folder}/></div>
+        <div className="feature-content-wrap">
+          <div className="feature-content">
+            <div className="feature-content-title">{t("feature_sub_title1")}</div>          
+            <p className="feature-content-text" >
+              {t("feature_sub_title1_content1")}<br/>
+              {t("feature_sub_title1_content2")}<br/>
+              {t("feature_sub_title1_content3")}<br/>
+              {t("feature_sub_title1_content4")}
+            </p>                    
+          </div>
+          <div className="feature-content-img"><img src={Menu1}/></div>
         </div>
-        <div className="feature-content">
-          <div className="feature-content-title">{t("feature_sub_title2")}</div>
-          <p className="feature-content-text">
-            {t("feature_sub_title2_content1")}<br/>
-            {t("feature_sub_title2_content2")}<br/>
-            {t("feature_sub_title2_content3")}<br/>
-            {t("feature_sub_title2_content4")}
-          </p>
-          <div className="feature-content-img"><img src={Group}/></div>
+        <div className="feature-content-wrap">
+          <div className="feature-content">
+            <div className="feature-content-title">{t("feature_sub_title2")}</div>
+            <p className="feature-content-text">
+              {t("feature_sub_title2_content1")}<br/>
+              {t("feature_sub_title2_content2")}<br/>
+              {t("feature_sub_title2_content3")}<br/>
+              {t("feature_sub_title2_content4")}
+            </p>                    
+          </div>        
+          <div className="feature-content-img"><img src={Menu2}/></div>
         </div>
-        <div className="feature-content">
-          <div className="feature-content-title">{t("feature_sub_title3")}</div>
-          <p className="feature-content-text">
-            {t("feature_sub_title3_content1")}<br/>
-            {t("feature_sub_title3_content2")}<br/>
-            {t("feature_sub_title3_content3")}<br/>
-            {t("feature_sub_title3_content4")}
-          </p>
-          <div className="feature-content-img"><img src={Balloon}/></div>
+        <div className="feature-content-wrap">
+          <div className="feature-content">
+            <div className="feature-content-title">{t("feature_sub_title3")}</div>
+            <p className="feature-content-text">
+              {t("feature_sub_title3_content1")}<br/>
+              {t("feature_sub_title3_content2")}<br/>
+              {t("feature_sub_title3_content3")}<br/>
+              {t("feature_sub_title3_content4")}
+            </p>          
+          </div>      
+          <div className="feature-content-img"><img src={Menu3}/></div>  
         </div>
-      </div>
-      
+      </div>      
     </div>    
   );
 }
