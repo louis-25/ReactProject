@@ -58,7 +58,7 @@
   transform: scale(1.06);
 }
 
-.logo a {
+.logo span {
   margin-left: 10px;
   color: var(--color-white);
 }

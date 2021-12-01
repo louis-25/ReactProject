@@ -28,7 +28,7 @@ const works = [
   datatype: 'front-end',
   src: DHtube,
   h3: 'React',
-  span: 'DHtube'
+  span: 'Youtube 클론코딩'
 },
 {
   href:'http://124.5.187.217:9090/',
