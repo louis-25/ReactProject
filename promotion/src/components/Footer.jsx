@@ -80,8 +80,7 @@ function Footer(props) {
       {isMobile &&
       <div className="mFooter">
         <div className="mFooter-menu">
-          <ul>
-          <li>© 2021 Fasoo</li>
+          <ul>          
             <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
             <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
             <li><Link to={{pathname:"#"}}>{t("terms_paid")}</Link></li>

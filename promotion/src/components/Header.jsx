@@ -106,9 +106,14 @@ function Header({featureRef, promotionRef, aboutRef}) {
     }     
   }
 
-  const goToCompany = () => {
+  const goToCompany = (e) => {
+    e.preventDefault()
     if(sidebar) setSidebar(false)
-    window.open("https://www.fasoo.com/about-us")
+    if(i18n.language=='ko') {
+      window.open("https://www.fasoo.com/about-us")
+    }else if(i18n.language=='en') {
+      window.open("https://en.fasoo.com/company/")
+    }
   }
 
   const goToLogin = () => {
@@ -134,14 +139,14 @@ function Header({featureRef, promotionRef, aboutRef}) {
         </div>
         <nav>
           <ul className="nav-menu">
-            <li>              
+            <li>                            
               <a href="/index.html#feature" onClick={goToFeature}>{t("header_menu1")}</a>
             </li>
             <li>              
               <a href="/index.html#price" onClick={goToPromotion}>{t("header_menu2")}</a>
             </li>
             <li>
-              <a href="https://www.fasoo.com/about-us" target="_blank">{t("header_menu3")}</a>
+              <a href="/index.html#company" onClick={goToCompany} target="_blank">{t("header_menu3")}</a>
             </li>           
             <div>
               <a className="loginBtn" href="https://firesidedemo.fasoo.com/wrapmsgr/admin" target="_blank">{t("header_menu4")}</a>

@@ -30,7 +30,7 @@ function Feature(props) {
               {t("feature_sub_title1_content2")}<br/>
               {t("feature_sub_title1_content3")}<br/>
               {t("feature_sub_title1_content4")}
-            </p>                    
+            </p>
           </div>
           <div className="feature-content-img"><img src={Menu1}/></div>
         </div>
@@ -53,7 +53,10 @@ function Feature(props) {
               {t("feature_sub_title3_content1")}<br/>
               {t("feature_sub_title3_content2")}<br/>
               {t("feature_sub_title3_content3")}<br/>
-              {t("feature_sub_title3_content4")}
+              {i18n.language=='en' ?
+                t("feature_sub_title3_content4")
+                : <br/>
+              }
             </p>          
           </div>      
           <div className="feature-content-img"><img src={Menu3}/></div>  

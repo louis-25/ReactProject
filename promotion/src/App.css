@@ -162,15 +162,15 @@ input[type="number"]::-webkit-inner-spin-button {
   /* margin-right: 200px;   */
 }
 .visual-main-title {
-  line-height: 60px;
+  line-height: 47.6px;
   margin-bottom: 30px;
-  font-size: 48px;
+  font-size: 38px;
   color: #252D38;
 }
 .visual-text-contents {
   margin-bottom: 50px;  
-  font-size: 22px;
-  line-height: 35px;
+  font-size: 16px;
+  line-height: 25.6px;
   color: #494B52;
 }
 .visual-btn-box {
@@ -648,6 +648,10 @@ select .pf-input-box {
   }
 
   /* visual */
+  .visual-main-title {
+    font-style: normal;
+    font-weight: normal;
+  }
   .visual-contents-box {
     text-align: center;
   }
@@ -670,7 +674,7 @@ select .pf-input-box {
     line-height: 140%;
   }
   .visual-text-contents {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 160%;
   }
   .visual-contents-box {
@@ -687,15 +691,18 @@ select .pf-input-box {
   .feature-contents-box {
     flex-direction: column;
     margin-bottom: 82px;
-  }
+  }  
   .feature-content,
   .feature-content-img{
     margin-bottom: 32px;
-    max-width: 320px;
+    width: 350px;
     margin: auto;
   }
   .feature-content-img {
     margin-bottom: 38px;
+  }
+  .feature-content-title {
+    font-size: 24px;    
   }
   .feature-content-text {
     font-size: 16px;

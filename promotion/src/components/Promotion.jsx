@@ -9,13 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 
 function Promotion(props) {
-  const { register, handleSubmit, getValues, setValue, setError, clearErrors, watch, formState: { errors } } = useForm();
-  // const [error, setError] = useState(true)  
-  const [check, setCheck] = useState()
-  const [name, setName] = useState()
-  const [email, setEmail] = useState('이메일을 입력해주세요')
-  const [passwordType, setPasswordType] = useState('password')
-  const preview = useRef()
+  const { register, handleSubmit, getValues, setValue, setError, clearErrors, watch, formState: { errors } } = useForm();  
+  const [check, setCheck] = useState()  
+  const [passwordType, setPasswordType] = useState('password')  
   const checkRef = useRef()
   const pfSubmit = useRef()
   const userName = watch('userName')
@@ -23,57 +19,63 @@ function Promotion(props) {
   const password2 = watch('password2')
   const service = new Service()
 
-  const { t, i18n } = useTranslation()
-  // setName(t("promotion_input1_e"))
+  const { t, i18n } = useTranslation()  
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
   const onSubmit = async (data, e) => {
+    alert('테스트용 입니다\n전달받은 데이터'+
+    '\ncompanyName: '+data.companyName+
+    '\nphoneNumber: '+data.phoneNumber+
+    '\ncompanyName: '+data.companyName+
+    '\ncompanyScale: '+data.companyScale+
+    '\nreason: '+data.reason+
+    '\nuserName: '+data.userName)
     console.log('data ', data)
-    pfSubmit.current.disabled = false
-    if (getValues("password") !== getValues("password2")) {
-      alert('비밀번호가 다릅니다')
-      setError('password')
-      setError('password2', { type: "focus" }, { shouldFocus: true })
-    }
-    else {
-      await service.submit(data).then((res) => {
-        console.log('res ', res)                
-        if (res.status == 200) {
-          pfSubmit.current.disabled = true
-          if(i18n.language=='ko') {
-            alert('무료 체험 신청이 접수되었습니다')
-          }
-          else if(i18n.language=='en'){
-            alert('Your request has been successfully submitted.')
-          }
-          window.scrollTo(0, 0)
-          e.target.reset() // reset after form submit
-        }
-        else if (res.status) {
-          isCheck()
-          if(res.status == 409) {
-            alert('이미 사용하고있는 이메일주소 입니다')
-            setError('email', { type: "focus" }, { shouldFocus: true })
-          }else if(res.status == 403) {
-            alert('403 Forbidden')
-          }else if(res.status == 404) {
-            alert('404 Not Found')
-          }else if(res.status == 500) {
-            alert('500 서버오류')
-          }else {
-            alert(res.status+'error')
-          }
-          pfSubmit.current.disabled = false
-        }
-        else {
-          alert('모르는예외')
-        }
-      }).catch((e) => {
-        console.log('e ', e)
-      })
-      // e.target.reset() // reset after form submit
-    }
+    // pfSubmit.current.disabled = false
+    // if (getValues("password") !== getValues("password2")) {
+    //   alert('비밀번호가 다릅니다')
+    //   setError('password')
+    //   setError('password2', { type: "focus" }, { shouldFocus: true })
+    // }
+    // else {
+    //   await service.submit(data).then((res) => {
+    //     console.log('res ', res)                
+    //     if (res.status == 200) {
+    //       pfSubmit.current.disabled = true
+    //       if(i18n.language=='ko') {
+    //         alert('무료 체험 신청이 접수되었습니다')
+    //       }
+    //       else if(i18n.language=='en'){
+    //         alert('Your request has been successfully submitted.')
+    //       }
+    //       window.scrollTo(0, 0)
+    //       e.target.reset() // reset after form submit
+    //     }
+    //     else if (res.status) {
+    //       isCheck()
+    //       if(res.status == 409) {
+    //         alert('이미 사용하고있는 이메일주소 입니다')
+    //         setError('email', { type: "focus" }, { shouldFocus: true })
+    //       }else if(res.status == 403) {
+    //         alert('403 Forbidden')
+    //       }else if(res.status == 404) {
+    //         alert('404 Not Found')
+    //       }else if(res.status == 500) {
+    //         alert('500 서버오류')
+    //       }else {
+    //         alert(res.status+'error')
+    //       }
+    //       pfSubmit.current.disabled = false
+    //     }
+    //     else {
+    //       alert('모르는예외')
+    //     }
+    //   }).catch((e) => {
+    //     console.log('e ', e)
+    //   })
+    //   // e.target.reset() // reset after form submit
+    // }
   }
   const isCheck = () => {
     console.log('checked ', checkRef.current.checked)
@@ -81,23 +83,11 @@ function Promotion(props) {
     pfSubmit.current.disabled = check
   }
 
-  // const previewSwitch = () => {
-  //   setPreview(!previewSwitch)
-  // }
-
-  // useEffecte(()=>{
-
-  // },[previewSwitch])
-  // useEffect(()=>{
-  //   console.log(preview.current.type)
-  // },[preview])
   useEffect(()=>{
     let userName = getValues('userName')
-    if(userName.length > 128) {
-      setName('이름이 너무 깁니다')
+    if(userName.length > 128) {      
       setError('userName')
-    }else {
-      setName(t('promotion_input1_e'))
+    }else {      
       clearErrors('userName')
     }
   },[userName])
@@ -118,11 +108,7 @@ function Promotion(props) {
       }
       if(password == password2) {
         clearErrors('password2')
-      }
-      // else {
-      //   console.log('비번 다른경우',password, password2)
-      //   setError('password2')
-      // }
+      }      
     }
     else if (password.length == 0) {
       clearErrors('password')
@@ -131,13 +117,13 @@ function Promotion(props) {
 
   useEffect(() => {
     let password = getValues('password')
-    let password2 = getValues('password2')    
+    let password2 = getValues('password2')
 
     if (password2.length > 0) {
-      // 비밀번호가 서로 다른경우      
+      // 비밀번호가 서로 다른경우
       if (password != password2) {
         console.log('setError password2')
-        // if(!errors.password2) 
+        // if(!errors.password2)
         setError('password2')
       }
       else if (password == password2) { // 비밀번호가 서로 같을때
@@ -155,37 +141,20 @@ function Promotion(props) {
     // 대소문자 숫자 특수문자 1개이상 넣어야하고 
     // 대소문자 숫자 특수문자로 이루어진 문자로 6~16자리로 구성됨
     let check = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!?@#$%^&*_:;()+~`<>"'{}=\|\\\[\]\,\.\/])[A-Za-z\d!?@#$%^&*_:;()+~`<>"'{}=\|\\\[\]\,\.\/]{6,16}$/g;
-    if (check.test(str)) {      
-        return true      
+    if (check.test(str)) {
+        return true
     }
     else {
       return false;
     }
-  }
-  // const nameValidator = (e) => {
-  //   const value = e.target.value
-  //   const num = /[0-9]/g
-  //   const special = /[`.()=~!@#$%^&*|\\\'\";:\/?]/gi; //특수문자 검사 정규식
-  //   if(special.test(value)) {
-  //     setValue('userName', value.slice(0,-1))
-  //   }else if(num.test(value)) {
-  //     setValue('userName', value.slice(0,-1))
-  //   }
-  // }
-  const phoneValidator = (e) => {
-    // e.preventDefault();
-    const value = e.target.value
+  }  
+  const phoneValidator = (e) => {    
+    const value = e.target.value    
     const kor = /[a-z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g; //한글 검사 정규식
-    const special = /[!?@#$%^&*_:;()-+~`<>"'{}\|\\\[\]\,\.\/]/gi; //특수문자 검사 정규식
-
-    if(kor.test(value)) { // 한글인 경우
-      setValue('phoneNumber',value.slice(0,-1))
-    }else if(special.test(value)){ // 특수문자가 포함된 경우
-      setValue('phoneNumber',value.slice(0,-1))
-    }
-    else {
-      clearErrors('phoneNumber')
-    }    
+    const special = /[`.,()=~!@#$%^&*|\[\]\\\'\";:\/?]/gi; //특수문자 검사 정규식
+            
+    setValue('phoneNumber',value.replace(/[a-z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣`.,()=~!@#$%^&*|\[\]\\\'\";:\/?]/gi,""))    
+    clearErrors('phoneNumber')    
   }  
 
   return (

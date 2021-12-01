@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef, useState } from 'react';
+import React, { createContext, useRef } from 'react';
 export const ScrollContext = createContext()
 
 export const ScrollProvider = (prop) => {  

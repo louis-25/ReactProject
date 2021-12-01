@@ -24,7 +24,7 @@ function Visual({promotionRef}) {
         <div className="visual-contents-left">
           <h1 className="visual-main-title">
             {isDesktop && 
-              <p style={{width:"550px"}}>{t("visual_title1_content1")}<br/>{t("visual_title1_content2")}</p>
+              <p style={{width:"610px"}}>{t("visual_title1_content1")}<br/>{t("visual_title1_content2")}</p>
             }
             {isMobile &&
               <p>{t("Mvisual_title1_content1")}<br/>{t("Mvisual_title1_content2")}</p>
@@ -32,12 +32,26 @@ function Visual({promotionRef}) {
           </h1>
           {isDesktop &&
             <p className="visual-text-contents">
-              {t("visual_title2_content1")}<br/>{t("visual_title2_content2")}<br/>{t("visual_title2_content3")}
+              {t("visual_title2_content1")}<br/>
+              {t("visual_title2_content2")}<br/>
+              {t("visual_title2_content3")}<br/>
+              {i18n.language == 'ko' &&
+                'Fireside를 지금 바로 만나보세요.'
+              }              
             </p>
           } 
           {isMobile &&
             <p className="visual-text-contents">
-              {t("Mvisual_title2_content1")}<br/>{t("Mvisual_title2_content2")}<br/>{t("Mvisual_title2_content3")}<br/>{t("Mvisual_title2_content4")}
+              {t("Mvisual_title2_content1")}<br/>
+              {t("Mvisual_title2_content2")}<br/>
+              {t("Mvisual_title2_content3")}<br/>
+              {t("Mvisual_title2_content4")}
+              {
+                i18n.language == 'ko' && <br/>                
+              }
+              {
+                i18n.language == 'ko' && '지금 바로 만나보세요.'
+              }
             </p>         
           } 
           <div className="visual-btn-box">
