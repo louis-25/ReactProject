@@ -53,7 +53,7 @@ function App() {
   function goScroll(top) {
     if(isDesktop) {
       window.scrollTo({
-          top: top-85,
+          top: top-83,
           behavior: "smooth"
       })             
     }else if(isMobile) {
