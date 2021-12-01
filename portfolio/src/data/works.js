@@ -20,8 +20,8 @@ const works = [
     href:'https://chrome.google.com/webstore/detail/fireside-extension/aomiaeiilmfbakpflmboippfcenmimii?hl=ko&authuser=0',
     datatype: 'front-end',
     src: Extension,
-    h3: 'JavaScript',
-    span: 'Chrome Extension'
+    h3: 'Chrome Extension',
+    span: '실시간 채팅연동 서비스'
   },
   {
   href:'https://dhtube.netlify.app/',
@@ -64,13 +64,6 @@ const works = [
   src: Django,
   h3: 'Django',
   span: '쇼핑몰 관리자페이지'
-},
-{
-  href:'https://github.com/louis-25/TIL/tree/main/spring/SemiProject',
-  datatype: 'back-end',
-  src: 자취꿀팁,
-  h3: 'Spring',
-  span: '게시판'
 },
 {
   href:'https://drive.google.com/file/d/1SC4T2m8gadtkg33AoS_5UI04_95urheK/view?usp=sharing',
