@@ -1,8 +1,8 @@
 .section {
-  padding: 2em;  
+  padding: 2em;    
 }
 
-.category__btn {
+.category__btn {  
   border: 1px solid var(--color-dark-white);
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
@@ -10,7 +10,7 @@
 }
 
 .work__categories {
-  margin: 40px;
+  margin: 40px auto;  
 }
 
 /* 버튼이 활성화 돼있거나 커서가 가리킬때*/
@@ -48,12 +48,14 @@
 
 .work__projects {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: left;  
-  padding-left: 8%;
+  flex-wrap: wrap;  
+  /* padding-left: 8%; */
+  /* margin: 0 auto; */
+  justify-content: center;
   opacity: 1;
   transition: all var(--animation-duration) ease-out;
 }
+
 
 .work__projects.anim-out {
   opacity: 0;
@@ -128,8 +130,20 @@
   background-color: var(--color-dark-white);
 }
 
-@media screen and (max-width:768px) { 
+/* @media screen and (max-width:768px) { 
   .category__btn {
     width: 100%;
+  }  
+} */
+
+@media screen and (max-width:768px) { 
+  .section {
+    padding: 4em;    
+  }
+  .category__btn {
+    width: 100%;
+  }
+  .work__categories {
+    max-width: 250px;
   }
 }

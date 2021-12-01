@@ -4,9 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAppleAlt, faBars } from "@fortawesome/free-solid-svg-icons";
 import classNames from 'classnames';
 
-function Navbar({about, skill, work, scrollY, setScrollY}) {       
-
-    const [toggle, setToggle] = useState(false)
+function Navbar({about, skill, work, scrollY, setScrollY, toggle,setToggle}) {       
 
     function goScroll(top) {
         window.scrollTo({
@@ -27,14 +25,14 @@ function Navbar({about, skill, work, scrollY, setScrollY}) {
             <Icon className={style.icon}></Icon>
             <a href="/">Louis</a>
         </div>
-        <div className={style.menu}>            
+        <div className={style.menu}>
             <ul className={classNames(style.menu, toggle ? style.open : style.close)}>
-                {/* data-link는 section id를 불러온다 */}                
-                <li className={style.item} onClick={()=>goScroll(0)}>Home</li>
+                {/* data-link는 section id를 불러온다 */}
+                <li className={style.item} onClick={()=>{goScroll(0);toggle && setToggle(false)}}>Home</li>
                 <li className={style.item} onClick={about}>About</li>
                 <li className={style.item} onClick={skill}>Skills</li>
                 <li className={style.item} onClick={work}>My work</li>                
-                <li className={style.item} onClick={()=>goScroll(100000)}>Contact</li>                
+                <li className={style.item} onClick={()=>{goScroll(100000);toggle && setToggle(false)}}>Contact</li>                
             </ul>            
         </div>
         {/* Toggle button - 햄버거 */}        

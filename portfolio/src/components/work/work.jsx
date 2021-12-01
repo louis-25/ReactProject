@@ -93,6 +93,7 @@ function Work(props) {
         </button>
       </div>
 
+      <div className={style.work__section}>
       <div className={style.work__projects}>
         { works.map((work)=>{
             if(selectBtn == work.datatype || selectBtn == 'all') {
@@ -102,6 +103,7 @@ function Work(props) {
             }
           })        
         }
+      </div>
       </div>
     </section>
   );

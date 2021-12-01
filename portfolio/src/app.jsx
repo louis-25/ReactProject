@@ -7,18 +7,22 @@ import Work from './components/work/work';
 import Contact from './components/contact/contact'
 import { throttle } from 'lodash';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useMediaQuery } from 'react-responsive'
 
 function App() {
   const [scrollY, setScrollY] = useState() //스크롤 변수
+  const [toggle, setToggle] = useState(false)
   const home = useRef();
   const about = useRef();
   const skill = useRef();
   const work = useRef();  
+  const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
   const throttledScroll = useMemo(() =>
       throttle(() => {
-        console.log('스크롤 이벤트');
-        console.log('y ',window.scrollY);
+        // console.log('스크롤 이벤트');
+        // console.log('y ',window.scrollY);
         setScrollY(window.scrollY)
       }, 300),
   );
@@ -32,22 +36,32 @@ function App() {
   }, []);
 
   const scrollToAbout = () => {
+    if(toggle) setToggle(false)
     goScroll(about.current.offsetTop);
   }
 
   const scrollToSkills = () => {
-    goScroll(skill.current.offsetTop);
+    if(toggle) setToggle(false)
+    goScroll(skill.current.offsetTop);    
   }
 
   const scrollToWork = () => {
+    if(toggle) setToggle(false)
     goScroll(work.current.offsetTop);
   }
   
   function goScroll(top) {
-    window.scrollTo({
-        top: top-70,
+    if(isDesktop) {
+      window.scrollTo({
+          top: top-85,
+          behavior: "smooth"
+      })             
+    }else if(isMobile) {
+      window.scrollTo({
+        top: top,
         behavior: "smooth"
     })             
+    }
 }    
 
   return (
@@ -56,7 +70,10 @@ function App() {
         about={scrollToAbout}
         skill={scrollToSkills}
         work={scrollToWork}
-        scrollY={scrollY} setScrollY={setScrollY}/>
+        scrollY={scrollY} setScrollY={setScrollY}
+        toggle={toggle}        
+        setToggle={setToggle}
+        />
       <div><Home setScrollY={setScrollY} ref={home}/></div>
       <div ref={about}><About/></div>
       <div ref={skill}><Skills/></div>

@@ -91,6 +91,7 @@
 @media screen and (max-width:768px) { 
   .about {
     transition: all var(--animation-duration) ease-in-out;
+    padding: 4em;
   }
 
   .majors{
