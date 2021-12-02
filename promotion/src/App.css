@@ -345,16 +345,33 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   flex-basis: auto;
   width: 100%;
-  margin-bottom: 16px;
+  /* margin-bottom: 24px; */
 }
 .pf-input-box {
   display: flex;
   flex-direction: column;
   text-align: left;  
   width: 100%;
+  height: 100%;
+}
+.pf-input-box select{
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url('./images/Triangle.svg') no-repeat 97% 50%/7px auto;  
+}
+.pf-input-box select option {
+  border-radius: 10px;
+  padding: 10px;  
+  /* background:transparent;
+  border: 0 */
+}
+.pf-input-box select option::selection {
+  background-color: #F2F4F7;
 }
 .pf-input-box .password-preview{  
-  margin-top: -30px;  
+  margin-top: -30px;
   margin-bottom: 15px;
   margin-left: 93%;
   color: #717985;
@@ -371,7 +388,7 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-bottom: 16px;
+  /* margin-bottom: 24px; */
 }
 .pf-label {
   margin-bottom: 8px;
@@ -384,35 +401,38 @@ input[type="number"]::-webkit-inner-spin-button {
 select .pf-input-box {
   border-radius: 10px;
 }
-.pf-input-middle {
-  /* width: 355px; */
+.pf-input-middle {  
   width: 100%;
   height: 40px;
   border-radius: 5px;
   border: 1px solid #CDCED1;    
-  font-size: 16px;
+  font-size: 16px;  
 }
 .pf-input-long {
   width: 100%;
   height: 40px;
   border-radius: 5px;
   border: 1px solid #CDCED1;  
-  font-size: 16px;
+  font-size: 16px;  
 }
 .pf-valid {
-  margin-top: 8px;
-  display: none;
-  /* visibility: hidden;   */
+  margin-top: 8px;  
+  height: 30px;
+  /* display: none; */  
+  visibility: hidden;  
 }
 .pf-error-input {
   border: 1px solid #EF5350;
 }
 .pf-error {
   margin-top: 8px;
+  height: 30px;  
   color: #EF5350;
   visibility: visible;
+  font-size: 14px;
 }
 .pf-check{
+  margin-top: 34px;
   text-align: left;
 }
 .pf-check-line {
@@ -494,6 +514,27 @@ select .pf-input-box {
   background-color: #ADCDFB;
   cursor: default;
 }
+
+
+.selectBox {
+  width: 100%;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  text-indent: 10px;
+  background: url('./images/Triangle.svg') no-repeat 97% 50%/7px auto;
+}
+.optionList {
+  background-color: #fff;
+  border: 1px solid black;
+  position: absolute;
+  display: none;
+  margin-top: 140px;
+  border-radius: 5px;
+}
+
 /* About */
 .about {
   margin: auto;
@@ -738,10 +779,30 @@ select .pf-input-box {
     margin-right: 0;
   }
   .pf-input-box {
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
+  }
+  .pf-input-box2 {
+    margin-top: 32px;
   }
   .pf-input-box div .password-eye{
     position: absolute;    
+  }
+  .pf-valid {
+    margin-top: 12px;  
+    height: 52px;
+    /* display: none; */  
+    visibility: hidden;  
+  }
+  .pf-error-input {
+    border: 1px solid #EF5350;
+  }
+  .pf-error {
+    margin-top: 12px;
+    height: 52px;  
+    color: #EF5350;
+    visibility: visible;
+    font-weight: 400;
+    font-size: 20px;
   }
   .pf-submit {
     width: 100%;

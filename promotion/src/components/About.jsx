@@ -8,7 +8,11 @@ function About(props) {
   const { t, i18n } = useTranslation()
 
   const goToCompany = () => {
-    window.open("https://www.fasoo.com/about-us")
+    if(i18n.language == 'ko'){
+      window.open("https://www.fasoo.com/about-us")
+    }else if(i18n.language == 'en') {
+      window.open("https://en.fasoo.com/company/")
+    }
   }
   return (
     <>
