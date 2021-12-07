@@ -8,6 +8,7 @@ import Brochure from './components/Brochure';
 import Footer from './components/Footer'
 import Terms from './components/Terms/Terms'
 import Privacy from './components/Privacy/Privacy'
+import Slider from './components/Slider/Slider';
 import { useRef } from 'react'
 import {ScrollContext} from './context/ScrollContext'
 import { Route, Switch } from 'react-router-dom'
@@ -25,7 +26,7 @@ function App() {
         promotionRef={promotionRef}
         aboutRef={aboutRef}
       ></Header>
-      <Visual promotionRef={promotionRef}></Visual>
+      <Visual promotionRef={promotionRef}></Visual>      
       <div ref={featureRef}><Feature></Feature></div>
       <div ref={promotionRef}><Promotion></Promotion></div>
       <div ref={aboutRef}><About></About></div>

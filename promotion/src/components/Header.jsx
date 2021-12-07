@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
 
-function Header(props,{featureRef, promotionRef, aboutRef}) {  
+function Header({featureRef, promotionRef, aboutRef}) {  
   const [scroll, setScroll] = useState(0)
   const [sidebar, setSidebar] = useState(false)  
   const topRef = useRef()    
@@ -26,15 +26,7 @@ function Header(props,{featureRef, promotionRef, aboutRef}) {
       setScroll(window.scrollY)
     },300),
   );
-  useEffect(()=>{    
-    if(history.location.pathname === "/terms" || history.location.pathname ==="/privacy"){      
-      console.log('test',history.location.state)
-      // if(history.location.state.language == "en") {
-      //   i18n.changeLanguage = "en"
-      // }
-    }
 
-  },[])
   useEffect(() => { //스크롤 이벤트 발생
     window.addEventListener('scroll', throttledScroll);
     // console.log('scroll ',scroll)
@@ -45,7 +37,7 @@ function Header(props,{featureRef, promotionRef, aboutRef}) {
 
   useEffect(()=>{
     console.log(history)
-    if(history.location.pathname=='/'){
+    if(history.location.pathname='/'){
       if(history.location.state) { //state가 있는경우
         console.log('history ',history.location.state.scroll)
         switch(history.location.state.scroll){
@@ -72,7 +64,7 @@ function Header(props,{featureRef, promotionRef, aboutRef}) {
             history.replace("",null)
             break;
         }
-      }else{
+      }else {      
         // state가 undefined인 경우
         window.scrollTo(0, 0)
       }

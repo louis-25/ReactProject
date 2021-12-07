@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 // import Contents from '../images/contents.png'
-import Contents from '../images/man.svg'
+// import Contents from '../images/man.svg'
+import Contents from '../images/snow.svg'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
 
