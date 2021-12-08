@@ -142,9 +142,9 @@ function Header({featureRef, promotionRef, aboutRef}) {
             <li>                            
               <a href="/index.html#feature" onClick={goToFeature}>{t("header_menu1")}</a>
             </li>
-            <li>              
+            {/* <li>              
               <a href="/index.html#price" onClick={goToPromotion}>{t("header_menu2")}</a>
-            </li>
+            </li> */}
             <li>
               <a href="/index.html#company" onClick={goToCompany} target="_blank">{t("header_menu3")}</a>
             </li>           
@@ -168,7 +168,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
         </div>
         <ul className="sidebar-menu">
           <li onClick={goToFeature}>{t("header_menu1")}</li>
-          <li onClick={goToPromotion}>{t("header_menu2")}</li>
+          {/* <li onClick={goToPromotion}>{t("header_menu2")}</li> */}
           <li onClick={goToCompany}>{t("header_menu3")}</li>
         </ul>
         <div className="sidebar-login-box">

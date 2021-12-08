@@ -2,30 +2,56 @@ import React from 'react';
 import style from './Slider.module.css'
 /* swiper */
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination } from "swiper"
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper"
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css"
 import "swiper/components/pagination/pagination.min.css"
-import document from '../../images/slider/documentFile.svg'
-import special from '../../images/slider/specialFile.svg'
-import ppt from '../../images/slider/pptFile.svg'
-import design from '../../images/slider/designFile.svg'
-import chat from '../../images/slider/chat.svg'
-import document2 from '../../images/slider/document2.svg'
-import search from '../../images/slider/search.svg'
+import menu1 from '../../images/slider/menu1.svg'
+import menu2 from '../../images/slider/menu2.svg'
+import menu3 from '../../images/slider/menu3.svg'
+import mobile_menu1 from '../../images/slider/mobile_menu1.svg'
+import mobile_menu2 from '../../images/slider/mobile_menu2.svg'
+import mobile_menu3 from '../../images/slider/mobile_menu3.svg'
+
+import { useMediaQuery } from 'react-responsive'
+import data from '../../data/slide.js'
 
 function Slider(props) {
-  SwiperCore.use([Navigation, Pagination])
-  
+  const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+  SwiperCore.use([Navigation, Pagination, Autoplay])
+  const contents = data  
   return (    
-    <div>
+    <div>      
+      {isDesktop &&
       <Swiper
         className={style.swiper}
         spaceBetween={50}
         slidesPerView={1}
+        loop={true}
+        autoplay={{delay:10000, disableOnInteraction: false}}
         navigation
-        pagination={{ clickable: true }}
-      >
+        pagination={{ 
+          clickable: true,                    
+          // bulletClass: `${style.swiper_pagination}`,
+          // bulletElement: `${style.swiper_pagination_bullet}`,
+          // bulletActiveClass: `${style.swiper_pagination_bullet_active}`
+        }}
+      >      
+      <SwiperSlide>
+          <div className={`${style.slide_title} inner`}>
+              <div className={style.main}>
+                <div className={style.number}>1</div>
+                사내 시스템과 완벽 연동</div>
+              <div className={style.sub}>사내 시스템과 효율적으로 연동되며 사용자 편의성을 극대화합니다.</div>
+            <div className={style.feature}>
+              <div className={`${style.feature_content} ${style.menu1}`}>
+                <img src={menu1}/>
+              </div>
+            </div>
+          </div>
+          {menu(contents[0])}
+        </SwiperSlide>
         <SwiperSlide>
           <div className={`${style.slide_title} inner`}>
             <div className={style.main}>
@@ -33,47 +59,108 @@ function Slider(props) {
               콘텐츠 중심 커뮤니케이션</div>
             <div className={style.sub}>협업콘텐츠에 집중할 수 있는 콘텐츠 중심 커뮤니케이션을 실현합니다.</div>
           </div>
-          <div className={style.feature}>
+          <div className={`${style.feature} ${style.menu2} inner`}>
             <div className={style.feature_content}>
-              <div className={style.imgBox}><img src={document}/></div>
-              <div>일반 문서</div>
-            </div>
-            <div className={style.feature_content}>
-              <div className={style.imgBox}><img src={ppt}/></div>
-              <div>일반 문서</div>
-            </div>
-            <div className={style.feature_content}>
-            <div className={style.imgBox}><img src={design}/></div>
-              <div>일반 문서</div>
-            </div>
-            <div className={style.feature_content}>
-            <div className={style.imgBox}><img src={special}/></div>
-              <div>일반 문서</div>
-            </div>
+              <img src={menu2}/>
+            </div>            
           </div>
-          <div className={style.feature_menu}>
-            <div className={style.feature_menu_content}>
-            <div className={style.menu_imgBox}><img src={chat}/></div>            
-              <div className={style.menu_title}>협업 콘텐츠 기반 채팅</div>              
-              <p className={style.menu_content}>협업 콘텐츠를 중심으로 채팅방이 자동 생성돼 협업 참여 인원과의 효율적인 커뮤니케이션</p>
-            </div>
-            <div className={style.feature_menu_content}>
-            <div className={style.menu_imgBox}><img src={document2}/></div>
-              <div className={style.menu_title}>협업 콘텐츠 기반 채팅</div>              
-              <p className={style.menu_content}>협업 콘텐츠를 중심으로 채팅방이 자동 생성돼 협업 참여 인원과의 효율적인 커뮤니케이션</p>
-            </div>
-            <div className={style.feature_menu_content}>
-              <div className={style.menu_imgBox}><img src={search}/></div>
-              <div className={style.menu_title}>협업 콘텐츠 기반 채팅</div>              
-              <p className={style.menu_content}>협업 콘텐츠를 중심으로 채팅방이 자동 생성돼 협업 참여 인원과의 효율적인 커뮤니케이션</p>
-            </div>
+          {menu(contents[1])}
+        </SwiperSlide>        
+        <SwiperSlide>
+          <div className={`${style.slide_title} inner`}>
+            <div className={style.main}>
+              <div className={style.number}>3</div>
+              강력한 보안</div>
+            <div className={style.sub}>공유 콘텐츠를 보호하는 강력한 보안이 필요합니다.</div>          
+          <div className={`${style.feature} ${style.menu3}`}>
+            <div className={`${style.feature_content}`}>
+              <img src={menu3}/>
+            </div>            
           </div>
+          </div>
+          {menu(contents[2])}
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
       </Swiper>
-    </div>
+      }
+      {
+        isMobile &&
+        <Swiper
+        className={style.swiper}
+        spaceBetween={50}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{delay:100000, disableOnInteraction: false}}
+        pagination={{ 
+          clickable: true,
+          // bulletClass: `${style.swiper_pagination}`,
+          // bulletElement: `${style.swiper_pagination_bullet}`,
+          // bulletActiveClass: `${style.swiper_pagination_bullet_active}`
+        }}
+      >      
+      <SwiperSlide>
+          <div className={`${style.slide_title} inner`}>
+              <div className={style.main}>
+                <div className={style.number}>1</div>
+                사내 시스템과 완벽 연동</div>
+              <div className={style.sub}>사내 시스템과 효율적으로 연동되며 사용자 편의성을 극대화합니다.</div>
+            <div className={style.feature}>
+              <div className={`${style.feature_content} ${style.menu1}`}>
+                <img src={mobile_menu1}/>
+              </div>
+            </div>
+          </div>
+          {menu(contents[0])}
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={`${style.slide_title} inner`}>
+            <div className={style.main}>
+              <div className={style.number}>2</div>
+              콘텐츠 중심 커뮤니케이션</div>
+            <div className={style.sub}>협업콘텐츠에 집중할 수 있는 콘텐츠 중심 커뮤니케이션을 실현합니다.</div>
+          </div>
+          <div className={`${style.feature} ${style.menu2} inner`}>
+            <div className={style.feature_content}>
+              <img src={mobile_menu2}/>
+            </div>            
+          </div>
+          {menu(contents[1])}
+        </SwiperSlide>        
+        <SwiperSlide>
+          <div className={`${style.slide_title} inner`}>
+            <div className={style.main}>
+              <div className={style.number}>3</div>
+              강력한 보안</div>
+            <div className={style.sub}>공유 콘텐츠를 보호하는 강력한 보안이 필요합니다.</div>          
+          <div className={`${style.feature} ${style.menu3}`}>
+            <div className={`${style.feature_content}`}>
+              <img src={mobile_menu3}/>
+            </div>            
+          </div>
+          </div>
+          {menu(contents[2])}
+        </SwiperSlide>
+      </Swiper>
+      }
+    </div>    
   );
+
+  function menu(contents) {
+    return(
+      <div className={`${style.feature_menu} inner`}>          
+          { 
+            contents.map((content)=>{              
+              return(                
+                <div className={style.feature_menu_content}>
+                  <div className={style.menu_imgBox}><img src={content.img}/></div>
+                  <div className={style.menu_title}>{content.title}</div>
+                  <p className={style.menu_content}>{content.sub}</p>
+                </div>
+              )
+            })
+          }          
+        </div>      
+    )
+  }
 }
 
 export default Slider;

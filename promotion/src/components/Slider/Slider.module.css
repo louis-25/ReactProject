@@ -1,9 +1,30 @@
+.swiper_pagination {
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%;
+}
+.swiper_pagination_bullet { 
+  width: 12px; 
+  height: 12px; 
+  background: transparent; 
+  border: 1px solid pink; 
+  opacity: 1; 
+}
+.swiper_pagination_bullet_active { 
+  width: 40px; 
+  transition:width .5s;
+  border-radius: 5px; 
+  background: pink; 
+  border: 1px solid transparent; 
+}
+
+
 .swiper {
   width: 100%;
-  height: 850px;
+  height: 740px;
 }
 .slide_title {
-  margin-bottom: 110px;
+  /* margin-bottom: 50px; */
 }
 .slide_title .main {
   font-size: 24px;
@@ -21,6 +42,7 @@
   height: 28px;  
   border-radius: 50%;
   margin-right: 16px;
+  line-height: 25px;
 }
 .slide_title .sub {
   font-size: 20px;
@@ -29,23 +51,55 @@
 }
 .feature {
   display: flex;
-  justify-content: center;  
+  justify-content: center;    
 }
-.feature_content {
-  /* height: 91px; */
+.feature_content {  
+  width: 100%;
+  height: 130px;
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  text-align: center;
+  /* margin-top: 24px;
+  margin-bottom: 24px; */
+  background: linear-gradient(212.83deg, rgba(243, 247, 255, 0.1) 19.61%, rgba(222, 238, 254, 0.1) 83.27%);
+  border-radius: 20px;
+}
+.feature_content .menu3 img {
+  margin-right: 112px
 }
 .imgBox {
-  height: 90px;
+  height: 90px;  
+}
+.menu1 {
+  margin-top: 46px;  
+  margin-bottom: 44px;  
+  width: 100%;
+}
+.menu2 {
+  margin-top: 50px;  
+  margin-bottom: 36px;
+}
+.menu2 img {
+  /* margin-right: 110px;   */
+}
+.menu2 .imgBox{
   margin-bottom: 16px;
 }
-
-.feature img{  
-  margin-right: 110px;  
+.menu3 {
+  margin-top: 50px;  
+  margin-bottom: 46px;
+}
+.menu3 img {
+  /* margin-right: 114px; */
+}
+.menu3 .feature_content:nth-child(3) img {
+  margin-right: 0;
 }
 .feature_menu {
   display: flex;    
   justify-content: center;
-  margin-top: 78px;  
+  /* margin-top: 36px;   */
 }
 .feature_menu img {
   /* margin-top: 47px;     */
@@ -61,6 +115,9 @@
   border-radius: 20px;
   margin-right: 25px;
 }
+.feature_menu_content:nth-child(3) {
+  margin-right: 0;
+}
 .feature_menu_content .menu_title{  
   margin-top: 33px;
 }
@@ -73,4 +130,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media screen and (max-width:768px) {  
+  .swiper {
+    height: auto;    
+  }
+  .feature_menu {    
+    flex-direction: column;    
+  }
+  .feature_menu_content {    
+    margin: 0 auto 30px;
+  }
+  .feature_menu_content:nth-child(3) {
+    margin: 0 auto 60px;
+  }
+  .feature_content {
+    width: 100%;
+    height: 100%;
+      
+  }  
 }

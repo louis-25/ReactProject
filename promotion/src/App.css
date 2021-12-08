@@ -633,6 +633,53 @@ select .pf-input-box {
   font-size: 16px;
   color: #3182F6;  
 }
+.brochure-about-badge {  
+  width: 100%;
+  height: 280px;      
+}
+.badge-contents {  
+  height: 230px;    
+  background-color: #3182F6;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;  
+  align-items: center;
+}
+.brochure-about-contents {
+
+}
+.brochure-about-title {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.brochure-about-sub {
+  font-size: 16px;
+  line-height: 160%;
+  color: #fff;
+}
+.brochure-about-btn-box {  
+  background: #FFFFFF;
+  border-radius: 8px;  
+  width: 140px;
+  height: 52px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.brochure-about-btn {
+  width: 140px;
+  height: 52px;
+  border-radius: 8px;
+  color: #3182F6;
+  margin-left: 57.5em;
+  font-size: 16px;
+  line-height: 100%;
+  opacity: 0;
+  position: absolute;
+}
 
 /* Footer */
 .footer {
@@ -829,6 +876,7 @@ select .pf-input-box {
   .brochure {
     height: auto;
     margin-bottom: 124px;
+    margin-top: 80px;
   }
   .brochure-icon-box {
     flex-direction: column;    
@@ -837,7 +885,63 @@ select .pf-input-box {
     margin-right: 0;
     margin-bottom: 90px;
   }  
-  /* Footer */  
+  .brochure-about-badge {  
+    width: 100%;
+    height: 280px;    
+  }
+  .badge-contents {  
+    height: 230px;    
+    background-color: #3182F6;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;  
+    align-items: center;
+    flex-direction: column;
+    padding: 36px 28px 30px 28px;
+  }
+  .brochure-about-contents {
+    
+  }
+  .brochure-about-title {
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 130%;    
+  }
+  .brochure-about-sub {
+    font-size: 16px;
+    line-height: 160%;
+    color: #fff;
+  }
+  .brochure-about-btn-box {  
+    background: #FFFFFF;
+    border-radius: 8px;  
+    width: 140px;
+    height: 52px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .brochure-about-btn {
+    width: 222px;
+    height: 56px;
+    border-radius: 5px;
+    position: absolute;
+    margin-top: 21em;
+    background-color: #fff;
+    opacity: 0;
+  }
+  .brochure-badge-box {
+    display: flex;
+    justify-content: center;
+  }
+  .brochure-badge-box img {
+    width: 424px;
+    height: 481px;
+  }
+  .mobile-about-btn {                        
+  }
+
+  /* Footer */
   .mFooter {
     margin-left: 28px;
     font-weight: 500;
