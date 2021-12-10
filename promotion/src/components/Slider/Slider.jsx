@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import style from './Slider.module.css'
 /* swiper */
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,6 +12,8 @@ import menu3 from '../../images/slider/menu3.svg'
 import mobile_menu1 from '../../images/slider/mobile_menu1.svg'
 import mobile_menu2 from '../../images/slider/mobile_menu2.svg'
 import mobile_menu3 from '../../images/slider/mobile_menu3.svg'
+import prev from '../../images/slider/prev.svg'
+import next from '../../images/slider/next.svg'
 
 import { useMediaQuery } from 'react-responsive'
 import data from '../../data/slide.js'
@@ -19,6 +21,8 @@ import data from '../../data/slide.js'
 function Slider(props) {
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+  const navigationPrevRef = useRef(null)
+  const navigationNextRef = useRef(null)
   SwiperCore.use([Navigation, Pagination, Autoplay])
   const contents = data  
   return (    
@@ -29,8 +33,11 @@ function Slider(props) {
         spaceBetween={50}
         slidesPerView={1}
         loop={true}
-        autoplay={{delay:10000, disableOnInteraction: false}}
-        navigation
+        autoplay={{delay:100000, disableOnInteraction: false}}
+        navigation={{
+          prevEl: style.prevBtn,
+          nextEl: style.nextBtn
+        }}
         pagination={{ 
           clickable: true,                    
           // bulletClass: `${style.swiper_pagination}`,
@@ -43,7 +50,7 @@ function Slider(props) {
               <div className={style.main}>
                 <div className={style.number}>1</div>
                 사내 시스템과 완벽 연동</div>
-              <div className={style.sub}>사내 시스템과 효율적으로 연동되며 사용자 편의성을 극대화합니다.</div>
+              <div className={style.sub}>사내 시스템과 효율적으로 연동되며 사용자 편의성을 극대화합니다.</div>              
             <div className={style.feature}>
               <div className={`${style.feature_content} ${style.menu1}`}>
                 <img src={menu1}/>
@@ -79,7 +86,7 @@ function Slider(props) {
           </div>
           </div>
           {menu(contents[2])}
-        </SwiperSlide>
+        </SwiperSlide>        
       </Swiper>
       }
       {
@@ -89,7 +96,7 @@ function Slider(props) {
         spaceBetween={50}
         slidesPerView={1}
         loop={true}
-        autoplay={{delay:100000, disableOnInteraction: false}}
+        autoplay={{delay:10000, disableOnInteraction: false}}
         pagination={{ 
           clickable: true,
           // bulletClass: `${style.swiper_pagination}`,
@@ -138,7 +145,7 @@ function Slider(props) {
           </div>
           </div>
           {menu(contents[2])}
-        </SwiperSlide>
+        </SwiperSlide>        
       </Swiper>
       }
     </div>    

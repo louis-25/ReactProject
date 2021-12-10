@@ -34,7 +34,7 @@ function About(props) {
             협업 데이터 암호화와 Wrapping 된 
             콘텐츠 기반 채팅 제공
           </p>
-          <Link to="#" target="_blank" className={style.moreBtn}>더 알아보기</Link>
+          <a href="https://www.fasoo.com/products/wrapsody" target="_blank" className={style.moreBtn}>더 알아보기</a>
         </div>
         <div className={style.content}>
         <div className={style.imgBox}><img src={WrapsodyEco} /></div>
@@ -44,7 +44,7 @@ function About(props) {
             협업 데이터 암호화와 Wrapping 된 
             콘텐츠 기반 채팅 제공
           </p>
-          <Link to="#" target="_blank" className={style.moreBtn}>더 알아보기</Link>
+          <a href="https://www.fasoo.com/products/wrapsody-eco" target="_blank" className={style.moreBtn}>더 알아보기</a>
         </div>
         <div className={style.content}>
           <div className={style.imgBox}><img src={Drm} /></div>
@@ -54,7 +54,7 @@ function About(props) {
             협업 데이터 암호화와 Wrapping 된 
             콘텐츠 기반 채팅 제공
           </p>
-          <Link to="#" target="_blank" className={style.moreBtn}>더 알아보기</Link>
+          <a href="https://www.fasoo.com/products/fasoo-enterprise-drm" target="_blank" className={style.moreBtn}>더 알아보기</a>
         </div>
       </div>
     </div>     

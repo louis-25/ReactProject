@@ -42,7 +42,7 @@ function Brochure(props) {
           디지털 비즈니스를 위한 인텔리전스 전략을 제공합니다. </div>
         </div>
         <img src={aboutbadge} />                  
-        <Link to="#" target="_blank" className="brochure-about-btn"></Link>        
+        <a href="https://www.fasoo.com/" target="_blank" className="brochure-about-btn"></a>          
         </div>
       </div>
       }
@@ -50,7 +50,7 @@ function Brochure(props) {
         isMobile && 
         <div className="brochure-badge-box">
           <img src={mobile_badge} />          
-          <Link to="#" target="_blank" className="brochure-about-btn"></Link>          
+          <a href="https://www.fasoo.com/" target="_blank" className="brochure-about-btn"></a>          
         </div>
       }
     </>

@@ -63,6 +63,15 @@ function Header({featureRef, promotionRef, aboutRef}) {
             })
             history.replace("",null)
             break;
+          case 'about':
+            console.log(aboutRef.current.getBoundingClientRect().y)
+            promotionRef.current.scrollIntoView({
+              behavior: 'auto',
+              block: 'start',
+              inline: 'nearest'
+            })
+            history.replace("",null)
+            break;
         }
       }else {      
         // state가 undefined인 경우
@@ -102,6 +111,23 @@ function Header({featureRef, promotionRef, aboutRef}) {
       history.push({
         pathname:'/',
         state:{scroll: "promotion"}
+      })
+    }     
+  }
+  const goToAbout = (e) => {
+    e.preventDefault()
+    if(sidebar) setSidebar(false)    
+    if(window.location.pathname == '/'){
+      console.log('goToAbout ',history.location.pathname,aboutRef.current.getBoundingClientRect().y )
+      aboutRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      })            
+    }else{
+      history.push({
+        pathname:'/',
+        state:{scroll: "about"}
       })
     }     
   }
@@ -146,7 +172,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
               <a href="/index.html#price" onClick={goToPromotion}>{t("header_menu2")}</a>
             </li> */}
             <li>
-              <a href="/index.html#company" onClick={goToCompany} target="_blank">{t("header_menu3")}</a>
+              <a href="/index.html#company" onClick={goToAbout} target="_blank">{t("header_menu3")}</a>
             </li>           
             <div>
               <a className="loginBtn" href="https://firesidedemo.fasoo.com/wrapmsgr/admin" target="_blank">{t("header_menu4")}</a>
@@ -169,7 +195,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
         <ul className="sidebar-menu">
           <li onClick={goToFeature}>{t("header_menu1")}</li>
           {/* <li onClick={goToPromotion}>{t("header_menu2")}</li> */}
-          <li onClick={goToCompany}>{t("header_menu3")}</li>
+          <li onClick={goToAbout}>{t("header_menu3")}</li>
         </ul>
         <div className="sidebar-login-box">
           <input className="sidebar-login-btn" onClick={goToLogin} type="submit" value={t("header_menu4")}/>

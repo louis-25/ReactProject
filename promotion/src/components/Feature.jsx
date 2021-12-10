@@ -20,9 +20,9 @@ function Feature(props) {
     <>
     <div className={`feature inner`}>      
       <div className="feature-title-box">
-        <div className="feature-sub-title">{t("feature_title1-1")}</div>
-        <h1 className="feature-title">{t("feature_title1-2")}</h1>
-      </div>           
+        <div className="feature-sub-title">{t("feature_title1-1")}</div>        
+        <h1 className="feature-title">{t("feature_title1-2")}</h1>        
+      </div>      
       </div>    
       <Slider></Slider> 
       {/* <div className="feature-contents-box">
