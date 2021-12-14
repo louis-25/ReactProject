@@ -31,7 +31,7 @@ const works = [
   span: 'Youtube 클론코딩'
 },
 {
-  href:'http://124.5.187.217:9090/',
+  href:'https://github.com/louis-25/Covid114Project',
   datatype: 'back-end',
   src: corona,
   h3: 'Spring Boot',
