@@ -5,7 +5,9 @@ import Contents from '../images/snow.svg'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
 import visual_ko from '../images/lang/visual_ko.svg'
+import visual_en from '../images/lang/visual_en.svg'
 import Mvisual_ko from '../images/lang/Mvisual_ko.svg'
+import Mvisual_en from '../images/lang/Mvisual_en.svg'
 
 function Visual({promotionRef}) {  
 
@@ -30,23 +32,27 @@ function Visual({promotionRef}) {
               <p style={{width:"610px"}}>{t("visual_title1_content1")}<br/>{t("visual_title1_content2")}</p>
             }
             {isMobile &&
-              <p>{t("Mvisual_title1_content1")}</p>
+              <p>{t("Mvisual_title1_content1")} {t("Mvisual_title1_content2")}</p>
             }
           </h1>
-          {isDesktop &&          
+          {isDesktop &&
             <p className="visual-text-contents">
-              <img src={visual_ko}/>
+              { 
+                i18n.language == 'ko' ?
+                <img src={visual_ko}/>
+                : <img src={visual_en}/>
+              }
               {/* {t("visual_title2_content1")}<br/>
               {t("visual_title2_content2")}<br/>
               {t("visual_title2_content3")}<br/>
               {i18n.language == 'ko' &&
                 'Fireside를 지금 바로 만나보세요.'
-              }               */}
+              }*/}
             </p>
           } 
           {isMobile &&
             <p className="visual-text-contents">
-              <img src={Mvisual_ko} />
+              {i18n.language==='ko' ? <img src={Mvisual_ko}/> : <img src={Mvisual_en}/>}
               {/* {t("Mvisual_title2_content1")} */}
               {/* <br/>
               {t("Mvisual_title2_content2")}<br/>

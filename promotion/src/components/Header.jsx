@@ -168,11 +168,11 @@ function Header({featureRef, promotionRef, aboutRef}) {
             <li>                            
               <a href="/index.html#feature" onClick={goToFeature}>{t("header_menu1")}</a>
             </li>
-            {/* <li>              
-              <a href="/index.html#price" onClick={goToPromotion}>{t("header_menu2")}</a>
-            </li> */}
+            <li>              
+              <a href="#" onClick={goToAbout} >{t("header_menu2")}</a>
+            </li>
             <li>
-              <a href="/index.html#company" onClick={goToAbout} target="_blank">{t("header_menu3")}</a>
+              <a href="/index.html#company" onClick={goToCompany} target="_blank">{t("header_menu3")}</a>
             </li>           
             <div>
               <a className="loginBtn" href="https://firesidedemo.fasoo.com/wrapmsgr/admin" target="_blank">{t("header_menu4")}</a>
@@ -194,8 +194,9 @@ function Header({featureRef, promotionRef, aboutRef}) {
         </div>
         <ul className="sidebar-menu">
           <li onClick={goToFeature}>{t("header_menu1")}</li>
-          {/* <li onClick={goToPromotion}>{t("header_menu2")}</li> */}
-          <li onClick={goToAbout}>{t("header_menu3")}</li>
+          <li onClick={goToAbout}>{t("header_menu2")}</li>
+          <li onClick={goToCompany}>{t("header_menu3")}</li>
+          <li onClick={goToLogin} className="loginBtn">{t("header_menu4")}</li>
         </ul>
         <div className="sidebar-login-box">
           <input className="sidebar-login-btn" onClick={goToLogin} type="submit" value={t("header_menu4")}/>

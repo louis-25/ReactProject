@@ -1,11 +1,4 @@
 import React from 'react';
-/* svg안먹음 */
-import Folder from '../images/folder.png'
-import Group from '../images/group.png'
-import Balloon from '../images/textballoon.png'
-import Menu1 from '../images/menu1.svg' 
-import Menu2 from '../images/menu2.svg'
-import Menu3 from '../images/menu3.svg'
 import Slider from './Slider/Slider';
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
@@ -65,8 +58,7 @@ function Feature(props) {
           </div>
           <div className="feature-content-img"><img src={Menu3}/></div>  
         </div>
-      </div>       */}
-    
+      </div>       */}    
     </>
   );
 }

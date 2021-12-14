@@ -51,7 +51,7 @@ function Footer(props) {
       <div className="footer-menu">
         <div className="footer-menu-left">
           <ul>
-            <li>© 2021 Fasoo</li>
+            <li>© 2021 Fasoo Co., Ltd.</li>
             {/* <li><a href="/terms">이용약관</a></li> */}
             <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
             <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
@@ -67,14 +67,14 @@ function Footer(props) {
           </ul>
         </div>
       </div>
-      <div className="footer-text">
+      {/* <div className="footer-text">
         <p>
         {t("footer_content1")}
         </p>
         <p>
           {t("footer_content2")}
         </p>
-      </div>
+      </div> */}
       </div>
       }
       {isMobile &&
@@ -83,7 +83,7 @@ function Footer(props) {
           <ul>          
             <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
             <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
-            <li><Link to={{pathname:"#"}}>{t("terms_paid")}</Link></li>
+            {/* <li><Link to={{pathname:"#"}}>{t("terms_paid")}</Link></li> */}
           </ul>
         </div>
         <div className="mFooter-icon">
@@ -95,7 +95,7 @@ function Footer(props) {
             <li><img src={Insta} onClick={goToInsta}/></li>
           </ul>
         </div>        
-        <li className="mFooter-copyright">© 2021 Fasoo</li>
+        <li className="mFooter-copyright">© 2021 Fasoo Co., Ltd.</li>
       </div>
       }
     </footer>

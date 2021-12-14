@@ -1,12 +1,12 @@
 {
-  "header_menu1" : "Main Features",
-  "header_menu2" : "Free Trial",
+  "header_menu1" : "Features",
+  "header_menu2" : "Products",
   "header_menu3" : "Company",
-  "header_menu4" : "Login",
+  "header_menu4" : "Free Trial",
 
-  "visual_title1_content1" : "Secure Messaging App",
-  "visual_title1_content2" : "to Share Important Files",
-  "Mvisual_title1_content1" : "Secure Messaging App",
+  "visual_title1_content1" : "Have You Heard About",
+  "visual_title1_content2" : "The NextGen Messaging App?",
+  "Mvisual_title1_content1" : "Have You Heard About The NextGen Messeging App?",
   "Mvisual_title1_content2" : "to Share Important Files",
   "visual_title2_content1" : "Conventional messaging apps can be a source of",
   "visual_title2_content2" : "confidential data leakage. Fireside will help you to",
@@ -17,7 +17,14 @@
   "Mvisual_title2_content4" : "a data breach and enhance productivity.",
   "visual_promotion_btn" : "Free Trial",
 
-  "feature_title1-1" : "Main Features",
+  "feature_title1" : "Perfect integration with your existing systems",
+  "feature_title1_sub" : "Efficient system integration maximizes user convenience.",
+  "feature_title2" : "Content-based communication",
+  "feature_title2_sub" : "Content-based chats allow you to focus on collaborative data.",
+  "feature_title3" : "Strong security",
+  "feature_title3_sub" : "You need strong security to protect your shared content.",
+  
+  "feature_title1-1" : "Features",
   "feature_title1-2" : "Why Fireside?",
   "feature_sub_title1": "Secure File Sharing",
   "feature_sub_title1_content1": "Encrypt all files shared in the chat so",
@@ -68,6 +75,9 @@
   "promotion_check_e" : "Please agree to the Terms of Service and Privacy policy.",
   "promotion_submit_btn" : "Request Promotion Code",
 
+  "about_title" : "Products",
+  "about_title_sub": "Fasoo Solutions Allow for Next-Level Security and Efficiency!",
+
   "about_title1-1" : "Next-Generation Data Security",
   "about_title1-2" : "and Management Solutions",
   "Mabout_title1-1" : "Next-Generation",
@@ -81,7 +91,7 @@
   "about_btn" : "About Fasoo",
 
   "brochure_icon1_title" : "Brochure",
-  "brochure_icon1_content" : "Learn more about Wrapsody.",
+  "brochure_icon1_content" : "Learn more about Fireside.",
   "brochure_icon1_download" : "Download",
   "brochure_icon2_title" : "Download APP",
   "brochure_icon2_content" : "from App Store or Google Play",  

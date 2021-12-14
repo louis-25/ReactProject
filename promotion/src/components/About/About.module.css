@@ -34,7 +34,7 @@
 }
 .content{
   width: 350px;  
-  padding: 68px 49px 35px 49px;
+  padding: 68px 0px 35px 0px;
   border-radius: 20px;
   margin-right: 25px;
   margin-bottom: 100px;
@@ -48,6 +48,7 @@
   margin-bottom: 76px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .content img{
   

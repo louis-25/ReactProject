@@ -1,13 +1,13 @@
 {
   "header_menu1" : "주요 기능",
-  "header_menu2" : "체험 신청",
+  "header_menu2" : "제품 소개",
   "header_menu3" : "회사 소개",
   "header_menu4" : "무료 체험",
 
   "visual_title1_content1" : "설마 아직도 차세대 메신저를",
   "visual_title1_content2" : "경험하지 못하셨습니까?",
-  "Mvisual_title1_content1" : "설마 아직도 차세대 메신저를 경험하지 못하셨습니까?",
-  "Mvisual_title1_content2" : "",
+  "Mvisual_title1_content1" : "설마 아직도 차세대 메신저를",
+  "Mvisual_title1_content2" : "경험하지 못하셨습니까?",
   "visual_title2_content1" : "기존 사내 시스템 및 웹 기반 App과 연동 불가... 협업 콘텐츠의 정보 파편화... 메신저 내 메시지 및 파일의 낮은 보안 수준...",
   "visual_title2_content2" : "사내 메신저 및 다양한 협업툴을 도입하면서 하이브리드 워크 플레이스를 구축하며 업무 생산성은 높아졌지만, 많은 기업 및 기관에서 실제로 위와 같은 어려움들을 겪고 있습니다.",
   "visual_title2_content3" : "이제 업무 생산성을 높이면서도 위와 같은 문제들을 해결하는 차세대 메신저가 필요합니다.",
@@ -17,6 +17,13 @@
   "Mvisual_title2_content3" : "있습니다. 사내 중요 정보를 안전하게 보호하고,",
   "Mvisual_title2_content4" : "효율적으로 협업하는 Fireside를",
   "visual_promotion_btn" : "체험 신청",
+
+  "feature_title1" : "사내 시스템과 완벽 연동",
+  "feature_title1_sub" : "사내 시스템과 효율적으로 연동되며 사용자 편의성을 극대화합니다.",
+  "feature_title2" : "콘텐츠 중심 커뮤니케이션",
+  "feature_title2_sub" : "협업 콘텐츠에 집중할 수 있는 콘텐츠 중심 커뮤니케이션을 실현합니다.",
+  "feature_title3" : "강력한 보안",
+  "feature_title3_sub" : "공유 콘텐츠를 보호하는 강력한 보안이 필요합니다.",
 
   "feature_title1-1" : "주요기능",
   "feature_title1-2" : "기존 사내 메신저의 한계를 극복한 차세대 메신저!",
@@ -69,6 +76,9 @@
   "promotion_check_e" : "체크박스를 선택해주세요.",
   "promotion_submit_btn" : "메일로 프로모션 코드 받기",
 
+  "about_title" : "제품 소개",
+  "about_title_sub": "Fasoo 솔루션과 함께하면 Next Level의 보안성과 효율성 확보!",
+
   "about_title1-1" : "데이터 보안 전문 기업 Fasoo의",
   "about_title1-2" : "특별한 서비스를 만나보세요",
   "Mabout_title1-1" : "데이터 보안 전문 기업",
@@ -84,7 +94,7 @@
   "about_btn" : "회사 소개",
 
   "brochure_icon1_title" : "브로슈어",
-  "brochure_icon1_content" : "Wrapsody에 대해 자세히 알아보세요.",
+  "brochure_icon1_content" : "Fireside에 대해 자세히 알아보세요.",
   "brochure_icon1_download" : "다운로드",
   "brochure_icon2_title" : "앱 다운로드",
   "brochure_icon2_content" : "스토어에서 바로 다운로드하세요.",  
