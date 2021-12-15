@@ -18,15 +18,28 @@
   "Mvisual_title2_content4" : "효율적으로 협업하는 Fireside를",
   "visual_promotion_btn" : "체험 신청",
 
+  "feature_main_title" : "기존 사내 메신저의 한계를 극복한 차세대 메신저!",
+  "Mfeature_main_title" : "기존 사내 메신저의 한계를<br/>극복한 차세대 메신저!",
+
   "feature_title1" : "사내 시스템과 완벽 연동",
+  "Mfeature_title1" : "사내 시스템과 완벽 연동",
   "feature_title1_sub" : "사내 시스템과 효율적으로 연동되며 사용자 편의성을 극대화합니다.",
   "feature_title2" : "콘텐츠 중심 커뮤니케이션",
+  "Mfeature_title2" : "콘텐츠 중심 커뮤니케이션",
   "feature_title2_sub" : "협업 콘텐츠에 집중할 수 있는 콘텐츠 중심 커뮤니케이션을 실현합니다.",
   "feature_title3" : "강력한 보안",
   "feature_title3_sub" : "공유 콘텐츠를 보호하는 강력한 보안이 필요합니다.",
+  
+  "Mfeature_title1_sub1" : "사내 시스템과 효율적으로 연동되며",
+  "Mfeature_title1_sub2" : "사용자 편의성을 극대화합니다.",
+  "Mfeature_title2_sub1" : "협업 콘텐츠에 집중할 수 있는",
+  "Mfeature_title2_sub2" : "콘텐츠 중심 커뮤니케이션을 실현합니다.",
+  "Mfeature_title3_sub1" : "공유 콘텐츠를 보호하는",
+  "Mfeature_title3_sub2" : "강력한 보안이 필요합니다.",
 
   "feature_title1-1" : "주요기능",
-  "feature_title1-2" : "기존 사내 메신저의 한계를 극복한 차세대 메신저!",
+  "feature_title1-2" : "기존 사내 메신저의 한계를 극복한 차세대 메신저!",  
+  "Mfeature_title1-2" : "기존 사내 메신저의 한계를 극복한 차세대 메신저!",  
   "feature_sub_title1": "차원이 다른 강력한 보안 메신저",
   "feature_sub_title1_content1": "Fireside는 첨부 파일은 물론 사용자들이",
   "feature_sub_title1_content2": "주고 받는 메시지까지 모두 암호화해 모든",
@@ -78,6 +91,7 @@
 
   "about_title" : "제품 소개",
   "about_title_sub": "Fasoo 솔루션과 함께하면 Next Level의 보안성과 효율성 확보!",
+  "Mabout_title_sub": "Fasoo 솔루션과 함께하면 Next Level의 보안성과 효율성 확보!",
 
   "about_title1-1" : "데이터 보안 전문 기업 Fasoo의",
   "about_title1-2" : "특별한 서비스를 만나보세요",

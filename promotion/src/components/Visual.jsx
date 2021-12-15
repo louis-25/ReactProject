@@ -29,10 +29,12 @@ function Visual({promotionRef}) {
         <div className="visual-contents-left">
           <h1 className="visual-main-title">
             {isDesktop &&               
-              <p style={{width:"610px"}}>{t("visual_title1_content1")}<br/>{t("visual_title1_content2")}</p>
+              i18n.language === "ko" ?
+              <p>{t("visual_title1_content1")}<br/>{t("visual_title1_content2")}</p>
+              :<p>{t("visual_title1_content1")}</p>
             }
             {isMobile &&
-              <p>{t("Mvisual_title1_content1")} {t("Mvisual_title1_content2")}</p>
+              <p>{t("Mvisual_title1_content1")}<br/>{t("Mvisual_title1_content2")}</p>
             }
           </h1>
           {isDesktop &&
@@ -40,7 +42,17 @@ function Visual({promotionRef}) {
               { 
                 i18n.language == 'ko' ?
                 <img src={visual_ko}/>
-                : <img src={visual_en}/>
+                : 
+                <p>
+                  Looking for a messaging app that connects with enterprise applications and systems…<br/>
+                  Dealing with redundant, obsolete and trivial (ROT) data issues…<br/>
+                  Facing security challenges and risks relating to messaging app…<br/>
+                  <br/>
+                  Enterprise messaging is the backbone of collaboration and no doubt messaging apps enhance productivity and help build a hybrid workplace.  However, organizations face various challenges as the business environment's diversity and complexity are growing, including the issues mentioned above.<br/>
+                  <br/>
+                  The next generation of enterprise messaging is now available, virtualizing messaging across business applications and systems, allowing organizations to consolidate communication channels, simplify collaboration and enable the highest level of security.<br/>
+
+                </p>
               }
               {/* {t("visual_title2_content1")}<br/>
               {t("visual_title2_content2")}<br/>

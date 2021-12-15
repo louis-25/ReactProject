@@ -47,7 +47,7 @@ function Brochure(props) {
       {
         isMobile && 
         <div className="brochure-badge-box">
-          {i18n.language==='ko' ? <img src={mobile_badge} /> : <img src={mobile_badge_en}/>}
+          {i18n.language === 'ko' ? <img src={mobile_badge} /> : <img src={mobile_badge_en}/>}
           {i18n.language === 'ko' ? <a href="https://www.fasoo.com/" target="_blank" className="brochure-about-btn"></a>
         : <a href="https://en.fasoo.com/" target="_blank" className="brochure-about-btn"></a>}
         </div>

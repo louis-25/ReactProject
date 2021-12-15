@@ -81,8 +81,8 @@ function Footer(props) {
       <div className="mFooter">
         <div className="mFooter-menu">
           <ul>          
-            <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
             <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
+            <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>            
             {/* <li><Link to={{pathname:"#"}}>{t("terms_paid")}</Link></li> */}
           </ul>
         </div>
@@ -90,9 +90,9 @@ function Footer(props) {
           <ul>
             <li><img src={Internet} onClick={changeLanguage}/></li>
             <li><img src={Blog} onClick={goToBlog}/></li>
-            <li><img src={Youtube} onClick={goToYoutube}/></li>
-            <li><img src={Facebook} onClick={goToFacebook}/></li>
             <li><img src={Insta} onClick={goToInsta}/></li>
+            <li><img src={Facebook} onClick={goToFacebook}/></li>
+            <li><img src={Youtube} onClick={goToYoutube}/></li>
           </ul>
         </div>        
         <li className="mFooter-copyright">© 2021 Fasoo Co., Ltd.</li>

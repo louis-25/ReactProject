@@ -26,8 +26,10 @@ function About(props) {
     <div className={style.about}>      
       <div className={`${style.titleBox} inner`}>
         <div className={style.subTitle}>{t("about_title")}</div>
-        <h1 className={style.title}>{t("about_title_sub")}</h1>
-      </div>    
+        {isDesktop ? <div className={style.title}>{t("about_title_sub")}</div>
+        : <div className={style.title} dangerouslySetInnerHTML={{__html:t("Mabout_title_sub")}}></div>}
+        
+      </div>
       <div className={`${style.contentBox} inner`}>
         {menu(contents[0])}
       </div>

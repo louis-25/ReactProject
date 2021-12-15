@@ -14,6 +14,8 @@ import menu3_en from '../../images/slider/menu3_en.svg'
 import mobile_menu1 from '../../images/slider/mobile_menu1.svg'
 import mobile_menu2 from '../../images/slider/mobile_menu2.svg'
 import mobile_menu3 from '../../images/slider/mobile_menu3.svg'
+import mobile_menu2_en from '../../images/slider/mobile_menu2_en.svg'
+import mobile_menu3_en from '../../images/slider/mobile_menu3_en.svg'
 import prev from '../../images/slider/prev.svg'
 import next from '../../images/slider/next.svg'
 
@@ -145,10 +147,11 @@ function Slider(props) {
           <div className={`${style.slide_title}`}>
               <div className={style.main}>
                 <div className={style.number}>1</div>
-                {t("feature_title1")}</div>
-              <div className={style.sub}>{t("feature_title1_sub")}</div>
+                <div dangerouslySetInnerHTML={{__html:t("Mfeature_title1")}}></div>
+                </div>
+              <div className={style.sub}>{t("Mfeature_title1_sub1")}<br/>{t("Mfeature_title1_sub2")}</div>
             <div className={style.feature}>
-              <div className={`${style.feature_content} ${style.menu1}`}>
+              <div className={`${style.menu1}`}>
                 <img src={mobile_menu1}/>
               </div>
             </div>
@@ -159,12 +162,13 @@ function Slider(props) {
           <div className={`${style.slide_title} inner`}>
             <div className={style.main}>
               <div className={style.number}>2</div>
-              {t("feature_title2")}</div>
-            <div className={style.sub}>{t("feature_title2_sub")}</div>
+              <div dangerouslySetInnerHTML={{__html:t("Mfeature_title2")}}></div>
+              </div> 
+              <div className={style.sub}>{t("Mfeature_title2_sub1")}<br/>{t("Mfeature_title2_sub2")}</div>
           </div>
           <div className={`${style.feature} ${style.menu2} inner`}>
             <div className={style.feature_content}>
-              <img src={mobile_menu2}/>
+              {i18n.language === "ko" ? <img src={mobile_menu2}/> : <img src={mobile_menu2_en}/>}
             </div>            
           </div>
           {menu(contents[1])}
@@ -174,10 +178,10 @@ function Slider(props) {
             <div className={style.main}>
               <div className={style.number}>3</div>
               {t("feature_title3")}</div>
-            <div className={style.sub}>{t("feature_title3_sub")}</div>          
+              <div className={style.sub}>{t("Mfeature_title3_sub1")}<br/>{t("Mfeature_title3_sub2")}</div>
           <div className={`${style.feature} ${style.menu3}`}>
             <div className={`${style.feature_content}`}>
-              <img src={mobile_menu3}/>
+            {i18n.language === "ko" ? <img src={mobile_menu3}/> : <img src={mobile_menu3_en}/>}
             </div>
           </div>
           </div>

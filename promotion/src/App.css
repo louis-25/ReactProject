@@ -210,7 +210,8 @@ input[type="number"]::-webkit-inner-spin-button {
 .visual-main-title {
   line-height: 47.6px;
   margin-bottom: 30px;
-  font-size: 38px;
+  font-size: 34px;
+  line-height: 140%;
   color: #252D38;
 }
 .visual-text-contents {
@@ -270,6 +271,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .feature-title {
   margin-bottom: 33px;
+  font-size: 34px;
 }
 .feature-contents-box {
   max-width: 1200px;  
@@ -685,7 +687,7 @@ select .pf-input-box {
 }
 .badge-contents {  
   height: 230px;    
-  background-color: #3182F6;
+  /* background-color: #3182F6; */
   border-radius: 20px;
   display: flex;
   justify-content: space-around;  
@@ -773,18 +775,28 @@ select .pf-input-box {
   color: #797B82;
   line-height: 175%;
 }
-
+@media screen and (max-width:1024px) {
+  /* brochure */
+  .badge-contents img{
+    width: 1024px;
+  }
+  .brochure-about-btn {
+    width: 123px;    
+    margin-left: 45em;    
+  }
+}
 @media screen and (max-width:768px) {    
   /* Common */
   .inner {    
-    padding: 0 19px;    
+    /* padding: 0 19px;     */
     box-sizing: border-box
   }
   .swiper-pagination-bullet {
+    /* margin-top: 20px !important; */
     margin-bottom: 0px !important;
   }
   .swiper-pagination {        
-    margin: 20px 0 68px 0!important; 
+    margin-bottom: 68px!important; 
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;   
@@ -937,7 +949,7 @@ select .pf-input-box {
   .about-title {
     font-size: 34px;
     line-height: 140%;
-  }
+  }  
 
   /* Brochure */
   .brochure {
@@ -956,7 +968,7 @@ select .pf-input-box {
     width: 100%;
     height: 280px;    
   }
-  .badge-contents {  
+  /* .badge-contents {  
     height: 230px;    
     background-color: #3182F6;
     border-radius: 20px;
@@ -965,7 +977,7 @@ select .pf-input-box {
     align-items: center;
     flex-direction: column;
     padding: 36px 28px 30px 28px;
-  }
+  } */
   .brochure-about-contents {
     
   }
@@ -1014,7 +1026,7 @@ select .pf-input-box {
     margin-left: 28px;
     font-weight: 500;
     font-size: 20px;
-    line-height: 20px;
+    line-height: 20px;    
   }
   .mFooter-menu a{
     color: #2E2E2E;
@@ -1045,13 +1057,86 @@ select .pf-input-box {
 }
 
 @media screen and (max-width:480px) { 
-  /* Promotion */
-  .promotion-form {
+  /* Common */
+  .inner {
+    padding: 0;
+  }
+  /* Header*/
+  .header {
+    width: 100vw;
+    padding: 0 28px;
+  }
+  /* visual */
+  .visual-main-title {
+    font-size: 24px;
+  }
+  .visual-contents-left p img {
+    width: 280px;
+  }
+  .badge-contents img{
+    width: 1024px;
+  }  
+  .brochure-about-btn {
+    width: 220px;
+    height: 54px;    
+    position: absolute;
+    margin-top: 21.1em;
+    margin-left: 0;    
+  }
+  .brochure-badge-box img {    
+    width: 400px;
+  }
+  /* Feature */
+  .feature-title {
+    font-size: 32px;
+  }
+    /* Promotion */
+  /* .promotion-form {
     padding: 30px 25px 30px 25px;
   }
   .pf-submit {
     font-size: 16px;
     margin-top: 20px;
+  } */
+  /* brochure */
+}
+@media screen and (max-width:320px) { 
+  /*visual*/
+  .visual-main-title {
+    font-size: 20px;
   }
-
+  .visual-text-contents img {
+    width: 250px;
+  }
+  /*feature*/
+  .feature-sub-title {
+    font-size: 16px;
+  }
+  .feature-title {
+    font-size: 22px;
+  }
+  /* brochure */
+  .brochure {
+    margin-bottom: 24px;
+  }
+  .brochure-badge-box {
+    justify-content: space-around;
+  }
+  .brochure-badge-box img {
+    width: 300px;
+  }
+  .brochure-about-btn {
+    width: 166px;
+    height: 41px;    
+    margin-top: 19.64em;    
+  }
+  .visual-contents-right div img {
+    width: 250px;
+  }
+  .visual-contents-left p img {
+    width: 250px;
+  }
+  .menu1 img, .menu2 img, .menu3 img {
+    width: 250px;
+  }
 }

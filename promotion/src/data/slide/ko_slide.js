@@ -12,7 +12,7 @@ const data = [[
   {
     img:moniter,
     title:'사내 시스템 내에서도<br/>바로 채팅으로 연결',
-    sub:"사내 시스템, MS Office,<br/>웹 브리우저 등과 연동해<br/>즉각적인 채팅 연결"
+    sub:"사내 시스템, MS Office,<br/>웹 브라우저 등과 연동해<br/>즉각적인 채팅 연결"
   },
   {
     img:setting,

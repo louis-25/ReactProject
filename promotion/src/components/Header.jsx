@@ -198,9 +198,9 @@ function Header({featureRef, promotionRef, aboutRef}) {
           <li onClick={goToCompany}>{t("header_menu3")}</li>
           <li onClick={goToLogin} className="loginBtn">{t("header_menu4")}</li>
         </ul>
-        <div className="sidebar-login-box">
+        {/* <div className="sidebar-login-box">
           <input className="sidebar-login-btn" onClick={goToLogin} type="submit" value={t("header_menu4")}/>
-        </div>
+        </div> */}
       </div>
     </div>
     <div className={classNames('header-cover',  scroll>0 && 'header-active')}></div>
