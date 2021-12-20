@@ -64,12 +64,20 @@ function Header({featureRef, promotionRef, aboutRef}) {
             history.replace("",null)
             break;
           case 'about':
-            console.log(aboutRef.current.getBoundingClientRect().y)
-            promotionRef.current.scrollIntoView({
-              behavior: 'auto',
-              block: 'start',
-              inline: 'nearest'
-            })
+            // console.log(aboutRef.current.getBoundingClientRect().y)
+            // promotionRef.current.scrollIntoView({
+            //   behavior: 'auto',
+            //   block: 'start',
+            //   inline: 'nearest'
+            // })
+            if(isDesktop) {
+              console.log(aboutRef.current.getBoundingClientRect().y)
+              window.scrollTo(0, aboutRef.current.getBoundingClientRect().y)
+            }else {
+              window.scrollTo(0, aboutRef.current.getBoundingClientRect().y + 1)
+            }            
+            history.replace("",null)
+            break;
             history.replace("",null)
             break;
         }
@@ -143,11 +151,12 @@ function Header({featureRef, promotionRef, aboutRef}) {
   }
 
   const goToLogin = () => {
-    if(sidebar) setSidebar(false)
-    window.open("https://firesidedemo.fasoo.com/wrapmsgr/admin")
+    if(sidebar) setSidebar(false)    
+    window.open("https://portal.wrapsodyeco.com/join?type=trial")
   }    
 
   const goToTop = () => {
+    if(sidebar) setSidebar(false)
     window.scrollTo(0, 0)
   }  
 
@@ -166,17 +175,18 @@ function Header({featureRef, promotionRef, aboutRef}) {
         <nav>
           <ul className="nav-menu">
             <li>                            
-              <a href="/index.html#feature" onClick={goToFeature}>{t("header_menu1")}</a>
+              <a href="#" onClick={goToFeature}>{t("header_menu1")}</a>
             </li>
             <li>              
               <a href="#" onClick={goToAbout} >{t("header_menu2")}</a>
             </li>
             <li>
-              <a href="/index.html#company" onClick={goToCompany} target="_blank">{t("header_menu3")}</a>
+              <a href="#" onClick={goToCompany} target="_blank">{t("header_menu3")}</a>
             </li>           
-            <div>
-              <a className="loginBtn" href="https://firesidedemo.fasoo.com/wrapmsgr/admin" target="_blank">{t("header_menu4")}</a>
-            </div> 
+            <li>
+              <a className="loginBtn" href="https://portal.wrapsodyeco.com/join?type=trial" target="_blank">{t("header_menu4")}</a>
+              {/* <Link className="loginBtn" to={{pathname:"/free-trial"}} onClick={goToTop}>{t("header_menu4")}</Link> */}
+            </li> 
           </ul>
           <div className="berger">
             <img onClick={sidebarToggle} src={Berger}/>
@@ -196,7 +206,8 @@ function Header({featureRef, promotionRef, aboutRef}) {
           <li onClick={goToFeature}>{t("header_menu1")}</li>
           <li onClick={goToAbout}>{t("header_menu2")}</li>
           <li onClick={goToCompany}>{t("header_menu3")}</li>
-          <li onClick={goToLogin} className="loginBtn">{t("header_menu4")}</li>
+          <li onClick={goToLogin}>{t("header_menu4")}</li>
+          {/* <Link className="loginBtn" to={{pathname:"/free-trial"}} onClick={goToTop}>{t("header_menu4")}</Link> */}
         </ul>
         {/* <div className="sidebar-login-box">
           <input className="sidebar-login-btn" onClick={goToLogin} type="submit" value={t("header_menu4")}/>

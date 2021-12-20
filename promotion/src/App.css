@@ -112,11 +112,14 @@ input[type="number"]::-webkit-inner-spin-button {
   list-style: none;
   display: flex;  
   justify-content: end;
-  
+  align-items: center;
 }
 .nav-menu li {
   margin-right: 40px;  
   
+}
+.nav-menu li:nth-child(4) a {
+  color: #3182F6;
 }
 .nav-menu li a {
   color: #252D38;    
@@ -128,6 +131,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .loginBtn {
   color: #3182F6;  
   word-break: nowrap;    
+  font-size: 16px;
 }
 /* sidebar */
 .sidebar {
@@ -162,12 +166,16 @@ input[type="number"]::-webkit-inner-spin-button {
   padding: 26px 20px 20px 20px;
   /* margin-top: 10px; */
 }
-.sidebar-menu li {
+.sidebar-menu li,
+.sidebar-menu a {
   margin-bottom: 60px;
   font-weight: 500;
   font-size: 20px;
   line-height: 20px;
-  cursor: pointer;
+  cursor: pointer;  
+}
+.sidebar-menu li:nth-child(4) {
+  color: #3182F6;
 }
 .sidebar-login-box {  
   display: flex;
@@ -198,14 +206,23 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;  
   justify-content: center;  
 }
+.visual-inner {
+  padding: 0 50px;
+}
 .visual-contents-box {  
-  margin-top: 170px;
   width: 100%;  
   justify-content: space-between;  
-  display: flex;
+  display: flex;  
+
+  margin: 170px auto 0px;
+  padding: 0 50px;
+  max-width: 1200px;
+  box-sizing: border-box
+
 }
 .visual-contents-left {
   /* margin-right: 200px;   */
+  /* min-width: 480px; */
 }
 .visual-main-title {
   line-height: 47.6px;
@@ -215,6 +232,7 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #252D38;
 }
 .visual-text-contents {
+  min-width: 475px;
   margin-bottom: 110px;  
   font-size: 16px;
   line-height: 25.6px;
@@ -245,9 +263,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* Feature */
-.feature {  
+.feature {
   width: 100%;
-  /* height: 738px;   */
+  /* height: 738px; */
   /* margin-bottom: 130px; */
 }
 .feature-title-box {
@@ -255,19 +273,20 @@ input[type="number"]::-webkit-inner-spin-button {
   flex-direction: column;
   justify-content: center;
 }
-.feature-sub-title {
-  width: 95px;
+.feature-sub-title {  
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
   font-size: 20px;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #3182F6;  
   background-color: #E8F3FF;
   margin-bottom: 16px;
   margin-top: 80px;
+  margin-right: auto;
+  padding: 0px 8px;
 }
 .feature-title {
   margin-bottom: 33px;
@@ -349,7 +368,7 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-bottom: 80px;
 }
 .promotion-title {
-  width: 95px;
+  /* width: 95px; */
   height: 36px;
   margin: auto;
   background-color: #E8F3FF;  
@@ -361,11 +380,11 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-top: 86px;
   margin-bottom: 20px;
   font-size: 20px;
-  padding: 8px;
+  padding: 0 8px;
 }
 .promotion-main-title {
   font-size: 40px;
-  font-weight: bold;
+  /* font-weight: bold; */
   line-height: 100%;  
   color: #252D38;
   margin-bottom: 22px;  
@@ -402,12 +421,18 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 100%;
   /* margin-bottom: 24px; */
 }
+
 .pf-input-box {
   display: flex;
   flex-direction: column;
   text-align: left;  
   width: 100%;
-  height: 100%;
+  /* height: 96px; */  
+}
+.pf-input-box,
+.pf-input-box-long {
+  /* min-height: 96px; */
+  margin-bottom: 16px;
 }
 .pf-input-box select{
   -o-appearance: none;
@@ -469,19 +494,24 @@ select .pf-input-box {
   border-radius: 5px;
   border: 1px solid #CDCED1;  
   font-size: 16px;  
+  /* margin-bottom: 24px; */
 }
+.promotion-form .pf-input-box, 
+  .promotion-form .pf-input-box-long{
+    /* margin-bottom: 32px; */
+  }  
 .pf-valid {
   margin-top: 8px;  
   height: 30px;
-  /* display: none; */  
-  visibility: hidden;  
+  display: none;  
+  /* visibility: hidden;   */
 }
 .pf-error-input {
   border: 1px solid #EF5350;
 }
 .pf-error {
   margin-top: 8px;
-  height: 30px;  
+  /* height: 30px;   */
   color: #EF5350;
   visibility: visible;
   font-size: 14px;
@@ -553,7 +583,7 @@ select .pf-input-box {
   text-indent: 12px;
 }
 .pf-submit {
-  margin-top: 59px;
+  margin-top: 49px;
   width: 283px;
   height: 52px;
   color: #fff;
@@ -604,7 +634,7 @@ select .pf-input-box {
 }
 .about-title {
   font-size: 34px;
-  font-weight: bold;
+  /* font-weight: bold; */
   line-height: 160%;
   color: #262C3C;  
   margin-top: 80px;
@@ -693,6 +723,9 @@ select .pf-input-box {
   justify-content: space-around;  
   align-items: center;
 }
+.badge-contents a {
+  justify-content: left;
+}
 .brochure-about-contents {
 
 }
@@ -717,7 +750,7 @@ select .pf-input-box {
   justify-content: center;
   align-items: center;
 }
-.brochure-about-btn {
+.brochure-about-btn {  
   width: 140px;
   height: 52px;
   border-radius: 8px;
@@ -776,6 +809,10 @@ select .pf-input-box {
   line-height: 175%;
 }
 @media screen and (max-width:1024px) {
+  /* common */
+  .inner {
+    padding: 0 40px;
+  }
   /* brochure */
   .badge-contents img{
     width: 1024px;
@@ -788,7 +825,7 @@ select .pf-input-box {
 @media screen and (max-width:768px) {    
   /* Common */
   .inner {    
-    /* padding: 0 19px;     */
+    padding: 0 30px;    
     box-sizing: border-box
   }
   .swiper-pagination-bullet {
@@ -810,7 +847,6 @@ select .pf-input-box {
     display: block;
     cursor: pointer;
   }
-
   /* visual */
   .visual-main-title {
     font-style: normal;
@@ -818,6 +854,9 @@ select .pf-input-box {
   }
   .visual-contents-box {
     text-align: center;
+    flex-direction: column;
+    padding: 0px;
+    margin: 170px 0px 0px 0px;        
   }
   .visual-btn-box {
     display: none;
@@ -830,17 +869,21 @@ select .pf-input-box {
     margin-top: 5%;
     width: 320px;
   }
-  .visual-contents-box {
-    flex-direction: column;
-  }
   .visual-main-title {
     font-size: 32px;
     line-height: 140%;
   }
   .visual-text-contents {
-    font-size: 20px;
+    min-width: 0;
+    font-size: 16px;
+    margin: auto;
+    padding: 0;
     margin-bottom: 30px;
     line-height: 160%;
+  }
+  .visual-text-contents article {
+    max-width: 418px;
+    margin: auto;
   }
   .visual-contents-box {
     margin-top: 100px;
@@ -858,9 +901,10 @@ select .pf-input-box {
   }
   .feature-title-box {
     text-align: center;
+    padding-top: 80px;
   }
-  .feature-sub-title {
-    margin: 44px auto 30px auto;
+  .feature-sub-title {    
+    margin: 0px auto 30px auto;
   }
   .feature-contents-box {
     flex-direction: column;
@@ -896,6 +940,14 @@ select .pf-input-box {
   .promotion-form {
     max-width: 424px;
   }
+  .promotion-form .pf-input-box, 
+  .promotion-form .pf-input-box-long{
+    min-height: 0;
+    margin-bottom: 32px;
+  }  
+  .pf-check {
+    margin-top: 0;
+  }
   .promotion-main-title {
     font-size: 32px;
     line-height: 47.6px;
@@ -915,7 +967,7 @@ select .pf-input-box {
     /* margin-bottom: 16px; */
   }
   .pf-input-box2 {
-    margin-top: 32px;
+    /* margin-top: 32px; */
   }
   .pf-input-box div .password-eye{
     position: absolute;    
@@ -931,16 +983,17 @@ select .pf-input-box {
   }
   .pf-error {
     margin-top: 12px;
-    height: 52px;  
+    /* margin-bottom: 32px; */
+    height: 100%;  
     color: #EF5350;
     visibility: visible;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 20px;    
   }
   .pf-submit {
     width: 100%;
     margin-top: 32px;
-  }
+  }  
 
   /* About */
   .about-btn {
@@ -954,7 +1007,7 @@ select .pf-input-box {
   /* Brochure */
   .brochure {
     height: auto;
-    margin-bottom: 124px;
+    margin-bottom: 50px;
     margin-top: 80px;
   }
   .brochure-icon-box {
@@ -1013,12 +1066,12 @@ select .pf-input-box {
   .brochure-badge-box {
     display: flex;
     justify-content: center;
-  }
+  }  
   .brochure-badge-box img {
     width: 424px;
     height: 481px;
   }
-  .mobile-about-btn {                        
+  .mobile-about-btn {
   }
 
   /* Footer */
@@ -1068,10 +1121,10 @@ select .pf-input-box {
   }
   /* visual */
   .visual-main-title {
-    font-size: 24px;
+    font-size: 28px;
   }
   .visual-contents-left p img {
-    width: 280px;
+    width: 385px;
   }
   .badge-contents img{
     width: 1024px;
@@ -1138,5 +1191,24 @@ select .pf-input-box {
   }
   .menu1 img, .menu2 img, .menu3 img {
     width: 250px;
+  }
+}
+@media screen and (max-width:280px) {
+  /* visual */
+  .visual-text-contents article {
+    width: 250px;
+  }
+  /* brochure */
+  .brochure-badge-box img {
+    width: 260px;
+  }
+  .brochure-about-btn {
+    width: 144px;
+    height: 36px;
+    margin-top: 19em;
+  }
+  /* footer */
+  .mFooter {
+    margin-left: 15px;
   }
 }

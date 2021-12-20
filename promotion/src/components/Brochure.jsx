@@ -8,6 +8,7 @@ import aboutbadge_ko from '../images/aboutbadge_ko.svg'
 import aboutbadge_en from '../images/aboutbadge_en.svg'
 import mobile_badge from '../images/mobile_badge.svg'
 import mobile_badge_en from '../images/mobile_badge_en.svg'
+import Badge from './Button/Badge'
 
 function Brochure(props) {
   const { t, i18n } = useTranslation()
@@ -47,11 +48,12 @@ function Brochure(props) {
       {
         isMobile && 
         <div className="brochure-badge-box">
-          {i18n.language === 'ko' ? <img src={mobile_badge} /> : <img src={mobile_badge_en}/>}
-          {i18n.language === 'ko' ? <a href="https://www.fasoo.com/" target="_blank" className="brochure-about-btn"></a>
+          {i18n.language === 'ko' ? <img src={mobile_badge}></img> : <img src={mobile_badge_en}/>}
+          {i18n.language === 'ko' ? <a href="https://www.fasoo.com/" target="_blank" className="brochure-about-btn"/>
         : <a href="https://en.fasoo.com/" target="_blank" className="brochure-about-btn"></a>}
-        </div>
+        </div>        
       }
+      {/* <Badge></Badge> */}
     </>
   );
 }

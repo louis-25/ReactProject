@@ -65,7 +65,8 @@
   background-image: url('../../images/slider/next.svg');
 }
 .swiper {
-  width: 1200px;
+  max-width: 1200px;
+  min-width: 1000px;
   margin: auto;
   height: 840px;
 }
@@ -155,6 +156,7 @@
 }
 .feature_menu_content {
   width: 350px;
+  min-width: 280px;
   height: 376px;
   padding: 20px 0 40px 0;
   text-align: center;
@@ -184,7 +186,7 @@
 }
 @media screen and (max-width:1024px) {  
   .swiper {
-    width: 1024px;    
+    /* width: 70%;     */
     /* height: 840px; */
   }
 }
@@ -192,6 +194,7 @@
   .swiper {
     width: auto;    
     height: auto;    
+    min-width: 0px;
   }
   .slide_title {
     padding: 0 20px;
@@ -244,7 +247,7 @@
 }
 @media screen and (max-width:320px) { 
   .feature_menu_content {
-    width: 280px;
+    min-width: 250px;
   }
   .slide_title {
     padding: 0;    

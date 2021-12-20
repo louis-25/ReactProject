@@ -15,9 +15,9 @@
   justify-content: center;
   border-radius: 5px;
   font-size: 20px;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #3182F6;  
-  padding: 8px;
+  padding: 0px 8px;
   background-color: #E8F3FF;  
   margin: 0px auto 32px;
 }
@@ -34,6 +34,7 @@
 }
 .content{
   width: 350px;  
+  min-width: 300px;
   padding: 68px 0px 35px 0px;
   border-radius: 20px;
   margin-right: 25px;
@@ -94,7 +95,8 @@
 
 @media screen and (max-width:320px) {    
   .content {
-    width: 250px;    
+    width: 250px;
+    min-width: 250px;    
     padding: 38px 0 15px 0;
     /* height: 250px; */
   }
@@ -121,4 +123,8 @@
   .moreBtn {
     font-size: 15px;
   }
+}
+
+@media screen and (max-width:280px) {
+  
 }

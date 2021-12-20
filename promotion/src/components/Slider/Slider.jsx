@@ -77,7 +77,7 @@ function Slider(props) {
         <div ref={nextRef}></div>  
       </div> */}
       <SwiperSlide>
-          <div className={`${style.slide_title}`}>
+          <div className={`${style.slide_title} inner`}>
               <div className={style.main}>
                 <div className={style.number}>1</div>
                 {t("feature_title1")}</div>                          
@@ -91,7 +91,7 @@ function Slider(props) {
           {menu(contents[0])}
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`${style.slide_title}`}>
+          <div className={`${style.slide_title} inner`}>
             <div className={style.main}>
               <div className={style.number}>2</div>
               {t("feature_title2")}</div>
@@ -109,7 +109,7 @@ function Slider(props) {
           {menu(contents[1])}
         </SwiperSlide>
         <SwiperSlide>
-          <div className={`${style.slide_title}`}>
+          <div className={`${style.slide_title} inner`}>
             <div className={style.main}>
               <div className={style.number}>3</div>
               {t("feature_title3")}</div>

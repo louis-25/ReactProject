@@ -8,6 +8,8 @@ import { useTranslation } from 'react-i18next'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Triangle from '../images/Triangle.svg'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
+import Header from './Header'
+import Footer from './Footer'
 
 function Promotion(props) {
   const { register, handleSubmit, getValues, setValue, setError, clearErrors, watch, formState: { errors } } = useForm();  
@@ -170,6 +172,8 @@ function Promotion(props) {
   }
 
   return (
+    <>
+    <Header></Header>
     <section className="promotion">
       <div className="inner">
         <div className="promotion-title-box">
@@ -217,16 +221,7 @@ function Promotion(props) {
                   <option value="2">&nbsp;&nbsp;{t("promotion_input4-2")}</option>
                   <option value="3">&nbsp;&nbsp;{t("promotion_input4-3")}</option>
                   <option value="4">&nbsp;&nbsp;{t("promotion_input4-4")}</option>
-                </select>
-                {/* <div class="selectBox" ref={selectRef} onClick={selectClick}>
-                  <div class="label">선택 🍊</div>
-                  <ul class="optionList" style={{display:option, width}} ref={optionRef}>
-                    <li class="optionItem">apple</li>
-                    <li class="optionItem">orange</li>
-                    <li class="optionItem">grape</li>
-                    <li class="optionItem">melon</li>
-                  </ul>
-                </div> */}
+                </select>                
                 <p className={classNames(errors.companyScale ? "pf-error" : "pf-valid")}>{t('promotion_input4_e')}</p>
               </div>                            
             </div>            
@@ -277,6 +272,8 @@ function Promotion(props) {
         </div>
       </div>
     </section>
+    <Footer></Footer>
+    </>
   );
 }
 

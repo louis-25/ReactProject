@@ -39,6 +39,9 @@ function App() {
       <Route exact path="/privacy">
         <Privacy></Privacy>
       </Route>
+      <Route exact path="/free-trial">        
+        <Promotion></Promotion>
+      </Route>
     </div>
   );
 }

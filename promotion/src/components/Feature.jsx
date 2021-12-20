@@ -11,15 +11,14 @@ function Feature(props) {
   return (
     // <div className="inner">
     <>
-    <div className={`feature inner`}>      
-      <div className="feature-title-box">
-        <div className="feature-sub-title">{t("feature_title1-1")}</div>  
+    <div className={`feature inner`}>
+        <div className="feature-title-box">
+        <span className="feature-sub-title">{t("feature_title1-1")}</span>  
         {isDesktop ? <div className="feature-title" dangerouslySetInnerHTML={{__html:t("feature_main_title")}}></div>
         :<div className="feature-title" dangerouslySetInnerHTML={{__html:t("Mfeature_main_title")}}></div>
         }
-        
-      </div>      
-      </div>    
+      </div>
+      </div>
       <Slider></Slider> 
       {/* <div className="feature-contents-box">
         <div className="feature-content-wrap">

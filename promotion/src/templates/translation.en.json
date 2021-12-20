@@ -1,5 +1,5 @@
 {
-  "header_menu1" : "Features",
+  "header_menu1" : "Key Features",
   "header_menu2" : "Products",
   "header_menu3" : "Company",
   "header_menu4" : "Free Trial",
@@ -40,7 +40,7 @@
   "Mfeature_title3_sub1" : "You need strong security",
   "Mfeature_title3_sub2" : "to protect your shared content.",
 
-  "feature_title1-1" : "Features",
+  "feature_title1-1" : "Key Features",
   "feature_title1-2" : "Why Fireside?",
   "feature_sub_title1": "Secure File Sharing",
   "feature_sub_title1_content1": "Encrypt all files shared in the chat so",
