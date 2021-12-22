@@ -63,11 +63,11 @@ function Visual({promotionRef}) {
                 </article>
                 : 
                 <p>
-                  Looking for a messaging app that connects with enterprise applications and systems…<br/>
-                  Dealing with redundant, obsolete and trivial (ROT) data issues…<br/>
-                  Facing security challenges and risks relating to messaging app…<br/>
+                  Looking for a messaging app that connects with enterprise applications and systems?<br/>
+                  Dealing with redundant, obsolete and trivial (ROT) data issues?<br/>
+                  Facing security challenges and risks relating to messaging app?<br/>
                   <br/>
-                  Enterprise messaging is the backbone of collaboration and no doubt messaging apps enhance productivity and help build a hybrid workplace.  However, organizations face various challenges as the business environment's diversity and complexity are growing, including the issues mentioned above.<br/>
+                  Enterprise messaging is the backbone of collaboration and no doubt messaging apps enhance productivity and help build a hybrid workplace.  However, organizations face various challenges as the business environment's diversity and complexity grow, including the issues mentioned above.<br/>
                   <br/>
                   The next generation of enterprise messaging is now available, virtualizing messaging across business applications and systems, allowing organizations to consolidate communication channels, simplify collaboration and enable the highest level of security.<br/>
                 </p>
@@ -98,12 +98,12 @@ function Visual({promotionRef}) {
                   </p>
                 </article>
                 :
-                <p style={{ maxWidth:"650px", margin: "auto" }}>
-                  Looking for a messaging app that connects with enterprise applications and systems…<br/>
-                  Dealing with redundant, obsolete and trivial (ROT) data issues…<br/>
-                  Facing security challenges and risks relating to messaging app…<br/>
+                <p>
+                  Looking for a messaging app that connects with enterprise applications and systems?<br/>
+                  Dealing with redundant, obsolete and trivial (ROT) data issues?<br/>
+                  Facing security challenges and risks relating to messaging app?<br/>
                   <br/>
-                  Enterprise messaging is the backbone of collaboration and no doubt messaging apps enhance productivity and help build a hybrid workplace.  However, organizations face various challenges as the business environment's diversity and complexity are growing, including the issues mentioned above.<br/>
+                  Enterprise messaging is the backbone of collaboration and no doubt messaging apps enhance productivity and help build a hybrid workplace.  However, organizations face various challenges as the business environment's diversity and complexity grow, including the issues mentioned above.<br/>
                   <br/>
                   The next generation of enterprise messaging is now available, virtualizing messaging across business applications and systems, allowing organizations to consolidate communication channels, simplify collaboration and enable the highest level of security.<br/>
                 </p>

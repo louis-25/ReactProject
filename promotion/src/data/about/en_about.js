@@ -5,20 +5,20 @@ import Drm from '../../images/drm.svg'
 const data = [[
   {
     img:Wrapsody,
-    title:'Content-Based Chat',
-    sub:"Integration with Wrapsody, an<br/>enterprise content platform, will<br/>provide collaborative data<br/>encryption and content-based chat.",
+    title:'Content-centric<br/>collaboration',
+    sub:"Implement a consolidated approach for content collaboration using information-centric and content virtualization strategies",
     href:"https://en.fasoo.com/products/wrapsody/"
   },
   {
     img:WrapsodyEco,
-    title:"Workgroup-Based Chat",
-    sub:"Integration with Wrapsody eCo, a<br/>secure collaboration platform, will<br/>provide workgroup-based chat with<br/>internal users and external partners.",
+    title:"Workgroup-based<br/>collaboration",
+    sub:"Simplify secure collaboration, and maintain control and visibility of information regardless of how users work",
     href:"https://en.fasoo.com/products/wrapsody-eco/"
   },
   {
     img:Drm,
-    title:"Advanced Data Protection",
-    sub:"Integraion with Fasoo Enterprise DRM,<br/>an integrated document security<br/>solution, will provide more robust and<br/>detailed security features. ",
+    title:"Advanced data<br/>security",
+    sub:"Enforce the highest level of security using Enterprise DRM solution, and implement a holistic data security strategy",
     href:"https://en.fasoo.com/products/fasoo-enterprise-drm/"
   }],  
 ]

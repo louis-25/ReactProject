@@ -1,6 +1,6 @@
 {
   "header_menu1" : "주요 기능",
-  "header_menu2" : "제품 소개",
+  "header_menu2" : "다운 로드",
   "header_menu3" : "회사 소개",
   "header_menu4" : "무료 체험",
 
@@ -21,13 +21,14 @@
   "feature_main_title" : "기존 사내 메신저의 한계를 극복한 차세대 메신저!",
   "Mfeature_main_title" : "기존 사내 메신저의 한계를<br/>극복한 차세대 메신저!",
 
-  "feature_title1" : "사내 시스템과 완벽 연동",
-  "Mfeature_title1" : "사내 시스템과 완벽 연동",
+  "feature_title1" : "이보다 더 효율적이고 편리할 순 없다!",
+  "Mfeature_title1" : "이보다 더 효율적이고<br/>편리할 순 없다!",
   "feature_title1_sub" : "사내 시스템과 효율적으로 연동되며 사용자 편의성을 극대화합니다.",
-  "feature_title2" : "콘텐츠 중심 커뮤니케이션",
-  "Mfeature_title2" : "콘텐츠 중심 커뮤니케이션",
+  "feature_title2" : "잘 봐, 이것이 진정한 콘텐츠 중심 커뮤니케이션이다",
+  "Mfeature_title2" : "잘 봐, 이것이 진정한 콘텐츠<br/>중심 커뮤니케이션이다",
   "feature_title2_sub" : "협업 콘텐츠에 집중할 수 있는 콘텐츠 중심 커뮤니케이션을 실현합니다.",
-  "feature_title3" : "강력한 보안",
+  "feature_title3" : "메신저가 정보 유출 경로? Fireside에서는 다른 세상 이야기!",
+  "Mfeature_title3" : "메신저가 정보 유출 경로?<br/>Fireside에서는<br/>다른 세상 이야기!",
   "feature_title3_sub" : "공유 콘텐츠를 보호하는 강력한 보안이 필요합니다.",
   
   "Mfeature_title1_sub1" : "사내 시스템과 효율적으로 연동되며",
@@ -56,7 +57,7 @@
   "feature_sub_title3_content3": "가능하여 사용자 편의성을 극대화 합니다.",
   "feature_sub_title3_content4": "쉽게 사용할 수 있습니다.",
 
-  "promotion_title1-1" : "체험 신청",
+  "promotion_title1-1" : "무료 체험",
   "promotion_title1-2" : "Fireside를 무료로 이용하세요",
   "promotion_title1-3" : "아래 정보를 입력하고 Fireside를 바로 체험해보세요.",
   "Mpromotion_title1-2-1" : "Fireside를",
@@ -87,9 +88,9 @@
   "promotion_input8" : "비밀 번호 확인",
   "promotion_input8_e" : "비밀 번호가 일치하지 않습니다.",  
   "promotion_check_e" : "체크박스를 선택해주세요.",
-  "promotion_submit_btn" : "메일로 프로모션 코드 받기",
+  "promotion_submit_btn" : "무료체험 사전신청",
 
-  "about_title" : "제품 소개",
+  "about_title" : "Fasoo 솔루션과의 시너지",
   "about_title_sub": "Fasoo 솔루션과 함께하면 Next Level의 보안성과 효율성 확보!",
   "Mabout_title_sub": "Fasoo 솔루션과 함께하면<br/>Next Level의 보안성과<br/>효율성 확보!",
 

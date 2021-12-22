@@ -22,10 +22,12 @@ function Footer(props) {
     console.log(i18n.language)
     if(i18n.language == 'ko') {
       i18n.changeLanguage('en')
+      sessionStorage.setItem("lng", "en")
       // changelanguageToEn()      
     }
     else {
       i18n.changeLanguage('ko')
+      sessionStorage.setItem("lng", "ko")
       // changelanguageToKo()
     }
     window.scrollTo(0,0)

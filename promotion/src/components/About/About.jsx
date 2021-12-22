@@ -25,8 +25,8 @@ function About(props) {
   return (    
     <div className={style.about}>      
       <div className={`${style.titleBox} inner`}>
-        <div className={style.subTitle}>{t("about_title")}</div>
-        {isDesktop ? <div className={style.title}>{t("about_title_sub")}</div>
+        {i18n.language === 'ko' && <div className={style.subTitle}>{t("about_title")}</div>}        
+        {isDesktop ? <div className={style.title} dangerouslySetInnerHTML={{__html:t("about_title_sub")}}></div>
         : <div className={style.title} dangerouslySetInnerHTML={{__html:t("Mabout_title_sub")}}></div>}
         
       </div>
@@ -44,7 +44,7 @@ function About(props) {
             return(
               <div className={style.content}>
                 <div className={style.imgBox}><img src={content.img} /></div>
-                <div className={style.contentTitle}>{content.title}</div>
+                <div className={style.contentTitle} dangerouslySetInnerHTML={{__html: content.title}}></div>
                 <p dangerouslySetInnerHTML={{__html: content.sub}}></p>
                 <a href={content.href} target="_blank" className={style.moreBtn}>{i18n.language=='ko' ? "더 알아보기" : "Learn More"}</a>
               </div>

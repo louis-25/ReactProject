@@ -19,7 +19,7 @@ export default class promotionService {
         "User":{
           userId: data.email,
           userName: data.userName,
-          userPwd: data.password
+          // userPwd: data.password
         }
       })
     }).then((data)=>{

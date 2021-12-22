@@ -170,7 +170,7 @@
   margin-right: 0;
 }
 .feature_menu_content .menu_title{  
-  margin-top: 33px;
+  margin-top: 20px;
   font-size: 20px;
   height: 54px;
 }
@@ -183,6 +183,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.menu_content {
+  line-height: 28px;
+  max-width: 300px;
+  margin: auto;
 }
 @media screen and (max-width:1024px) {  
   .swiper {
@@ -207,8 +212,8 @@
   .feature_menu {    
     flex-direction: column;    
   }
-  .feature_menu_content {    
-    margin: 0 auto 30px;  
+  .feature_menu_content {        
+    margin: 0 auto 30px;      
   }
   .Mfeature_content {
     width: 350px;
@@ -223,6 +228,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .menu_content {
+    max-width: 300px;
+    margin: 20px auto 0;
   }
   /* .menu2, .menu3 {
     margin: 28px auto 92px auto;

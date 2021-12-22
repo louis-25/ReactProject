@@ -55,7 +55,7 @@ function Slider(props) {
     spaceBetween:0,
     slidesPerView:1,    
     autoplay: {
-      delay: 10000,
+      delay: 1000000,
       disableOnInteraction: false
     },
     onSwiper: setSwiper,
@@ -110,7 +110,7 @@ function Slider(props) {
         </SwiperSlide>
         <SwiperSlide>
           <div className={`${style.slide_title} inner`}>
-            <div className={style.main}>
+            <div className={style.main} >
               <div className={style.number}>3</div>
               {t("feature_title3")}</div>
             <div className={style.sub}>{t("feature_title3_sub")}</div>          
@@ -177,7 +177,7 @@ function Slider(props) {
           <div className={`${style.slide_title} inner`}>
             <div className={style.main}>
               <div className={style.number}>3</div>
-              {t("feature_title3")}</div>
+              <div dangerouslySetInnerHTML={{__html:t("Mfeature_title3")}}></div>              </div>
               <div className={style.sub}>{t("Mfeature_title3_sub1")}<br/>{t("Mfeature_title3_sub2")}</div>
           <div className={`${style.feature} ${style.menu3}`}>
             <div className={`${style.feature_content}`}>

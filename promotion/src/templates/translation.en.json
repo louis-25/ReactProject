@@ -1,6 +1,6 @@
 {
   "header_menu1" : "Key Features",
-  "header_menu2" : "Products",
+  "header_menu2" : "Download",
   "header_menu3" : "Company",
   "header_menu4" : "Free Trial",
 
@@ -17,16 +17,17 @@
   "Mvisual_title2_content4" : "a data breach and enhance productivity.",
   "visual_promotion_btn" : "Free Trial",
 
-  "feature_main_title" : "Overcome challenges of conventional tools<br/>using the next generation enterprise messenger",
-  "Mfeature_main_title" : "Overcome challenges of conventional tools<br/>using the next generation enterprise messenger",
+  "feature_main_title" : "Overcome challenges of conventional tools<br/>using the next-generation enterprise messenger",
+  "Mfeature_main_title" : "Overcome challenges of conventional tools<br/>using the next-generation enterprise messenger",
 
   "feature_title1" : "Seamless integration with enterprise applications and systems",
-  "Mfeature_title1" : "Seamless integration with<br/>enterprise applications and systems",
+  "Mfeature_title1" : "Seamless integration with<br/>enterprise applications<br/>and systems",
   "feature_title1_sub" : "Maximizing usability, efficiency and productivity through seamless integration with enterprise systems",
   "feature_title2" : "Content-centric collaboration",
   "Mfeature_title2" : "Content-centric<br/>collaboration",
   "feature_title2_sub" : "Sharing comments with colleagues that are bound to documents",
   "feature_title3" : "Security by design",
+  "Mfeature_title3" : "Security by design",
   "feature_title3_sub" : "Prevent data breaches and enforce the highest level of security",
   
   "Mfeature_title1-1" : "Perfect integration with",
@@ -92,8 +93,8 @@
   "promotion_submit_btn" : "Request Promotion Code",
 
   "about_title" : "Products",
-  "about_title_sub": "Fasoo Solutions Allow for Next-Level Security and Efficiency!",
-  "Mabout_title_sub": "Fasoo Solutions Allow for<br/>Next-Level Security and Efficiency!",
+  "about_title_sub": "Complement your Fireside with a content services platform and secure collaboration services!",
+  "Mabout_title_sub": "Complement your Fireside with a content services platform and secure collaboration services!",
 
   "about_title1-1" : "Next-Generation Data Security",
   "about_title1-2" : "and Management Solutions",
@@ -110,8 +111,8 @@
   "brochure_icon1_title" : "Brochure",
   "brochure_icon1_content" : "Learn more about Fireside.",
   "brochure_icon1_download" : "Download",
-  "brochure_icon2_title" : "Download APP",
-  "brochure_icon2_content" : "from App Store or Google Play",  
+  "brochure_icon2_title" : "App",
+  "brochure_icon2_content" : "Download Fireside Mobile",  
 
   "footer_content1" : "Fasoo Co., Ltd. | CEO: Kyugon Cho | Business registration number : 1208606582",
   "footer_content2" : "Address : 396 World Cup Buk-ro, Mapo-gu, Seoul 03925 | Phone : +82-2-300-9300 | Email : helpdesk@fasoo.com",

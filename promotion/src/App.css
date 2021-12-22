@@ -118,7 +118,7 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-right: 40px;  
   
 }
-.nav-menu li:nth-child(4) a {
+.nav-menu li:nth-last-child(1) a {
   color: #3182F6;
 }
 .nav-menu li a {
@@ -174,7 +174,7 @@ input[type="number"]::-webkit-inner-spin-button {
   line-height: 20px;
   cursor: pointer;  
 }
-.sidebar-menu li:nth-child(4) {
+.sidebar-menu li:nth-last-child(1) {
   color: #3182F6;
 }
 .sidebar-login-box {  
@@ -584,7 +584,8 @@ select .pf-input-box {
 }
 .pf-submit {
   margin-top: 49px;
-  width: 283px;
+  /* width: 283px; */
+  padding:0 17px;
   height: 52px;
   color: #fff;
   background-color: #3182F6;
@@ -751,13 +752,13 @@ select .pf-input-box {
   align-items: center;
 }
 .brochure-about-btn {  
-  width: 140px;
+  width: 167px;
   height: 52px;
   border-radius: 8px;
   color: #3182F6;
   background-color: tomato;
   z-index: 9999;
-  margin-left: 52.5em;
+  margin-left: 51em;
   font-size: 16px;
   line-height: 100%;
   opacity: 0;
@@ -1008,10 +1009,11 @@ select .pf-input-box {
   .brochure {
     height: auto;
     margin-bottom: 50px;
-    margin-top: 80px;
+    /* margin-top: 80px; */
   }
   .brochure-icon-box {
     flex-direction: column;    
+    padding-top: 80px;
   }
   .brochure-icon:nth-child(1) {
     margin-right: 0;
@@ -1054,11 +1056,11 @@ select .pf-input-box {
     align-items: center;
   }
   .brochure-about-btn {
-    width: 222px;
+    width: 166px;
     height: 56px;
     border-radius: 5px;
     position: absolute;
-    margin-top: 21em;
+    margin-top: 23.3em;
     margin-left: 0;
     background-color: #fff;
     opacity: 0;
@@ -1122,6 +1124,10 @@ select .pf-input-box {
   /* visual */
   .visual-main-title {
     font-size: 28px;
+  }
+  .visual-text-contents p {
+    max-width: 290px;
+    margin: auto;
   }
   .visual-contents-left p img {
     width: 385px;

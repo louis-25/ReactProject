@@ -8,7 +8,7 @@
   text-align: center;
 }
 .subTitle {
-  width: 95px;
+  width: fit-content;
   height: 36px;
   display: flex;
   align-items: center;
@@ -24,8 +24,9 @@
 .title {
   color:#252D38;
   font-size: 34px;
-  line-height: 140%;
-  margin-bottom: 60px;
+  line-height: 140%;  
+  max-width: 757px;
+  margin: 0 auto 60px;
 }
 
 .contentBox{
@@ -58,12 +59,17 @@
   color: #262C3C;
   font-weight: bold;
   font-size: 24px;
-  line-height: 32px;
-  margin-bottom: 24px;
+  line-height: 32px;  
+  margin: 0 auto 24px;
 }
 .content p {
   height: 84px;
-  margin-bottom: 69px;
+  margin: 0 auto 69px;
+  line-height: 28px;
+}
+.contentTitle,
+.content p {
+  max-width: 300px;  
 }
 .moreBtn {
   color: #4089ED;
@@ -90,6 +96,10 @@
   }
   .title {
     font-size: 32px;
+  }
+  .contentTitle,
+  .content p {
+    max-width: 300px;  
   }
 }
 

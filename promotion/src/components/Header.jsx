@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
 
-function Header({featureRef, promotionRef, aboutRef}) {  
+function Header({featureRef, promotionRef, aboutRef, downloadRef}) {  
   const [scroll, setScroll] = useState(0)
   const [sidebar, setSidebar] = useState(false)  
   const topRef = useRef()    
@@ -63,6 +63,15 @@ function Header({featureRef, promotionRef, aboutRef}) {
             })
             history.replace("",null)
             break;
+          case 'download':
+            console.log(downloadRef.current.getBoundingClientRect().y)
+            promotionRef.current.scrollIntoView({
+              behavior: 'auto',
+              block: 'start',
+              inline: 'nearest'
+            })
+            history.replace("",null)
+            break;
           case 'about':
             // console.log(aboutRef.current.getBoundingClientRect().y)
             // promotionRef.current.scrollIntoView({
@@ -76,8 +85,6 @@ function Header({featureRef, promotionRef, aboutRef}) {
             }else {
               window.scrollTo(0, aboutRef.current.getBoundingClientRect().y + 1)
             }            
-            history.replace("",null)
-            break;
             history.replace("",null)
             break;
         }
@@ -119,6 +126,23 @@ function Header({featureRef, promotionRef, aboutRef}) {
       history.push({
         pathname:'/',
         state:{scroll: "promotion"}
+      })
+    }     
+  }
+  const goToDownload = (e) => {
+    e.preventDefault()
+    if(sidebar) setSidebar(false)    
+    if(window.location.pathname == '/'){
+      console.log('goToDownload ',history.location.pathname,downloadRef.current.getBoundingClientRect().y )
+      downloadRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      })            
+    }else{
+      history.push({
+        pathname:'/',
+        state:{scroll: "download"}
       })
     }     
   }
@@ -169,8 +193,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
     <div className="header-box">
       <header ref={topRef} className={`header inner`}>
         <div>
-        <Link to={{pathname:"/"}}><img src={Logo} onClick={goToTop}/></Link>
-          {/* <a href="/"><img src={Logo}/></a> */}
+        <Link to={{pathname:"/"}}><img src={Logo} onClick={goToTop}/></Link>          
         </div>
         <nav>
           <ul className="nav-menu">
@@ -178,14 +201,14 @@ function Header({featureRef, promotionRef, aboutRef}) {
               <a href="#" onClick={goToFeature}>{t("header_menu1")}</a>
             </li>
             <li>              
-              <a href="#" onClick={goToAbout} >{t("header_menu2")}</a>
+              <a href="#" onClick={goToDownload} >{t("header_menu2")}</a>
             </li>
             <li>
               <a href="#" onClick={goToCompany} target="_blank">{t("header_menu3")}</a>
             </li>           
             <li>
-              <a className="loginBtn" href="https://portal.wrapsodyeco.com/join?type=trial" target="_blank">{t("header_menu4")}</a>
-              {/* <Link className="loginBtn" to={{pathname:"/free-trial"}} onClick={goToTop}>{t("header_menu4")}</Link> */}
+              {/* <a className="loginBtn" href="https://portal.wrapsodyeco.com/join?type=trial" target="_blank">{t("header_menu4")}</a> */}
+              <Link className="loginBtn" to={{pathname:"/free-trial"}} onClick={goToTop}>{t("header_menu4")}</Link>
             </li> 
           </ul>
           <div className="berger">
@@ -204,10 +227,10 @@ function Header({featureRef, promotionRef, aboutRef}) {
         </div>
         <ul className="sidebar-menu">
           <li onClick={goToFeature}>{t("header_menu1")}</li>
-          <li onClick={goToAbout}>{t("header_menu2")}</li>
+          <li onClick={goToDownload}>{t("header_menu2")}</li>
           <li onClick={goToCompany}>{t("header_menu3")}</li>
-          <li onClick={goToLogin}>{t("header_menu4")}</li>
-          {/* <Link className="loginBtn" to={{pathname:"/free-trial"}} onClick={goToTop}>{t("header_menu4")}</Link> */}
+          {/* <li onClick={goToLogin}>{t("header_menu4")}</li> */}
+          <Link className="loginBtn" to={{pathname:"/free-trial"}} onClick={goToTop}>{t("header_menu4")}</Link>
         </ul>
         {/* <div className="sidebar-login-box">
           <input className="sidebar-login-btn" onClick={goToLogin} type="submit" value={t("header_menu4")}/>
