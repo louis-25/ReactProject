@@ -55,7 +55,7 @@ function Slider(props) {
     spaceBetween:0,
     slidesPerView:1,    
     autoplay: {
-      delay: 1000000,
+      delay: 10000,
       disableOnInteraction: false
     },
     onSwiper: setSwiper,
@@ -135,12 +135,9 @@ function Slider(props) {
         spaceBetween={50}
         slidesPerView={1}
         loop={true}
-        autoplay={{delay:1000000, disableOnInteraction: false}}
+        autoplay={{delay:10000, disableOnInteraction: false}}
         pagination={{ 
           clickable: true,
-          // bulletClass: `${style.swiper_pagination}`,
-          // bulletElement: `${style.swiper_pagination_bullet}`,
-          // bulletActiveClass: `${style.swiper_pagination_bullet_active}`
         }}
       >
       <SwiperSlide>

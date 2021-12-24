@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 import Contents from '../images/snow.svg'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
+import classNames from 'classnames'
 import visual_ko from '../images/lang/visual_ko.svg'
 import visual_en from '../images/lang/visual_en.svg'
 import Mvisual_ko from '../images/lang/Mvisual_ko.svg'
@@ -24,9 +25,9 @@ function Visual({promotionRef}) {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
   const isGalaxyFold = useMediaQuery({ query: '(max-width: 281px)' })
 
-  return (    
-    <section className="visual">      
-      <div className={`visual-contents-box `}>
+  return (
+    <section className={classNames("visual",isMobile && 'inner')}>
+      <div className={`visual-contents-box`}>
         <div className="visual-contents-left">
           <h1 className="visual-main-title">
             {isDesktop &&

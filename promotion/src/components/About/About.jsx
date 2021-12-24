@@ -23,14 +23,14 @@ function About(props) {
     }
   }
   return (    
-    <div className={style.about}>      
-      <div className={`${style.titleBox} inner`}>
-        {i18n.language === 'ko' && <div className={style.subTitle}>{t("about_title")}</div>}        
+    <div className={`${style.about} inner`}>      
+      <div className={`${style.titleBox} `}>
+        {/* {i18n.language === 'ko' && <div className={style.subTitle}>{t("about_title")}</div>}         */}
         {isDesktop ? <div className={style.title} dangerouslySetInnerHTML={{__html:t("about_title_sub")}}></div>
         : <div className={style.title} dangerouslySetInnerHTML={{__html:t("Mabout_title_sub")}}></div>}
         
       </div>
-      <div className={`${style.contentBox} inner`}>
+      <div className={`${style.contentBox}`}>
         {menu(contents[0])}
       </div>
     </div>     

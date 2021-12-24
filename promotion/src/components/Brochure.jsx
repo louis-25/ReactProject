@@ -18,15 +18,17 @@ function Brochure(props) {
     <>
       <div className="brochure inner">
         <div className='brochure-icon-box'>
-          <div className='brochure-icon'>
-            <div className='icon-circle'>
-              <img src={paper}/>
+          {i18n.language === "ko" &&
+            <div className='brochure-icon'>
+              <div className='icon-circle'>
+                <img src={paper}/>
+              </div>
+              <div className="brochure-icon-title">{t("brochure_icon1_title")}</div>
+              <div className="brochure-icon-content">{t("brochure_icon1_content")}</div>
+              {/* <Link to="" target="_blank" className="brochure-icon-download">{t("brochure_icon1_download")}</Link> */}
+              <a href="Brochure_Fasoo Fireside.pdf" target="_blank" className="brochure-icon-download">{t("brochure_icon1_download")}</a>
             </div>
-            <div className="brochure-icon-title">{t("brochure_icon1_title")}</div>
-            <div className="brochure-icon-content">{t("brochure_icon1_content")}</div>
-            {/* <Link to="" target="_blank" className="brochure-icon-download">{t("brochure_icon1_download")}</Link> */}
-            <a href="Brochure_Fasoo Fireside.pdf" target="_blank" className="brochure-icon-download">{t("brochure_icon1_download")}</a>
-          </div>
+          }
           <div className='brochure-icon'>
           <div className='icon-circle'><img src={down}/></div>
             <div className="brochure-icon-title">{t("brochure_icon2_title")}</div>
@@ -35,25 +37,25 @@ function Brochure(props) {
             <a href="https://play.google.com/store/apps/details?id=com.fasoo.m.chat&hl=ko&gl=US" target="_blank" className="brochure-icon-download"> Android</a>          
           </div>
         </div>      
-      </div>
-      { isDesktop &&
+      </div>      
       <div className="brochure-about-badge inner">
         <div className="badge-contents">
-        {i18n.language === 'ko' ? <img src={aboutbadge_ko}/> : <img src={aboutbadge_en}/>}
-        {i18n.language === 'ko' ? <a href="https://www.fasoo.com/" target="_blank" className="brochure-about-btn"></a>
-        : <a href="https://en.fasoo.com/" target="_blank" className="brochure-about-btn"></a>}
+          <div className="badge-contents-left">
+            {isDesktop ? <div className='brochure-about-title' dangerouslySetInnerHTML={{__html:t("brochure_badge_title")}}></div>
+            : <div className='brochure-about-title' dangerouslySetInnerHTML={{__html:t("Mbrochure_badge_title")}}></div>
+            }            
+            <div className='brochure-about-sub'>{t("brochure_badge_sub")}</div>
+          </div>
+          <div className="badge-contents-right">
+            <div className="brochure-about-btn-box">
+              {i18n.language==="ko" ? 
+              <a href="https://www.fasoo.com/" target="_blank" className="brochure-about-btn">{t("brochure_badge_btn")}</a>
+              : <a href="https://en.fasoo.com/" target="_blank" className="brochure-about-btn">{t("brochure_badge_btn")}</a>            
+            }
+            </div>
+          </div>        
         </div>
-      </div>
-      }
-      {
-        isMobile && 
-        <div className="brochure-badge-box">
-          {i18n.language === 'ko' ? <img src={mobile_badge}></img> : <img src={mobile_badge_en}/>}
-          {i18n.language === 'ko' ? <a href="https://www.fasoo.com/" target="_blank" className="brochure-about-btn"/>
-        : <a href="https://en.fasoo.com/" target="_blank" className="brochure-about-btn"></a>}
-        </div>        
-      }
-      {/* <Badge></Badge> */}
+      </div>      
     </>
   );
 }

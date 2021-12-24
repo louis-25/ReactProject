@@ -22,15 +22,13 @@ function Footer(props) {
     console.log(i18n.language)
     if(i18n.language == 'ko') {
       i18n.changeLanguage('en')
-      sessionStorage.setItem("lng", "en")
-      // changelanguageToEn()      
+      sessionStorage.setItem("lng", "en") //세션값 저장
     }
     else {
       i18n.changeLanguage('ko')
-      sessionStorage.setItem("lng", "ko")
-      // changelanguageToKo()
+      sessionStorage.setItem("lng", "ko")      
     }
-    window.scrollTo(0,0)
+    window.scrollTo(0,0) //언어 변경시 맨위로 이동
   }
 
   const goToBlog = () => {
@@ -47,9 +45,9 @@ function Footer(props) {
   }
   
   return (    
-    <footer className="footer">
+    <footer className="footer inner">
       {isDesktop &&
-      <div className="inner">
+      // <div className="inner">
       <div className="footer-menu">
         <div className="footer-menu-left">
           <ul>
@@ -68,16 +66,8 @@ function Footer(props) {
             <li><img src={Insta} onClick={goToInsta}/></li>
           </ul>
         </div>
-      </div>
-      {/* <div className="footer-text">
-        <p>
-        {t("footer_content1")}
-        </p>
-        <p>
-          {t("footer_content2")}
-        </p>
-      </div> */}
-      </div>
+      </div>      
+      // {/* </div> */}
       }
       {isMobile &&
       <div className="mFooter">

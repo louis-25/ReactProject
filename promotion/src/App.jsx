@@ -43,13 +43,13 @@ function App() {
         <Route exact path="/privacy">
           <Privacy></Privacy>
         </Route>
-        <Route exact path="/free-trial">        
+        <Route exact path="/free-trial">
           <Promotion></Promotion>
         </Route>
-        <Route path="*">        
+        <Route path="*">
           <NotFound></NotFound>
         </Route>
-      </Switch>            
+      </Switch>
     </div>
   );
 }

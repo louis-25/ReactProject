@@ -93,8 +93,8 @@
   "promotion_submit_btn" : "Request Promotion Code",
 
   "about_title" : "Products",
-  "about_title_sub": "Complement your Fireside with a content services platform and secure collaboration services!",
-  "Mabout_title_sub": "Complement your Fireside with a content services platform and secure collaboration services!",
+  "about_title_sub": "Fireside, built upon the foundation of content services<br/>platform and secure collaboration technologies!",
+  "Mabout_title_sub": "Fireside, built upon the foundation of content services platform and secure collaboration technologies!",
 
   "about_title1-1" : "Next-Generation Data Security",
   "about_title1-2" : "and Management Solutions",
@@ -113,6 +113,10 @@
   "brochure_icon1_download" : "Download",
   "brochure_icon2_title" : "App",
   "brochure_icon2_content" : "Download Fireside Mobile",  
+  "brochure_badge_title":"Learn more about Fasoo and<br/>its enterprise products and services",
+  "Mbrochure_badge_title":"Learn more about Fasoo and its enterprise products and services",
+  "brochure_badge_sub":"Fasoo provides unstructured data security, privacy and enterprise content platforms that protect, control, trace, analyze and share critical business information securely while enhancing productivity.Fasoo's continuous focus on customer innovation and creativity provides market-leading solutions to the challenges faced by organizations of all sizes and industries. ",
+  "brochure_badge_btn":"Corporate Website",
 
   "footer_content1" : "Fasoo Co., Ltd. | CEO: Kyugon Cho | Business registration number : 1208606582",
   "footer_content2" : "Address : 396 World Cup Buk-ro, Mapo-gu, Seoul 03925 | Phone : +82-2-300-9300 | Email : helpdesk@fasoo.com",
@@ -371,7 +375,7 @@
   "privacy_sub_title8_content7" : "Title",
   "privacy_sub_title8_content8" : "Managing Director",
   "privacy_sub_title8_content9" : "E-mail",
-  "privacy_sub_title8_content10" : "firesidedemo@fasoo.com",
+  "privacy_sub_title8_content10" : "fireside@fasoo.com",
   "privacy_sub_title8_content11" : "Phone",
   "privacy_sub_title8_content12" : "82)2-300-9120",
 

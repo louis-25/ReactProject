@@ -7,6 +7,13 @@ a {
   color: #797b82
 }
 
+@media screen and (max-width:1024px) {
+  /* common */
+  .inner {
+    padding: 0 40px;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 757px) {
 
   .body,
