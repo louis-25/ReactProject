@@ -1,14 +1,8 @@
 import React, { useContext } from 'react';
-// import Contents from '../images/contents.png'
-// import Contents from '../images/man.svg'
 import Contents from '../images/snow.svg'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
 import classNames from 'classnames'
-import visual_ko from '../images/lang/visual_ko.svg'
-import visual_en from '../images/lang/visual_en.svg'
-import Mvisual_ko from '../images/lang/Mvisual_ko.svg'
-import Mvisual_en from '../images/lang/Mvisual_en.svg'
 
 function Visual({promotionRef}) {
 
@@ -23,7 +17,6 @@ function Visual({promotionRef}) {
   const { t, i18n } = useTranslation()
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
-  const isGalaxyFold = useMediaQuery({ query: '(max-width: 281px)' })
 
   return (
     <section className={classNames("visual",isMobile && 'inner')}>
@@ -43,7 +36,6 @@ function Visual({promotionRef}) {
             <p className="visual-text-contents">
               { 
                 i18n.language === 'ko' ?
-                // <img src={visual_ko}/>
                 <article>
                   <p>
                     기존 사내 시스템 및 웹 기반 App과 연동 불가...<br/>

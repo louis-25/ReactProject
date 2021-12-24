@@ -2,11 +2,10 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import translationEn from './translation.en'
 import translationKo from './translation.ko'
-const lang = navigator.language
-let initLng
 
+let initLng
 initLng = sessionStorage.getItem('lng')
-console.log('initlng ',initLng)
+
 if(initLng == null) {  
   initLng = 'ko'
 }

@@ -2,13 +2,7 @@ import React from 'react';
 import paper from '../images/Brochure.svg'
 import down from '../images/phonedownload.svg'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive';
-import aboutbadge_ko from '../images/aboutbadge_ko.svg'
-import aboutbadge_en from '../images/aboutbadge_en.svg'
-import mobile_badge from '../images/mobile_badge.svg'
-import mobile_badge_en from '../images/mobile_badge_en.svg'
-import Badge from './Button/Badge'
 
 function Brochure(props) {
   const { t, i18n } = useTranslation()
@@ -25,7 +19,6 @@ function Brochure(props) {
               </div>
               <div className="brochure-icon-title">{t("brochure_icon1_title")}</div>
               <div className="brochure-icon-content">{t("brochure_icon1_content")}</div>
-              {/* <Link to="" target="_blank" className="brochure-icon-download">{t("brochure_icon1_download")}</Link> */}
               <a href="Brochure_Fasoo Fireside.pdf" target="_blank" className="brochure-icon-download">{t("brochure_icon1_download")}</a>
             </div>
           }

@@ -11,12 +11,9 @@ import { useTranslation } from 'react-i18next'
 
 function Footer(props) {
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
-  const history = useHistory()
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })  
 
-  const { t, i18n } = useTranslation()
-  const changelanguageToKo = () => i18n.changeLanguage('ko')
-  const changelanguageToEn = () => i18n.changeLanguage('en')  
+  const { t, i18n } = useTranslation()  
 
   const changeLanguage = () => {
     console.log(i18n.language)
@@ -46,13 +43,11 @@ function Footer(props) {
   
   return (    
     <footer className="footer inner">
-      {isDesktop &&
-      // <div className="inner">
+      {isDesktop &&      
       <div className="footer-menu">
         <div className="footer-menu-left">
           <ul>
-            <li>© 2021 Fasoo Co., Ltd.</li>
-            {/* <li><a href="/terms">이용약관</a></li> */}
+            <li>© 2021 Fasoo Co., Ltd.</li>            
             <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
             <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
           </ul>
@@ -66,16 +61,14 @@ function Footer(props) {
             <li><img src={Insta} onClick={goToInsta}/></li>
           </ul>
         </div>
-      </div>      
-      // {/* </div> */}
+      </div>
       }
       {isMobile &&
       <div className="mFooter">
         <div className="mFooter-menu">
           <ul>          
             <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
-            <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>            
-            {/* <li><Link to={{pathname:"#"}}>{t("terms_paid")}</Link></li> */}
+            <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
           </ul>
         </div>
         <div className="mFooter-icon">
