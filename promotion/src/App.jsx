@@ -1,18 +1,16 @@
-import './App.css';
+import './App.css'
 import Header from './components/Header'
 import Visual from './components/Visual'
 import Feature from './components/Feature'
 import Promotion from './components/Promotion'
 import About from './components/About/About'
-import Brochure from './components/Brochure';
+import Brochure from './components/Brochure'
 import Footer from './components/Footer'
 import Terms from './components/Terms/Terms'
 import Privacy from './components/Privacy/Privacy'
-import NotFound from './components/NotFound';
-import Slider from './components/Slider/Slider';
+import NotFound from './components/NotFound'
 import { useRef } from 'react'
-import {ScrollContext} from './context/ScrollContext'
-import { HashRouter, Router ,Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 function App() {
   const featureRef = useRef()

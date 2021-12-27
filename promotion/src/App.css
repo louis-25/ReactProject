@@ -140,14 +140,14 @@ input[type="number"]::-webkit-inner-spin-button {
 .sidebar-header {
   display: flex;
   justify-content: space-between;
-  padding: 26px 20px 20px 20px;
+  padding: 26px 0px 20px 0px;
 }
 .sidebar-header > div:nth-child(2) > img {
   width: 20px;
   cursor: pointer;  
 }
 .sidebar-menu {
-  padding: 26px 20px 20px 20px;  
+  padding: 26px 0px 20px 0px;  
 }
 .sidebar-menu li,
 .sidebar-menu a {
@@ -769,7 +769,12 @@ select .pf-input-box {
     white-space: normal;
   }
   .visual-text-contents {
-    max-width: 90%;
+    font-size: 1.25rem;
+    max-width: 100%;
+  }  
+  .visual-text-contents p {
+    max-width: 100%;
+    margin: auto;
   }
   .visual-contents-box {
     text-align: center;
@@ -797,11 +802,7 @@ select .pf-input-box {
     padding: 0;
     margin-bottom: 30px;
     line-height: 160%;
-  }
-  .visual-text-contents p {
-    max-width: 335px;
-    margin: auto;
-  }
+  }  
   .visual-text-contents article {
     max-width: 418px;
     margin: auto;
