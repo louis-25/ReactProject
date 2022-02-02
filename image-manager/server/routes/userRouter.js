@@ -32,6 +32,7 @@ userRouter.post("/register", async (req, res) => {
 userRouter.patch("/login", async (req, res) => { //post로 요청해도 문제없지만 생성하는게 아니기때문에 patch가 더 올바른표현
   try {
     const user = await User.findOne({ username: req.body.username }) // username과 일치하는 정보 DB에서 찾아오기
+    if (!user) throw new Error("가입되지 않은 ID입니다")
     console.log("user ", user)
     const isValid = await compare(req.body.password, user.hashedPassword) // 사용자가 입력한 정보와 DB값이 일치하는지 비교
     if (!isValid) throw new Error("입력하신 정보가 올바르지 않습니다")
