@@ -60,20 +60,26 @@ userRouter.patch("/logout", async(req, res)=>{
       { _id: req.user.id }, // 유저를 찾는다
       { $pull: { sessions: { _id: req.headers.sessionid } } } //$pull : 조건에 맞는 객체를 제거시켜준다
     );
-
-    // for (let i in user.sessions) {
-    //   // console.log('session ', )
-    //   if (user.sessions[i]._id == sessionid) {
-    //     delete user.sessions[i]
-    //   }
-    // }
-    // console.log('delete ',user)
-    // await user.save();
     
     res.json({ message: "user is logged out." })    
     // console.log(req.headers)    
   }catch(e){
     console.log(e)
+    res.status(400).json({message:e.message})
+  }
+})
+
+userRouter.get("/me", (req, res) => {
+  try {
+    if(!req.user) throw new Error("권한이 없습니다")
+    res.json({
+      message: "success", 
+      sessionId: req.headers.sessionid,
+      name: req.user.name,
+      userId: req.user._id
+    })
+  } catch(e) {
+    console.log(e);
     res.status(400).json({message:e.message})
   }
 })
