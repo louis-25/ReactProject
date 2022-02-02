@@ -1,6 +1,7 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Toolbar from './components/Toolbar';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
@@ -10,6 +11,7 @@ function App(props) {
   return (
     <div style={{ maxWidth: 600, margin: "auto" }}>
       <ToastContainer />
+      <Toolbar></Toolbar>
       <Routes>
         <Route path="/" exact element={<MainPage/>}></Route>
         <Route path="/auth/register" exact element={<RegisterPage/>}></Route>
