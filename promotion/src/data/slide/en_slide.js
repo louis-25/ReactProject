@@ -11,51 +11,51 @@ import message from '../../images/slider/message.svg'
 const data = [[
   {
     img:moniter,
-    title:'Open a chat directly<br/>from your system',
-    sub:"Instant chat service through<br/>integration with in-house systems,<br/>MS Office, and web browsers"
+    title:'Initiate chat<br/>anywhere anytime',
+    sub:"Virtualizing messaging across business applications and systems that allow users to communicate from anywhere at anytime"
   },    
   {
     img:setting,
-    title:"Easy registration<br/>and access to the server ",
-    sub:"Simple registration process<br/>without a login by connecting<br/>to your existing servers."
+    title:"Manage chat by<br/>content, user or systems",
+    sub:"Managing message threads by documents, users/groups or systems that streamline communication"
   },
   {
     img:search,
-    title:"User-centric environment\n",
-    sub:"User-friendly UI/UX design with segmented<br/>chat list (all/document/user) and everyday<br/>touch actions (click or swipe)."
+    title:"Experience user-friendly<br/>interface",
+    sub:"Providing easy, intuitive and straightforward user interfaces that enhance usability and productivity"
   }],
   [
     {
       img:chat,
-      title:"Collaborative content<br/>based chat",
-      sub:"Automatically create a chat room<br/>based on documents to help<br/>communicate with project members."
+      title:"Communicate<br/>on the content",
+      sub:"Automatically inviting users with permissions to the message threads when comments are added to the document"
     },    
     {
       img:document2,
-      title:"Prevent content<br/>fragmentation",
-      sub:"Consistent document management<br/>to prevent fragmentation in<br/>collaboration content."
+      title:"Get rid of<br/>ROT issues",
+      sub:"Eliminating the process of sharing multiple versions and minimizing redundant, obsolete and trivial data issues"
     },
     {
       img:search2,
-      title:"Chat message<br/>search feature",
-      sub:"Easily find documents you need by<br/>searching in a messenger<br/>environment."
+      title:"Search message<br/>and content",
+      sub:"Allowing users to search messages or documents from the messenger just like emails"
     }
   ],
   [
     {
       img:lock,
-      title:"Data encryption<br/>is a default option",
-      sub:"Encrypt messages and files<br/>on its own to keep all sent<br/>and received data safely."
+      title:"Share messages<br/>and files securely",
+      sub:"Protecting messages and files using the highest level of security"
     },    
     {
       img:defense,
-      title:"Secure any file<br/>according to security levels",
-      sub:"Apply security policies according to the<br/>security level regardless of file types such as<br/>documents, PPTs, illustrations, designs, etc."
+      title:"Encrypt all<br/>file types",
+      sub:"Securing all kinds of file formats including Office, PDF, images and CAD drawings, etc."
     },
     {
       img:message,
-      title:"One-Click<br/>initilization",
-      sub:"Provide a feature to initialize all<br/>messages sent and received in a<br/>chat room with a single click"
+      title:"One-click<br/>revoke all",
+      sub:"Allowing the organization to revoke specific or all chat messages and files when required"
     }
   ]
 ]

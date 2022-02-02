@@ -1,0 +1,46 @@
+.badgeBox {
+  max-width: 1100px;  
+  height: 230px;
+  background-color: #3182F6;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  margin: auto;
+}
+.contents {
+  display: flex;
+  justify-content: space-between;
+  padding: 64px 60px 0px 60px;  
+  background-image: url('./badgeBack.svg') no-repeat;
+}
+.circle {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background-image: url('./badgeBack.svg');
+}
+.text {
+  color: #FFFFFF;  
+}
+.main {
+  font-size: 30px;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+.sub {
+  font-size: 16px;
+  max-width: 680px;
+  line-height: 160%;
+  font-weight: 400;
+}
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  padding: 18px 24px;
+  background: #FFFFFF;
+  color: #3182F6;
+  font-size: 16px;
+  border-radius: 8px;
+}

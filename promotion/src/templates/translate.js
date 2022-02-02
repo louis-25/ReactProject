@@ -3,6 +3,12 @@ import { initReactI18next } from "react-i18next";
 import translationEn from './translation.en'
 import translationKo from './translation.ko'
 
+let initLng
+initLng = sessionStorage.getItem('lng')
+
+if(initLng == null) {  
+  initLng = 'ko'
+}
 const resources = {
   en:{
     translation: translationEn
@@ -16,7 +22,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: "ko",
+    lng: initLng,
     debug: true,
     keySeparator: false,
   });

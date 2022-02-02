@@ -11,24 +11,21 @@ import { useTranslation } from 'react-i18next'
 
 function Footer(props) {
   const isDesktop = useMediaQuery({ query: '(min-width: 769px)' })
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
-  const history = useHistory()
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })  
 
-  const { t, i18n } = useTranslation()
-  const changelanguageToKo = () => i18n.changeLanguage('ko')
-  const changelanguageToEn = () => i18n.changeLanguage('en')  
+  const { t, i18n } = useTranslation()  
 
   const changeLanguage = () => {
     console.log(i18n.language)
     if(i18n.language == 'ko') {
       i18n.changeLanguage('en')
-      // changelanguageToEn()      
+      sessionStorage.setItem("lng", "en") //세션값 저장
     }
     else {
       i18n.changeLanguage('ko')
-      // changelanguageToKo()
+      sessionStorage.setItem("lng", "ko")      
     }
-    window.scrollTo(0,0)
+    window.scrollTo(0,0) //언어 변경시 맨위로 이동
   }
 
   const goToBlog = () => {
@@ -45,14 +42,12 @@ function Footer(props) {
   }
   
   return (    
-    <footer className="footer">
-      {isDesktop &&
-      <div className="inner">
+    <footer className="footer inner">
+      {isDesktop &&      
       <div className="footer-menu">
         <div className="footer-menu-left">
           <ul>
-            <li>© 2021 Fasoo Co., Ltd.</li>
-            {/* <li><a href="/terms">이용약관</a></li> */}
+            <li>© 2021 Fasoo Co., Ltd.</li>            
             <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
             <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
           </ul>
@@ -67,32 +62,22 @@ function Footer(props) {
           </ul>
         </div>
       </div>
-      {/* <div className="footer-text">
-        <p>
-        {t("footer_content1")}
-        </p>
-        <p>
-          {t("footer_content2")}
-        </p>
-      </div> */}
-      </div>
       }
       {isMobile &&
       <div className="mFooter">
         <div className="mFooter-menu">
           <ul>          
-            <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
             <li><Link to={{pathname:"/terms"}}>{t("terms_title")}</Link></li>
-            {/* <li><Link to={{pathname:"#"}}>{t("terms_paid")}</Link></li> */}
+            <li><Link to={{pathname:"/privacy"}}>{t("privacy_title")}</Link></li>
           </ul>
         </div>
         <div className="mFooter-icon">
           <ul>
             <li><img src={Internet} onClick={changeLanguage}/></li>
             <li><img src={Blog} onClick={goToBlog}/></li>
-            <li><img src={Youtube} onClick={goToYoutube}/></li>
-            <li><img src={Facebook} onClick={goToFacebook}/></li>
             <li><img src={Insta} onClick={goToInsta}/></li>
+            <li><img src={Facebook} onClick={goToFacebook}/></li>
+            <li><img src={Youtube} onClick={goToYoutube}/></li>
           </ul>
         </div>        
         <li className="mFooter-copyright">© 2021 Fasoo Co., Ltd.</li>

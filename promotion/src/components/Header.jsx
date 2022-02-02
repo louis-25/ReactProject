@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import { useTranslation } from 'react-i18next'
 
-function Header({featureRef, promotionRef, aboutRef}) {  
+function Header({featureRef, promotionRef, aboutRef, downloadRef}) {  
   const [scroll, setScroll] = useState(0)
   const [sidebar, setSidebar] = useState(false)  
   const topRef = useRef()    
@@ -21,41 +21,35 @@ function Header({featureRef, promotionRef, aboutRef}) {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
   const throttledScroll = useMemo(() =>
-  throttle(() => {
-      // console.log('scroll ',window.scrollY)
+  throttle(() => {      
       setScroll(window.scrollY)
     },300),
   );
 
   useEffect(() => { //스크롤 이벤트 발생
     window.addEventListener('scroll', throttledScroll);
-    // console.log('scroll ',scroll)
     return () => {
       window.removeEventListener('scroll', throttledScroll);
     };
   },[]);
 
-  useEffect(()=>{
-    console.log(history)
+  useEffect(()=>{    
     if(history.location.pathname='/'){
-      if(history.location.state) { //state가 있는경우
-        console.log('history ',history.location.state.scroll)
-        switch(history.location.state.scroll){
+      if(history.location.state) { //state가 있는경우        
+        switch(history.location.state.scroll){ //페이지 이동 시 보여줄 스크롤 위치
           case 'top':
             window.scrollTo(0, 0)
-            history.replace("",null)
+            history.replace("",null) //history 초기화
             break;
           case 'feature':
             if(isDesktop) {
-              console.log(featureRef.current.getBoundingClientRect().y)
               window.scrollTo(0, featureRef.current.getBoundingClientRect().y)
             }else {
               window.scrollTo(0, featureRef.current.getBoundingClientRect().y + 1)
-            }            
+            }
             history.replace("",null)
             break;
           case 'promotion':
-            console.log(promotionRef.current.getBoundingClientRect().y)
             promotionRef.current.scrollIntoView({
               behavior: 'auto',
               block: 'start',
@@ -63,13 +57,20 @@ function Header({featureRef, promotionRef, aboutRef}) {
             })
             history.replace("",null)
             break;
-          case 'about':
-            console.log(aboutRef.current.getBoundingClientRect().y)
-            promotionRef.current.scrollIntoView({
+          case 'download':            
+            downloadRef.current.scrollIntoView({
               behavior: 'auto',
               block: 'start',
               inline: 'nearest'
             })
+            history.replace("",null)
+            break;
+          case 'about':            
+            if(isDesktop) {              
+              window.scrollTo(0, aboutRef.current.getBoundingClientRect().y)
+            }else {
+              window.scrollTo(0, aboutRef.current.getBoundingClientRect().y + 1)
+            }            
             history.replace("",null)
             break;
         }
@@ -83,8 +84,7 @@ function Header({featureRef, promotionRef, aboutRef}) {
   const goToFeature = (e) => {
     e.preventDefault()
     if(sidebar) setSidebar(false)        
-    if(window.location.pathname == '/'){ 
-      console.log('goToFeature ',history.location.pathname, featureRef.current.getBoundingClientRect().y)
+    if(window.location.pathname == '/'){
       featureRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -101,7 +101,6 @@ function Header({featureRef, promotionRef, aboutRef}) {
     e.preventDefault()
     if(sidebar) setSidebar(false)    
     if(window.location.pathname == '/'){
-      console.log('goToPromotion ',history.location.pathname,promotionRef.current.getBoundingClientRect().y )
       promotionRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -114,22 +113,37 @@ function Header({featureRef, promotionRef, aboutRef}) {
       })
     }     
   }
+  const goToDownload = (e) => {
+    e.preventDefault()
+    if(sidebar) setSidebar(false)    
+    if(window.location.pathname == '/'){
+      downloadRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      })
+    }else{
+      history.push({
+        pathname:'/',
+        state:{scroll: "download"}
+      })
+    }     
+  }
   const goToAbout = (e) => {
     e.preventDefault()
     if(sidebar) setSidebar(false)    
     if(window.location.pathname == '/'){
-      console.log('goToAbout ',history.location.pathname,aboutRef.current.getBoundingClientRect().y )
       aboutRef.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
         inline: 'nearest'
-      })            
+      })
     }else{
       history.push({
         pathname:'/',
         state:{scroll: "about"}
       })
-    }     
+    }
   }
 
   const goToCompany = (e) => {
@@ -143,11 +157,12 @@ function Header({featureRef, promotionRef, aboutRef}) {
   }
 
   const goToLogin = () => {
-    if(sidebar) setSidebar(false)
-    window.open("https://firesidedemo.fasoo.com/wrapmsgr/admin")
+    if(sidebar) setSidebar(false)    
+    window.open("https://portal.wrapsodyeco.com/join?type=trial")
   }    
 
   const goToTop = () => {
+    if(sidebar) setSidebar(false)
     window.scrollTo(0, 0)
   }  
 
@@ -157,33 +172,33 @@ function Header({featureRef, promotionRef, aboutRef}) {
 
   return (
     <>
-    <div className="header-box">
+    <div className="header-box inner">
       <header ref={topRef} className={`header inner`}>
         <div>
-        <Link to={{pathname:"/"}}><img src={Logo} onClick={goToTop}/></Link>
-          {/* <a href="/"><img src={Logo}/></a> */}
+        <Link to={{pathname:"/"}}><img src={Logo} onClick={goToTop}/></Link>          
         </div>
         <nav>
           <ul className="nav-menu">
             <li>                            
-              <a href="/index.html#feature" onClick={goToFeature}>{t("header_menu1")}</a>
+              <a href="#" onClick={goToFeature}>{t("header_menu1")}</a>
             </li>
             <li>              
-              <a href="#" onClick={goToAbout} >{t("header_menu2")}</a>
+              <a href="#" onClick={goToDownload} >{t("header_menu2")}</a>
             </li>
             <li>
-              <a href="/index.html#company" onClick={goToCompany} target="_blank">{t("header_menu3")}</a>
+              <a href="#" onClick={goToCompany} target="_blank">{t("header_menu3")}</a>
             </li>           
-            <div>
-              <a className="loginBtn" href="https://firesidedemo.fasoo.com/wrapmsgr/admin" target="_blank">{t("header_menu4")}</a>
-            </div> 
+            <li>
+              {/* <a className="loginBtn" href="https://portal.wrapsodyeco.com/join?type=trial" target="_blank">{t("header_menu4")}</a> */}
+              <Link className="loginBtn" to={{pathname:"/free-trial"}} onClick={goToTop}>{t("header_menu4")}</Link>
+            </li> 
           </ul>
           <div className="berger">
             <img onClick={sidebarToggle} src={Berger}/>
           </div>
         </nav>
       </header>
-      <div className={classNames("sidebar", sidebar ? "sidebar-on" : "sidebar-off")}>
+      <div className={classNames("sidebar", sidebar ? "sidebar-on" : "sidebar-off", "inner")}>
         <div className="sidebar-header">
           <div>
             <img src={Logo} />
@@ -194,16 +209,17 @@ function Header({featureRef, promotionRef, aboutRef}) {
         </div>
         <ul className="sidebar-menu">
           <li onClick={goToFeature}>{t("header_menu1")}</li>
-          <li onClick={goToAbout}>{t("header_menu2")}</li>
+          <li onClick={goToDownload}>{t("header_menu2")}</li>
           <li onClick={goToCompany}>{t("header_menu3")}</li>
-          <li onClick={goToLogin} className="loginBtn">{t("header_menu4")}</li>
+          {/* <li onClick={goToLogin}>{t("header_menu4")}</li> */}
+          <Link className="loginBtn" to={{pathname:"/free-trial"}} onClick={goToTop}>{t("header_menu4")}</Link>
         </ul>
-        <div className="sidebar-login-box">
+        {/* <div className="sidebar-login-box">
           <input className="sidebar-login-btn" onClick={goToLogin} type="submit" value={t("header_menu4")}/>
-        </div>
+        </div> */}
       </div>
     </div>
-    <div className={classNames('header-cover',  scroll>0 && 'header-active')}></div>
+    <div className={classNames('header-cover',isMobile&&'inner',  scroll>0 && 'header-active')}></div>
     </>
   );
 }
