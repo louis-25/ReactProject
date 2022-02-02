@@ -42,9 +42,11 @@ userRouter.patch("/login", async (req, res) => { //post로 요청해도 문제�
     res.json({ 
       message: "user validated", 
       sessionId: session._id, 
-      name: user.name 
+      name: user.name,
+      userId: user._id
     })
   } catch (e) {
+    console.log(e)
     res.status(400).json({ message: e.message })
   }
 })
@@ -55,7 +57,7 @@ userRouter.patch("/logout", async(req, res)=>{
     if (!req.user) throw new Error("invalid sessionid")    
 
     await User.updateOne(
-      { _id: user.id }, // 유저를 찾는다
+      { _id: req.user.id }, // 유저를 찾는다
       { $pull: { sessions: { _id: req.headers.sessionid } } } //$pull : 조건에 맞는 객체를 제거시켜준다
     );
 
@@ -71,6 +73,7 @@ userRouter.patch("/logout", async(req, res)=>{
     res.json({ message: "user is logged out." })    
     // console.log(req.headers)    
   }catch(e){
+    console.log(e)
     res.status(400).json({message:e.message})
   }
 })
