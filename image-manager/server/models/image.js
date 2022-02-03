@@ -3,7 +3,8 @@ const mongoose = require("mongoose")
 const ImageSchema = new mongoose.Schema(
   {
     user: {
-      _id: {type: mongoose.Types.ObjectId, required: true},
+      // ObjectId - String보다 용량이 적음 / 알아서 인덱싱처리
+      _id: {type: mongoose.Types.ObjectId, required: true, index: true},
       name: {type:String, required: true},
       username: {type: String, required: true}
     },

@@ -26,7 +26,7 @@ imageRouter.post('/', upload.single("image"), async (req, res) => {
 
 imageRouter.get("/", async (req, res) => {
   // public 이미지만 제공
-  const images = await Image.find();
+  const images = await Image.find({public: true});
   res.json(images);
 });
 
