@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => cb(null, `${uuid()}.${mime.extension(file.mimetype)}`)
 })
 
-let imageType = ["image/png", "image/jpeg"]
+let imageType = ["image/png", "image/jpeg", "image/jpg"]
 const upload = multer({
   storage, // 업로드 설정값
   fileFilter: (req, file, cb) => {

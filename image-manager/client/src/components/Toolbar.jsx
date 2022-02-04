@@ -24,7 +24,7 @@ function Toolbar(props) {
         <span>홈</span>
       </Link>
       {me ? 
-        <span onClick={logoutHandler} style={{float:"right"}}>
+        <span onClick={logoutHandler} style={{float:"right", cursor:"pointer"}}>
           로그아웃({me.name})
         </span>
         :(

@@ -10,7 +10,7 @@ export const AuthProvider = ({children}) => {
     const sessionId = localStorage.getItem("sessionId")
     if(me){
       axios.defaults.headers.common.sessionid = me.sessionId;
-      localStorage.setItem("sessionId", me.sessionId)
+      localStorage.setItem("sessionId", me.sessionId) // 로컬 저장소에 세션값 저장
     } 
     else if(sessionId) {
       axios

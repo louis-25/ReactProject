@@ -12,6 +12,8 @@ function UploadForm(props) {
   const [fileName, setFileName] = useState(defaultFileName);
   const [percent, setPercent] = useState(0); // progress
   const [imgSrc, setImgSrc] = useState(null); // 이미지 미리보기
+  const [isPublic, setIsPublic] = useState(true); // 이미지공개 여부
+
   const imageSelectHandler = (e) => {
     const imageFile = e.target.files[0];
     setFile(imageFile)
@@ -26,8 +28,9 @@ function UploadForm(props) {
     e.preventDefault(); // 새로고침 방지
     const formData = new FormData() // key-value
     formData.append("image", file)
+    formData.append("public", isPublic)
     try {
-      const res = await axios.post("/upload", formData, {
+      const res = await axios.post("/images", formData, {
         headers: {"Content-Type":"multipart/form-data"},
         onUploadProgress: (e) => {
           setPercent(Math.round((100 * e.loaded) / e.total));
@@ -40,8 +43,12 @@ function UploadForm(props) {
         setFileName(defaultFileName)
       }, 3000)      
       console.log('res ',res)
-    } catch(e) {
-      toast.error('파일 형식이 잘못됐습니다')
+    } catch(e) {      
+      toast.error(e.response.data.message) // 백엔드에서 보낸 에러메세지 출력
+      // 나머지 세팅값 초기화
+      setPercent(0);
+      setFileName(defaultFileName);
+      setImgSrc(null)
       console.error(e)
     }
   }
@@ -55,6 +62,8 @@ function UploadForm(props) {
         {/* 이미지 파일만 받겠다 */}
         <input id="image" type="file" accept="image/*" onChange={imageSelectHandler}/> 
       </div>
+      <input type="checkbox" id="public-check" value={!isPublic} onChange={()=> {setIsPublic(!isPublic); console.log(isPublic)}}/>
+      <label htmlFor='public-check'>비공개</label>
       <button className="file-button" type="submit">제출</button>
     </form>
   );

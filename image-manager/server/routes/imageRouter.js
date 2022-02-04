@@ -85,6 +85,7 @@ imageRouter.patch("/:imageId/unlike", async (req, res) => {
     if(!req.user) throw new Error("권한이 없습니다.")
     if(!mongoose.isValidObjectId(req.params.imageId)) // DB에 없는 imageid 값 호출시
       throw new Error("올바르지 않은 imageId입니다.")
+      
       const image = await Image.findOneAndUpdate(
         {_id: req.params.imageId},
         {$pull: {likes: req.user.id}}, // $pull - 배열에서 삭제
