@@ -5,6 +5,7 @@ import Toolbar from './components/Toolbar';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
+import ImagePage from './pages/ImagePage';
 import { Routes, Route } from 'react-router-dom'
 
 function App(props) {
@@ -13,6 +14,7 @@ function App(props) {
       <ToastContainer />
       <Toolbar></Toolbar>
       <Routes>
+        <Route path="/images/:imageId" exact element={<ImagePage/>}></Route>
         <Route path="/" exact element={<MainPage/>}></Route>
         <Route path="/auth/register" exact element={<RegisterPage/>}></Route>
         <Route path="/auth/login" exact element={<LoginPage/>}></Route>
