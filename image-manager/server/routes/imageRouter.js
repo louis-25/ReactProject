@@ -91,6 +91,7 @@ imageRouter.patch("/:imageId/unlike", async (req, res) => {
         {$pull: {likes: req.user.id}}, // $pull - 배열에서 삭제
         {new: true} //new: true - 업데이트 된 문서를 반환
       ) 
+      res.json(image)
   } catch(e) {
     console.log(e)
     res.status(400).json({message: e.message})
