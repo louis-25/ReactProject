@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { ImageContext } from '../context/ImageContext';
+import { toast } from "react-toastify"
 
 function ImagePage(props) {
   const { imageId } = useParams()
   const { images, myImages, setImages, setMyImages } = useContext(ImageContext)
   const [hasLiked, setHasLiked] = useState(false);
   const [me] = useContext(AuthContext)
+  const navigate = useNavigate();
 
   const image = 
     images.find((image) => image._id === imageId) || 
@@ -38,6 +40,19 @@ function ImagePage(props) {
     } catch (e) {
       console.log('e',e.response.data.message)
     }
+  }  
+
+  const deleteHandler = async() => {
+    try {
+      if(!window.confirm("정말 해당 이미지를 삭제하시겠습니까?")) return;
+      const result = await axios.delete(`/images/${imageId}`)
+      toast.success(result.data.message)
+      setImages(images.filter(image => image._id !== imageId))
+      setMyImages(myImages.filter(image => image._id !== imageId))
+      navigate("/")
+    } catch(e) {
+      toast.error(e.message)
+    }
   }
 
   //이미지 로딩중
@@ -51,6 +66,7 @@ function ImagePage(props) {
         alt={imageId}
       />
       <span>좋아요 {image.likes.length}</span>
+      <button style={{float:"right", marginLeft: 10}} onClick={deleteHandler}>삭제</button>
       <button style={{float:"right"}} onClick={onSubmit}>
         {hasLiked ? "좋아요 취소" : "좋아요"}
       </button>
