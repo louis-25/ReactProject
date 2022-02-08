@@ -8,21 +8,28 @@ const { promisify } = require("util") // 프로미스화 시켜주는 라이브�
 
 const fileUnlink = promisify(fs.unlink) // fs.unlink - 파일삭제 기능
 
-imageRouter.post('/', upload.single("image"), async (req, res) => {
+// 한번에 최대 5장까지 받을 수 있다
+imageRouter.post('/', upload.array("image", 5), async (req, res) => {
   // 유저 정보, public 유무 확인
   try{
     if(!req.user) throw new Error("권한이 없습니다.")
-    const image = await new Image({
-      user: {
-        _id: req.user.id,
-        name: req.user.name,
-        username: req.user.username
-      },
-      public: req.body.public,
-      key: req.file.filename,
-      originalFileName: req.file.originalname
-    }).save()
-    res.json(image)
+    const images = await Promise.all(
+        req.files.map(async (file) => {
+        const image = await new Image({
+          user: {
+            _id: req.user.id,
+            name: req.user.name,
+            username: req.user.username
+          },
+          public: req.body.public,
+          key: file.filename,
+          originalFileName: file.originalname
+        }).save();
+        return image
+      })
+    )
+    
+    res.json(images)
   } catch(e) {
     console.log(e)
     res.status(400).json({message: e.message})

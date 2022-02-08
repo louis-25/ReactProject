@@ -8,15 +8,16 @@ import {ImageContext} from "../context/ImageContext"
 function UploadForm(props) {
   const { images, setImages, myImages, setMyImages} = useContext(ImageContext)
   const defaultFileName = '이미지 파일을 업로드 해주세요.'
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState(null);
   const [fileName, setFileName] = useState(defaultFileName);
   const [percent, setPercent] = useState(0); // progress
   const [imgSrc, setImgSrc] = useState(null); // 이미지 미리보기
   const [isPublic, setIsPublic] = useState(true); // 이미지공개 여부
 
   const imageSelectHandler = (e) => {
-    const imageFile = e.target.files[0];
-    setFile(imageFile)
+    const imageFiles = e.target.files;
+    setFiles(imageFiles)
+    const imageFile = imageFiles[0]
     setFileName(imageFile.name)
     const fileReader = new FileReader();
     fileReader.readAsDataURL(imageFile) // 임시 url생성
@@ -27,7 +28,9 @@ function UploadForm(props) {
   const onSubmit = async (e) => {
     e.preventDefault(); // 새로고침 방지
     const formData = new FormData() // key-value
-    formData.append("image", file)
+    for(let file of files) {
+      formData.append("image", file)
+    }
     formData.append("public", isPublic)
     try {
       const res = await axios.post("/images", formData, {
@@ -36,8 +39,8 @@ function UploadForm(props) {
           setPercent(Math.round((100 * e.loaded) / e.total));
         }
       })
-      if(isPublic) setImages([...images, res.data]) // 이미지 바로 보이게하기      
-      else setMyImages([...myImages, res.data])
+      if(isPublic) setImages([...images, ...res.data]) // 이미지 바로 보이게하기      
+      else setMyImages([...myImages, ...res.data])
       toast.success("success!!");
       setTimeout(()=>{ // 3초 후 초기화
         setPercent(0);
@@ -61,9 +64,16 @@ function UploadForm(props) {
       <ProgressBar percent={percent}/>
       <div className="file-dropper">
         {fileName}
-        {/* 이미지 파일만 받겠다 */}
-        <input id="image" type="file" accept="image/*" onChange={imageSelectHandler}/> 
+        
+        <input 
+          id="image" 
+          type="file" 
+          multiple // 여러 파일 선택하는 옵션
+          accept="image/*" // 이미지 파일만 받겠다
+          onChange={imageSelectHandler}
+        /> 
       </div>
+
       <input type="checkbox" id="public-check" value={!isPublic} onChange={()=> {setIsPublic(!isPublic); console.log(isPublic)}}/>
       <label htmlFor='public-check'>비공개</label>
       <button className="file-button" type="submit">제출</button>
