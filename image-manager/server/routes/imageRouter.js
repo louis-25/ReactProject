@@ -9,7 +9,7 @@ const { promisify } = require("util") // 프로미스화 시켜주는 라이브�
 const fileUnlink = promisify(fs.unlink) // fs.unlink - 파일삭제 기능
 
 // 한번에 최대 5장까지 받을 수 있다
-imageRouter.post('/', upload.array("image", 5), async (req, res) => {
+imageRouter.post('/', upload.array("image", 5), async (req, res) => {  
   // 유저 정보, public 유무 확인
   try{
     if(!req.user) throw new Error("권한이 없습니다.")
@@ -37,13 +37,30 @@ imageRouter.post('/', upload.array("image", 5), async (req, res) => {
 })
 
 imageRouter.get("/", async (req, res) => {
-  // public 이미지만 제공
-  const images = await Image.find({public: true});
-  res.json(images);
+  try {
+    const { lastid } = req.query;
+    if(lastid && !mongoose.isValidObjectId(lastid)) throw new Error("invalid lastid")
+    const images = await Image.find(
+      lastid 
+      ? {    
+          public: true, // public 이미지만 제공
+          _id: {$lt: lastid}, 
+        }
+      : {public: true}
+    )
+      .sort({_id: -1}) //최신 사진 먼저오게 내림차순 정렬
+      .limit(20); // 사진을 20개까지 보여준다
+      res.json(images);
+    } catch(e) {
+      console.log(e)
+      res.status(400).json({message: e.message})
+    }
+
+  // ofset vs cursor
 });
 
 imageRouter.delete("/:imageId", async (req, res) => {
-  // 유저 권한 확인
+  // 유저 권한 확인 
   // 사진 삭제
   // 1. uploads 폴더에 있는 사진 데이터를 삭제
   // 2. 데이터베이스에 있는 image 문서를 삭제
