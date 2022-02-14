@@ -8,13 +8,20 @@ export const ImageProvider = (prop) => {
   const [myImages, setMyImages] = useState([])
   const [isPublic, setIsPublic] = useState(true)  
   const [imageUrl, setImageUrl] = useState("/images")
+  const [imageLoading, setImageLoading] = useState(false) // 로딩처리
+  const [imageError, setImageError] = useState(false) // 에러처리
   const [me] = useContext(AuthContext); // ImageContext가 AuthContext 하위에 있기때문에 불러올 수 있다
   
   useEffect(()=>{ // 모든 사진정보 불러오기
+    setImageLoading(true)
     axios
     .get(imageUrl) // imageUrl상태가 변경될때마다 API호출
     .then(result => setImages(prevData => [...prevData, ...result.data])) // 기존의 이미지 + 불러온 이미지
-    .catch(e => console.log(e))    
+    .catch(e => {
+      console.log(e)
+      setImageError(e)
+    })
+    .finally(()=> setImageLoading(false))    
   },[imageUrl])
 
   // 내 이미지 불러오기
@@ -34,14 +41,25 @@ export const ImageProvider = (prop) => {
   }, [me]); //인증정보 바뀔때마다 작동
 
   const loaderMoreImages = () => {
-    if(images.length === 0) return; // 이미지가 없을때
+    if(images.length === 0 || imageLoading) return; // 이미지가 없을때
     const lastImageId = images[images.length-1]._id
     setImageUrl(`/images?lastid=${lastImageId}`)
   }
 
   return (
   // tip! 괄호로 묶어서 빼면 원하는값만 선택해서 사용할 수 있다
-  <ImageContext.Provider value={{images, setImages, myImages, setMyImages, isPublic, setIsPublic, loaderMoreImages}}>
+  <ImageContext.Provider 
+    value={{
+      images, 
+      setImages, 
+      myImages, 
+      setMyImages, 
+      isPublic, 
+      setIsPublic, 
+      loaderMoreImages, 
+      imageLoading,
+      imageError
+    }}>
     {prop.children}
   </ImageContext.Provider>
   )

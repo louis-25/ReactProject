@@ -5,7 +5,7 @@ import {ImageContext} from "../context/ImageContext"
 import "./ImageList.css"
 
 function ImageList(props) {
-  const {images, myImages, isPublic, setIsPublic, loaderMoreImages} = useContext(ImageContext)  
+  const {images, myImages, isPublic, setIsPublic, loaderMoreImages, imageLoading, imageError} = useContext(ImageContext)  
   const [me] = useContext(AuthContext)
 
   // isPublic값에 따라 [공개사진 / 비공개사진] 나눠서 보여주기
@@ -29,7 +29,10 @@ function ImageList(props) {
       <div className="image-list-container">
         {imgList}
       </div>
-      <button onClick={loaderMoreImages}>Load More Images</button>
+      {imageError && <div>Error...</div>}
+      {imageLoading ? <div>Loading...</div>
+      : <button onClick={loaderMoreImages}>Load More Images</button>
+      }
     </div>
   );
 }
