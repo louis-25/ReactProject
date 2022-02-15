@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
+import React, {createContext, useCallback, useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import { AuthContext } from './AuthContext';
 export const ImageContext = createContext()
@@ -40,11 +40,12 @@ export const ImageProvider = (prop) => {
     }    
   }, [me]); //인증정보 바뀔때마다 작동
 
-  const loaderMoreImages = () => {
-    if(images.length === 0 || imageLoading) return; // 이미지가 없을때
-    const lastImageId = images[images.length-1]._id
+  const lastImageId = images.length > 0 ? images[images.length - 1]._id : null
+
+  const loaderMoreImages = useCallback(() => {
+    if(imageLoading || !lastImageId) return // 이미지가 없을때
     setImageUrl(`/images?lastid=${lastImageId}`)
-  }
+  }, [lastImageId, imageLoading])
 
   return (
   // tip! 괄호로 묶어서 빼면 원하는값만 선택해서 사용할 수 있다
