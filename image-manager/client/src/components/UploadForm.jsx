@@ -6,7 +6,7 @@ import ProgressBar from './ProgressBar';
 import {ImageContext} from "../context/ImageContext"
 
 function UploadForm(props) {
-  const { setImages } = useContext(ImageContext)
+  const { setImages, setMyImages } = useContext(ImageContext)
   const defaultFileName = '이미지 파일을 업로드 해주세요.'
   const [files, setFiles] = useState(null);
 
@@ -37,13 +37,7 @@ function UploadForm(props) {
       })
     )
 
-    setPreviews(imagePreviews)
-
-    // const imageFile = imageFiles[0]
-    // setFileName(imageFile.name)
-    // const fileReader = new FileReader();
-    // fileReader.readAsDataURL(imageFile) // 임시 url생성
-    // fileReader.onload = e => setImgSrc(e.target.result);
+    setPreviews(imagePreviews)    
   }
 
   //서버로 이미지 전송
@@ -60,9 +54,12 @@ function UploadForm(props) {
         onUploadProgress: (e) => {
           setPercent(Math.round((100 * e.loaded) / e.total));
         }
-      })
-      setImages((prevData) => [...prevData, ...res.data]) // 이미지 바로 보이게하기
-      toast.success("이미지 업로드 성공!");
+      })      
+      if(isPublic)
+        setImages((prevData) => [...res.data, ...prevData]) // 이미지 바로 보이게하기      
+      setMyImages((prevData) => [...res.data, ...prevData])  
+      
+      toast.success("이미지 업로드 성공!");      
       setTimeout(()=>{ // 3초 후 초기화
         setPercent(0);
         // setFileName(defaultFileName)        
