@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { ImageContext } from '../context/ImageContext';
@@ -11,8 +11,29 @@ function ImagePage(props) {
   const [hasLiked, setHasLiked] = useState(false);
   const [me] = useContext(AuthContext)
   const navigate = useNavigate();
+  const [image, setImage] = useState();
+  const [error, setError] = useState(false);
+  const imageRef = useRef()
 
-  const image = images.find((image) => image._id === imageId)  
+  useEffect(()=>{ // imageId가 바뀔때만 실행
+    imageRef.current = images.find((image) => image._id === imageId)      
+  },[images, imageId])
+
+  useEffect(()=>{
+    if(imageRef.current) setImage(imageRef.current) // 배열에 이미지가 존재할 때
+    else { // 배열에 이미지가 존재하지 않으면 무조건 서버 호출한다
+      axios
+        .get(`/images/${imageId}`)
+        .then(({data}) => {
+          setError(false)
+          setImage(data)
+        })
+        .catch((e) => {
+          setError(true)
+          toast.error(e.response.data.message)
+        })
+    }    
+  },[imageId])
 
   useEffect(()=>{
     if(me && image && image.likes.includes(me.userId)) setHasLiked(true)
@@ -52,8 +73,10 @@ function ImagePage(props) {
     }
   }
 
-  //이미지 로딩중
-  if(!image) return <h3>Loding...</h3>
+  
+  if(error) return <h3>Error...</h3> //
+  else if(!image) return <h3>Loding...</h3> //이미지 로딩중
+
   return (
     <div>
       <h3>Image Page - {imageId}</h3>

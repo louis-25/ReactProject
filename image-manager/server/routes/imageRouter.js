@@ -59,6 +59,24 @@ imageRouter.get("/", async (req, res) => {
   // ofset vs cursor
 });
 
+imageRouter.get("/:imageId", async(req, res) => {
+  try {
+    const {imageId} = req.params;
+    if(!mongoose.isValidObjectId(imageId))
+      throw new Error("올바르지 않은 imageId입니다.")
+    const image = await Image.findOne({_id: imageId});
+    if(!image) throw new Error("해당 이미지는 존재 하지 않습니다.")
+    // 개인 이미지의 경우
+    if(!image.public && (!req.user || req.user._id.toString() !== image.user._id.toString())) 
+      throw new Error("권한이 없습니다")
+    res.json(image)
+
+  } catch(e) {
+    console.log(e)
+    res.status(400).json({message: e.message})
+  }
+})
+
 imageRouter.delete("/:imageId", async (req, res) => {
   // 유저 권한 확인 
   // 사진 삭제

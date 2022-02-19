@@ -25,7 +25,7 @@ function LoginPage(props) {
       toast.success("로그인!")
     } catch(e) {
       console.error(e)
-      toast.error(e.response.data.message)
+      toast.error(e.message)
     }    
   }
 
