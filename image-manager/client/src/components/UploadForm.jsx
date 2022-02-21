@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import axios from 'axios';
 import "./UploadForm.css"
 import { toast } from "react-toastify"
@@ -6,17 +6,13 @@ import ProgressBar from './ProgressBar';
 import {ImageContext} from "../context/ImageContext"
 
 function UploadForm(props) {
-  const { setImages, setMyImages } = useContext(ImageContext)
-  const defaultFileName = '이미지 파일을 업로드 해주세요.'
+  const { setImages, setMyImages } = useContext(ImageContext)  
   const [files, setFiles] = useState(null);
-
-  // const [imgSrc, setImgSrc] = useState(null); // 이미지 미리보기
-  // const [fileName, setFileName] = useState(defaultFileName);
-
   const [previews, setPreviews] = useState([]) // 이미지 미리보기(여러개)
-
   const [percent, setPercent] = useState(0); // progress
   const [isPublic, setIsPublic] = useState(true); // 이미지공개 여부
+  const [inLoading, setIsLoading] = useState(false)
+  const inputRef = useRef()
 
   const imageSelectHandler = async (e) => {
     const imageFiles = e.target.files;
@@ -49,6 +45,7 @@ function UploadForm(props) {
     }
     formData.append("public", isPublic)
     try {
+      setIsLoading(true)
       const res = await axios.post("/images", formData, {
         headers: {"Content-Type":"multipart/form-data"},
         onUploadProgress: (e) => {
@@ -61,19 +58,17 @@ function UploadForm(props) {
       
       toast.success("이미지 업로드 성공!");      
       setTimeout(()=>{ // 3초 후 초기화
-        setPercent(0);
-        // setFileName(defaultFileName)        
-        // setImgSrc(null)
-        setPreviews([])
+        setPercent(0);        
+        setPreviews([])        
+        inputRef.current.value = null
       }, 3000)      
       console.log('res ',res)
     } catch(e) {      
+      console.error(e)
       toast.error(e.response.data.message) // 백엔드에서 보낸 에러메세지 출력
       // 나머지 세팅값 초기화
-      setPercent(0);
-      // setFileName(defaultFileName);
-      // setImgSrc(null)
-      console.error(e)
+      setPercent(0);      
+      inputRef.current.value = null
     }
   }
 
@@ -100,6 +95,7 @@ function UploadForm(props) {
         {fileName}
         
         <input 
+          ref={(ref) => (inputRef.current = ref)}
           id="image" 
           type="file" 
           multiple // 여러 파일 선택하는 옵션
