@@ -12,7 +12,7 @@ function UploadForm(props) {
   const [percent, setPercent] = useState(0); // progress
   const [isPublic, setIsPublic] = useState(true); // 이미지공개 여부
   const [inLoading, setIsLoading] = useState(false)
-  const inputRef = useRef()
+  const inputRef = useRef()  
 
   const imageSelectHandler = async (e) => {
     const imageFiles = e.target.files;
@@ -57,10 +57,10 @@ function UploadForm(props) {
       setMyImages((prevData) => [...res.data, ...prevData])  
       
       toast.success("이미지 업로드 성공!");      
-      setTimeout(()=>{ // 3초 후 초기화
+      setTimeout(()=>{ // 3초 후 초기화        
         setPercent(0);        
         setPreviews([])        
-        inputRef.current.value = null
+        if(inputRef.current) inputRef.current.value = null
       }, 3000)      
       console.log('res ',res)
     } catch(e) {      
