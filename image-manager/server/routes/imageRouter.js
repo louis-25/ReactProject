@@ -5,6 +5,7 @@ const { upload } = require("../middleware/imageUpload")
 const fs = require("fs")
 const mongoose = require("mongoose")
 const { promisify } = require("util") // 프로미스화 시켜주는 라이브러리
+const { s3 } = require("../aws.js")
 
 const fileUnlink = promisify(fs.unlink) // fs.unlink - 파일삭제 기능
 
@@ -92,7 +93,13 @@ imageRouter.delete("/:imageId", async (req, res) => {
     if(!image) 
       return res.json({message: "요청하싱 사진은 이미 삭제되었습니다"})
 
-    await fileUnlink(`./uploads/${image.key}`) // uploads폴더에 있는 사진 데이터 삭제    
+    // await fileUnlink(`./uploads/${image.key}`) // uploads폴더에 있는 사진 데이터 삭제    
+    s3.deleteObject(
+      { Bucket: "image-upload-react", Key: `raw/${image.key}`}, 
+      (error) => {
+        if(error) throw error      
+      }
+    )
     res.json({message: "요청하신 이미지가 삭제되었습니다.", image})    
   } catch(e) {
     console.log(e)
