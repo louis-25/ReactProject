@@ -1,12 +1,24 @@
 const multer = require('multer'); // 파일 업로드용 미들웨어
 const { v4: uuid } = require('uuid');
 const mime = require('mime-types'); //확장자명 붙이는 용도 ~.jpeg
+const multerS3 = require("multer-s3")
+const { s3 } = require("../aws")
 
-const storage = multer.diskStorage({
-  //서버에 저장할 폴더
-  destination: (req, file, cb) => cb(null, "./uploads"),
-  //서버에 저장할 파일명
-  filename: (req, file, cb) => cb(null, `${uuid()}.${mime.extension(file.mimetype)}`)
+// 로컬 서버
+// const storage = multer.diskStorage({
+//   //서버에 저장할 폴더
+//   destination: (req, file, cb) => cb(null, "./uploads"),
+//   //서버에 저장할 파일명
+//   filename: (req, file, cb) => cb(null, `${uuid()}.${mime.extension(file.mimetype)}`)
+// })
+
+// aws s3 서버
+const storage = multerS3({
+  s3,
+  bucket: "image-upload-react",
+  key: (req, file, cb)=>{
+    cb(null, `raw/${uuid()}.${mime.extension(file.mimetype)}`)
+  }
 })
 
 let imageType = ["image/png", "image/jpeg", "image/jpg", "image/gif"]

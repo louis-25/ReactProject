@@ -22,7 +22,7 @@ imageRouter.post('/', upload.array("image", 5), async (req, res) => {
             username: req.user.username
           },
           public: req.body.public,
-          key: file.filename,
+          key: file.key.replace("raw/", ""),
           originalFileName: file.originalname
         }).save();
         return image
