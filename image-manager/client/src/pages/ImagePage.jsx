@@ -83,7 +83,7 @@ function ImagePage(props) {
       <h3>Image Page - {imageId}</h3>
       <img 
         style={{width:'100%'}}
-        src={`/uploads/${image.key}`} 
+        src={`https://image-upload-react.s3.ap-northeast-2.amazonaws.com/raw/${image.key}`} 
         alt={imageId}
       />
       <span>좋아요 {image.likes.length}</span>
