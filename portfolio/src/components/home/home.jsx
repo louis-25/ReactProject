@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import style from './home.module.css'
 import profile from '../../imgs/profile.jpg'
-import Particles from 'react-particles-js';
+import Particles from 'react-tsparticles';
 import particlesConfig from '../../config/particlesjsConfig.js'
 const Home = () => {  
 
