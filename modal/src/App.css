@@ -1,0 +1,23 @@
+.App {
+  margin: 0;
+  padding: 0;
+  text-align: center;  
+}
+
+.modalBox {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;  
+  margin: 20px auto;  
+  top: 200px;
+  position: fixed;  
+}
+.modal-cover {
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+}

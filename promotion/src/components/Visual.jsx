@@ -64,13 +64,13 @@ function Visual({promotionRef}) {
                   <br/>
                   The next generation of enterprise messaging is now available, virtualizing messaging across business applications and systems, allowing organizations to consolidate communication channels, simplify collaboration and enable the highest level of security.<br/>
                 </p>
-              }              
+              }
             </p>
           } 
           {isMobile &&
-            <p className="visual-text-contents">              
+            <p className="visual-text-contents">
               { 
-                i18n.language == 'ko' ?                
+                i18n.language == 'ko' ?
                 <article>
                   <p>
                     기존 사내 시스템 및 웹 기반 App과 연동 불가...<br/>

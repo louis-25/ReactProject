@@ -15,7 +15,7 @@ const AvailableMeals = () => {
         'https://react-http-6b4a6.firebaseio.com/meals.json'
       );
 
-      if (!response.ok) {
+      if (!response.ok) { //에러 발생했을때
         throw new Error('Something went wrong!');
       }
 

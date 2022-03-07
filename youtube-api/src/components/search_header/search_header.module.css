@@ -38,3 +38,9 @@
     height: 100%;
     padding: 0.5em 0.2em;
 }
+
+@media screen and(max-width:746px){
+    .header {
+        
+    }
+}
