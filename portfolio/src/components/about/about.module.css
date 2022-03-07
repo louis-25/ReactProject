@@ -25,7 +25,7 @@
   margin: auto; /*가운데 정렬*/
   text-align: center;
   border: 1px solid var(--color-dark-grey);
-  color: var(--color-green);  
+  /* color: var(--color-green);   */
   border-radius: 50%;
   margin-bottom: 16px;
 }
@@ -34,7 +34,6 @@
   background-color: var(--color-dark-grey);
   transition: var(--animation-duration);  
 }
-
 /*major__icon위에 커서를 대면 i태그에 적용되는 css*/
 .major__icon:hover div{ 
   /* color: var(--color-blue-light); */

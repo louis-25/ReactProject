@@ -7,11 +7,7 @@ const Skills = (props) => {
         <section className={style.skill__main}>
             <div className={style.section__container}>
                 <h1>Skills</h1>
-                <h2>Skills {"&"} Attributes</h2>
-                <p>
-                    전체적인 소프트웨어 라이프 사이클에 대해서 이해하고있고,
-                    새로운 기술을 배우는걸 좋아합니다<br />
-                </p>
+                <h2>Skills {"&"} Attributes</h2>                
                 <div className={style.certificate}>
                     <div className={style.certificate__container}>
                     <img
@@ -99,13 +95,11 @@ const Skills = (props) => {
                             <div className={style.tools}>
                                 <h2 className={style.skillset__title}>Tools</h2>
                                 <ul className={style.tools__list}>
-                                    <li><span>Visual Studio Code</span></li>
-                                    <li><span>Visual Studio</span></li>
+                                    <li><span>Visual Studio Code</span></li>                                    
                                     <li><span>Spring Tool Suite</span></li>
                                     <li><span>Android Studio</span></li>
                                     <li><span>Fill Zilla</span></li>
-                                    <li><span>Putty</span></li>
-                                    <li><span>Vim</span></li>
+                                    <li><span>Putty</span></li>                                    
                                 </ul>
                             </div>
                             <div className={style.platform}>

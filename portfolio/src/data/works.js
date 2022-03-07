@@ -3,14 +3,30 @@ import corona from '../imgs/jobs/114_logo.png'
 import TodoList from '../imgs/jobs/TodoList.PNG'
 import github from '../imgs/jobs/github_clone.PNG'
 import Django from '../imgs/jobs/Django.png'
-import 자취꿀팁 from '../imgs/jobs/자취꿀팁.png'
 import 너굴앱 from '../imgs/jobs/너굴앱.png'
+import 너굴웹 from '../imgs/jobs/neogulweb.PNG'
 import Extension from '../imgs/jobs/extension.PNG'
 import Promotion from '../imgs/jobs/promotion.PNG'
+import 강철부대2 from '../imgs/jobs/강철부대2.PNG'
+
 
 const works = [
   {
-    href:'https://fs-promotion.netlify.app',
+    href:'https://ttja.net/basic/start',
+    datatype: 'front-end',
+    src: 강철부대2,
+    h3: 'PHP',
+    span: '뜨자-강철부대2'
+  },
+  {
+    href:'https://neogultalk.web.app/',
+    datatype: 'front-end',
+    src: 너굴웹,
+    h3: 'React',
+    span: '너굴웹'
+  },
+  {
+    href:'https://fireside.fasoo.com/',
     datatype: 'front-end',
     src: Promotion,
     h3: 'React',
@@ -57,13 +73,6 @@ const works = [
   src: github,
   h3: 'HTML',
   span: 'GitHub clone-coding'
-},
-{
-  href:'https://github.com/louis-25/Django_Practice/tree/django_shopping',
-  datatype: 'back-end',
-  src: Django,
-  h3: 'Django',
-  span: '쇼핑몰 관리자페이지'
 },
 {
   href:'https://drive.google.com/file/d/1SC4T2m8gadtkg33AoS_5UI04_95urheK/view?usp=sharing',

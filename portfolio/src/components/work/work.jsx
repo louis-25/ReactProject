@@ -10,13 +10,13 @@ function Work(props) {
   const [back, setBack] = useState(0)
   const [mobile, setMobile] = useState(0)
   const works = workData;
+  
   useEffect(()=>{
     setAll(works.length)
     let count1 = 0
     let count2 = 0
     let count3 = 0
-    for(let work in works) {      
-      console.log('work')
+    for(let work in works) {            
       switch(works[work].datatype){
         case 'front-end':
           count1 += 1
@@ -31,11 +31,7 @@ function Work(props) {
     }
     setFront(count1)
     setBack(count2)
-    setMobile(count3)
-    console.log(all)
-    console.log(front)
-    console.log(back)
-    console.log(mobile)
+    setMobile(count3)    
   },[])
   
   return (

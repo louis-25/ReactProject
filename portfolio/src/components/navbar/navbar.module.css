@@ -23,7 +23,7 @@
 }
 
 .navbar.navbarDark{
-  background-color: var(--color-dark-grey);    
+  background-color: var(--color-dark-grey);
   color: var(--color-white);
   /* padding: 2px; */
   opacity: 0.95;

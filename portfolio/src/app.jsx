@@ -28,8 +28,7 @@ function App() {
   );
 
   useEffect(() => {
-    window.addEventListener('scroll', throttledScroll);
-    console.log('home ',home)
+    window.addEventListener('scroll', throttledScroll);    
     return () => {
       window.removeEventListener('scroll', throttledScroll);
     };

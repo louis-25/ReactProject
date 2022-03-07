@@ -4,31 +4,31 @@ import mediconex from '../../imgs/jobs/mediconex.png'
 import fasoo from '../../imgs/jobs/fasoo.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faServer, faMobile } from "@fortawesome/free-solid-svg-icons";
-import { faHtml5 } from '@fortawesome/free-brands-svg-icons';
+import { faReact, faNodeJs } from '@fortawesome/free-brands-svg-icons';
 
 const About = (props) => {
     return (
         <section className={`${style.section} ${style.container} ${style.about}`}>
             <h1>About me</h1>
-            <p>
-                안녕하세요~! 즐겁게 일하고싶은 개발자 정동현입니다.<br />
-                컴퓨터공학과 대학 4년과정을 무사히 졸업하였고,<br />
-                Web, Android, IoT가 주요 관심분야입니다<br />
-            </p>
+            <h3 style={{lineHeight:"30px"}}>
+                안녕하세요~! <br/>
+                배움이 즐거운 개발자<br/>
+                정동현입니다.<br/>                
+            </h3>
             <div className={style.majors}>
                 <div className={style.major}>
                     <div className={style.major__icon}>
-                        <div className={style.icon}><FontAwesomeIcon icon={faHtml5}/></div>
+                        <div className={style.icon} style={{color: "var(--color-blue-light)"}}><FontAwesomeIcon icon={faReact}/></div>
                     </div>
                     <h2 className={style.major__title}>Front-end</h2>
-                    <div className={style.major__description}>React, Vue, TypeScript</div>
+                    <div className={style.major__description}>React / Vue / TypeScript</div>
                 </div>
                 <div className={style.major}>
                     <div className={style.major__icon}>
-                        <div className={style.icon}><FontAwesomeIcon icon={faServer}/></div>
+                        <div className={style.icon} style={{color: "var(--color-green)"}}><FontAwesomeIcon icon={faNodeJs}/></div>
                     </div>
-                    <h2 className={style.major__title}>back-end</h2>
-                    <div className={style.major__description}>Django, Spring Boot</div>
+                    <h2 className={style.major__title}>Back-end</h2>
+                    <div className={style.major__description}>Node.js / Spring Boot</div>
                 </div>
                 <div className={style.major}>
                     <div className={style.major__icon}>

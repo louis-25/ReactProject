@@ -13,8 +13,7 @@ function Navbar({about, skill, work, scrollY, setScrollY, toggle,setToggle}) {
         })             
     }    
     const onToggle = () => {
-        setToggle(!toggle)
-        console.log(toggle)
+        setToggle(!toggle)        
     }
 
     return (
