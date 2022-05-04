@@ -26,6 +26,20 @@ const works = [
     span: '너굴웹'
   },
   {
+    href:'https://fs-promotion.netlify.app',
+    datatype: 'front-end',
+    src: 강철부대2,
+    h3: 'PHP',
+    span: '뜨자-강철부대2'
+  },
+  {
+    href:'https://neogultalk.web.app/',
+    datatype: 'front-end',
+    src: 너굴웹,
+    h3: 'React',
+    span: '너굴웹'
+  },
+  {
     href:'https://fireside.fasoo.com/',
     datatype: 'front-end',
     src: Promotion,
