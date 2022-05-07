@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useParams } from "react-router-dom";
 
-type CoinsProps = {};
+interface CoinsProps {}
 
 const Coin: FunctionComponent<CoinsProps> = ({}) => {
   const { coinId } = useParams();

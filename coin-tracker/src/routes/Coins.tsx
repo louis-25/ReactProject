@@ -1,9 +1,14 @@
 import React, { FunctionComponent } from "react";
+import styled from "styled-components";
 
-type CoinsProps = {};
+interface CoinsProps {}
+
+const Title = styled.h1`
+  color: ${(props) => props.theme.accentColor};
+`;
 
 const Coins: FunctionComponent<CoinsProps> = ({}) => {
-  return <div></div>;
+  return <Title>Coin</Title>;
 };
 
 export default Coins;
