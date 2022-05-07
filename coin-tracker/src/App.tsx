@@ -57,6 +57,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none;
+    color: inherit; //부모에서 가져오기
   }
 `;
 
