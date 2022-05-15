@@ -12,6 +12,7 @@ import styled from "styled-components";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
 import Chart from "./Chart";
 import Price from "./Price";
+import Helmet from "react-helmet";
 
 interface CoinsProps {}
 const Container = styled.div`
@@ -112,7 +113,11 @@ interface PriceData {
   beta_value: number;
   first_data_at: string;
   last_updated: string;
-  quotes: object;
+  quotes: {
+    USD: {
+      price: number;
+    };
+  };
 }
 type IParams = { coinId: string };
 const Coin: FunctionComponent<CoinsProps> = ({}) => {
@@ -126,30 +131,20 @@ const Coin: FunctionComponent<CoinsProps> = ({}) => {
   );
   const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(
     ["tickers", coinId],
-    () => fetchCoinTickers(coinId)
+    () => fetchCoinTickers(coinId),
+    {
+      refetchInterval: 5000,
+    }
   );
-  // const [loading, setLoading] = useState(true);
-  // const [info, setInfo] = useState<InfoData>();
-  // const [priceInfo, setPriceInfo] = useState<PriceData>();
-  // console.log(priceMatch);
-  // useEffect(() => {
-  //   (async () => {
-  //     const infoData = await (
-  //       await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)
-  //     ).json();
-  //     // console.log(infoData);
-  //     const priceData = await (
-  //       await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)
-  //     ).json();
-  //     // console.log(priceData);
-  //     setInfo(infoData);
-  //     setPriceInfo(priceData);
-  //     setLoading(false);
-  //   })();
-  // }, []);
+  console.log("test", tickersData);
   const loading = infoLoading || tickersLoading;
   return (
     <Container>
+      <Helmet>
+        <title>
+          {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
+        </title>
+      </Helmet>
       <Header>
         <Title>
           {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
@@ -169,7 +164,8 @@ const Coin: FunctionComponent<CoinsProps> = ({}) => {
               <span>${infoData?.symbol}</span>
             </OverviewItem>
             <OverviewItem>
-              <span>Open Source:</span>
+              <span>Price:</span>
+              <span>${tickersData?.quotes.USD.price.toFixed(3)}</span>
               {/* <span>{info?.open_source ? "Yes" : "No"}</span> */}
             </OverviewItem>
           </Overview>
@@ -195,7 +191,7 @@ const Coin: FunctionComponent<CoinsProps> = ({}) => {
           </Tabs>
           <Routes>
             <Route path="/price" element={<Price />}></Route>
-            <Route path="/chart" element={<Chart />}></Route>
+            <Route path="/chart" element={<Chart coinId={coinId} />}></Route>
           </Routes>
         </>
       )}
