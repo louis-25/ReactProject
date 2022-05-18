@@ -2,8 +2,10 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { fetchCoins } from "../api";
+import { isDarkAtom } from "../atoms";
 
 interface CoinsProps {}
 
@@ -24,7 +26,7 @@ const CoinsList = styled.ul``;
 
 const Coin = styled.li`
   background-color: white;
-  color: ${(props) => props.theme.bgColor};
+  color: ${(props) => props.theme.textColor};
   border-radius: 15px;
   margin-bottom: 10px;
   a {
@@ -67,6 +69,8 @@ interface ICoin {
 }
 
 const Coins: FunctionComponent<CoinsProps> = ({}) => {
+  const setDarkAtom = useSetRecoilState(isDarkAtom);
+  const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
 
   return (
@@ -75,7 +79,8 @@ const Coins: FunctionComponent<CoinsProps> = ({}) => {
         <title>코인</title>
       </Helmet>
       <Header>
-        <Title>Coin</Title>
+        <Title>코인</Title>
+        <button onClick={toggleDarkAtom}>Toggle Dark Mode</button>
       </Header>
       {isLoading ? (
         <Loader>Loading...</Loader>
